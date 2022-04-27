@@ -12,7 +12,11 @@ public class MainActivity extends ListActivity {
             "Equipo Didáctico","Lista Equipo Didáctico","Escuela",
             "Horario","Lista Horario","Local","Materia","Miembro Universitario","Particular"};
             String[]
-    activities={"AlumnoMenuActivity","NotaMenuActivity","MateriaMenuActivity"};
+    activities={"ActividadMenuActivity","MenuDetalleActividad","MenuAsistencia","MenuCarrera",
+                    "MenuOfertaAcademica","MenuDetalleOferta","MenuEquipoDidactico",
+            "MenuListaEquipo","MenuEscuela","MenuHorario",
+                    "MenuListaHorario","MenuLocal","MenuMateria",
+            "MenumiembroUniversitario","MenuParticular"};
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -25,7 +29,7 @@ public class MainActivity extends ListActivity {
     protected void onListItemClick(ListView l,View v,int position,long id){
         super.onListItemClick(l, v, position, id);
 
-        if(position!=3){
+        if(position!=15){
 
             String nombreValue=activities[position];
 

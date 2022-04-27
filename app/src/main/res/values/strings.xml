@@ -1,3 +1,21 @@
 <resources>
-    <string name="app_name">App_proyecto01</string>
+    <string name="app_name">Control de Actividades FIA</string>
+    <string name="MenuActividad">MenuActividad</string>
+    <string name="MenuDetalleActividad">MenuDetalleActividad</string>
+    <string name="MenuAsistencia">MenuAsistencia</string>
+    <string name="MenuCarrera">MenuCarrera</string>
+    <string name="MenuCiclo">MenuCiclo</string>
+    <string name="MenuDetalleOferta">MenuDetalleOferta</string>
+    <string name="MenuEquipoDidactico">MenuEquipoDidactico</string>
+    <string name="MenuEscuela">MenuEscuela</string>
+    <string name="MenudeHorario">MenudeHorario</string>
+    <string name="MenuListaHorario">MenuListaHorario</string>
+    <string name="MenuListaEquipo">MenuListaEquipo</string>
+    <string name="MenuLocal">MenuLocal</string>
+    <string name="MenuMateria">MenuMateria</string>
+    <string name="MenumiembroUniversitario">MenumiembroUniversitario</string>
+    <string name="MenuOfertaAcademica">MenuOfertaAcademica</string>
+    <string name="MenuParticular">MenuParticular</string>
+
+
 </resources>

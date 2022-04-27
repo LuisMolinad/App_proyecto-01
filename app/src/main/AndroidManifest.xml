@@ -10,6 +10,51 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App_proyecto01">
         <activity
+            android:name=".MenuParticular"
+            android:exported="false" />
+        <activity
+            android:name=".MenumiembroUniversitario"
+            android:exported="false" />
+        <activity
+            android:name=".MenuMateria"
+            android:exported="false" />
+        <activity
+            android:name=".MenuLocal"
+            android:exported="false" />
+        <activity
+            android:name=".MenuListaHorario"
+            android:exported="false" />
+        <activity
+            android:name=".MenuHorario"
+            android:exported="false" />
+        <activity
+            android:name=".MenuEscuela"
+            android:exported="false" />
+        <activity
+            android:name=".MenuListaEquipo"
+            android:exported="false" />
+        <activity
+            android:name=".MenuEquipoDidactico"
+            android:exported="false" />
+        <activity
+            android:name=".MenuDetalleOferta"
+            android:exported="false" />
+        <activity
+            android:name=".MenuOfertaAcademica"
+            android:exported="false" />
+        <activity
+            android:name=".MenuCarrera"
+            android:exported="false" />
+        <activity
+            android:name=".MenuAsistencia"
+            android:exported="false" />
+        <activity
+            android:name=".MenuDetalleActividad"
+            android:exported="false" />
+        <activity
+            android:name=".ActividadMenuActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
