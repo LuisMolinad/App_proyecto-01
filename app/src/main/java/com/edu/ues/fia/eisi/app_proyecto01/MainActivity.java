@@ -1,50 +1,33 @@
 package com.edu.ues.fia.eisi.app_proyecto01;
 
+import android.app.ActionBar;
 import android.app.ListActivity;
 import android.content.Intent;
+import androidx.cardview.widget.CardView;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-public class MainActivity extends ListActivity {
 
-    String[] menu={"Actividad","Detalle Actividad","Asistencia","Carrera",
-            "Oferta Académica","Detalle Oferta",
-            "Equipo Didáctico","Lista Equipo Didáctico","Escuela",
-            "Horario","Lista Horario","Local","Materia","Miembro Universitario","Particular"};
-            String[]
-    activities={"ActividadMenuActivity","MenuDetalleActividad","MenuAsistencia","MenuCarrera",
-                    "MenuOfertaAcademica","MenuDetalleOferta","MenuEquipoDidactico",
-            "MenuListaEquipo","MenuEscuela","MenuHorario",
-                    "MenuListaHorario","MenuLocal","MenuMateria",
-            "MenumiembroUniversitario","MenuParticular"};
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Objects;
+
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, menu));
+        setContentView(R.layout.activity_main);
+       Objects.requireNonNull(getSupportActionBar()).hide();
+
 
     }
 
     @Override
-    protected void onListItemClick(ListView l,View v,int position,long id){
-        super.onListItemClick(l, v, position, id);
+    public void onClick(View view) {
 
-        if(position!=15){
-
-            String nombreValue=activities[position];
-
-            try{
-                Class<?>
-                        clase=Class.forName("com.edu.ues.fia.eisi.app_proyecto01."+nombreValue);
-                Intent inte = new Intent(this,clase);
-                this.startActivity(inte);
-            }catch(ClassNotFoundException e){
-                e.printStackTrace();
-            }
-        }else{
-
-//CODIGO PARA LLENAR BASE DE DATOS
-        }
     }
 }
