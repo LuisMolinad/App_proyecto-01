@@ -29,6 +29,7 @@ public Integer rol;
         //Lineas para la busqueda del cardView
         Intent i = getIntent();
         //rol = i.getIntExtra("Rol",1);
+        //rol = i.getIntExtra("Rol",1);
        cardMenuActividad = (CardView) findViewById(R.id.cardActividad);
        cardMenuCatalogo = (CardView) findViewById(R.id.cardCatalogoAcademico);
        cardMenuParticular = (CardView) findViewById(R.id.cardParticular);
