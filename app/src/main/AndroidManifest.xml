@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App_proyecto01">
         <activity
+            android:name=".MenuCicloActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CatalogoAcademicoActivity"
+            android:exported="false" />
+        <activity
             android:name=".MenuParticular"
             android:exported="false" />
         <activity
