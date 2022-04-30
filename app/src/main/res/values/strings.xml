@@ -15,7 +15,20 @@
     <string name="MenuMateria">MenuMateria</string>
     <string name="MenumiembroUniversitario">MenumiembroUniversitario</string>
     <string name="MenuOfertaAcademica">MenuOfertaAcademica</string>
+<!--TODO:MENU PRINCIPAL-->
     <string name="MenuParticular">MenuParticular</string>
+    <string name="MenuMain">Menu Principal</string>
+    <string name="TextActividad">Menu Actividad</string>
+    <string name="TextCatalogoActividad">Catalogo de Actividades</string>
+    <string name="TextParticular">Particular</string>
+    <string name="TextMiembroUniversitario">Miembro Universitario</string>
+    <string name="TextHorario">Horario</string>
+    <string name="textEquipo">Equipo</string>
+    <string name="TextCiclo">Ciclo</string>
+    <string name="TextLocal">Local</string>
+
+
+
 
 
 </resources>

@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 public class MainActivity extends ListActivity {
+
     String[] menu={"Actividad","Detalle Actividad","Asistencia","Carrera",
             "Oferta Académica","Detalle Oferta",
             "Equipo Didáctico","Lista Equipo Didáctico","Escuela",
