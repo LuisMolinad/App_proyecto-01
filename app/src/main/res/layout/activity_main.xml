@@ -62,7 +62,7 @@
                         android:id="@+id/idTextActiviad"
                         android:layout_width="116dp"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/imgActividad"
+                        android:layout_below="@id/imgUpdate"
                         android:layout_alignParentStart="true"
 
                         android:layout_alignParentEnd="true"
@@ -76,7 +76,7 @@
                         android:textStyle="bold" />
 
                     <ImageView
-                        android:id="@+id/imgActividad"
+                        android:id="@+id/imgUpdate"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
@@ -147,17 +147,17 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/txtActividad"
+                        android:id="@+id/TextUpdate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/imgActividad"
+                        android:layout_below="@id/imgUpdate"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
                         android:text="@string/TextParticular"
                         android:textStyle="bold" />
 
                     <ImageView
-                        android:id="@+id/imgActividad"
+                        android:id="@+id/imgUpdate"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
@@ -180,17 +180,17 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/txtAsistencia"
+                        android:id="@+id/TextDelete"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/imgAsistencia"
+                        android:layout_below="@id/imgDelete"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
                         android:text="@string/TextMiembroUniversitario"
                         android:textStyle="bold" />
 
                     <ImageView
-                        android:id="@+id/imgAsistencia"
+                        android:id="@+id/imgDelete"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"

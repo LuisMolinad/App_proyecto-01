@@ -38,7 +38,6 @@ public class ActividadMenuActivity extends AppCompatActivity implements View.OnC
         switch (view.getId()) {
             case R.id.cardDetalleActividad:
                 i = new Intent(this, MenuDetalleActividad.class);
-                //   i.putExtra("Rol",rol);
                 startActivity(i);
                 break;
             case R.id.cardListaHorario:

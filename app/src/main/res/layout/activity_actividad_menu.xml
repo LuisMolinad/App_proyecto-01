@@ -59,10 +59,10 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/idTextDetalleActiviad"
+                        android:id="@+id/TextCreate"
                         android:layout_width="116dp"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/imgDetalleActividad"
+                        android:layout_below="@id/imgCreate"
                         android:layout_alignParentStart="true"
 
                         android:layout_alignParentEnd="true"
@@ -76,7 +76,7 @@
                         android:textStyle="bold" />
 
                     <ImageView
-                        android:id="@+id/imgDetalleActividad"
+                        android:id="@+id/imgCreate"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
@@ -99,17 +99,17 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/txtEquipoDidactico"
+                        android:id="@+id/TextRead"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/imgEquipoDidactico"
+                        android:layout_below="@id/imgRead"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
                         android:text="@string/TextListaEquipoDidactico"
                         android:textStyle="bold" />
 
                     <ImageView
-                        android:id="@+id/imgEquipoDidactico"
+                        android:id="@+id/imgRead"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
@@ -147,17 +147,17 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/txtActividad"
+                        android:id="@+id/TextUpdate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/imgActividad"
+                        android:layout_below="@id/imgUpdate"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
                         android:text="@string/txtActividad"
                         android:textStyle="bold" />
 
                     <ImageView
-                        android:id="@+id/imgActividad"
+                        android:id="@+id/imgUpdate"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
@@ -180,17 +180,17 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/txtAsistencia"
+                        android:id="@+id/TextDelete"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/imgAsistencia"
+                        android:layout_below="@id/imgDelete"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
                         android:text="@string/txtAsistencia"
                         android:textStyle="bold" />
 
                     <ImageView
-                        android:id="@+id/imgAsistencia"
+                        android:id="@+id/imgDelete"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"

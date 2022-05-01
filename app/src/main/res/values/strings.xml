@@ -44,4 +44,14 @@
     <string name="txtActividad">Actividad</string>
     <string name="txtAsistencia">Asistencia</string>
 
+    <!-- TODO CRUD -->
+    <string name="txtCreate">Insertar</string>
+    <string name="txtRead">Consultar</string>
+    <string name="txtUpdate">Editar</string>
+    <string name="txtDelete">Eliminar</string>
+
+    <!-- TODO Gestion Actividad -->
+    <string name="GestionActividad">Menu Actividad</string>
+
+
 </resources>

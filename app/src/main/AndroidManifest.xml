@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App_proyecto01">
         <activity
+            android:name=".EliminarActividad"
+            android:exported="false" />
+        <activity
+            android:name=".EditarActividad"
+            android:exported="false" />
+        <activity
+            android:name=".ConsultarActividad"
+            android:exported="false" />
+        <activity
+            android:name=".InsertarActividad"
+            android:exported="false" />
+        <activity
             android:name=".MenuActividadd"
             android:exported="false" />
         <activity
