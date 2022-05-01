@@ -6,4 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".InsertarParticularActivity">
 
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/InsertarParticular"
+        tools:layout_editor_absoluteX="208dp"
+        tools:layout_editor_absoluteY="152dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

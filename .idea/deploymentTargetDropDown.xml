@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="deploymentTargetDropDown">
+    <targetSelectedWithDropDown>
+      <Target>
+        <type value="QUICK_BOOT_TARGET" />
+        <deviceKey>
+          <Key>
+            <type value="VIRTUAL_DEVICE_PATH" />
+            <value value="C:\Users\luis9\.android\avd\Practica-PDM.avd" />
+          </Key>
+        </deviceKey>
+      </Target>
+    </targetSelectedWithDropDown>
+    <timeTargetWasSelectedWithDropDown value="2022-05-01T20:50:18.047087500Z" />
+  </component>
+</project>

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Control de Actividades FIA</string>
+    <string name="app_name" translatable="false">Control de Actividades FIA</string>
     <string name="MenuActividad">Menu Actividad</string>
     <string name="MenuDetalleActividad">MenuDetalleActividad</string>
     <string name="MenuAsistencia">MenuAsistencia</string>
@@ -31,6 +31,11 @@
     <string name="editar">Editar</string>
     <string name="consultar">Consultar</string>
     <string name="eliminar">Eliminar</string>
+    <!--TODO:LABEL CRUD PARTICULAR-->
+    <string name="InsertarParticular">Insertar Particular</string>
+    <string name="editarParticular">Editar Particular </string>
+    <string name="consultarParticular">Consultar Particular</string>
+    <string name="eliminarParticular">Eliminar Particular</string>
 
     <!-- TODO: Menu Actividad -->
     <string name="TextDetalleActividad">Detalle Actividad</string>

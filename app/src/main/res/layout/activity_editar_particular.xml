@@ -6,4 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".EditarParticularActivity">
 
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/editarParticular"
+        tools:layout_editor_absoluteX="186dp"
+        tools:layout_editor_absoluteY="145dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
