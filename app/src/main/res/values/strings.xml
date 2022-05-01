@@ -39,5 +39,9 @@
 
     <!-- TODO: Menu Actividad -->
     <string name="TextDetalleActividad">Detalle Actividad</string>
+    <string name="TextListaHorario">Lista Horario</string>
+    <string name="TextListaEquipoDidactico">Lista Equipo Didactico</string>
+    <string name="txtActividad">Actividad</string>
+    <string name="txtAsistencia">Asistencia</string>
 
 </resources>

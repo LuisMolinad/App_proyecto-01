@@ -9,7 +9,7 @@
 
     android:orientation="vertical"
     android:scrollbars=""
-    tools:context=".MainActivity">
+    tools:context=".ActividadMenuActivity">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -87,7 +87,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardCatalogoAcademico"
+                android:id="@+id/cardListaEquipoDidactico"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
@@ -99,23 +99,23 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/idCatalogoActividad"
+                        android:id="@+id/txtEquipoDidactico"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/CatalogoActividad"
+                        android:layout_below="@id/imgEquipoDidactico"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
-                        android:text="@string/TextCatalogoActividad"
+                        android:text="@string/TextListaEquipoDidactico"
                         android:textStyle="bold" />
 
                     <ImageView
-                        android:id="@+id/CatalogoActividad"
+                        android:id="@+id/imgEquipoDidactico"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        android:contentDescription="@string/TextCatalogoActividad"
-                        android:src="@drawable/iconcatalogos" />
+                        android:contentDescription="@string/TextListaEquipoDidactico"
+                        android:src="@drawable/equipo_didactico" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
@@ -135,7 +135,7 @@
             tools:ignore="MissingConstraints">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardParticular"
+                android:id="@+id/cardActividad"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
@@ -147,28 +147,28 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/idParticular"
+                        android:id="@+id/txtActividad"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/Particular"
+                        android:layout_below="@id/imgActividad"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
-                        android:text="@string/TextParticular"
+                        android:text="@string/txtActividad"
                         android:textStyle="bold" />
 
                     <ImageView
-                        android:id="@+id/Particular"
+                        android:id="@+id/imgActividad"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        android:contentDescription="@string/TextParticular"
-                        android:src="@drawable/iconparticular" />
+                        android:contentDescription="@string/txtActividad"
+                        android:src="@drawable/actividad" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardMiembroUniversitario"
+                android:id="@+id/cardAsistencia"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
@@ -180,23 +180,23 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/idMiembroUniversitario"
+                        android:id="@+id/txtAsistencia"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/miembroUniversitario"
+                        android:layout_below="@id/imgAsistencia"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
-                        android:text="@string/TextMiembroUniversitario"
+                        android:text="@string/txtAsistencia"
                         android:textStyle="bold" />
 
                     <ImageView
-                        android:id="@+id/miembroUniversitario"
+                        android:id="@+id/imgAsistencia"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        android:contentDescription="@string/TextMiembroUniversitario"
-                        android:src="@drawable/iconmiembrouniversitario" />
+                        android:contentDescription="@string/txtAsistencia"
+                        android:src="@drawable/asistencia" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
@@ -216,7 +216,7 @@
             tools:ignore="MissingConstraints">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardHorario"
+                android:id="@+id/cardListaHorario"
                 android:layout_width="216dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
@@ -234,7 +234,7 @@
                         android:layout_below="@id/Horario"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
-                        android:text="@string/TextHorario"
+                        android:text="@string/TextListaHorario"
                         android:textStyle="bold" />
 
                     <ImageView
