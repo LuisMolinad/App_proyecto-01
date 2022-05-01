@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Control de Actividades FIA</string>
-    <string name="MenuActividad">MenuActividad</string>
+    <string name="MenuActividad">Menu Actividad</string>
     <string name="MenuDetalleActividad">MenuDetalleActividad</string>
     <string name="MenuAsistencia">MenuAsistencia</string>
     <string name="MenuCarrera">MenuCarrera</string>
@@ -31,5 +31,8 @@
     <string name="editar">Editar</string>
     <string name="consultar">Consultar</string>
     <string name="eliminar">Eliminar</string>
+
+    <!-- TODO: Menu Actividad -->
+    <string name="TextDetalleActividad">Detalle Actividad</string>
 
 </resources>
