@@ -16,7 +16,7 @@
     <string name="MenumiembroUniversitario">MenumiembroUniversitario</string>
     <string name="MenuOfertaAcademica">MenuOfertaAcademica</string>
     <!--TODO:MENU PRINCIPAL-->
-    <string name="MenuParticular">MenuParticular</string>
+    <string name="MenuParticular">Menu Particular</string>
     <string name="MenuMain">Menu Principal</string>
     <string name="TextActividad">Menu Actividad</string>
     <string name="TextCatalogoActividad">Catalogo de Actividades</string>
@@ -26,6 +26,10 @@
     <string name="textEquipo">Equipo</string>
     <string name="TextCiclo">Ciclo</string>
     <string name="TextLocal">Local</string>
-
+    <!--TODO:MENU CRUD-->
+    <string name="Insertar">Insertar </string>
+    <string name="editar">Editar</string>
+    <string name="consultar">Consultar</string>
+    <string name="eliminar">Eliminar</string>
 
 </resources>
