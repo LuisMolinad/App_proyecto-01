@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App_proyecto01">
         <activity
+            android:name=".EliminarParticularActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ConsultarParticularActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditarParticularActivity"
+            android:exported="false" />
+        <activity
+            android:name=".InsertarParticularActivity"
+            android:exported="false" />
+        <activity
             android:name=".MenuCicloActivity"
             android:exported="false" />
         <activity
