@@ -53,5 +53,10 @@
     <!-- TODO Gestion Actividad -->
     <string name="GestionActividad">Menu Actividad</string>
 
-
+    <string name="CatalogoAcademico">Catalogo Academico</string>
+    <string name="txtOfertaAcademica">Oferta Academica</string>
+    <string name="txtCarrera">Carrera</string>
+    <string name="txtEscuela">Escuela</string>
+    <string name="txtMateria">Materia</string>
+    <string name="txtDetalleOferta">Detalle Oferta</string>
 </resources>
