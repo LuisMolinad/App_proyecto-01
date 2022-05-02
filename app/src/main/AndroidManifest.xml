@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App_proyecto01">
         <activity
+            android:name=".EliminarListaEquipo"
+            android:exported="false" />
+        <activity
+            android:name=".EditarListaEquipo"
+            android:exported="false" />
+        <activity
+            android:name=".ConsultarListaEquipo"
+            android:exported="false" />
+        <activity
+            android:name=".InsertarListaEquipo"
+            android:exported="false" />
+        <activity
             android:name=".EliminarListaHorario"
             android:exported="false" />
         <activity

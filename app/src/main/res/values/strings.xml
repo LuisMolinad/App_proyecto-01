@@ -2,19 +2,19 @@
     <string name="app_name" translatable="false">Control de Actividades FIA</string>
     <string name="MenuActividad">Menu Actividad</string>
     <string name="MenuDetalleActividad">Menu Detalle Actividad</string>
-    <string name="MenuAsistencia">MenuAsistencia</string>
-    <string name="MenuCarrera">MenuCarrera</string>
-    <string name="MenuCiclo">MenuCiclo</string>
-    <string name="MenuDetalleOferta">MenuDetalleOferta</string>
-    <string name="MenuEquipoDidactico">MenuEquipoDidactico</string>
+    <string name="MenuAsistencia">Menu Asistencia</string>
+    <string name="MenuCarrera">Menu Carrera</string>
+    <string name="MenuCiclo">Menu Ciclo</string>
+    <string name="MenuDetalleOferta">Menu Detalle Oferta</string>
+    <string name="MenuEquipoDidactico">Menu Equipo Didactico</string>
     <string name="MenuEscuela">MenuEscuela</string>
     <string name="MenudeHorario">MenudeHorario</string>
     <string name="MenuListaHorario">Menu Lista Horario</string>
-    <string name="MenuListaEquipo">MenuListaEquipo</string>
-    <string name="MenuLocal">MenuLocal</string>
-    <string name="MenuMateria">MenuMateria</string>
-    <string name="MenumiembroUniversitario">MenumiembroUniversitario</string>
-    <string name="MenuOfertaAcademica">MenuOfertaAcademica</string>
+    <string name="MenuListaEquipo">Menu Lista Equipo</string>
+    <string name="MenuLocal">Menu Local</string>
+    <string name="MenuMateria">Menu Materia</string>
+    <string name="MenumiembroUniversitario">Menu miembro Universitario</string>
+    <string name="MenuOfertaAcademica">Menu Oferta Academica</string>
     <!--TODO:MENU PRINCIPAL-->
     <string name="MenuParticular">Menu Particular</string>
     <string name="MenuMain">Menu Principal</string>
