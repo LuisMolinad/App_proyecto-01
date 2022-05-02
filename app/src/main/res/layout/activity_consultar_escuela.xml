@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ECECEC"
-    tools:context=".InsertarEscuela">
+    tools:context=".ConsultarEscuela">
 
 
     <TextView
@@ -28,9 +28,10 @@
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/idEscuela"
         android:layout_width="360dp"
+        android:textAllCaps="true"
         android:layout_height="52dp"
         android:hint="@string/idEscuela"
-        android:inputType="text"
+        android:inputType="textCapCharacters"
         android:textColorHint="#616161"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,10 +45,10 @@
         android:id="@+id/nombreEscuela"
         android:layout_width="360dp"
         android:layout_height="52dp"
-        android:layout_marginBottom="264dp"
+        android:layout_marginBottom="272dp"
         android:focusable="false"
         android:hint="@string/nombreEscuela"
-        android:inputType="text"
+        android:inputType="textCapCharacters"
         android:textColorHint="#616161"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,7 +62,7 @@
         android:layout_marginTop="24dp"
         android:hint="@string/idCarrera"
         android:focusable="false"
-        android:inputType="text"
+        android:inputType="textCapCharacters"
         android:textColorHint="#616161"
         app:layout_constraintBottom_toTopOf="@+id/nombreEscuela"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,28 +74,27 @@
         android:id="@+id/botonguardarEscuela"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="64dp"
+        android:layout_marginEnd="48dp"
         android:layout_marginBottom="112dp"
         android:backgroundTint="@color/BotonConsultar"
         android:text="@string/consultar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nombreEscuela"
-        app:layout_constraintVertical_bias="0.788" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/botoncancelarEscuela"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="68dp"
         android:layout_marginBottom="112dp"
         android:backgroundTint="@color/BotonCancelar"
         android:text="@string/cancelar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/botonguardarEscuela"
-        app:layout_constraintHorizontal_bias="0.723"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nombreEscuela"
-        app:layout_constraintVertical_bias="0.788" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
     <!--android:onClick="zzz" Este metodo va dentro del boton-->

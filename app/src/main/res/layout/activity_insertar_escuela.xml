@@ -35,10 +35,11 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/idEscuela"
+        android:textAllCaps="true"
         android:layout_width="360dp"
         android:layout_height="52dp"
         android:hint="@string/idEscuela"
-        android:inputType="text"
+        android:inputType="textCapCharacters"
         android:textColorHint="#616161"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,10 +62,11 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/nombreEscuela"
+        android:textAllCaps="true"
         android:layout_width="360dp"
         android:layout_height="52dp"
         android:hint="@string/nombreEscuela"
-        android:inputType="text"
+        android:inputType="textCapCharacters"
         android:textColorHint="#616161"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
