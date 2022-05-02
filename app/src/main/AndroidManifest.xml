@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App_proyecto01">
         <activity
+            android:name=".EliminarCiclo"
+            android:exported="false" />
+        <activity
+            android:name=".EditarCiclo"
+            android:exported="false" />
+        <activity
+            android:name=".ConsultarCiclo"
+            android:exported="false" />
+        <activity
+            android:name=".InsertarCiclo"
+            android:exported="false" />
+        <activity
             android:name=".EliminarEquipoDidactico"
             android:exported="false" />
         <activity
