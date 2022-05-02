@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App_proyecto01">
         <activity
+            android:name=".EliminarListaHorario"
+            android:exported="false" />
+        <activity
+            android:name=".EditarListaHorario"
+            android:exported="false" />
+        <activity
+            android:name=".ConsultarListaHorario"
+            android:exported="false" />
+        <activity
+            android:name=".InsertarListaHorario"
+            android:exported="false" />
+        <activity
             android:name=".EditarDetalleActividad"
             android:exported="false" />
         <activity

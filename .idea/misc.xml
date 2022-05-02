@@ -28,16 +28,21 @@
         <entry key="app/src/main/res/layout/activity_actividad_menu.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_consultar_actividad.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_consultar_detalle_actividad.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/activity_consultar_lista_horario.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_editar_actividad.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_editar_detalle_actividad.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/activity_editar_lista_horario.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_eliminar_actividad.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_eliminar_detalle_actividad.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/activity_eliminar_lista_horario.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_insertar_actividad.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_insertar_detalle_actividad.xml" value="0.32760416666666664" />
+        <entry key="app/src/main/res/layout/activity_insertar_lista_horario.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_menu_actividad.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_menu_actividadd.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_menu_detalle_actividad.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/activity_menu_lista_horario.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_menu_particular.xml" value="0.3416666666666667" />
       </map>
     </option>
