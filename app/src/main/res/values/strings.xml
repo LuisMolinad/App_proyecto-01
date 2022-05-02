@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name" translatable="false">Control de Actividades FIA</string>
     <string name="MenuActividad">Menu Actividad</string>
-    <string name="MenuDetalleActividad">MenuDetalleActividad</string>
+    <string name="MenuDetalleActividad">Menu Detalle Actividad</string>
     <string name="MenuAsistencia">MenuAsistencia</string>
     <string name="MenuCarrera">MenuCarrera</string>
     <string name="MenuCiclo">MenuCiclo</string>
