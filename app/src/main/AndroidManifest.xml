@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App_proyecto01">
         <activity
+            android:name=".ConsultarCarrera"
+            android:exported="false" />
+        <activity
+            android:name=".EliminarCarrera"
+            android:exported="false" />
+        <activity
+            android:name=".EditarCarrera"
+            android:exported="false" />
+        <activity
+            android:name=".InsertarCarrera"
+            android:exported="false" />
+        <activity
             android:name=".EditarOfertaAcademica"
             android:exported="false" />
         <activity
