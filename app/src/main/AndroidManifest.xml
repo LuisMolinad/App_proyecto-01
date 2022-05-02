@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App_proyecto01">
         <activity
+            android:name=".EliminarEscuela"
+            android:exported="false" />
+        <activity
+            android:name=".EditarEscuela"
+            android:exported="false" />
+        <activity
+            android:name=".ConsultarEscuela"
+            android:exported="false" />
+        <activity
+            android:name=".InsertarEscuela"
+            android:exported="false" />
+        <activity
             android:name=".ConsultarCarrera"
             android:exported="false" />
         <activity
