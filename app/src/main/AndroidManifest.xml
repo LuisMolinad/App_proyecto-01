@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App_proyecto01">
         <activity
+            android:name=".EliminarDetalleOferta"
+            android:exported="false" />
+        <activity
+            android:name=".EditarDetalleOferta"
+            android:exported="false" />
+        <activity
+            android:name=".ConsultarDetalleOferta"
+            android:exported="false" />
+        <activity
+            android:name=".InsertarDetalleOferta"
+            android:exported="false" />
+        <activity
             android:name=".EliminarMateria"
             android:exported="false" />
         <activity

@@ -32,6 +32,7 @@
         <entry key="app/src/main/res/layout/activity_consultar_carrera.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_consultar_ciclo.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_consultar_detalle_actividad.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/activity_consultar_detalle_oferta.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_consultar_equipo_didactico.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_consultar_escuela.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_consultar_horario.xml" value="0.3416666666666667" />
@@ -46,6 +47,7 @@
         <entry key="app/src/main/res/layout/activity_editar_carrera.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_editar_ciclo.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_editar_detalle_actividad.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/activity_editar_detalle_oferta.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_editar_equipo_didactico.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_editar_escuela.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_editar_horario.xml" value="0.3416666666666667" />
@@ -60,6 +62,7 @@
         <entry key="app/src/main/res/layout/activity_eliminar_carrera.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_eliminar_ciclo.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_eliminar_detalle_actividad.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/activity_eliminar_detalle_oferta.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_eliminar_equipo_didactico.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_eliminar_escuela.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_eliminar_horario.xml" value="0.3416666666666667" />
@@ -74,6 +77,7 @@
         <entry key="app/src/main/res/layout/activity_insertar_carrera.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_insertar_ciclo.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_insertar_detalle_actividad.xml" value="0.32760416666666664" />
+        <entry key="app/src/main/res/layout/activity_insertar_detalle_oferta.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_insertar_equipo_didactico.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_insertar_escuela.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_insertar_horario.xml" value="0.3416666666666667" />
@@ -90,6 +94,7 @@
         <entry key="app/src/main/res/layout/activity_menu_carrera.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_menu_ciclo.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_menu_detalle_actividad.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/activity_menu_detalle_oferta.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_menu_equipo_didactico.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_menu_escuela.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_menu_horario.xml" value="0.3416666666666667" />
