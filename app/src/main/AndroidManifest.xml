@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App_proyecto01">
         <activity
+            android:name=".EditarOfertaAcademica"
+            android:exported="false" />
+        <activity
+            android:name=".ConsultarOfertaAcademica"
+            android:exported="false" />
+        <activity
+            android:name=".EliminarOfertaAcademica"
+            android:exported="false" />
+        <activity
+            android:name=".InsertarOfertaAcademica"
+            android:exported="false" />
+        <activity
             android:name=".EliminarLocal"
             android:exported="false" />
         <activity
