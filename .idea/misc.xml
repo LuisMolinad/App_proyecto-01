@@ -38,6 +38,7 @@
         <entry key="app/src/main/res/layout/activity_consultar_lista_equipo.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_consultar_lista_horario.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_consultar_local.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/activity_consultar_materia.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_consultar_miembro_universitario.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_consultar_oferta_academica.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_editar_actividad.xml" value="0.3416666666666667" />
@@ -51,6 +52,7 @@
         <entry key="app/src/main/res/layout/activity_editar_lista_equipo.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_editar_lista_horario.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_editar_local.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/activity_editar_materia.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_editar_miembro_universitario.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_editar_oferta_academica.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_eliminar_actividad.xml" value="0.3416666666666667" />
@@ -64,6 +66,7 @@
         <entry key="app/src/main/res/layout/activity_eliminar_lista_equipo.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_eliminar_lista_horario.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_eliminar_local.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/activity_eliminar_materia.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_eliminar_miembro_universitario.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_eliminar_oferta_academica.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_insertar_actividad.xml" value="0.3416666666666667" />
@@ -77,6 +80,7 @@
         <entry key="app/src/main/res/layout/activity_insertar_lista_equipo.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_insertar_lista_horario.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_insertar_local.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/activity_insertar_materia.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_insertar_miembro_universitario.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_insertar_oferta_academica.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3416666666666667" />
@@ -92,6 +96,7 @@
         <entry key="app/src/main/res/layout/activity_menu_lista_equipo.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_menu_lista_horario.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_menu_local.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/activity_menu_materia.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_menu_miembro_universitario.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_menu_oferta_academica.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_menu_particular.xml" value="0.3416666666666667" />

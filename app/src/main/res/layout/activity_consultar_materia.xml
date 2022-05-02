@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".InsertarEscuela">
+    tools:context=".ConsultarMateria">
 
     <TextView
-        android:id="@+id/textView59"
+        android:id="@+id/textView61"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Insertar escuela"
-        tools:layout_editor_absoluteX="69dp"
-        tools:layout_editor_absoluteY="66dp" />
+        android:text="ConsultarMateria"
+        tools:layout_editor_absoluteX="42dp"
+        tools:layout_editor_absoluteY="39dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

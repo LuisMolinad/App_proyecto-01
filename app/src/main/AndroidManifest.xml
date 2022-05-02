@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App_proyecto01">
         <activity
+            android:name=".EliminarMateria"
+            android:exported="false" />
+        <activity
+            android:name=".EditarMateria"
+            android:exported="false" />
+        <activity
+            android:name=".ConsultarMateria"
+            android:exported="false" />
+        <activity
+            android:name=".InsertarMateria"
+            android:exported="false" />
+        <activity
             android:name=".EliminarEscuela"
             android:exported="false" />
         <activity
