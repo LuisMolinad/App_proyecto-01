@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App_proyecto01">
         <activity
+            android:name=".EliminarLocal"
+            android:exported="false" />
+        <activity
+            android:name=".EditarLocal"
+            android:exported="false" />
+        <activity
+            android:name=".ConsultarLocal"
+            android:exported="false" />
+        <activity
+            android:name=".InsertarLocal"
+            android:exported="false" />
+        <activity
             android:name=".EliminarCiclo"
             android:exported="false" />
         <activity
