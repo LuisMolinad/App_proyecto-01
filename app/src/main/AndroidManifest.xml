@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App_proyecto01">
         <activity
+            android:name=".EliminarAsistencia"
+            android:exported="false" />
+        <activity
+            android:name=".ConsultarAsistencia"
+            android:exported="false" />
+        <activity
+            android:name=".EditarAsistencia"
+            android:exported="false" />
+        <activity
+            android:name=".InsertarAsistencia"
+            android:exported="false" />
+        <activity
             android:name=".EliminarListaEquipo"
             android:exported="false" />
         <activity
