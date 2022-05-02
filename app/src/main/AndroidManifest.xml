@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App_proyecto01">
         <activity
+            android:name=".ConsultarMiembroUniversitario"
+            android:exported="false" />
+        <activity
+            android:name=".EliminarMiembroUniversitario"
+            android:exported="false" />
+        <activity
+            android:name=".EditarMiembroUniversitario"
+            android:exported="false" />
+        <activity
+            android:name=".InsertarMiembroUniversitario"
+            android:exported="false" />
+        <activity
             android:name=".EliminarAsistencia"
             android:exported="false" />
         <activity
@@ -94,7 +106,7 @@
             android:name=".MenuParticular"
             android:exported="false" />
         <activity
-            android:name=".MenumiembroUniversitario"
+            android:name=".MenuMiembroUniversitario"
             android:exported="false" />
         <activity
             android:name=".MenuMateria"

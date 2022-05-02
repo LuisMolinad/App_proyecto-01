@@ -1,17 +1,11 @@
 package com.edu.ues.fia.eisi.app_proyecto01;
 
-import android.app.ActionBar;
-import android.app.ListActivity;
 import android.content.Intent;
 import androidx.cardview.widget.CardView;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.util.Objects;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -72,7 +66,7 @@ public Integer rol;
                 startActivity(i);
                 break;
             case R.id.cardMiembroUniversitario:
-                i=new Intent(this, MenumiembroUniversitario.class);
+                i=new Intent(this, MenuMiembroUniversitario.class);
                 // i.putExtra("Rol",rol);
                 startActivity(i);
                 break;

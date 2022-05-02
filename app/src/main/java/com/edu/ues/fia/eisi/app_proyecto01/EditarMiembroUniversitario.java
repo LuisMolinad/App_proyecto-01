@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class MenumiembroUniversitario extends AppCompatActivity {
+public class EditarMiembroUniversitario extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menumiembro_universitario);
+        setContentView(R.layout.activity_editar_miembro_universitario);
     }
 }
