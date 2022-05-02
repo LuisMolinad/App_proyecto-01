@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App_proyecto01">
         <activity
+            android:name=".EliminarEquipoDidactico"
+            android:exported="false" />
+        <activity
+            android:name=".ConsultarEquipoDidactico"
+            android:exported="false" />
+        <activity
+            android:name=".EditarEquipoDidactico"
+            android:exported="false" />
+        <activity
+            android:name=".InsertarEquipoDidactico"
+            android:exported="false" />
+        <activity
             android:name=".EditarHorario"
             android:exported="false" />
         <activity
