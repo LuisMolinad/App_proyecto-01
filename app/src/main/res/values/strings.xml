@@ -65,7 +65,7 @@
     <string name="cancelar">Cancelar </string>
     <string name="guardar">Guardar </string>
     <string name="eliminarbtn">Eliminar </string>
-
+    <string name="idCarrera">ID CARRERA </string>
     <!-- TODO Label Escuela -->
     <string name="idEscuela">ID ESCUELA </string>
     <string name="nombreEscuela">Nombre Escuela</string>

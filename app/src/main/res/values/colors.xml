@@ -8,5 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="BotonGuardarr">#4CAF50</color>
-    <color name="BotonCancelar">#CA0030</color>
+    <color name="BotonCancelar">#9A1712</color>
+    <color name="BotonConsultar">#2196F3</color>
 </resources>

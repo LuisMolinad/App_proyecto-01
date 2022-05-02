@@ -48,7 +48,7 @@
         app:layout_constraintVertical_bias="0.206" />
 
     <Spinner
-        android:id="@+id/spinnerCarrera"
+        android:id="@+id/spinneridCarrera"
         android:layout_width="360dp"
         android:layout_height="52dp"
         app:layout_constraintBottom_toTopOf="@+id/nombreEscuela"
