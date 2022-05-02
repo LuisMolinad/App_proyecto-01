@@ -59,4 +59,16 @@
     <string name="txtEscuela">Escuela</string>
     <string name="txtMateria">Materia</string>
     <string name="txtDetalleOferta">Detalle Oferta</string>
+
+    <!-- TODO Label Crud -->
+    <string name="insertar">Insertar </string>
+    <string name="cancelar">Cancelar </string>
+    <string name="guardar">Guardar </string>
+    <string name="eliminarbtn">Eliminar </string>
+
+    <!-- TODO Label Escuela -->
+    <string name="idEscuela">ID ESCUELA </string>
+    <string name="nombreEscuela">Nombre Escuela</string>
+
+
 </resources>
