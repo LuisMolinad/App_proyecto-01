@@ -75,4 +75,11 @@
     <string name="nombreCarrera">Nombre Carrera</string>
 
 
+    <!-- TODO Label Materia -->
+    <string name="idAsignatura">ID ASIGNATURA</string>
+    <string name="nombreAsignatura">Nombre Asignatura</string>
+    <string name="unidadesValorativas">Unidades Valorativas</string>
+
+
+
 </resources>
