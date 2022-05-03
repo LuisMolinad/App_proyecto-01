@@ -12,7 +12,7 @@
         android:layout_width="152dp"
         android:layout_height="37dp"
         android:gravity="center"
-        android:text="@string/editar"
+        android:text="@string/eliminar"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="20sp"
