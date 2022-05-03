@@ -71,4 +71,8 @@
     <string name="nombreEscuela">Nombre Escuela</string>
 
 
+    <!-- TODO Label Carrera -->
+    <string name="nombreCarrera">Nombre Carrera</string>
+
+
 </resources>
