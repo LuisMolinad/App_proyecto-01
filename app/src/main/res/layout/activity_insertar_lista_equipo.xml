@@ -6,11 +6,82 @@
     android:layout_height="match_parent"
     tools:context=".InsertarListaEquipo">
 
+
     <TextView
-        android:id="@+id/textView30"
+        android:id="@+id/textView10"
+        android:layout_width="152dp"
+        android:layout_height="37dp"
+        android:gravity="center"
+        android:text="@string/Insertar"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.043" />
+
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/idListaEquipo"
+        android:layout_width="360dp"
+        android:layout_height="52dp"
+        android:hint="@string/idListaEquipo"
+        android:inputType="textCapCharacters"
+        android:textAllCaps="true"
+        android:textColorHint="#616161"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.238" />
+
+    <Spinner
+
+        android:id="@+id/spinneridDetalleInsertar"
+        android:layout_width="360dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idListaEquipo" />
+
+    <Spinner
+        android:id="@+id/spinneridEquipoInsertar"
+        android:layout_width="360dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="72dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinneridDetalleInsertar" />
+
+    <Button
+        android:id="@+id/botonGuardarListaEquipo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Insertar Lista Equipo"
-        tools:layout_editor_absoluteX="67dp"
-        tools:layout_editor_absoluteY="56dp" />
+        android:layout_marginEnd="84dp"
+        android:layout_marginBottom="164dp"
+        android:backgroundTint="@color/BotonGuardarr"
+        android:text="@string/guardar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/botonCancelarListaEquipoDidactico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="212dp"
+        android:layout_marginBottom="164dp"
+        android:backgroundTint="@color/BotonCancelar"
+        android:text="@string/cancelar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

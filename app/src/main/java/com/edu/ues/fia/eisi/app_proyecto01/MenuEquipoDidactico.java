@@ -53,7 +53,7 @@ public class MenuEquipoDidactico extends AppCompatActivity implements View.OnCli
                 startActivity(i);
                 break;
             case R.id.cardEliminarEquipo:
-                i = new Intent(this, EliminarAsistencia.class);
+                i = new Intent(this, EliminarEquipoDidactico.class);
                 startActivity(i);
                 break;
         }

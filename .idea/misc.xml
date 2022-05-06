@@ -3,6 +3,32 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/astri/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_consultar_carrera.xml" value="0.1" />
+        <entry key="..\:/Users/astri/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_consultar_detalle_actividad.xml" value="0.1" />
+        <entry key="..\:/Users/astri/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_consultar_detalle_oferta.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/astri/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_consultar_equipo_didactico.xml" value="0.15760869565217392" />
+        <entry key="..\:/Users/astri/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_consultar_escuela.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/astri/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_consultar_lista_equipo.xml" value="0.33" />
+        <entry key="..\:/Users/astri/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_editar_carrera.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/astri/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_editar_detalle_actividad.xml" value="0.33" />
+        <entry key="..\:/Users/astri/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_editar_detalle_oferta.xml" value="0.18854166666666666" />
+        <entry key="..\:/Users/astri/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_editar_equipo_didactico.xml" value="0.15760869565217392" />
+        <entry key="..\:/Users/astri/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_editar_lista_equipo.xml" value="0.25" />
+        <entry key="..\:/Users/astri/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_eliminar_asistencia.xml" value="0.15715579710144928" />
+        <entry key="..\:/Users/astri/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_eliminar_carrera.xml" value="0.19947916666666668" />
+        <entry key="..\:/Users/astri/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_eliminar_detalle_actividad.xml" value="0.18854166666666666" />
+        <entry key="..\:/Users/astri/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_eliminar_equipo_didactico.xml" value="0.15760869565217392" />
+        <entry key="..\:/Users/astri/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_eliminar_lista_equipo.xml" value="0.1" />
+        <entry key="..\:/Users/astri/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_eliminar_oferta_academica.xml" value="0.18854166666666666" />
+        <entry key="..\:/Users/astri/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_insertar_actividad.xml" value="0.19947916666666668" />
+        <entry key="..\:/Users/astri/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_insertar_carrera.xml" value="0.18854166666666666" />
+        <entry key="..\:/Users/astri/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_insertar_detalle_actividad.xml" value="0.25" />
+        <entry key="..\:/Users/astri/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_insertar_equipo_didactico.xml" value="0.18854166666666666" />
+        <entry key="..\:/Users/astri/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_insertar_escuela.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/astri/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_insertar_lista_equipo.xml" value="0.25" />
+        <entry key="..\:/Users/astri/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_insertar_lista_horario.xml" value="0.18854166666666666" />
+        <entry key="..\:/Users/astri/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_menu_asistencia.xml" value="0.15715579710144928" />
+        <entry key="..\:/Users/astri/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_menu_equipo_didactico.xml" value="0.18854166666666666" />
         <entry key="..\:/Users/luis9/AndroidStudioProjects/App_proyecto01/app/src/main/res/layout/activity_actividad_menu.xml" value="0.18" />
         <entry key="..\:/Users/luis9/AndroidStudioProjects/App_proyecto01/app/src/main/res/layout/activity_catalogo_academico.xml" value="0.26403985507246375" />
         <entry key="..\:/Users/luis9/AndroidStudioProjects/App_proyecto01/app/src/main/res/layout/activity_consultar_carrera.xml" value="0.371875" />

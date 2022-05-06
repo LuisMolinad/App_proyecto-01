@@ -81,5 +81,22 @@
     <string name="unidadesValorativas">Unidades Valorativas</string>
 
 
+    <!-- TODO Label EquipoDidactico -->
+
+    <string name="idEquipo">Código del equipo</string>
+    <string name="nombreEquipo">Nombre del equipo</string>
+    <string name="descripcionEquipo">Descripción del equipo</string>
+    <string name="fechaDeCompraEquipo">Fecha de compra del equipo</string>
+
+
+    <!-- TODO Label ListaEquipoDidactico -->
+
+    <string name="idListaEquipo">Código de la lista de equipo didactico </string>
+
+
+    <!-- TODO Label DetalleActividad -->
+    <string name="idDetalle">Código del detalle de actividad</string>
+    <string name="descripcionActividad">Descripción de actividad</string>
+
 
 </resources>
