@@ -4,6 +4,7 @@ import android.content.Intent;
 import androidx.cardview.widget.CardView;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,12 +14,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 public CardView cardMenuActividad, cardMenuCatalogo,
         cardMenuParticular, cardMenuMiembro, cardMenuHorario,
         cardMenuEquipo, cardMenuCiclo, cardMenuLocal;
+    ControlBDActividades BDhelper;
+
 public Integer rol;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        BDhelper=new ControlBDActividades(this);
+
+
+        BDhelper.abrir();
+        String tost=BDhelper.llenarBDActividad();
+        BDhelper.cerrar();
+        Toast.makeText(this, tost, Toast.LENGTH_SHORT).show();
 
         //Lineas para la busqueda del cardView
         Intent i = getIntent();
@@ -92,5 +102,7 @@ public Integer rol;
                 break;
 
         }
+        //Para que se inicie la bd al cargar el men[u principal y se inserten todos los datos cargados
+
     }
 }
