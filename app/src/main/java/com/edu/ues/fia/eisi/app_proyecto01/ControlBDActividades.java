@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class ControlBDActividades {
 
     private static final String[] camposCarrera = new String[]
-            {"IDCARRERA", "NOMBRE_ESCUELA"};
+            {"IDCARRERA", "NOMBRECARRERA"};
 
 
     private final Context context;
@@ -22,6 +22,8 @@ public class ControlBDActividades {
         DBHelper = new DatabaseHelper(context);
     }
 
+
+
     private static class DatabaseHelper extends SQLiteOpenHelper {
         private static final String BASE_DATOS = "CONTROLDEACTIVIDADES.s3db";
         private static final int VERSION = 1;
@@ -33,7 +35,7 @@ public class ControlBDActividades {
         @Override
         public void onCreate(SQLiteDatabase db) {
             try {
-                db.execSQL("CREATE TABLE carrera(IDCARRERA VARCHAR(30) NOT NULL PRIMARY KEY,NOMBRE_ESCUELA VARCHAR(30));");
+                db.execSQL("CREATE TABLE carrera(IDCARRERA VARCHAR(30) NOT NULL PRIMARY KEY,NOMBRECARRERA VARCHAR(30));");
                 //  db.execSQL("CREATE TABLE materia(codmateria VARCHAR(6) NOT NULL PRIMARY KEY,nommateria VARCHAR(30),unidadesval VARCHAR(1));");
                 //  db.execSQL("CREATE TABLE nota(carnet VARCHAR(7) NOT NULL ,codmateria VARCHAR(6) NOT NULL ,ciclo VARCHAR(5) ,notafinal REAL ,PRIMARY KEY(carnet,codmateria,ciclo));");
             } catch (SQLException e) {
@@ -62,7 +64,7 @@ public class ControlBDActividades {
         long contador=0;
         ContentValues carr = new ContentValues();
         carr.put("IDCARRERA", carrera.getIDCARRERA());
-        carr.put("NOMBRE_ESCUELA", carrera.getNOMBRECARRERA());
+        carr.put("NOMBRECARRERA", carrera.getNOMBRECARRERA());
 
         contador=db.insert("carrera", null, carr);
         if(contador==-1 || contador==0)
@@ -79,8 +81,15 @@ public class ControlBDActividades {
 
     //Actualizado a la tabla
 
-    public String actualizar(Carrera carrera) {
-        return null;
+    public String actualizarCarrera(Carrera carrera) {
+       // if(verificarIntegridad(alumno, 5)){
+            String[] id = {carrera.getIDCARRERA()};
+            ContentValues cv = new ContentValues();
+            cv.put("NOMBRECARRERA", carrera.getNOMBRECARRERA());
+            db.update("carrera", cv, "IDCARRERA = ?", id);
+            return "Registro Actualizado Correctamente";
+
+
     }
 
     //Eliminado de un tupla de la Tabla
@@ -104,7 +113,10 @@ public class ControlBDActividades {
             return null;
         }
     }
+    public Cursor getAllValuesIdCARRERA() {
 
+        return db.query("Carrera", new String[]{"IDCARRERA"},null , null, null, null, null);
+    }
 
 /*    private boolean verificarIntegridad(Object dato, int relacion) throws SQLException {
         switch (relacion) {

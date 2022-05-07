@@ -52,7 +52,7 @@
         android:hint="@string/nombreCarrera"
         android:inputType="textCapCharacters"
         android:textColorHint="#616161"
-        android:focusable="false"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.529"
@@ -63,6 +63,7 @@
     <Button
         android:id="@+id/botonEditarCarrera"
         android:backgroundTint="@color/BotonConsultar"
+        android:onClick="actualizarCarrera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="56dp"
@@ -75,6 +76,7 @@
     <Button
         android:id="@+id/botoncancelarCarrera"
         android:backgroundTint="@color/BotonCancelar"
+        android:onClick="CancelarEdicion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/cancelar"
