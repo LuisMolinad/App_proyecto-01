@@ -95,7 +95,15 @@ public class ControlBDActividades {
     //Eliminado de un tupla de la Tabla
 
     public String eliminar(Carrera carrera) {
-        return null;
+        String regAfectados="filas afectadas= ";
+        int contador=0;
+       // if (verificarIntegridad(alumno,3)) {
+        ///    contador+=db.delete("nota", "carnet='"+alumno.getCarnet()+"'", null);
+      //  }
+        contador+=db.delete("carrera", "IDCARRERA='"+carrera.getIDCARRERA()+"'", null);
+        regAfectados+=contador;
+        return regAfectados;
+
     }
 
 
