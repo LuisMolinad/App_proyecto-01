@@ -92,8 +92,17 @@ public class ControlBDActividades {
 
     //Consultar a la tabla
 
-    public Carrera consultarCarrera(String IDCARREA) {
-        return null;
+    public Carrera consultarCarrera(String IDCARRERA) {
+        String[] id = {IDCARRERA};
+        Cursor cursor = db.query("carrera", camposCarrera, "IDCARRERA = ?", id, null, null, null);
+        if(cursor.moveToFirst()){
+            Carrera carrera = new Carrera();
+            carrera.setIDCARRERA(cursor.getString(0));
+            carrera.setNOMBRECARRERA(cursor.getString(1));
+            return carrera;
+        }else{
+            return null;
+        }
     }
 
 
