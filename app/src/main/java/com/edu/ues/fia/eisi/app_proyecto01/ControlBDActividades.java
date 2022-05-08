@@ -10,6 +10,8 @@ public class ControlBDActividades {
 
     private static final String[] camposCarrera = new String[]
             {"IDCARRERA", "NOMBRECARRERA"};
+    private static final String[] campoEscuela = new String[]
+            {"IDESCUELA ", "IDCARRERA","NOMBRE_ESCUELA"};
 
 
     private final Context context;
@@ -36,7 +38,7 @@ public class ControlBDActividades {
         public void onCreate(SQLiteDatabase db) {
             try {
                 db.execSQL("CREATE TABLE carrera(IDCARRERA VARCHAR(30) NOT NULL PRIMARY KEY,NOMBRECARRERA VARCHAR(30));");
-                //  db.execSQL("CREATE TABLE materia(codmateria VARCHAR(6) NOT NULL PRIMARY KEY,nommateria VARCHAR(30),unidadesval VARCHAR(1));");
+                db.execSQL("CREATE TABLE escuela(IDESCUELA VARCHAR(20) NOT NULL PRIMARY KEY,IDCARRERA VARCHAR(30),NOMBRE_ESCUELA VARCHAR(50));");
                 //  db.execSQL("CREATE TABLE nota(carnet VARCHAR(7) NOT NULL ,codmateria VARCHAR(6) NOT NULL ,ciclo VARCHAR(5) ,notafinal REAL ,PRIMARY KEY(carnet,codmateria,ciclo));");
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -45,7 +47,7 @@ public class ControlBDActividades {
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-// TODO Auto-generated method stub
+            // TODO Auto-generated method stub
         }
     }
 
@@ -78,7 +80,25 @@ public class ControlBDActividades {
 
     }
 
+public String insertarEscuela (Escuela escuela){
+    String regInsertados="Registro Insertado Nº= ";
+    long contador=0;
+    ContentValues carr = new ContentValues();
+    carr.put("IDESCUELA", escuela.getIDESCUELA());
+    carr.put("IDCARRERA", escuela.getIDCARRERA());
+    carr.put("NOMBRE_ESCUELA", escuela.getNOMBRE_ESCUELA());
 
+    contador=db.insert("escuela", null, carr);
+    if(contador==-1 || contador==0)
+    {
+        regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+    }
+    else {
+        regInsertados=regInsertados+contador;
+    }
+    return regInsertados;
+
+}
     //Actualizado a la tabla
 
     public String actualizarCarrera(Carrera carrera) {
@@ -220,6 +240,13 @@ public class ControlBDActividades {
         final String[] NombreCarrera = {"Ingenieria Sistemas Informaticos", "ARQUITECTURA", "INGENIERIA CIVIL",
                 "INGENIERIA INDUSTRIAL", "INGENIERIA MECANICA","INGENIERIA ELECTRICA", "INGENIERIA DE QUIMICA Y ALIMENTOS"};
 
+        //TABLA ESCUELA
+        final String [] idEscuela = {"EII","EIM","EIQA","EISI","EA","EIC","EIE"};
+        final String [] nombreEscuela = {"ESCUELA DE INGENIERIA INDUSTRIAL","ESCUELA DE INGENIERIA MECANICA",
+                "ESCUELA DE INGENIERIA QUIMICA Y ALIMENTOS","ESCUELA DE INGENIERIA DE SISTEMAS INFORMATICOS","ESCUELA DE ARQUITECTURA",
+                "ESCUELA DE INGENIERIA CIVIL","ESCUELA DE INGENIERIA ELECTRICA"};
+
+
         abrir();
         db.execSQL("DELETE FROM CARRERA");
 
@@ -229,7 +256,14 @@ public class ControlBDActividades {
             carrera.setNOMBRECARRERA(NombreCarrera[i]);
             insertar(carrera);
         }
+        Escuela escuela = new Escuela();
+        for(int i=0;i<7;i++){
+            escuela.setIDESCUELA(idEscuela[i]);
+            escuela.setIDCARRERA(IdCarrera[i]);
+            escuela.setNOMBRE_ESCUELA(nombreEscuela[i]);
 
+            insertarEscuela(escuela);
+        }
         cerrar();
         return "Guardo Correctamente";
 
