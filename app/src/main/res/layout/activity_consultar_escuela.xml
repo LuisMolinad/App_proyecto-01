@@ -26,7 +26,7 @@
         app:layout_constraintVertical_bias="0.043" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/idEscuela"
+        android:id="@+id/idEscuelaConsultar"
         android:layout_width="360dp"
         android:textAllCaps="true"
         android:layout_height="52dp"
@@ -42,7 +42,7 @@
 
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/nombreEscuela"
+        android:id="@+id/nombreEscuelaConsultar"
         android:layout_width="360dp"
         android:layout_height="52dp"
         android:layout_marginBottom="272dp"
@@ -56,7 +56,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/idCarrera"
+        android:id="@+id/idCarreraConsultarFK"
         android:layout_width="360dp"
         android:layout_height="52dp"
         android:layout_marginTop="24dp"
@@ -68,7 +68,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.686"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idEscuela" />
+        app:layout_constraintTop_toBottomOf="@+id/idEscuelaConsultar" />
 
     <Button
         android:id="@+id/botonguardarEscuela"
@@ -80,7 +80,7 @@
         android:text="@string/consultar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nombreEscuela"
+        app:layout_constraintTop_toBottomOf="@+id/nombreEscuelaConsultar"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
