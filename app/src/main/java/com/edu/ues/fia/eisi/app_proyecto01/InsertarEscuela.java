@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -22,12 +24,45 @@ public class InsertarEscuela extends AppCompatActivity {
         setContentView(R.layout.activity_insertar_escuela);
         //inicaimos la bd
         helper = new ControlBDActividades(this);
+
+
         idEscuela = findViewById(R.id.idEscuelaInsertar);
         spinneridCarrera = findViewById(R.id.spinneridCarreraInsertar);
         NombreEscuela = findViewById(R.id.nombreEscuelaInsertar);
 
 
         llenarSpinnerFKIdCarrera();
+
+    }
+    public void InsertarESCUELA(View v){
+        String IDESCUELA = idEscuela.getText().toString();
+        String NOMBREESCUELA   = NombreEscuela.getText().toString();
+        String fkidCarrera = spinneridCarrera.getSelectedItem().toString();
+        //Validar que no esten vacios
+        if (IDESCUELA.isEmpty())
+        {
+            Toast.makeText(this,"Error campo id carrera vacio",Toast.LENGTH_SHORT).show();
+        }
+        else if (NOMBREESCUELA.isEmpty()){
+            Toast.makeText(this,"Error campo nombre carrera vacio",Toast.LENGTH_SHORT).show();
+        }
+        else {
+            String regInsertados;
+
+            Escuela escuela = new Escuela();
+            escuela.setIDESCUELA(IDESCUELA);
+            escuela.setNOMBRE_ESCUELA(NOMBREESCUELA);
+            escuela.setIDCARRERA(fkidCarrera);
+            helper.abrir();
+            regInsertados=helper.insertarEscuela(escuela);
+            helper.cerrar();
+            Toast.makeText(this,regInsertados,Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void CancelarInsertarEscuela (View v){
+        idEscuela.setText("");
+        NombreEscuela.setText("");
 
     }
 

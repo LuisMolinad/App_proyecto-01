@@ -79,6 +79,7 @@
     <Button
         android:id="@+id/botonguardarEscuela"
         android:backgroundTint="@color/BotonGuardarr"
+        android:onClick="InsertarESCUELA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="56dp"
@@ -91,6 +92,7 @@
     <Button
         android:id="@+id/botoncancelarEscuela"
         android:backgroundTint="@color/BotonCancelar"
+        android:onClick="CancelarInsertarEscuela"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/cancelar"
