@@ -112,6 +112,21 @@ public String insertarEscuela (Escuela escuela){
 
     }
 
+    public String actualizarEscuela(Escuela escuela) {
+         if(verificarIntegridad(escuela, 5)) {
+             String[] id = {escuela.getIDESCUELA()};
+             ContentValues cv = new ContentValues();
+             cv.put("IDCARRERA", escuela.getIDCARRERA());
+             cv.put("NOMBRE_ESCUELA", escuela.getNOMBRE_ESCUELA());
+             db.update("escuela", cv, "IDESCUELA = ? ", id);
+             return "Registro Actualizado Correctamente";
+         }else {
+             return "Registro no existe ";
+         }
+
+
+    }
+
     //Eliminado de un tupla de la Tabla
 
     public String eliminar(Carrera carrera) {
@@ -158,10 +173,14 @@ public String insertarEscuela (Escuela escuela){
             return null;
         }
     }
+    public Cursor getAllValuesIdEscuela() {
 
-/*    private boolean verificarIntegridad(Object dato, int relacion) throws SQLException {
+        return db.query("escuela", new String[]{"IDESCUELA"},null , null, null, null, null);
+    }
+
+    private boolean verificarIntegridad(Object dato, int relacion) throws SQLException {
         switch (relacion) {
-            case 1:
+         /*   case 1:
             {
         //verificar que al insertar nota exista carnet del alumno y el codigo de materia
                 Nota nota = (Nota)dato;
@@ -212,22 +231,25 @@ public String insertarEscuela (Escuela escuela){
                     return true;
                 else
                     return false;
-            }
+            }*/
             case 5:
             {
                 //verificar que exista alumno
-                Alumno alumno2 = (Alumno)dato;
-                String[] id = {alumno2.getCarnet()};
+                Escuela escuela = (Escuela) dato;
+                String[] id = {escuela.getIDESCUELA()};
+                String[] id2 = {escuela.getIDCARRERA()};
                 abrir();
-                Cursor c2 = db.query("alumno", null, "carnet = ?", id, null, null,
+                Cursor c2 = db.query("escuela", null, "IDESCUELA = ?", id, null, null,
                         null);
-                if(c2.moveToFirst()){
-                    //Se encontro Alumno
+                Cursor c3 = db.query("carrera", null, "IDCARRERA = ?", id2, null, null,
+                        null);
+                if(c2.moveToFirst() && c3.moveToFirst()){
+                    //Se encontro fk y pk existentes
                     return true;
                 }
                 return false;
             }
-            case 6:
+     /*       case 6:
             {
                     //verificar que exista Materia
                 Materia materia2 = (Materia)dato;
@@ -240,13 +262,13 @@ public String insertarEscuela (Escuela escuela){
                     return true;
                 }
                 return false;
-            }
+            }*/
             default:
                 return false;
         }
 
 
-    }*/
+    }
 
     public String llenarBDActividad() {
         final String[] IdCarrera = {"I10515", "A10507", "I10501", "I10502","I10503","I10504","I10511"};
