@@ -146,6 +146,19 @@ public String insertarEscuela (Escuela escuela){
         return db.query("Carrera", new String[]{"IDCARRERA"},null , null, null, null, null);
     }
 
+    public Escuela consultarEscuela(String IDESCUELA) {
+        String[] id = {IDESCUELA};
+        Cursor cursor = db.query("escuela", campoEscuela, "IDESCUELA = ? ", id, null, null, null);
+        if(cursor.moveToFirst()){
+            Escuela escuela = new Escuela();
+            escuela.setIDCARRERA(cursor.getString(1));
+            escuela.setNOMBRE_ESCUELA(cursor.getString(2));
+            return escuela;
+        }else{
+            return null;
+        }
+    }
+
 /*    private boolean verificarIntegridad(Object dato, int relacion) throws SQLException {
         switch (relacion) {
             case 1:
