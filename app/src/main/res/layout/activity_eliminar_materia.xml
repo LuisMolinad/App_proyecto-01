@@ -34,7 +34,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Spinner
-        android:id="@+id/spinneridAsignatura"
+        android:id="@+id/spinneridAsignaturaEliminar"
         android:layout_width="360dp"
         android:layout_height="52dp"
 
@@ -53,26 +53,14 @@
         android:id="@+id/botonEliminarMateria"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="76dp"
+        android:layout_marginEnd="152dp"
         android:backgroundTint="@color/BotonEliminar"
+        android:onClick="eliminarMateria"
         android:text="@string/eliminar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
-        app:layout_constraintVertical_bias="0.827" />
-
-    <Button
-        android:id="@+id/botoncancelarMateria"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/BotonCancelar"
-        android:text="@string/cancelar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/botonEliminarMateria"
-        app:layout_constraintHorizontal_bias="0.563"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
-        app:layout_constraintVertical_bias="0.827" />
+        app:layout_constraintVertical_bias="0.822" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
