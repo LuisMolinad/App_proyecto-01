@@ -34,7 +34,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/idAsignatura"
+        android:id="@+id/idAsignaturaInsertar"
         android:layout_width="360dp"
         android:layout_height="52dp"
         android:hint="@string/idAsignatura"
@@ -49,18 +49,18 @@
         app:layout_constraintVertical_bias="0.228" />
 
     <Spinner
-        android:id="@+id/spinneridEscuela"
+        android:id="@+id/spinneridEscuelaInsertar"
         android:layout_width="360dp"
         android:layout_height="52dp"
-        app:layout_constraintBottom_toTopOf="@+id/unidadesValorativas"
+        app:layout_constraintBottom_toTopOf="@+id/unidadesValorativasInsertar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idAsignatura"
+        app:layout_constraintTop_toBottomOf="@+id/idAsignaturaInsertar"
         app:layout_constraintVertical_bias="0.579" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/unidadesValorativas"
+        android:id="@+id/unidadesValorativasInsertar"
         android:layout_width="360dp"
         android:layout_height="52dp"
         android:hint="@string/unidadesValorativas"
@@ -74,7 +74,7 @@
         app:layout_constraintVertical_bias="0.483" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/nombreAsignatura"
+        android:id="@+id/nombreAsignaturainsertar"
         android:layout_width="360dp"
         android:layout_height="52dp"
         android:hint="@string/nombreAsignatura"

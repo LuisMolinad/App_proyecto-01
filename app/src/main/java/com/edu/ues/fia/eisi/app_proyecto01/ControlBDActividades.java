@@ -12,7 +12,9 @@ public class ControlBDActividades {
             {"IDCARRERA", "NOMBRECARRERA"};
     private static final String[] campoEscuela = new String[]
             {"IDESCUELA ", "IDCARRERA","NOMBRE_ESCUELA"};
-
+    private static final String[] campoMateria = new String[]
+            {"IDASIGNATURA","IDESCUELA", "UNIVALORATIVAS","NOMBREASIGNATURA"};
+    //TODO: insertar los valores de tabla materia
 
     private final Context context;
     private DatabaseHelper DBHelper;
@@ -28,7 +30,7 @@ public class ControlBDActividades {
 
     private static class DatabaseHelper extends SQLiteOpenHelper {
         private static final String BASE_DATOS = "CONTROLDEACTIVIDADES.s3db";
-        private static final int VERSION = 1;
+        private static final int VERSION = 2;
 
         public DatabaseHelper(Context context) {
             super(context, BASE_DATOS, null, VERSION);
@@ -39,6 +41,7 @@ public class ControlBDActividades {
             try {
                 db.execSQL("CREATE TABLE carrera(IDCARRERA VARCHAR(30) NOT NULL PRIMARY KEY,NOMBRECARRERA VARCHAR(30));");
                 db.execSQL("CREATE TABLE escuela(IDESCUELA VARCHAR(20) NOT NULL PRIMARY KEY,IDCARRERA VARCHAR(30),NOMBRE_ESCUELA VARCHAR(50));");
+                db.execSQL("CREATE TABLE materia(IDASIGNATURA VARCHAR(20) NOT NULL PRIMARY KEY,IDESCUELA VARCHAR(20),UNIVALORATIVAS INTEGER,NOMBREASIGNATURA VARCHAR(30));");
                 //  db.execSQL("CREATE TABLE nota(carnet VARCHAR(7) NOT NULL ,codmateria VARCHAR(6) NOT NULL ,ciclo VARCHAR(5) ,notafinal REAL ,PRIMARY KEY(carnet,codmateria,ciclo));");
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -99,6 +102,27 @@ public String insertarEscuela (Escuela escuela){
     return regInsertados;
 
 }
+
+    public String insertarAsignatura (Materia materia){
+        String regInsertados="Registro Insertado Nº= ";
+        long contador=0;
+        ContentValues carr = new ContentValues();
+        carr.put("IDASIGNATURA", materia.getIDASIGNATURA());
+        carr.put("IDESCUELA", materia.getIDESCUELA());
+        carr.put("UNIVALORATIVAS", materia.getUNIDADESVALORATIVAS());
+        carr.put("NOMBREASIGNATURA", materia.getNOMBREMATERIA());
+
+        contador=db.insert("materia", null, carr);
+        if(contador==-1 || contador==0)
+        {
+            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        }
+        else {
+            regInsertados=regInsertados+contador;
+        }
+        return regInsertados;
+
+    }
     //Actualizado a la tabla
 
     public String actualizarCarrera(Carrera carrera) {
@@ -282,6 +306,7 @@ public String insertarEscuela (Escuela escuela){
     }
 
     public String llenarBDActividad() {
+        //tabla carrera
         final String[] IdCarrera = {"I10515", "A10507", "I10501", "I10502","I10503","I10504","I10511"};
         final String[] NombreCarrera = {"Ingenieria Sistemas Informaticos", "ARQUITECTURA", "INGENIERIA CIVIL",
                 "INGENIERIA INDUSTRIAL", "INGENIERIA MECANICA","INGENIERIA ELECTRICA", "INGENIERIA DE QUIMICA Y ALIMENTOS"};
@@ -291,6 +316,16 @@ public String insertarEscuela (Escuela escuela){
         final String [] nombreEscuela = {"ESCUELA DE INGENIERIA INDUSTRIAL","ESCUELA DE INGENIERIA MECANICA",
                 "ESCUELA DE INGENIERIA QUIMICA Y ALIMENTOS","ESCUELA DE INGENIERIA DE SISTEMAS INFORMATICOS","ESCUELA DE ARQUITECTURA",
                 "ESCUELA DE INGENIERIA CIVIL","ESCUELA DE INGENIERIA ELECTRICA"};
+
+        //Tabla MATERIA
+        final String [] idAsignatura = {"IAI115","PRN115","PRN215","PRN315","HDP115","ARC15","SIO"};
+        final String [] idEscuelaM = {"EISI","EISI","EISI","EISI","EISI","EISI","EISI"};
+        final Integer [] uniVal = {4,4,4,4,4,4,4};
+        final String [] nombreAsgnatura = {"INTRODUCCION A LA INFORMATICA","PROGRAMACION I","PROGRAMACION II",
+                "PROGRAMACION II","HERRAMIENTAS DE PRODUCTIVIDAD","ARQUITECTURA DE LA COMPUTACIÓN","SISTEMAS OPERATIVOS"};
+
+
+
 
 
         abrir();
@@ -309,6 +344,15 @@ public String insertarEscuela (Escuela escuela){
             escuela.setNOMBRE_ESCUELA(nombreEscuela[i]);
 
             insertarEscuela(escuela);
+        }
+
+        Materia materia = new Materia();
+        for(int i=0;i<7;i++){
+            materia.setIDASIGNATURA(idAsignatura[i]);
+            materia.setIDESCUELA(idEscuelaM[i]);
+            materia.setUNIDADESVALORATIVAS(uniVal[i]);
+            materia.setNOMBREASIGNATURA(nombreAsgnatura[i]);
+            insertarAsignatura(materia);
         }
         cerrar();
         return "Guardo Correctamente";
