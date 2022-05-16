@@ -140,6 +140,17 @@ public String insertarEscuela (Escuela escuela){
         return regAfectados;
 
     }
+    public String eliminarEscuela(Escuela escuela) {
+        String regAfectados="filas afectadas= ";
+        int contador=0;
+        // if (verificarIntegridad(alumno,3)) {
+        ///    contador+=db.delete("nota", "carnet='"+alumno.getCarnet()+"'", null);
+        //  }
+        contador+=db.delete("escuela", "IDESCUELA='"+escuela.getIDESCUELA()+"'", null);
+        regAfectados+=contador;
+        return regAfectados;
+
+    }
 
 
     //Consultar a la tabla
