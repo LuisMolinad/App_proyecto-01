@@ -34,7 +34,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Spinner
-        android:id="@+id/spinneridAsignatura"
+        android:id="@+id/spinneridAsignaturaConsultar"
         android:layout_width="360dp"
         android:layout_height="52dp"
 
@@ -58,7 +58,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinneridAsignatura"
+        app:layout_constraintTop_toBottomOf="@+id/spinneridAsignaturaConsultar"
         app:layout_constraintVertical_bias="0.592" />
 
     <com.google.android.material.textfield.TextInputEditText
@@ -94,6 +94,7 @@
 
     <Button
         android:id="@+id/botonConsultarMateria"
+        android:onClick="ConsultarMateria"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="56dp"
@@ -108,6 +109,7 @@
     <Button
         android:id="@+id/botoncancelarMateria"
         android:backgroundTint="@color/BotonCancelar"
+        android:onClick="Cencelar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/cancelar"

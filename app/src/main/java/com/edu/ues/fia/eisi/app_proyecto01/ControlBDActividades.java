@@ -244,6 +244,24 @@ public String insertarEscuela (Escuela escuela){
         return db.query("escuela", new String[]{"IDESCUELA"},null , null, null, null, null);
     }
 
+    public Materia consultarMateria(String IDASIGNATURA) {
+        String[] id = {IDASIGNATURA};
+        Cursor cursor = db.query("materia", campoMateria, "IDASIGNATURA = ? ", id, null, null, null);
+        if(cursor.moveToFirst()){
+            Materia materia = new Materia();
+            materia.setIDESCUELA(cursor.getString(1));
+            materia.setUNIDADESVALORATIVAS(Integer.valueOf(cursor.getString(2)));
+            materia.setNOMBREASIGNATURA(cursor.getString(3));
+            return materia;
+        }else{
+            return null;
+        }
+    }
+    public Cursor getAllValuesIdAsignatura() {
+
+        return db.query("materia", new String[]{"IDASIGNATURA"},null , null, null, null, null);
+    }
+
     private boolean verificarIntegridad(Object dato, int relacion) throws SQLException {
         switch (relacion) {
          /*   case 1:
