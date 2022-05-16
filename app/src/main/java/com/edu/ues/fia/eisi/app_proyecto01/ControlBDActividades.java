@@ -150,6 +150,23 @@ public String insertarEscuela (Escuela escuela){
 
 
     }
+    public String actualizarMateria(Materia materia) {
+        // if(verificarIntegridad(alumno, 5)){
+        if(verificarIntegridad(materia, 6)) {
+            String[] id = {materia.getIDASIGNATURA()};
+            ContentValues cv = new ContentValues();
+            cv.put("IDESCUELA", materia.getIDESCUELA());
+            cv.put("UNIVALORATIVAS", materia.getUNIDADESVALORATIVAS());
+            cv.put("NOMBREASIGNATURA", materia.getNOMBREMATERIA());
+            db.update("materia", cv, "IDASIGNATURA = ?", id);
+            return "Registro Actualizado Correctamente";
+        }else {
+            return "Registro no existe ";
+        }
+
+
+
+    }
 
     //Eliminado de un tupla de la Tabla
 
@@ -173,6 +190,20 @@ public String insertarEscuela (Escuela escuela){
         contador+=db.delete("escuela", "IDESCUELA='"+escuela.getIDESCUELA()+"'", null);
         regAfectados+=contador;
         return regAfectados;
+
+    }
+    public String eliminarMateria(Materia materia) {
+        String regAfectados="filas afectadas= ";
+        int contador=0;
+        if (verificarIntegridad(materia,3)) {
+          contador+=db.delete("materia", "IDASIGNATURA='"+materia.getIDASIGNATURA()+"'", null);
+            regAfectados+=contador;
+            return regAfectados;
+       }
+        else   {
+            return "Registro no existe ";
+        }
+       // contador+=db.delete("materia", "IDASIGNATURA='"+materia.getIDASIGNATURA()+"'", null);
 
     }
 
@@ -267,9 +298,18 @@ public String insertarEscuela (Escuela escuela){
                 else
                     return false;
             }*/
+            case 3:
+            {
+                Materia materia = (Materia) dato;
+                Cursor c=db.query(true, "materia", new String[] {"IDASIGNATURA" }, "IDASIGNATURA='"+materia.getIDASIGNATURA()+"'",null, null, null, null, null);
+                if(c.moveToFirst())
+                    return true;
+                else
+                    return false;
+            }
             case 5:
             {
-                //verificar que exista alumno
+                //verificar que exista escuela y carrera
                 Escuela escuela = (Escuela) dato;
                 String[] id = {escuela.getIDESCUELA()};
                 String[] id2 = {escuela.getIDCARRERA()};
@@ -277,6 +317,23 @@ public String insertarEscuela (Escuela escuela){
                 Cursor c2 = db.query("escuela", null, "IDESCUELA = ?", id, null, null,
                         null);
                 Cursor c3 = db.query("carrera", null, "IDCARRERA = ?", id2, null, null,
+                        null);
+                if(c2.moveToFirst() && c3.moveToFirst()){
+                    //Se encontro fk y pk existentes
+                    return true;
+                }
+                return false;
+            }
+            case 6:
+            {
+                //verificar que exista escuela y carrera
+                Materia materia = (Materia) dato;
+                String[] id = {materia.getIDASIGNATURA()};
+                String[] id2 = {materia.getIDESCUELA()};
+                abrir();
+                Cursor c2 = db.query("materia", null, "IDASIGNATURA = ?", id, null, null,
+                        null);
+                Cursor c3 = db.query("escuela", null, "IDESCUELA = ?", id2, null, null,
                         null);
                 if(c2.moveToFirst() && c3.moveToFirst()){
                     //Se encontro fk y pk existentes

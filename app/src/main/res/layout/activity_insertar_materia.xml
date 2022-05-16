@@ -91,6 +91,7 @@
     <Button
         android:id="@+id/botonguardarMateria"
         android:backgroundTint="@color/BotonGuardarr"
+        android:onClick="insertarMateria"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="56dp"
@@ -102,6 +103,7 @@
 
     <Button
         android:id="@+id/botoncancelarMateria"
+        android:onClick="CancelarInsertarMateria"
         android:backgroundTint="@color/BotonCancelar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
