@@ -325,9 +325,6 @@ public String insertarEscuela (Escuela escuela){
                 "PROGRAMACION II","HERRAMIENTAS DE PRODUCTIVIDAD","ARQUITECTURA DE LA COMPUTACIÓN","SISTEMAS OPERATIVOS"};
 
 
-
-
-
         abrir();
         db.execSQL("DELETE FROM CARRERA");
 
