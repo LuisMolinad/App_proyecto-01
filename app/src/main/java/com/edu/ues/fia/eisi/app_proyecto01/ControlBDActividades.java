@@ -346,12 +346,12 @@ public String insertarEscuela (Escuela escuela){
             {
                 //verificar que exista escuela y carrera
                 Materia materia = (Materia) dato;
-                String[] id = {materia.getIDASIGNATURA()};
-                String[] id2 = {materia.getIDESCUELA()};
+                String[] id4 = {materia.getIDASIGNATURA()};
+                String[] id3 = {materia.getIDESCUELA()};
                 abrir();
-                Cursor c2 = db.query("materia", null, "IDASIGNATURA = ?", id, null, null,
+                Cursor c2 = db.query("materia", null, "IDASIGNATURA = ?", id4, null, null,
                         null);
-                Cursor c3 = db.query("escuela", null, "IDESCUELA = ?", id2, null, null,
+                Cursor c3 = db.query("escuela", null, "IDESCUELA = ?", id3, null, null,
                         null);
                 if(c2.moveToFirst() && c3.moveToFirst()){
                     //Se encontro fk y pk existentes
