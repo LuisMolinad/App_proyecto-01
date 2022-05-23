@@ -485,9 +485,9 @@ public String insertarEscuela (Escuela escuela){
         db.execSQL("DELETE FROM CARRERA");
         db.execSQL("DELETE FROM escuela");
         db.execSQL("DELETE FROM materia");
-      //  db.execSQL("DELETE FROM usuario");
-       // db.execSQL("DELETE FROM accesoUSUARIO");
-      //  db.execSQL("DELETE FROM opcioncrud");
+        db.execSQL("DELETE FROM usuario");
+        db.execSQL("DELETE FROM accesoUSUARIO");
+        db.execSQL("DELETE FROM opcioncrud");
 
 //Llenao de usuario, opcion crud y acceso usuario
         USUARIO usuario = new USUARIO();

@@ -34,7 +34,7 @@
 
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/idUsuarioLogin"
+        android:id="@+id/NombresuarioLogin"
         android:layout_width="243dp"
         android:layout_height="48dp"
         android:hint="@string/usuario"
@@ -46,7 +46,7 @@
         app:layout_constraintVertical_bias="0.467" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/idPassLogin"
+        android:id="@+id/clave"
         android:layout_width="243dp"
         android:layout_height="48dp"
         android:hint="@string/contra"
