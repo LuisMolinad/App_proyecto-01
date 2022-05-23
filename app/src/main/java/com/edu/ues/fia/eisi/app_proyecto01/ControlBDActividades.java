@@ -47,6 +47,54 @@ public class ControlBDActividades {
                 db.execSQL("CREATE TABLE opcioncrud(IDOPCION VARCHAR(20) NOT NULL PRIMARY KEY,DESOPCION VARCHAR(30),NUMCRUD INTEGER);");
                 db.execSQL("CREATE TABLE accesoUsuario(IDUSUARIO VARCHAR(30),IDOPCION VARCHAR(30),primary key (IDUSUARIO, IDOPCION));");
                 //  db.execSQL("CREATE TABLE nota(carnet VARCHAR(7) NOT NULL ,codmateria VARCHAR(6) NOT NULL ,ciclo VARCHAR(5) ,notafinal REAL ,PRIMARY KEY(carnet,codmateria,ciclo));");
+
+                //Tablas Rosalio guapo
+                /*==============================================================*/
+                /* Table: MIEMBROS UNIVERSITARIOS                               */
+                /*==============================================================*/
+                db.execSQL("create table MIEMBROUNVERSITARIOS  (\n" +
+                        "   IDMIEMBROUNIVERSITARIO VARCHAR2(30)                    not null,\n" +
+                        "   IDASIGNATURA         VARCHAR2(20),\n" +
+                        "   IDUSUARIO            VARCHAR2(30),\n" +
+                        "   NOMBREMIEMBROUNIVERSITARIO VARCHAR2(50)                    not null,\n" +
+                        "   TIPOMIEMBRO          VARCHAR2(10)                    not null,\n" +
+                        "   constraint PK_MIEMBROUNVERSITARIOS primary key (IDMIEMBROUNIVERSITARIO)\n" +
+                        ");\n");
+                /*==============================================================*/
+                /* Table: PARTICULAR                                            */
+                /*==============================================================*/
+                db.execSQL("create table PARTICULAR  (\n" +
+                        "   IDPARTICULAR         VARCHAR2(20)                    not null,\n" +
+                        "   IDUSUARIO            VARCHAR2(30),\n" +
+                        "   NOMBREPARTICULAR     VARCHAR2(50)                    not null,\n" +
+                        "   APELLIDOPARTICULAR   VARCHAR2(15)                    not null,\n" +
+                        "   constraint PK_PARTICULAR primary key (IDPARTICULAR)\n" +
+                        ");\n");
+                /*==============================================================*/
+                /* Table: ACTIVIDAD                                             */
+                /*==============================================================*/
+                db.execSQL("create table ACTIVIDAD  (\n" +
+                        "   IDACTIVIDAD          VARCHAR2(30)                    not null,\n" +
+                        "   IDMIEMBROUNIVERSITARIO VARCHAR2(30),\n" +
+                        "   NOMBREACTIVIDAD      VARCHAR2(30)                    not null,\n" +
+                        "   FECHARESERVA         DATE                            not null,\n" +
+                        "   DESDEACTIVIDAD       DATE                            not null,\n" +
+                        "   HASTAACTIVIDAD       DATE                            not null,\n" +
+                        "   APROBADO             SMALLINT                        not null,\n" +
+                        "   constraint PK_ACTIVIDAD primary key (IDACTIVIDAD)\n" +
+                        ");\n");
+                /*==============================================================*/
+                /* Table: ASISTENCIA                                            */
+                /*==============================================================*/
+                db.execSQL("create table ASISTENCIA  (\n" +
+                        "   IDASISTENCIA         VARCHAR2(20)                    not null,\n" +
+                        "   ID_DETALLE           INTEGER,\n" +
+                        "   IDMIEMBROUNIVERSITARIO VARCHAR2(30),\n" +
+                        "   CALIFICACION         INTEGER,\n" +
+                        "   constraint PK_ASISTENCIA primary key (IDASISTENCIA)\n" +
+                        ");\n");
+
+
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -440,6 +488,16 @@ public String insertarEscuela (Escuela escuela){
 
     }
 
+
+    /*Rosalio parte*/
+
+
+
+
+
+
+
+    /*LLenar base de datos */
     public String llenarBDActividad() {
         //tabla carrera
         final String[] IdCarrera = {"I10515", "A10507", "I10501", "I10502","I10503","I10504","I10511"};
