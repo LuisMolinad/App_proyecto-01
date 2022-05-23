@@ -1,5 +1,11 @@
 <resources>
-    <string name="app_name" translatable="false">Control de Actividades FIA</string>
+
+    <string name="inicioSec">Iniciar Sesión</string>
+    <string name="usuario">Usuario</string>
+    <string name="contra">Contraseña</string>
+    <string name="ingresar">Iniciar sesión</string>
+    <string name="ingresarEnlinea"> Ingreso Online</string>
+    <string name="app_name">Control de Actividades FIA</string>
     <string name="MenuActividad">Menu Actividad</string>
     <string name="MenuDetalleActividad">Menu Detalle Actividad</string>
     <string name="MenuAsistencia">Menu Asistencia</string>
@@ -16,7 +22,7 @@
     <string name="MenumiembroUniversitario">Menu miembro Universitario</string>
     <string name="MenuOfertaAcademica">Menu Oferta Academica</string>
     <!--TODO:MENU PRINCIPAL-->
-    <string name="MenuParticular">Menu Particular</string>
+    <string name="MenuParticular">Menu de Particular</string>
     <string name="MenuMain">Menu Principal</string>
     <string name="TextActividad">Menu Actividad</string>
     <string name="TextCatalogoActividad">Catalogo de Actividades</string>
@@ -97,6 +103,7 @@
     <!-- TODO Label DetalleActividad -->
     <string name="idDetalle">Código del detalle de actividad</string>
     <string name="descripcionActividad">Descripción de actividad</string>
+
 
 
 </resources>

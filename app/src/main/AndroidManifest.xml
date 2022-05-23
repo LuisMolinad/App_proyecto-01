@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App_proyecto01">
         <activity
+            android:name=".loginActivity"
+            android:exported="false" />
+        <activity
             android:name=".EliminarDetalleOferta"
             android:exported="false" />
         <activity
