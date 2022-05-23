@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".EliminarParticularActivity">
+        tools:context=".EliminarActividad">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,7 +30,7 @@
                     android:id="@+id/titulo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Eliminar particular"
+                    android:text="Eliminar Actividad"
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="30sp" />
@@ -44,20 +45,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:paddingBottom="4dp"
+                android:paddingTop="4dp"
                 android:weightSum="5">
 
                 <TextView
-                    android:id="@+id/txtIdAsistncia"
+                    android:id="@+id/txtIdActividad"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="2"
-                    android:text="Id particular"
+                    android:text="Id actividad"
                     android:textAlignment="center"
                     android:gravity="center"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp" />
 
                 <EditText
-                    android:id="@+id/idParticular"
+                    android:id="@+id/idActividad"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
@@ -82,6 +85,7 @@
                     android:layout_height="wrap_content"
                     android:text="Eliminar" />
             </LinearLayout>
+
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
