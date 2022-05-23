@@ -2,20 +2,30 @@ package com.edu.ues.fia.eisi.app_proyecto01;
 
 public class MiembroUniversitario {
 
+    private String idMiembroUniversitario;
     private String idAsignatura;
-    private String idEscuela;
-    private String nombreAsignatura;
-    int unidadesValorativas;
+    private String idUsuario;
+    private String nombreMiembroUniversitario;
+    private String tipoMiembro;
+
+    public MiembroUniversitario(String idMiembroUniversitario, String idAsignatura, String idUsuario, String nombreMiembroUniversitario, String tipoMiembro) {
+        this.idMiembroUniversitario = idMiembroUniversitario;
+        this.idAsignatura = idAsignatura;
+        this.idUsuario = idUsuario;
+        this.nombreMiembroUniversitario = nombreMiembroUniversitario;
+        this.tipoMiembro = tipoMiembro;
+    }
 
     public MiembroUniversitario(){
 
     }
 
-    public MiembroUniversitario(String idAsignatura, String idEscuela, int unidadesValorativas, String nombreAsignatura){
-        this.idAsignatura = idAsignatura;
-        this.idEscuela = idEscuela;
-        this.unidadesValorativas = unidadesValorativas;
-        this.nombreAsignatura = nombreAsignatura;
+    public String getIdMiembroUniversitario() {
+        return idMiembroUniversitario;
+    }
+
+    public void setIdMiembroUniversitario(String idMiembroUniversitario) {
+        this.idMiembroUniversitario = idMiembroUniversitario;
     }
 
     public String getIdAsignatura() {
@@ -26,27 +36,27 @@ public class MiembroUniversitario {
         this.idAsignatura = idAsignatura;
     }
 
-    public String getIdEscuela() {
-        return idEscuela;
+    public String getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setIdEscuela(String idEscuela) {
-        this.idEscuela = idEscuela;
+    public void setIdUsuario(String idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
-    public String getNombreAsignatura() {
-        return nombreAsignatura;
+    public String getNombreMiembroUniversitario() {
+        return nombreMiembroUniversitario;
     }
 
-    public void setNombreAsignatura(String nombreAsignatura) {
-        this.nombreAsignatura = nombreAsignatura;
+    public void setNombreMiembroUniversitario(String nombreMiembroUniversitario) {
+        this.nombreMiembroUniversitario = nombreMiembroUniversitario;
     }
 
-    public void setUnidadesValorativas(int unidadesValorativas){
-        this.unidadesValorativas = unidadesValorativas;
+    public String getTipoMiembro() {
+        return tipoMiembro;
     }
 
-    public int getUnidadesValorativas(int unidadesValorativas){
-        return unidadesValorativas;
+    public void setTipoMiembro(String tipoMiembro) {
+        this.tipoMiembro = tipoMiembro;
     }
 }

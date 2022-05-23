@@ -14,6 +14,10 @@ public class ControlBDActividades {
             {"IDESCUELA ", "IDCARRERA","NOMBRE_ESCUELA"};
     private static final String[] campoMateria = new String[]
             {"IDASIGNATURA","IDESCUELA", "UNIVALORATIVAS","NOMBREASIGNATURA"};
+
+    /*Rosalio*/
+    private static final String[] campoMiembroUniversitario = new String[]
+            {"IDMIEMBROUNIVERSITARIO", "IDASIGNATURA", "IDUSUARIO", "NOMBREMIEMBROUNIVERSITARIO", "TIPOMIEMBRO"};
     //TODO: insertar los valores de tabla materia
 
     private final Context context;
@@ -48,7 +52,7 @@ public class ControlBDActividades {
                 db.execSQL("CREATE TABLE accesoUsuario(IDUSUARIO VARCHAR(30),IDOPCION VARCHAR(30),primary key (IDUSUARIO, IDOPCION));");
                 //  db.execSQL("CREATE TABLE nota(carnet VARCHAR(7) NOT NULL ,codmateria VARCHAR(6) NOT NULL ,ciclo VARCHAR(5) ,notafinal REAL ,PRIMARY KEY(carnet,codmateria,ciclo));");
 
-                //Tablas Rosalio guapo
+                //Tablas Rosalio
                 /*==============================================================*/
                 /* Table: MIEMBROS UNIVERSITARIOS                               */
                 /*==============================================================*/
@@ -58,7 +62,7 @@ public class ControlBDActividades {
                         "   IDUSUARIO            VARCHAR2(30),\n" +
                         "   NOMBREMIEMBROUNIVERSITARIO VARCHAR2(50)                    not null,\n" +
                         "   TIPOMIEMBRO          VARCHAR2(10)                    not null,\n" +
-                        "   constraint PK_MIEMBROUNVERSITARIOS primary key (IDMIEMBROUNIVERSITARIO)\n" +
+                        "   primary key (IDMIEMBROUNIVERSITARIO)\n" +
                         ");\n");
                 /*==============================================================*/
                 /* Table: PARTICULAR                                            */
@@ -113,6 +117,215 @@ public class ControlBDActividades {
 
     public void cerrar() {
         DBHelper.close();
+    }
+
+
+    /*Verificar integridad*/
+    private boolean verificarIntegridad(Object dato, int relacion) throws SQLException {
+        switch (relacion) {
+         /*   case 1:
+            {
+        //verificar que al insertar nota exista carnet del alumno y el codigo de materia
+                Nota nota = (Nota)dato;
+                String[] id1 = {nota.getCarnet()};
+                String[] id2 = {nota.getCodmateria()};
+                //abrir();
+                Cursor cursor1 = db.query("alumno", null, "carnet = ?", id1, null,
+                        null, null);
+                Cursor cursor2 = db.query("materia", null, "codmateria = ?", id2,
+                        null, null, null);
+                if(cursor1.moveToFirst() && cursor2.moveToFirst()){
+                    //Se encontraron datos
+                    return true;
+                }
+                return false;
+            }
+            case 2:
+            {
+                //verificar que al modificar nota exista carnet del alumno, el codigo de materia y el ciclo
+                Nota nota1 = (Nota)dato;
+                String[] ids = {nota1.getCarnet(), nota1.getCodmateria(),
+                        nota1.getCiclo()};
+                abrir();
+                Cursor c = db.query("nota", null, "carnet = ? AND codmateria = ? AND
+                        ciclo = ?", ids, null, null, null);
+                if(c.moveToFirst()){
+                        //Se encontraron datos
+                    return true;
+                }
+                return false;
+            }
+            case 3:
+            {
+                Alumno alumno = (Alumno)dato;
+                Cursor c=db.query(true, "nota", new String[] {"carnet" }, "carnet='"+alumno.getCarnet()+"'",null, null, null, null, null);
+                if(c.moveToFirst())
+                    return true;
+                else
+                    return false;
+            }
+            case 4:
+            {
+                Materia materia = (Materia)dato;
+                Cursor cmat=db.query(true, "nota", new String[] {
+                                "codmateria" },
+                        "codmateria='"+materia.getCodmateria()+"'",null, null, null, null, null);
+                if(cmat.moveToFirst())
+                    return true;
+                else
+                    return false;
+            }*/
+            case 1:
+            {
+                MiembroUniversitario miembroUniversitario = (MiembroUniversitario) dato;
+                String[] id = {miembroUniversitario.getIdMiembroUniversitario()};
+                String[] id2 = {miembroUniversitario.getIdUsuario()};
+                String[] id3 = {miembroUniversitario.getIdAsignatura()};
+
+                abrir();
+                Cursor c = db.query("MIEMBROUNIVERSITARIOS", null, "IDMIEMBROUNIVERSITARIO = ?", id, null, null, null);
+                Cursor c2 = db.query("USUARIO", null, "IDUSUARIO = ?", id2, null, null, null);
+                Cursor c3 = db.query("MATERIA", null, "IDASIGNATURA = ?", id3, null, null, null);
+
+                if( c.moveToFirst() && c2.moveToFirst() && c3.moveToFirst()){
+                    //Se encontro fk y pk existentes
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+            case 2:
+            {
+                MiembroUniversitario miembroUniversitario = (MiembroUniversitario) dato;
+                String[] id = {miembroUniversitario.getIdMiembroUniversitario()};
+
+                abrir();
+                Cursor c = db.query("MIEMBROUNIVERSITARIOS", null, "IDMIEMBROUNIVERSITARIO = ?", id, null, null, null);
+                if( c.moveToFirst()){
+                    //Se encontro fk y pk existentes
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+            case 3:
+            {
+                Materia materia = (Materia) dato;
+                Cursor c=db.query(true, "materia", new String[] {"IDASIGNATURA" }, "IDASIGNATURA='"+materia.getIDASIGNATURA()+"'",null, null, null, null, null);
+                if(c.moveToFirst())
+                    return true;
+                else
+                    return false;
+            }
+            case 5:
+            {
+                //verificar que exista escuela y carrera
+                Escuela escuela = (Escuela) dato;
+                String[] id = {escuela.getIDESCUELA()};
+                String[] id2 = {escuela.getIDCARRERA()};
+                abrir();
+                Cursor c2 = db.query("escuela", null, "IDESCUELA = ?", id, null, null,
+                        null);
+                Cursor c3 = db.query("carrera", null, "IDCARRERA = ?", id2, null, null,
+                        null);
+                if(c2.moveToFirst() && c3.moveToFirst()){
+                    //Se encontro fk y pk existentes
+                    return true;
+                }
+                return false;
+            }
+            case 6:
+            {
+                //verificar que exista escuela y carrera
+                Materia materia = (Materia) dato;
+                String[] id4 = {materia.getIDASIGNATURA()};
+                String[] id3 = {materia.getIDESCUELA()};
+                abrir();
+                Cursor c2 = db.query("materia", null, "IDASIGNATURA = ?", id4, null, null,
+                        null);
+                Cursor c3 = db.query("escuela", null, "IDESCUELA = ?", id3, null, null,
+                        null);
+                if(c2.moveToFirst() && c3.moveToFirst()){
+                    //Se encontro fk y pk existentes
+                    return true;
+                }
+                return false;
+            }
+     /*       case 6:
+            {
+                    //verificar que exista Materia
+                Materia materia2 = (Materia)dato;
+                String[] idm = {materia2.getCodmateria()};
+                abrir();
+                Cursor cm = db.query("materia", null, "codmateria = ?", idm, null,
+                        null, null);
+                if(cm.moveToFirst()){
+                    //Se encontro Materia
+                    return true;
+                }
+                return false;
+            }*/
+            default:
+                return false;
+        }
+
+
+    }
+
+    /*LLenar base de datos */
+    public String llenarBDActividad() {
+        //tabla carrera
+        final String[] IdCarrera = {"I10515", "A10507", "I10501", "I10502","I10503","I10504","I10511"};
+        final String[] NombreCarrera = {"Ingenieria Sistemas Informaticos", "ARQUITECTURA", "INGENIERIA CIVIL",
+                "INGENIERIA INDUSTRIAL", "INGENIERIA MECANICA","INGENIERIA ELECTRICA", "INGENIERIA DE QUIMICA Y ALIMENTOS"};
+
+        //TABLA ESCUELA
+        final String [] idEscuela = {"EII","EIM","EIQA","EISI","EA","EIC","EIE"};
+        final String [] nombreEscuela = {"ESCUELA DE INGENIERIA INDUSTRIAL","ESCUELA DE INGENIERIA MECANICA",
+                "ESCUELA DE INGENIERIA QUIMICA Y ALIMENTOS","ESCUELA DE INGENIERIA DE SISTEMAS INFORMATICOS","ESCUELA DE ARQUITECTURA",
+                "ESCUELA DE INGENIERIA CIVIL","ESCUELA DE INGENIERIA ELECTRICA"};
+
+        //Tabla MATERIA
+        final String [] idAsignatura = {"IAI115","PRN115","PRN215","PRN315","HDP115","ARC15","SIO"};
+        final String [] idEscuelaM = {"EISI","EISI","EISI","EISI","EISI","EISI","EISI"};
+        final Integer [] uniVal = {4,4,4,4,4,4,4};
+        final String [] nombreAsgnatura = {"INTRODUCCION A LA INFORMATICA","PROGRAMACION I","PROGRAMACION II",
+                "PROGRAMACION II","HERRAMIENTAS DE PRODUCTIVIDAD","ARQUITECTURA DE LA COMPUTACIÓN","SISTEMAS OPERATIVOS"};
+
+
+        abrir();
+        db.execSQL("DELETE FROM CARRERA");
+
+        Carrera carrera = new Carrera();
+        for(int i=0;i<7;i++){
+            carrera.setIDCARRERA(IdCarrera[i]);
+            carrera.setNOMBRECARRERA(NombreCarrera[i]);
+            insertar(carrera);
+        }
+        Escuela escuela = new Escuela();
+        for(int i=0;i<7;i++){
+            escuela.setIDESCUELA(idEscuela[i]);
+            escuela.setIDCARRERA(IdCarrera[i]);
+            escuela.setNOMBRE_ESCUELA(nombreEscuela[i]);
+
+            insertarEscuela(escuela);
+        }
+
+        Materia materia = new Materia();
+        for(int i=0;i<7;i++){
+            materia.setIDASIGNATURA(idAsignatura[i]);
+            materia.setIDESCUELA(idEscuelaM[i]);
+            materia.setUNIDADESVALORATIVAS(uniVal[i]);
+            materia.setNOMBREASIGNATURA(nombreAsgnatura[i]);
+            insertarAsignatura(materia);
+        }
+        cerrar();
+        return "Guardo Correctamente";
+
+
+
     }
 
     //Insertado a la tabla
@@ -370,184 +583,85 @@ public String insertarEscuela (Escuela escuela){
         return db.query("materia", new String[]{"IDASIGNATURA"},null , null, null, null, null);
     }
 
-    private boolean verificarIntegridad(Object dato, int relacion) throws SQLException {
-        switch (relacion) {
-         /*   case 1:
-            {
-        //verificar que al insertar nota exista carnet del alumno y el codigo de materia
-                Nota nota = (Nota)dato;
-                String[] id1 = {nota.getCarnet()};
-                String[] id2 = {nota.getCodmateria()};
-                //abrir();
-                Cursor cursor1 = db.query("alumno", null, "carnet = ?", id1, null,
-                        null, null);
-                Cursor cursor2 = db.query("materia", null, "codmateria = ?", id2,
-                        null, null, null);
-                if(cursor1.moveToFirst() && cursor2.moveToFirst()){
-                    //Se encontraron datos
-                    return true;
-                }
-                return false;
-            }
-            case 2:
-            {
-                //verificar que al modificar nota exista carnet del alumno, el codigo de materia y el ciclo
-                Nota nota1 = (Nota)dato;
-                String[] ids = {nota1.getCarnet(), nota1.getCodmateria(),
-                        nota1.getCiclo()};
-                abrir();
-                Cursor c = db.query("nota", null, "carnet = ? AND codmateria = ? AND
-                        ciclo = ?", ids, null, null, null);
-                if(c.moveToFirst()){
-                        //Se encontraron datos
-                    return true;
-                }
-                return false;
-            }
-            case 3:
-            {
-                Alumno alumno = (Alumno)dato;
-                Cursor c=db.query(true, "nota", new String[] {"carnet" }, "carnet='"+alumno.getCarnet()+"'",null, null, null, null, null);
-                if(c.moveToFirst())
-                    return true;
-                else
-                    return false;
-            }
-            case 4:
-            {
-                Materia materia = (Materia)dato;
-                Cursor cmat=db.query(true, "nota", new String[] {
-                                "codmateria" },
-                        "codmateria='"+materia.getCodmateria()+"'",null, null, null, null, null);
-                if(cmat.moveToFirst())
-                    return true;
-                else
-                    return false;
-            }*/
-            case 3:
-            {
-                Materia materia = (Materia) dato;
-                Cursor c=db.query(true, "materia", new String[] {"IDASIGNATURA" }, "IDASIGNATURA='"+materia.getIDASIGNATURA()+"'",null, null, null, null, null);
-                if(c.moveToFirst())
-                    return true;
-                else
-                    return false;
-            }
-            case 5:
-            {
-                //verificar que exista escuela y carrera
-                Escuela escuela = (Escuela) dato;
-                String[] id = {escuela.getIDESCUELA()};
-                String[] id2 = {escuela.getIDCARRERA()};
-                abrir();
-                Cursor c2 = db.query("escuela", null, "IDESCUELA = ?", id, null, null,
-                        null);
-                Cursor c3 = db.query("carrera", null, "IDCARRERA = ?", id2, null, null,
-                        null);
-                if(c2.moveToFirst() && c3.moveToFirst()){
-                    //Se encontro fk y pk existentes
-                    return true;
-                }
-                return false;
-            }
-            case 6:
-            {
-                //verificar que exista escuela y carrera
-                Materia materia = (Materia) dato;
-                String[] id4 = {materia.getIDASIGNATURA()};
-                String[] id3 = {materia.getIDESCUELA()};
-                abrir();
-                Cursor c2 = db.query("materia", null, "IDASIGNATURA = ?", id4, null, null,
-                        null);
-                Cursor c3 = db.query("escuela", null, "IDESCUELA = ?", id3, null, null,
-                        null);
-                if(c2.moveToFirst() && c3.moveToFirst()){
-                    //Se encontro fk y pk existentes
-                    return true;
-                }
-                return false;
-            }
-     /*       case 6:
-            {
-                    //verificar que exista Materia
-                Materia materia2 = (Materia)dato;
-                String[] idm = {materia2.getCodmateria()};
-                abrir();
-                Cursor cm = db.query("materia", null, "codmateria = ?", idm, null,
-                        null, null);
-                if(cm.moveToFirst()){
-                    //Se encontro Materia
-                    return true;
-                }
-                return false;
-            }*/
-            default:
-                return false;
-        }
-
-
-    }
-
 
     /*Rosalio parte*/
+    /*==============================================================*/
+    /* Table: MIEMBROS UNIVERSITARIOS CRUD                          */
+    /*==============================================================*/
 
+    public String insertarMiembroUniversitario(MiembroUniversitario miembroUniversitario){
+        String regInsertados = "Registro Insertado Nº = ";
 
+        long contador=0;
 
+        ContentValues carr = new ContentValues();
 
+        carr.put("IDMIEMBROUNIVERSITARIO", miembroUniversitario.getIdMiembroUniversitario());
+        carr.put("IDASIGNATURA", miembroUniversitario.getIdAsignatura());
+        carr.put("IDUSUARIO", miembroUniversitario.getIdUsuario());
+        carr.put("NOMBREMIEMBROUNIVERSITARIO",miembroUniversitario.getNombreMiembroUniversitario());
+        carr.put("TIPOMIEMBRO", miembroUniversitario.getTipoMiembro());
 
+        contador = db.insert("MIEMBROUNVERSITARIOS", null, carr);
 
-
-    /*LLenar base de datos */
-    public String llenarBDActividad() {
-        //tabla carrera
-        final String[] IdCarrera = {"I10515", "A10507", "I10501", "I10502","I10503","I10504","I10511"};
-        final String[] NombreCarrera = {"Ingenieria Sistemas Informaticos", "ARQUITECTURA", "INGENIERIA CIVIL",
-                "INGENIERIA INDUSTRIAL", "INGENIERIA MECANICA","INGENIERIA ELECTRICA", "INGENIERIA DE QUIMICA Y ALIMENTOS"};
-
-        //TABLA ESCUELA
-        final String [] idEscuela = {"EII","EIM","EIQA","EISI","EA","EIC","EIE"};
-        final String [] nombreEscuela = {"ESCUELA DE INGENIERIA INDUSTRIAL","ESCUELA DE INGENIERIA MECANICA",
-                "ESCUELA DE INGENIERIA QUIMICA Y ALIMENTOS","ESCUELA DE INGENIERIA DE SISTEMAS INFORMATICOS","ESCUELA DE ARQUITECTURA",
-                "ESCUELA DE INGENIERIA CIVIL","ESCUELA DE INGENIERIA ELECTRICA"};
-
-        //Tabla MATERIA
-        final String [] idAsignatura = {"IAI115","PRN115","PRN215","PRN315","HDP115","ARC15","SIO"};
-        final String [] idEscuelaM = {"EISI","EISI","EISI","EISI","EISI","EISI","EISI"};
-        final Integer [] uniVal = {4,4,4,4,4,4,4};
-        final String [] nombreAsgnatura = {"INTRODUCCION A LA INFORMATICA","PROGRAMACION I","PROGRAMACION II",
-                "PROGRAMACION II","HERRAMIENTAS DE PRODUCTIVIDAD","ARQUITECTURA DE LA COMPUTACIÓN","SISTEMAS OPERATIVOS"};
-
-
-        abrir();
-        db.execSQL("DELETE FROM CARRERA");
-
-        Carrera carrera = new Carrera();
-        for(int i=0;i<7;i++){
-            carrera.setIDCARRERA(IdCarrera[i]);
-            carrera.setNOMBRECARRERA(NombreCarrera[i]);
-            insertar(carrera);
+        if(contador == -1 || contador == 0){
+            regInsertados = "Error al insertar el registro, o registro duplicado favor verifivar insercion";
         }
-        Escuela escuela = new Escuela();
-        for(int i=0;i<7;i++){
-            escuela.setIDESCUELA(idEscuela[i]);
-            escuela.setIDCARRERA(IdCarrera[i]);
-            escuela.setNOMBRE_ESCUELA(nombreEscuela[i]);
-
-            insertarEscuela(escuela);
+        else {
+            regInsertados = regInsertados + contador;
         }
 
-        Materia materia = new Materia();
-        for(int i=0;i<7;i++){
-            materia.setIDASIGNATURA(idAsignatura[i]);
-            materia.setIDESCUELA(idEscuelaM[i]);
-            materia.setUNIDADESVALORATIVAS(uniVal[i]);
-            materia.setNOMBREASIGNATURA(nombreAsgnatura[i]);
-            insertarAsignatura(materia);
+        return regInsertados;
+    }
+
+    public String actualizarMiembroUniversitario(MiembroUniversitario miembroUniversitario){
+        if(verificarIntegridad(miembroUniversitario, 1 )){
+            String[] id = {miembroUniversitario.getIdMiembroUniversitario()};
+
+            ContentValues cv = new ContentValues();
+
+            cv.put("IDASIGNATURA", miembroUniversitario.getIdAsignatura());
+            cv.put("IDUSUARIO", miembroUniversitario.getIdUsuario());
+            cv.put("NOMBREMIEMBROUNIVERSITARIO", miembroUniversitario.getNombreMiembroUniversitario());
+            cv.put("TIPOMIEMBRO", miembroUniversitario.getTipoMiembro());
+
+            return "Registro actualizados correctamente";
         }
-        cerrar();
-        return "Guardo Correctamente";
+        else {
+            return "Registro no existe";
+        }
+    }
 
+    public String eliminarMiembroUniversitario(MiembroUniversitario miembroUniversitario){
+        String regAfectados = "Cantidad de filas eliminadas = ";
+        int contador = 0;
 
+        if (verificarIntegridad(miembroUniversitario, 2)){
+            contador = db.delete("MIEMBROUNVERSITARIOS", "IDMIEMBROUNIVERSITARIO = '" + miembroUniversitario.getIdMiembroUniversitario() + "'", null);
+            regAfectados += contador;
+            return regAfectados;
+        }
+        else {
+            return "No se encontro el registro";
+        }
+    }
 
+    public MiembroUniversitario consultarMiembroUniversitario(String idMiembroUniversitario){
+        String[] id = {idMiembroUniversitario};
+
+        Cursor cursor = db.query("MIEMBROUNVERSITARIOS", campoMiembroUniversitario, "IDMIEMBROUNIVERSITARIO = ? ", id, null, null, null);
+
+        if(cursor.moveToFirst()){
+            MiembroUniversitario miembroUniversitario = new MiembroUniversitario();
+            miembroUniversitario.setIdAsignatura(cursor.getString(1));
+            miembroUniversitario.setIdUsuario(cursor.getString(2));
+            miembroUniversitario.setNombreMiembroUniversitario(cursor.getString(3));
+            miembroUniversitario.setTipoMiembro(cursor.getString(4));
+
+            return miembroUniversitario;
+        }
+        else {
+            return null;
+        }
     }
 }
