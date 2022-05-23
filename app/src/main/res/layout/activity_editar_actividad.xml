@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".EditarActividad"
-        >
+        tools:context=".InsertarActividad">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -51,11 +49,12 @@
                 <TextView
                     android:id="@+id/txtIdActividad"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="2"
                     android:text="Id actividad"
                     android:textAlignment="center"
-                    android:textSize="20sp" />
+                    android:gravity="center"
+                    android:textSize="20sp"/>
 
                 <EditText
                     android:id="@+id/idActividad"
@@ -74,17 +73,35 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="70dp"
-                android:orientation="horizontal"
-                android:weightSum="5">
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/consultar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Consultar" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="20dp"></Space>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/txtMiembroUniversitario"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="2"
                     android:text="Id miembro universitario"
                     android:textAlignment="center"
+                    android:gravity="center"
                     android:textSize="20sp" />
 
                 <EditText
@@ -105,15 +122,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
                 android:weightSum="5">
 
                 <TextView
                     android:id="@+id/txtNombreActividad"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="2"
                     android:text="Nombre actividad"
                     android:textAlignment="center"
+                    android:gravity="center"
                     android:textSize="20sp" />
 
                 <EditText
@@ -134,15 +154,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
                 android:weightSum="5">
 
                 <TextView
                     android:id="@+id/txtFecha"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="2"
                     android:text="Fecha de reserva"
                     android:textAlignment="center"
+                    android:gravity="center"
                     android:textSize="20sp" />
 
                 <EditText
@@ -151,7 +174,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:ems="10"
-                    android:inputType="date" />
+                    android:inputType="date"
+                    android:textAlignment="center" />
             </LinearLayout>
 
             <Space
@@ -162,15 +186,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
                 android:weightSum="5">
 
                 <TextView
                     android:id="@+id/txtDesdeActividad"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="2"
                     android:text="Desde actividad"
                     android:textAlignment="center"
+                    android:gravity="center"
                     android:textSize="20sp" />
 
                 <EditText
@@ -179,7 +206,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:ems="10"
-                    android:inputType="date" />
+                    android:inputType="date"
+                    android:textAlignment="center" />
             </LinearLayout>
 
             <Space
@@ -190,15 +218,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
                 android:weightSum="5">
 
                 <TextView
                     android:id="@+id/txtHastaActividad"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="2"
                     android:text="Hasta actividad"
                     android:textAlignment="center"
+                    android:gravity="center"
                     android:textSize="20sp" />
 
                 <EditText
@@ -207,7 +238,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:ems="10"
-                    android:inputType="date" />
+                    android:inputType="date"
+                    android:textAlignment="center" />
             </LinearLayout>
 
 
@@ -219,30 +251,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
                 android:weightSum="10">
 
                 <TextView
                     android:id="@+id/txtAprobado"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="4"
                     android:text="Aprobado"
                     android:textAlignment="center"
+                    android:gravity="center"
                     android:textSize="20sp" />
 
-                <RadioButton
-                    android:id="@+id/radioButton5"
+                <ToggleButton
+                    android:id="@+id/aprobado"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:text="Si" />
-
-                <RadioButton
-                    android:id="@+id/radioButton6"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:text="No" />
+                    android:layout_weight="6"
+                    android:checked="false"
+                    android:textOff="No"
+                    android:textOn="Si" />
 
             </LinearLayout>
 
@@ -261,18 +291,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Actualizar" />
-
-                <Space
-                    android:layout_width="20dp"
-                    android:layout_height="0dp"></Space>
-
-                <Button
-                    android:id="@+id/consultar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Consultar" />
             </LinearLayout>
-
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
