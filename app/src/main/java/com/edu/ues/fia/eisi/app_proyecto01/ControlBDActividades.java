@@ -34,7 +34,7 @@ public class ControlBDActividades {
 
     private static class DatabaseHelper extends SQLiteOpenHelper {
         private static final String BASE_DATOS = "CONTROLDEACTIVIDADES.s3db";
-        private static final int VERSION = 2;
+        private static final int VERSION = 3;
 
         public DatabaseHelper(Context context) {
             super(context, BASE_DATOS, null, VERSION);
@@ -295,8 +295,52 @@ public class ControlBDActividades {
                 "PROGRAMACION II","HERRAMIENTAS DE PRODUCTIVIDAD","ARQUITECTURA DE LA COMPUTACIÓN","SISTEMAS OPERATIVOS"};
 
 
+        //tabla Usuario
+        final String [] IDUSUARIO = {"01","02","03","04","05","06"};
+        final String [] NOMUSUARIO = {"Luis","Katya","Rosalio","Vladimir","Andres","PDM115"};
+        final String [] CLAVE = {"PDM115","PDM115","PDM115","PDM115","PDM115","PDM115"};
+        final String [] TIPOUSUARIO = {"ADMIN","PARTICULAR","ESTUDIANTE","COORDINADOR CATEDRA","AUXILIAR","DOCENTE","DEFAULT"};
+        //tabla opcioncru
+        final String [] IDOPCION = {"0100","0200","0300","0400","0500","0600"};
+        final String [] DESOPCION = {"Vistas administrador","Vistas Particular","Vistas estudiantes",
+                "Vistas coordinadodr de catedra","Vistas de auxiliar","DOCENTE","DEFAULT"};
+        final String [] NUMCRUD = {"1","2","3","4","5","6"};
         abrir();
+
         db.execSQL("DELETE FROM CARRERA");
+        db.execSQL("DELETE FROM escuela");
+        db.execSQL("DELETE FROM materia");
+        db.execSQL("DELETE FROM usuario");
+        db.execSQL("DELETE FROM accesoUSUARIO");
+        db.execSQL("DELETE FROM opcioncrud");
+
+//Llenao de usuario, opcion crud y acceso usuario
+        USUARIO usuario = new USUARIO();
+        for(int i=0;i<6;i++){
+            usuario.setIDUSUARIO(IDUSUARIO[i]);
+            usuario.setCLAVE(CLAVE[i]);
+            usuario.setNOMUSUARIO(NOMUSUARIO[i]);
+            usuario.setTIPOUSUARIO(TIPOUSUARIO[i]);
+            insertarUsuario(usuario);
+        }
+
+        OPCIONCRUD opcioncrud = new OPCIONCRUD();
+        for(int i=0;i<6;i++){
+            opcioncrud.setIDOPCION(IDOPCION[i]);
+            opcioncrud.setDESOPCION(DESOPCION[i]);
+            opcioncrud.setNUMCRUD(NUMCRUD[i]);
+            insertarOPCIONCRUD(opcioncrud);
+        }
+        ACCESOUSUARIO accesousuario = new ACCESOUSUARIO();
+        for(int i=0;i<6;i++){
+            accesousuario.setIDOPCION(IDOPCION[i]);
+            accesousuario.setIDUSUARIO(IDUSUARIO[i]);
+
+            insertarACCESOUSUARIO(accesousuario);
+        }
+
+
+
 
         Carrera carrera = new Carrera();
         for(int i=0;i<7;i++){
