@@ -42,6 +42,10 @@ public class ControlBDActividades {
                 db.execSQL("CREATE TABLE carrera(IDCARRERA VARCHAR(30) NOT NULL PRIMARY KEY,NOMBRECARRERA VARCHAR(30));");
                 db.execSQL("CREATE TABLE escuela(IDESCUELA VARCHAR(20) NOT NULL PRIMARY KEY,IDCARRERA VARCHAR(30),NOMBRE_ESCUELA VARCHAR(50));");
                 db.execSQL("CREATE TABLE materia(IDASIGNATURA VARCHAR(20) NOT NULL PRIMARY KEY,IDESCUELA VARCHAR(20),UNIVALORATIVAS INTEGER,NOMBREASIGNATURA VARCHAR(30));");
+                //tablas de usuario
+                db.execSQL("CREATE TABLE usuario(IDUSUARIO VARCHAR(30) NOT NULL PRIMARY KEY,NOMUSUARIO VARCHAR(30),CLAVE CHAR(5),TIPOUSUARIO VARCHAR(30));");
+                db.execSQL("CREATE TABLE opcioncrud(IDOPCION VARCHAR(20) NOT NULL PRIMARY KEY,DESOPCION VARCHAR(30),NUMCRUD INTEGER);");
+                db.execSQL("CREATE TABLE accesoUsuario(IDUSUARIO VARCHAR(30),IDOPCION VARCHAR(30),primary key (IDUSUARIO, IDOPCION));");
                 //  db.execSQL("CREATE TABLE nota(carnet VARCHAR(7) NOT NULL ,codmateria VARCHAR(6) NOT NULL ,ciclo VARCHAR(5) ,notafinal REAL ,PRIMARY KEY(carnet,codmateria,ciclo));");
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -113,6 +117,62 @@ public String insertarEscuela (Escuela escuela){
         carr.put("NOMBREASIGNATURA", materia.getNOMBREMATERIA());
 
         contador=db.insert("materia", null, carr);
+        if(contador==-1 || contador==0)
+        {
+            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        }
+        else {
+            regInsertados=regInsertados+contador;
+        }
+        return regInsertados;
+
+    }
+    public String insertarUsuario (USUARIO usuario){
+        String regInsertados="Registro Insertado Nº= ";
+        long contador=0;
+        ContentValues carr = new ContentValues();
+        carr.put("IDUSUARIO", usuario.getIDUSUARIO());
+        carr.put("CLAVE", usuario.getCLAVE());
+        carr.put("NOMUSUARIO", usuario.getNOMUSUARIO());
+        carr.put("TIPOUSUARIO", usuario.getTIPOUSUARIO());
+
+        contador=db.insert("usuario", null, carr);
+        if(contador==-1 || contador==0)
+        {
+            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        }
+        else {
+            regInsertados=regInsertados+contador;
+        }
+        return regInsertados;
+
+    }
+    public String insertarACCESOUSUARIO (ACCESOUSUARIO accesousuario){
+        String regInsertados="Registro Insertado Nº= ";
+        long contador=0;
+        ContentValues carr = new ContentValues();
+        carr.put("IDUSUARIO", accesousuario.getIDUSUARIO());
+        carr.put("IDOPCION", accesousuario.getIDOPCION());
+        contador=db.insert("accesoUsuario", null, carr);
+        if(contador==-1 || contador==0)
+        {
+            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        }
+        else {
+            regInsertados=regInsertados+contador;
+        }
+        return regInsertados;
+
+    }
+
+    public String insertarOPCIONCRUD(OPCIONCRUD opcioncrud){
+        String regInsertados="Registro Insertado Nº= ";
+        long contador=0;
+        ContentValues carr = new ContentValues();
+        carr.put("IDOPCION", opcioncrud.getIDOPCION());
+        carr.put("NUMCRUD", opcioncrud.getNUMCRUD());
+        carr.put("DESOPCION", opcioncrud.getDESOPCION());
+        contador=db.insert("opcioncrud", null, carr);
         if(contador==-1 || contador==0)
         {
             regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
