@@ -11,4 +11,5 @@
     <color name="BotonCancelar">#FF6200EE</color>
     <color name="BotonConsultar">#2196F3</color>
     <color name="BotonEliminar">#9A1712</color>
+    <color name="BotonIniciarSesion">#B42929</color>
 </resources>

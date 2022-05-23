@@ -1,4 +1,10 @@
 <resources>
+
+    <string name="inicioSec">Iniciar Sesión</string>
+    <string name="usuario">Usuario</string>
+    <string name="contra">Contraseña</string>
+    <string name="ingresar">Iniciar sesión</string>
+    <string name="ingresarEnlinea"> Ingreso Online</string>
     <string name="app_name" translatable="false">Control de Actividades FIA</string>
     <string name="MenuActividad">Menu Actividad</string>
     <string name="MenuDetalleActividad">Menu Detalle Actividad</string>
@@ -97,6 +103,7 @@
     <!-- TODO Label DetalleActividad -->
     <string name="idDetalle">Código del detalle de actividad</string>
     <string name="descripcionActividad">Descripción de actividad</string>
+
 
 
 </resources>
