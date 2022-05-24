@@ -11,27 +11,46 @@ public class MenuAsistencia extends AppCompatActivity implements View.OnClickLis
 
     //Variables de CardView
     public CardView insertar, consultar, editar, eliminar;
-
+    String tipoUsuario;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_asistencia);
-
-        //Insertar
+        Intent intent = getIntent();
+        tipoUsuario = intent.getExtras().getString("OpcionCrud");
         insertar = (CardView) findViewById(R.id.cardInsertarAsistencia);
-        insertar.setOnClickListener(this);
-
-        //Consultar
         consultar = (CardView) findViewById(R.id.cardConsultarAsistencia);
-        consultar.setOnClickListener(this);
-
-        //Editar
         editar = (CardView) findViewById(R.id.cardEditarAsistencia);
-        editar.setOnClickListener(this);
-
-        //Eliminar
         eliminar = (CardView) findViewById(R.id.cardEliminarAsistencia);
-        eliminar.setOnClickListener(this);
+
+        if (tipoUsuario != null) {
+            //   String opcioncRUD=tipoUsuario;
+            switch (tipoUsuario) {
+                case "0100":
+                    insertar.setOnClickListener(this);
+                    consultar.setOnClickListener(this);
+                    editar.setOnClickListener(this);
+                    eliminar.setOnClickListener(this);
+                    break;
+                case "0200":
+                    insertar.setVisibility(View.GONE);
+                    consultar.setOnClickListener(this);
+                    editar.setOnClickListener(this);
+                    eliminar.setVisibility(View.GONE);
+
+                    break;
+                case "0300":
+                    break;
+                case "0400":
+                    break;
+                case "0500":
+                    break;
+                case "0600":
+                    break;
+
+            }
+        }
+
     }
 
     @Override
