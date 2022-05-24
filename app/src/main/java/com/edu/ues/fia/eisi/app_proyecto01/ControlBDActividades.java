@@ -191,9 +191,7 @@ public class ControlBDActividades {
                     //Se encontro fk y pk existentes
                     return true;
                 }
-                else {
                     return false;
-                }
             }
             case 2:
             {
@@ -209,6 +207,21 @@ public class ControlBDActividades {
                 else {
                     return false;
                 }
+            }
+            case 4:{
+                MiembroUniversitario miembroUniversitario = (MiembroUniversitario) dato;
+                String[] id2 = {miembroUniversitario.getIdUsuario()};
+                String[] id3 = {miembroUniversitario.getIdAsignatura()};
+
+                abrir();
+                Cursor c2 = db.query("USUARIO", null, "IDUSUARIO = ?", id2, null, null, null);
+                Cursor c3 = db.query("MATERIA", null, "IDASIGNATURA = ?", id3, null, null, null);
+
+                if( c2.moveToFirst() && c3.moveToFirst()){
+                    //Se encontro fk y pk existentes
+                    return true;
+                }
+                return false;
             }
             case 3:
             {
@@ -297,7 +310,7 @@ public class ControlBDActividades {
 
         //tabla Usuario
         final String [] IDUSUARIO = {"01","02","03","04","05","06"};
-        final String [] NOMUSUARIO = {"Luis","Katya","Rosalio","Vladimir","Andres","PDM115"};
+        final String [] NOMUSUARIO = {"Luis","Katya","Rosalio","Vladimir","Andres","Alfredo"};
         final String [] CLAVE = {"PDM115","PDM115","PDM115","PDM115","PDM115","PDM115"};
         final String [] TIPOUSUARIO = {"ADMIN","PARTICULAR","ESTUDIANTE","COORDINADOR CATEDRA","AUXILIAR","DOCENTE","DEFAULT"};
         //tabla opcioncru
@@ -640,22 +653,27 @@ public String insertarEscuela (Escuela escuela){
 
         ContentValues carr = new ContentValues();
 
-        carr.put("IDMIEMBROUNIVERSITARIO", miembroUniversitario.getIdMiembroUniversitario());
-        carr.put("IDASIGNATURA", miembroUniversitario.getIdAsignatura());
-        carr.put("IDUSUARIO", miembroUniversitario.getIdUsuario());
-        carr.put("NOMBREMIEMBROUNIVERSITARIO",miembroUniversitario.getNombreMiembroUniversitario());
-        carr.put("TIPOMIEMBRO", miembroUniversitario.getTipoMiembro());
+        if(verificarIntegridad(miembroUniversitario, 4)){
+            carr.put("IDMIEMBROUNIVERSITARIO", miembroUniversitario.getIdMiembroUniversitario());
+            carr.put("IDASIGNATURA", miembroUniversitario.getIdAsignatura());
+            carr.put("IDUSUARIO", miembroUniversitario.getIdUsuario());
+            carr.put("NOMBREMIEMBROUNIVERSITARIO",miembroUniversitario.getNombreMiembroUniversitario());
+            carr.put("TIPOMIEMBRO", miembroUniversitario.getTipoMiembro());
 
-        contador = db.insert("MIEMBROUNVERSITARIOS", null, carr);
+            contador = db.insert("MIEMBROUNVERSITARIOS", null, carr);
 
-        if(contador == -1 || contador == 0){
-            regInsertados = "Error al insertar el registro, o registro duplicado favor verifivar insercion";
+            if(contador == -1 || contador == 0){
+                regInsertados = "Error al insertar el registro, o registro duplicado favor verifivar insercion";
+            }
+            else {
+                regInsertados = regInsertados + contador;
+            }
+
+            return regInsertados;
         }
         else {
-            regInsertados = regInsertados + contador;
+            return "Verificar los datos";
         }
-
-        return regInsertados;
     }
 
     public String actualizarMiembroUniversitario(MiembroUniversitario miembroUniversitario){
