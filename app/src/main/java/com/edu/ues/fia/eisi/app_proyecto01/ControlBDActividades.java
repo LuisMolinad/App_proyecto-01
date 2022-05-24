@@ -175,6 +175,7 @@ public class ControlBDActividades {
                 else
                     return false;
             }*/
+            /*
             case 1:
             {
                 MiembroUniversitario miembroUniversitario = (MiembroUniversitario) dato;
@@ -191,6 +192,16 @@ public class ControlBDActividades {
                     //Se encontro fk y pk existentes
                     return true;
                 }
+                    return false;
+            }
+             */
+            case 1:
+            {
+                MiembroUniversitario miembroUniversitario = (MiembroUniversitario) dato;
+                Cursor c=db.query(true, "MIEMBROUNVERSITARIOS", new String[] {"IDMIEMBROUNIVERSITARIO" }, "IDMIEMBROUNIVERSITARIO='"+miembroUniversitario.getIdMiembroUniversitario()+"'",null, null, null, null, null);
+                if(c.moveToFirst())
+                    return true;
+                else
                     return false;
             }
             case 2:
@@ -541,9 +552,6 @@ public String insertarEscuela (Escuela escuela){
         }else {
             return "Registro no existe ";
         }
-
-
-
     }
 
     //Eliminado de un tupla de la Tabla
@@ -677,37 +685,63 @@ public String insertarEscuela (Escuela escuela){
     }
 
     public String actualizarMiembroUniversitario(MiembroUniversitario miembroUniversitario){
-        if(verificarIntegridad(miembroUniversitario, 1 )){
             String[] id = {miembroUniversitario.getIdMiembroUniversitario()};
+            String regActualizados = "El total de registros actualizados es: ";
 
             ContentValues cv = new ContentValues();
+            long contador = 0;
 
-            cv.put("IDASIGNATURA", miembroUniversitario.getIdAsignatura());
-            cv.put("IDUSUARIO", miembroUniversitario.getIdUsuario());
-            cv.put("NOMBREMIEMBROUNIVERSITARIO", miembroUniversitario.getNombreMiembroUniversitario());
-            cv.put("TIPOMIEMBRO", miembroUniversitario.getTipoMiembro());
+            if(verificarIntegridad(miembroUniversitario, 1)){
+                cv.put("IDMIEMBROUNIVERSITARIO", miembroUniversitario.getIdMiembroUniversitario());
+                cv.put("IDASIGNATURA", miembroUniversitario.getIdAsignatura());
+                cv.put("IDUSUARIO", miembroUniversitario.getIdUsuario());
+                cv.put("NOMBREMIEMBROUNIVERSITARIO", miembroUniversitario.getNombreMiembroUniversitario());
+                cv.put("TIPOMIEMBRO", miembroUniversitario.getTipoMiembro());
+                contador = db.update("MIEMBROUNVERSITARIOS", cv, "IDMIEMBROUNIVERSITARIO = ?", id);
 
-            return "Registro actualizados correctamente";
-        }
-        else {
-            return "Registro no existe";
-        }
+                if(contador == -1 || contador == 0){
+                    regActualizados = "Error al actualizar el registro, favor verifivar insercion";
+                }
+                else {
+                    regActualizados = regActualizados + contador;
+                }
+
+                return regActualizados;
+            }
+            else {
+                return "Registro no existe";
+            }
     }
 
     public String eliminarMiembroUniversitario(MiembroUniversitario miembroUniversitario){
-        String regAfectados = "Cantidad de filas eliminadas = ";
-        int contador = 0;
-
-        if (verificarIntegridad(miembroUniversitario, 2)){
-            contador = db.delete("MIEMBROUNVERSITARIOS", "IDMIEMBROUNIVERSITARIO = '" + miembroUniversitario.getIdMiembroUniversitario() + "'", null);
-            regAfectados += contador;
+        String regAfectados="filas afectadas= ";
+        int contador=0;
+        if (verificarIntegridad(miembroUniversitario,1)) {
+            contador+=db.delete("MIEMBROUNVERSITARIOS", "IDMIEMBROUNIVERSITARIO='"+miembroUniversitario.getIdMiembroUniversitario()+"'", null);
+            regAfectados+=contador;
             return regAfectados;
         }
-        else {
-            return "No se encontro el registro";
+        else   {
+            return "Registro no existe ";
         }
     }
 
+    /*
+    public String eliminarMateria(Materia materia) {
+        String regAfectados="filas afectadas= ";
+        int contador=0;
+        if (verificarIntegridad(materia,3)) {
+            contador+=db.delete("materia", "IDASIGNATURA='"+materia.getIDASIGNATURA()+"'", null);
+            regAfectados+=contador;
+            return regAfectados;
+        }
+        else   {
+            return "Registro no existe ";
+        }
+        // contador+=db.delete("materia", "IDASIGNATURA='"+materia.getIDASIGNATURA()+"'", null);
+
+    }
+     */
     public MiembroUniversitario consultarMiembroUniversitario(String idMiembroUniversitario){
         String[] id = {idMiembroUniversitario};
 
