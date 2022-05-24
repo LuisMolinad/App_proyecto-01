@@ -14,6 +14,12 @@ public class ControlBDActividades {
             {"IDESCUELA ", "IDCARRERA","NOMBRE_ESCUELA"};
     private static final String[] campoMateria = new String[]
             {"IDASIGNATURA","IDESCUELA", "UNIVALORATIVAS","NOMBREASIGNATURA"};
+    /*  db.execSQL("CREATE TABLE usuario(IDUSUARIO VARCHAR(30) NOT NULL PRIMARY KEY,NOMUSUARIO VARCHAR(30),CLAVE CHAR(5),TIPOUSUARIO VARCHAR(30));"); */
+    private static final String[] camposUsuario = new String[]
+            {"IDUSUARIO","NOMUSUARIO", "CLAVE","TIPOUSUARIO"};
+    private static final String[] camposAccesoUsuario = new String[]
+            {"IDUSUARIO","IDOPCION"};
+
 
     /*Rosalio*/
     private static final String[] campoMiembroUniversitario = new String[]
@@ -476,6 +482,24 @@ public String insertarEscuela (Escuela escuela){
         return regInsertados;
 
     }
+
+    public USUARIO consultarUsuario(String NOMUSUARIO) {
+        String[] id = {NOMUSUARIO};
+        /*  db.execSQL("CREATE TABLE usuario(IDUSUARIO VARCHAR(30) NOT NULL PRIMARY KEY,NOMUSUARIO VARCHAR(30),CLAVE CHAR(5),TIPOUSUARIO VARCHAR(30));"); */
+        Cursor cursor = db.query("USUARIO", camposUsuario, "NOMUSUARIO = ?",
+                id, null, null, null);
+        if(cursor.moveToFirst()){
+            USUARIO usuario = new USUARIO();
+            usuario.setIDUSUARIO(cursor.getString(0));
+            usuario.setNOMUSUARIO(cursor.getString(1));
+            usuario.setCLAVE(cursor.getString(2));
+            usuario.setTIPOUSUARIO(cursor.getString(3));
+
+            return usuario;
+        }else{
+            return null;
+        }
+    }
     public String insertarACCESOUSUARIO (ACCESOUSUARIO accesousuario){
         String regInsertados="Registro Insertado Nº= ";
         long contador=0;
@@ -492,6 +516,20 @@ public String insertarEscuela (Escuela escuela){
         }
         return regInsertados;
 
+    }
+    public ACCESOUSUARIO consultarACCESOUSUARIO(String idUsuario) {
+        String[] id = {idUsuario};
+        /*  db.execSQL("CREATE TABLE usuario(IDUSUARIO VARCHAR(30) NOT NULL PRIMARY KEY,NOMUSUARIO VARCHAR(30),CLAVE CHAR(5),TIPOUSUARIO VARCHAR(30));"); */
+        Cursor cursor = db.query("accesoUsuario", camposAccesoUsuario, "IDUSUARIO = ?", id, null, null, null);
+        if(cursor.moveToFirst()){
+            ACCESOUSUARIO accesousuario = new ACCESOUSUARIO();
+            accesousuario.setIDUSUARIO(cursor.getString(0));
+            accesousuario.setIDOPCION(cursor.getString(1));
+
+            return accesousuario;
+        }else{
+            return null;
+        }
     }
 
     public String insertarOPCIONCRUD(OPCIONCRUD opcioncrud){
