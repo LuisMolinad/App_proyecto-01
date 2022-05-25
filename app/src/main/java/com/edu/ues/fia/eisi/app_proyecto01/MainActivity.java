@@ -33,12 +33,22 @@ public Integer rol;
         cardMenuEquipo = (CardView) findViewById(R.id.cardEquipo);
         cardMenuCiclo = (CardView) findViewById(R.id.cardCiclo);
         cardMenuLocal = (CardView) findViewById(R.id.cardLocal);
+
+        cardMenuActividad.setOnClickListener(this);
+        cardMenuCatalogo.setOnClickListener(this);
+        cardMenuParticular.setOnClickListener(this);
+        cardMenuMiembro.setOnClickListener(this);
+        cardMenuHorario.setOnClickListener(this);
+        cardMenuEquipo.setOnClickListener(this);
+        cardMenuCiclo.setOnClickListener(this);
+        cardMenuLocal.setOnClickListener(this);
+
         BDhelper.abrir();
         String tost=BDhelper.llenarBDActividad();
         BDhelper.cerrar();
         Toast.makeText(this, tost, Toast.LENGTH_SHORT).show();
 
-        if(tipoUsuario!=null){
+       /* if(tipoUsuario!=null){
          //   String opcioncRUD=tipoUsuario;
             switch (tipoUsuario){
                 case "0100":
@@ -66,7 +76,7 @@ public Integer rol;
                     break;
             }
 
-        }
+        }*/
 
     }
 
@@ -87,7 +97,7 @@ public Integer rol;
                 break;
             case R.id.cardParticular:
                 i=new Intent(this, MenuParticular.class);
-                // i.putExtra("Rol",rol);
+                i.putExtra("OpcionCrud",tipoUsuario);
                 startActivity(i);
                 break;
             case R.id.cardMiembroUniversitario:
