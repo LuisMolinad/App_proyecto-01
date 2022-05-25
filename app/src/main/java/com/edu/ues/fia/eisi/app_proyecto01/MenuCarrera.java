@@ -37,6 +37,7 @@ public class MenuCarrera extends AppCompatActivity implements View.OnClickListen
                     break;
                 case "0200":
                 case "0300":
+                case "0500":
                     insertar.setVisibility(View.GONE);
                     consultar.setOnClickListener(this);
                     editar.setVisibility(View.GONE);
@@ -44,8 +45,6 @@ public class MenuCarrera extends AppCompatActivity implements View.OnClickListen
 
                     break;
                 case "0400":
-                    break;
-                case "0500":
                     break;
                 case "0600":
                     break;

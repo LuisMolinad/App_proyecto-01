@@ -34,20 +34,14 @@ public class MenuActividadd extends AppCompatActivity implements View.OnClickLis
                     eliminar.setOnClickListener(this);
                     break;
                 case "0200":
-                    insertar.setVisibility(View.GONE);
-                    consultar.setOnClickListener(this);
-                    editar.setVisibility(View.GONE);
-                    eliminar.setVisibility(View.GONE);
-                    break;
                 case "0300":
+                case "0500":
                     insertar.setVisibility(View.GONE);
                     consultar.setOnClickListener(this);
                     editar.setVisibility(View.GONE);
                     eliminar.setVisibility(View.GONE);
                     break;
                 case "0400":
-                    break;
-                case "0500":
                     break;
                 case "0600":
                     break;

@@ -44,6 +44,10 @@ public class MenuListaEquipo extends AppCompatActivity implements View.OnClickLi
                 case "0400":
                     break;
                 case "0500":
+                    consultar.setOnClickListener(this);
+                    insertar.setVisibility(View.GONE);
+                    editar.setOnClickListener(this);
+                    eliminar.setVisibility(View.GONE);
                     break;
                 case "0600":
                     break;
