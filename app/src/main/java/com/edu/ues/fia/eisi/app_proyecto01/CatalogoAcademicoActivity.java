@@ -37,7 +37,7 @@ public class CatalogoAcademicoActivity extends AppCompatActivity implements View
                 case "0200":
                     OfertaAcademica.setVisibility(View.GONE);
                     Carrera.setOnClickListener(this);
-                    Escuela.setVisibility(View.GONE);
+                    Escuela.setOnClickListener(this);
                     Materia.setVisibility(View.GONE);
                     DetalleOfertaAcademica.setOnClickListener(this);
                     break;

@@ -11,7 +11,7 @@ public class MenuEscuela extends AppCompatActivity implements View.OnClickListen
 
     //Variables de CardView
     public CardView insertar, consultar, editar, eliminar;
-
+    String tipoUsuario;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,19 +19,40 @@ public class MenuEscuela extends AppCompatActivity implements View.OnClickListen
 
         //Insertar
         insertar = (CardView) findViewById(R.id.cardInsertarEscuela);
-        insertar.setOnClickListener(this);
-
-        //Consultar
         consultar = (CardView) findViewById(R.id.cardConsultarEscuela);
-        consultar.setOnClickListener(this);
-
-        //Editar
         editar = (CardView) findViewById(R.id.cardEditarEscuela);
-        editar.setOnClickListener(this);
-
-        //Eliminar
         eliminar = (CardView) findViewById(R.id.cardEliminarEscuela);
-        eliminar.setOnClickListener(this);
+        Intent intent = getIntent();
+        tipoUsuario = intent.getExtras().getString("OpcionCrud");
+        if (tipoUsuario != null) {
+            //   String opcioncRUD=tipoUsuario;
+            switch (tipoUsuario) {
+                case "0100":
+                    /*Le pones el capturador de eventos*/
+                    consultar.setOnClickListener(this);
+                    insertar.setOnClickListener(this);
+                    editar.setOnClickListener(this);
+                    eliminar.setOnClickListener(this);
+                    break;
+                case "0200":
+                    consultar.setOnClickListener(this);
+                    insertar.setVisibility(View.GONE);
+                    editar.setVisibility(View.GONE);
+                    eliminar.setVisibility(View.GONE);
+                    break;
+                case "0300":
+                    break;
+                case "0400":
+                    break;
+                case "0500":
+                    break;
+                case "0600":
+                    break;
+
+            }
+
+        }
+
     }
 
     @Override

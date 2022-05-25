@@ -58,8 +58,8 @@ public Integer rol;
                     cardMenuCiclo.setOnClickListener(this);
                     cardMenuParticular.setVisibility(View.GONE);
                     cardMenuMiembro.setVisibility(View.GONE);
-                    cardMenuHorario.setVisibility(View.GONE);
-                    cardMenuEquipo.setVisibility(View.GONE);
+                    cardMenuHorario.setOnClickListener(this);
+                    cardMenuEquipo.setOnClickListener(this);
 
                     cardMenuLocal.setVisibility(View.GONE);
 
