@@ -37,11 +37,18 @@ public class MenuAsistencia extends AppCompatActivity implements View.OnClickLis
                     consultar.setOnClickListener(this);
                     editar.setOnClickListener(this);
                     eliminar.setVisibility(View.GONE);
-
                     break;
                 case "0300":
+                    insertar.setVisibility(View.GONE);
+                    consultar.setOnClickListener(this);
+                    editar.setOnClickListener(this);
+                    eliminar.setVisibility(View.GONE);
                     break;
                 case "0400":
+                    insertar.setVisibility(View.GONE);
+                    consultar.setOnClickListener(this);
+                    editar.setOnClickListener(this);
+                    eliminar.setVisibility(View.GONE);
                     break;
                 case "0500":
                     break;

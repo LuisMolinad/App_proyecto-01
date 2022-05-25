@@ -34,34 +34,15 @@ public Integer rol;
         cardMenuCiclo = (CardView) findViewById(R.id.cardCiclo);
         cardMenuLocal = (CardView) findViewById(R.id.cardLocal);
 
-        cardMenuActividad.setOnClickListener(this);
-        cardMenuCatalogo.setOnClickListener(this);
-        cardMenuParticular.setOnClickListener(this);
-        cardMenuMiembro.setOnClickListener(this);
-        cardMenuHorario.setOnClickListener(this);
-        cardMenuEquipo.setOnClickListener(this);
-        cardMenuCiclo.setOnClickListener(this);
-        cardMenuLocal.setOnClickListener(this);
 
         BDhelper.abrir();
         String tost=BDhelper.llenarBDActividad();
         BDhelper.cerrar();
         Toast.makeText(this, tost, Toast.LENGTH_SHORT).show();
 
-       /* if(tipoUsuario!=null){
+       if(tipoUsuario!=null){
          //   String opcioncRUD=tipoUsuario;
             switch (tipoUsuario){
-                case "0100":
-
-                    cardMenuActividad.setOnClickListener(this);
-                    cardMenuCatalogo.setOnClickListener(this);
-                    cardMenuParticular.setOnClickListener(this);
-                    cardMenuMiembro.setOnClickListener(this);
-                    cardMenuHorario.setOnClickListener(this);
-                    cardMenuEquipo.setOnClickListener(this);
-                    cardMenuCiclo.setOnClickListener(this);
-                    cardMenuLocal.setOnClickListener(this);
-                    break;
                 case "0200":
                     cardMenuActividad.setOnClickListener(this);
                     cardMenuCatalogo.setOnClickListener(this);
@@ -70,13 +51,32 @@ public Integer rol;
                     cardMenuMiembro.setVisibility(View.GONE);
                     cardMenuHorario.setOnClickListener(this);
                     cardMenuEquipo.setOnClickListener(this);
-
                     cardMenuLocal.setVisibility(View.GONE);
+                case "0300":
+                    cardMenuActividad.setOnClickListener(this);
+                    cardMenuCatalogo.setOnClickListener(this);
+                    cardMenuCiclo.setOnClickListener(this);
+                    cardMenuParticular.setVisibility(View.GONE);
+                    cardMenuMiembro.setVisibility(View.GONE);
+                    cardMenuHorario.setOnClickListener(this);
+                    cardMenuEquipo.setOnClickListener(this);
+                    cardMenuLocal.setOnClickListener(this);
 
                     break;
+                case "0100":
+                default:
+                    cardMenuActividad.setOnClickListener(this);
+                    cardMenuCatalogo.setOnClickListener(this);
+                    cardMenuParticular.setOnClickListener(this);
+                    cardMenuMiembro.setOnClickListener(this);
+                    cardMenuHorario.setOnClickListener(this);
+                    cardMenuEquipo.setOnClickListener(this);
+                    cardMenuCiclo.setOnClickListener(this);
+                    cardMenuLocal.setOnClickListener(this);
+
             }
 
-        }*/
+        }
 
     }
 

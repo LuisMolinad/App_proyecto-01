@@ -39,6 +39,7 @@ public class MenuDetalleActividad extends AppCompatActivity implements View.OnCl
                     eliminar.setOnClickListener(this);
                     break;
                 case "0200":
+                case "0300":
                     /*Le pones el capturador de eventos*/
                     insertar.setVisibility(View.GONE);
                     //Consultar
@@ -48,8 +49,9 @@ public class MenuDetalleActividad extends AppCompatActivity implements View.OnCl
                     //Eliminar
                     eliminar.setVisibility(View.GONE);
                     break;
-                case "0300":
-                    break;
+                //Consultar
+                //Editar
+                //Eliminar
                 case "0400":
                     break;
                 case "0500":
