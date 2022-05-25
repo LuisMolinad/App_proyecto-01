@@ -39,7 +39,7 @@ public class CatalogoAcademicoActivity extends AppCompatActivity implements View
                     Carrera.setOnClickListener(this);
                     Escuela.setVisibility(View.GONE);
                     Materia.setVisibility(View.GONE);
-                    DetalleOfertaAcademica.setVisibility(View.GONE);
+                    DetalleOfertaAcademica.setOnClickListener(this);
                     break;
                 case "0300":
                     break;

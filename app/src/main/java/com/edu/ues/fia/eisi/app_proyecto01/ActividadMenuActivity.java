@@ -42,7 +42,7 @@ public class ActividadMenuActivity extends AppCompatActivity implements View.OnC
                     ListaHorario.setVisibility(View.GONE);
                     ListaEquipoDidactico.setVisibility(View.GONE);
                     Asistencia.setOnClickListener(this);
-                    Actividad.setVisibility(View.GONE);
+                    Actividad.setOnClickListener(this);
                     break;
                 case "0300":
                     break;
