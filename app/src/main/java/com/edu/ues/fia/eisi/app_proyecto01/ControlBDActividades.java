@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import java.util.Date;
 
 public class ControlBDActividades {
 
@@ -87,9 +88,9 @@ public class ControlBDActividades {
                         "   IDACTIVIDAD          VARCHAR2(30)                    not null,\n" +
                         "   IDMIEMBROUNIVERSITARIO VARCHAR2(30),\n" +
                         "   NOMBREACTIVIDAD      VARCHAR2(30)                    not null,\n" +
-                        "   FECHARESERVA         DATE                            not null,\n" +
-                        "   DESDEACTIVIDAD       DATE                            not null,\n" +
-                        "   HASTAACTIVIDAD       DATE                            not null,\n" +
+                        "   FECHARESERVA         VARCHAR2(15)                    not null,\n" +
+                        "   DESDEACTIVIDAD       VARCHAR2(15)                    not null,\n" +
+                        "   HASTAACTIVIDAD       VARCHAR2(15)                    not null,\n" +
                         "   APROBADO             SMALLINT                        not null,\n" +
                         "   constraint PK_ACTIVIDAD primary key (IDACTIVIDAD)\n" +
                         ");\n");
@@ -180,8 +181,7 @@ public class ControlBDActividades {
                     return true;
                 else
                     return false;
-            }*/
-            /*
+            }
             case 1:
             {
                 MiembroUniversitario miembroUniversitario = (MiembroUniversitario) dato;
@@ -225,6 +225,15 @@ public class ControlBDActividades {
                     return false;
                 }
             }
+            case 3:
+            {
+                Materia materia = (Materia) dato;
+                Cursor c=db.query(true, "materia", new String[] {"IDASIGNATURA" }, "IDASIGNATURA='"+materia.getIDASIGNATURA()+"'",null, null, null, null, null);
+                if(c.moveToFirst())
+                    return true;
+                else
+                    return false;
+            }
             case 4:{
                 MiembroUniversitario miembroUniversitario = (MiembroUniversitario) dato;
                 String[] id2 = {miembroUniversitario.getIdUsuario()};
@@ -239,15 +248,6 @@ public class ControlBDActividades {
                     return true;
                 }
                 return false;
-            }
-            case 3:
-            {
-                Materia materia = (Materia) dato;
-                Cursor c=db.query(true, "materia", new String[] {"IDASIGNATURA" }, "IDASIGNATURA='"+materia.getIDASIGNATURA()+"'",null, null, null, null, null);
-                if(c.moveToFirst())
-                    return true;
-                else
-                    return false;
             }
             case 5:
             {
@@ -283,20 +283,11 @@ public class ControlBDActividades {
                 }
                 return false;
             }
-     /*       case 6:
-            {
-                    //verificar que exista Materia
-                Materia materia2 = (Materia)dato;
-                String[] idm = {materia2.getCodmateria()};
-                abrir();
-                Cursor cm = db.query("materia", null, "codmateria = ?", idm, null,
-                        null, null);
-                if(cm.moveToFirst()){
-                    //Se encontro Materia
-                    return true;
-                }
+
+            /*Rosalio*/
+            case 7:{
                 return false;
-            }*/
+            }
             default:
                 return false;
         }
@@ -796,6 +787,38 @@ public String insertarEscuela (Escuela escuela){
         }
         else {
             return null;
+        }
+    }
+
+    public String insertarActividad(Actividad actividad){
+        String regInsertados = "Registro Insertado Nº = ";
+
+        long contador=0;
+
+        ContentValues carr = new ContentValues();
+
+        if(verificarIntegridad(actividad, 7)){
+            carr.put("IDACTIVIDAD", actividad.getIdActividad());
+            carr.put("IDMIEMBROUNIVERSITARIO", actividad.getIdMiembroUniversitario());
+            carr.put("NOMBREACTIVIDAD", actividad.getNombreActividad());
+            carr.put("FECHARESERVA",actividad.getFechaReserva());
+            carr.put("DESDEACTIVIDAD", actividad.getDesdeActividad());
+            carr.put("HASTAACTIVIDAD", actividad.getHastaActividad());
+            carr.put("APROBADO", actividad.getAprobado());
+
+            contador = db.insert("ACTIVIDAD", null, carr);
+
+            if(contador == -1 || contador == 0){
+                regInsertados = "Error al insertar el registro, o registro duplicado favor verifivar insercion";
+            }
+            else {
+                regInsertados = regInsertados + contador;
+            }
+
+            return regInsertados;
+        }
+        else {
+            return "Verificar los datos";
         }
     }
 }
