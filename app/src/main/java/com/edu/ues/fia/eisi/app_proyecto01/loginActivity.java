@@ -18,6 +18,8 @@ public class loginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login2);
         helper = new ControlBDActividades(this);
+        helper.llenarBDActividad(); //para poder ingresar al menú principal
+
         nombreusario = findViewById(R.id.NombresuarioLogin);
         password = findViewById(R.id.clave);
         Iniciarseion = findViewById(R.id.btn_InicioSesion);
