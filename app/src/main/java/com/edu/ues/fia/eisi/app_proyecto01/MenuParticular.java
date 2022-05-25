@@ -34,18 +34,14 @@ CardView cardInsertarParticular, cardEditarParticular, cardEliminarParticular, c
                     cardConsultarParticular.setOnClickListener(this);
                     break;
                 case "0200":
+                case "0400":
+                case "0600":
                     cardInsertarParticular.setVisibility(View.GONE);
                     cardEditarParticular.setVisibility(View.GONE);
                     cardEliminarParticular.setVisibility(View.GONE);
                     cardConsultarParticular.setOnClickListener(this);
                     break;
-                case "0300":
-                    break;
-                case "0400":
-                    break;
                 case "0500":
-                    break;
-                case "0600":
                     break;
 
             }

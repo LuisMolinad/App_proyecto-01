@@ -37,14 +37,12 @@ public class MenuLocal extends AppCompatActivity implements View.OnClickListener
                 case "0200":
                 case "0300":
                 case "0500":
+                case "0400":
+                case "0600":
                     consultar.setOnClickListener(this);
                     insertar.setVisibility(View.GONE);
                     editar.setVisibility(View.GONE);
                     eliminar.setVisibility(View.GONE);
-                    break;
-                case "0400":
-                    break;
-                case "0600":
                     break;
 
             }

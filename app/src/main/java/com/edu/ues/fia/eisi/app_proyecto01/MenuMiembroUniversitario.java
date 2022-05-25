@@ -36,16 +36,13 @@ public class MenuMiembroUniversitario extends AppCompatActivity implements View.
                 case "0200":
                 case "0300":
                 case "0500":
+                case "0600":
+                case "0400":
                     consultar.setOnClickListener(this);
                     insertar.setVisibility(View.GONE);
                     editar.setVisibility(View.GONE);
                     eliminar.setVisibility(View.GONE);
                     break;
-                case "0400":
-                    break;
-                case "0600":
-                    break;
-
             }
         }
     }

@@ -18,10 +18,10 @@ public class MenuActividadd extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_menu_actividadd);
 
         //Insertar
-        insertar = (CardView) findViewById(R.id.cardInsertarActividad);
-        consultar = (CardView) findViewById(R.id.cardConsultarActividad);
-        editar = (CardView) findViewById(R.id.cardEditarActividad);
-        eliminar = (CardView) findViewById(R.id.cardEliminarActividad);
+        insertar = findViewById(R.id.cardInsertarActividad);
+        consultar = findViewById(R.id.cardConsultarActividad);
+        editar = findViewById(R.id.cardEditarActividad);
+        eliminar = findViewById(R.id.cardEliminarActividad);
         Intent intent = getIntent();
         tipoUsuario = intent.getExtras().getString("OpcionCrud");
         if (tipoUsuario != null) {
@@ -36,14 +36,17 @@ public class MenuActividadd extends AppCompatActivity implements View.OnClickLis
                 case "0200":
                 case "0300":
                 case "0500":
+                case "0600":
                     insertar.setVisibility(View.GONE);
                     consultar.setOnClickListener(this);
                     editar.setVisibility(View.GONE);
                     eliminar.setVisibility(View.GONE);
                     break;
                 case "0400":
-                    break;
-                case "0600":
+                    insertar.setVisibility(View.GONE);
+                    consultar.setOnClickListener(this);
+                    editar.setOnClickListener(this);
+                    eliminar.setVisibility(View.GONE);
                     break;
 
             }

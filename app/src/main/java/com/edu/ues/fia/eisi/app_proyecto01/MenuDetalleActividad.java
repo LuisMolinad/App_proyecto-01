@@ -29,13 +29,11 @@ public class MenuDetalleActividad extends AppCompatActivity implements View.OnCl
             //   String opcioncRUD=tipoUsuario;
             switch (tipoUsuario) {
                 case "0100":
-                    /*Le pones el capturador de eventos*/
+                case "0400":
+                case "0600":
                     insertar.setOnClickListener(this);
-                    //Consultar
                     consultar.setOnClickListener(this);
-                    //Editar
                     editar.setOnClickListener(this);
-                    //Eliminar
                     eliminar.setOnClickListener(this);
                     break;
                 case "0200":
@@ -45,10 +43,6 @@ public class MenuDetalleActividad extends AppCompatActivity implements View.OnCl
                     consultar.setOnClickListener(this);
                     editar.setVisibility(View.GONE);
                     eliminar.setVisibility(View.GONE);
-                    break;
-                case "0400":
-                    break;
-                case "0600":
                     break;
 
             }
