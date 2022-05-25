@@ -330,7 +330,7 @@ public class ControlBDActividades {
         final String [] NOMUSUARIO = {"Luis","Katya","Rosalio","Vladimir","Andres","Alfredo"};
         final String [] CLAVE = {"PDM115","PDM115","PDM115","PDM115","PDM115","PDM115"};
         final String [] TIPOUSUARIO = {"ADMIN","PARTICULAR","ESTUDIANTE","COORDINADOR CATEDRA","AUXILIAR","DOCENTE","DEFAULT"};
-        //tabla opcioncru
+        //tabla opcioncrud
         final String [] IDOPCION = {"0100","0200","0300","0400","0500","0600"};
         final String [] DESOPCION = {"Vistas administrador","Vistas Particular","Vistas estudiantes",
                 "Vistas coordinadodr de catedra","Vistas de auxiliar","DOCENTE","DEFAULT"};
