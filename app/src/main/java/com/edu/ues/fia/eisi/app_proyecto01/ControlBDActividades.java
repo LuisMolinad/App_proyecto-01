@@ -24,8 +24,7 @@ public class ControlBDActividades {
     /*Rosalio*/
     private static final String[] campoMiembroUniversitario = new String[]
             {"IDMIEMBROUNIVERSITARIO", "IDASIGNATURA", "IDUSUARIO", "NOMBREMIEMBROUNIVERSITARIO", "TIPOMIEMBRO"};
-    private static final String[] campoParticular = new String[]
-            {"IDPARTICULAR", "IDUSUARIO", "NOMBREPARTICULAR", "APELLIDOPARTICULAR"};
+    private static final String[] campoParticular = new String[] {"IDPARTICULAR", "IDUSUARIO", "NOMBREPARTICULAR", "APELLIDOPARTICULAR"};
     //TODO: insertar los valores de tabla materia
 
     private final Context context;
@@ -290,6 +289,15 @@ public class ControlBDActividades {
                     return true;
                 }
                 return false;
+            }
+            //Eliminar
+            case 21:{
+                Particular particular = (Particular) dato;
+                Cursor c = db.query(true, "PARTICULAR", new String[]{"IDPARTICULAR"}, "IDPARTICULAR = '" + particular.getIDPARTICULAR() + "' ", null, null, null, null, null);
+                if(c.moveToFirst())
+                    return true;
+                else
+                    return false;
             }
         }
         return false;
@@ -835,5 +843,69 @@ public String insertarEscuela (Escuela escuela){
         else {
             return  "Error verificar datos";
         }
+    }
+
+    /*Consultar*/
+    public Particular consultarParticular(String idParticular){
+        String[] id = {idParticular};
+
+        Cursor cursor = db.query("PARTICULAR", campoParticular, "IDPARTICULAR = ?", id,null,null,null);
+
+        if(cursor.moveToFirst()){
+            Particular particular = new Particular();
+            particular.setIDPUSUARIO(cursor.getString(1));
+            particular.setNOMBREPARTICULAR(cursor.getString(2));
+            particular.setAPELLIDOPARTICULAR(cursor.getString(3));
+
+            return particular;
+        }
+        return null;
+    }
+
+    /*Eliminar*/
+    public String eliminarParticular(Particular particular){
+        String regAfectados = "La cantidad de datos eliminados es: ";
+        int contador = 0;
+
+
+        if(verificarIntegridad(particular, 21)){
+            contador += db.delete("PARTICULAR", "IDPARTICULAR = '" + particular.getIDPARTICULAR().toString() + "' ",null);
+            regAfectados += contador;
+
+            return regAfectados;
+        }
+        else{
+            return "No se encontro el registro";
+        }
+    }
+
+    /*Actualizar*/
+    public String actualizarParticular(Particular particular){
+        String[] id = {particular.getIDPARTICULAR()};
+        String regActualizados = "El total de registros actualizados es: ";
+
+        ContentValues cv = new ContentValues();
+        int contador = 0;
+
+        if(verificarIntegridad(particular, 20)){
+            cv.put("IDPARTICULAR", particular.getIDPARTICULAR());
+            cv.put("IDUSUARIO", particular.getIDPUSUARIO());
+            cv.put("NOMBREPARTICULAR", particular.getNOMBREPARTICULAR());
+            cv.put("APELLIDOPARTICULAR", particular.getAPELLIDOPARTICULAR());
+
+            contador = db.update("PARTICULAR", cv, "IDPARTICULAR = ?", id);
+
+            if(contador == -1 || contador == 0){
+                regActualizados = "Error al actualizar los registros, favor verficar insercion de datos";
+            }
+            else{
+                regActualizados = regActualizados + contador;
+            }
+            return regActualizados;
+        }
+        else {
+            return "No existe el registro con el id "+particular.getIDPARTICULAR();
+        }
+
     }
 }
