@@ -72,5 +72,6 @@
     <string name="idListaEquipo">Training equipment list code</string>
     <string name="idDetalle">Activity detail code</string>
     <string name="descripcionActividad">Activity Description</string>
+
     <string name="app_name">FIA Activity Control</string>
 </resources>

@@ -26,7 +26,7 @@
 
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/idListaEquipo"
+        android:id="@+id/idListaEquipoInsertar"
         android:layout_width="360dp"
         android:layout_height="52dp"
         android:hint="@string/idListaEquipo"
@@ -40,26 +40,28 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.238" />
 
-    <Spinner
+    <com.google.android.material.textfield.TextInputEditText
 
-        android:id="@+id/spinneridDetalleInsertar"
+        android:id="@+id/idDetalleInsertar"
         android:layout_width="360dp"
         android:layout_height="52dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="64dp"
+        android:hint="@string/idDetalle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idListaEquipo" />
+        app:layout_constraintTop_toBottomOf="@+id/idListaEquipoInsertar" />
 
-    <Spinner
-        android:id="@+id/spinneridEquipoInsertar"
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/idEquipoInsertar"
         android:layout_width="360dp"
         android:layout_height="52dp"
-        android:layout_marginTop="72dp"
+        android:hint="@string/idEquipo"
+        android:layout_marginTop="80dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinneridDetalleInsertar" />
+        app:layout_constraintTop_toBottomOf="@+id/idDetalleInsertar" />
 
     <Button
         android:id="@+id/botonGuardarListaEquipo"

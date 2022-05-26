@@ -30,20 +30,20 @@
         android:id="@+id/spinneridEquipoEliminar"
         android:layout_width="360dp"
         android:layout_height="52dp"
-        android:layout_marginBottom="212dp"
+        android:layout_marginTop="336dp"
         app:layout_constraintBottom_toTopOf="@+id/botonEliminarEquipoDidactico"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.017" />
 
     <Button
         android:id="@+id/botonEliminarEquipoDidactico"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="56dp"
-        android:layout_marginBottom="176dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="128dp"
         android:backgroundTint="@color/BotonEliminar"
         android:text="@string/eliminar"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -53,12 +53,12 @@
         android:id="@+id/botoncancelarEquipoDidactico"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="176dp"
+        android:layout_marginBottom="128dp"
         android:backgroundTint="@color/BotonCancelar"
         android:text="@string/cancelar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/botonEliminarEquipoDidactico"
-        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent" />
 
 

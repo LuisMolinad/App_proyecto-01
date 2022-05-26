@@ -24,11 +24,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.077" />
 
-    <Spinner
-        android:id="@+id/spinneridDetalleEditar"
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/idDetalleEditar"
         android:layout_width="360dp"
         android:layout_height="52dp"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="224dp"
+        android:hint="Código de detalle de actividad"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,24 +39,22 @@
         android:id="@+id/descripcionActividadEditar"
         android:layout_width="360dp"
         android:layout_height="52dp"
-        android:layout_marginBottom="320dp"
+        android:layout_marginBottom="172dp"
         android:hint="@string/descripcionActividad"
         android:inputType="textCapCharacters"
         android:textAllCaps="true"
         android:textColorHint="#616161"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/botoncancelarCarrera"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinneridDetalleEditar"
-        app:layout_constraintVertical_bias="0.543" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/botonEditarDetalleActividad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="88dp"
-        android:layout_marginBottom="196dp"
+        android:layout_marginEnd="92dp"
+        android:layout_marginBottom="132dp"
         android:backgroundTint="@color/BotonConsultar"
         android:text="@string/editar"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -65,12 +64,12 @@
         android:id="@+id/botoncancelarCarrera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="196dp"
+        android:layout_marginBottom="132dp"
         android:backgroundTint="@color/BotonCancelar"
         android:text="@string/cancelar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/botonEditarDetalleActividad"
-        app:layout_constraintHorizontal_bias="0.793"
+        app:layout_constraintHorizontal_bias="0.578"
         app:layout_constraintStart_toStartOf="parent" />
 
 

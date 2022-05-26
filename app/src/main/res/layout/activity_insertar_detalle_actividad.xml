@@ -24,72 +24,76 @@
 
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/descripcionActividad"
+        android:id="@+id/descripcionActividadInsertar"
         android:layout_width="360dp"
         android:layout_height="52dp"
+        android:layout_marginTop="20dp"
         android:hint="@string/descripcionActividad"
         android:inputType="textCapCharacters"
         android:textAllCaps="true"
         android:textColorHint="#616161"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintHorizontal_bias="0.313"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idDetalle"
-        app:layout_constraintVertical_bias="0.075" />
+        app:layout_constraintTop_toBottomOf="@+id/idDetalleInsertar" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/idDetalle"
+        android:id="@+id/idDetalleInsertar"
         android:layout_width="360dp"
         android:layout_height="52dp"
+        android:layout_marginTop="100dp"
         android:hint="@string/idDetalle"
         android:inputType="textCapCharacters"
         android:textAllCaps="true"
         android:textColorHint="#616161"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.313"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputEditText
+
+        android:id="@+id/idActividadInsertar"
+        android:layout_width="360dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="24dp"
+        android:hint="Código de actividad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.313"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descripcionActividadInsertar" />
+
+    <com.google.android.material.textfield.TextInputEditText
+
+        android:id="@+id/GrupoInsertar"
+        android:layout_width="360dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="20dp"
+        android:hint="Grupo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.313"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idActividadInsertar" />
+
+    <com.google.android.material.textfield.TextInputEditText
+
+        android:id="@+id/idLocalInsertar"
+        android:layout_width="360dp"
+        android:layout_height="52dp"
+        android:hint="Código del local"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintHorizontal_bias="0.313"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.164" />
-
-    <Spinner
-        android:id="@+id/spinneridActividadInsertar"
-        android:layout_width="360dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/descripcionActividad" />
-
-
-    <Spinner
-        android:id="@+id/spinnerGrupoInsertar"
-        android:layout_width="360dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="52dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinneridActividadInsertar" />
-
-    <Spinner
-        android:id="@+id/spinneridLocalInsertar"
-        android:layout_width="360dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.509"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerGrupoInsertar"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/GrupoInsertar"
+        app:layout_constraintVertical_bias="0.107" />
 
     <Button
         android:id="@+id/botonguardarDetalleActividad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="80dp"
-        android:layout_marginBottom="76dp"
+        android:layout_marginEnd="84dp"
+        android:layout_marginBottom="28dp"
         android:backgroundTint="@color/BotonGuardarr"
         android:text="@string/guardar"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -99,12 +103,12 @@
         android:id="@+id/botoncancelarDetalleActividad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="76dp"
+        android:layout_marginBottom="28dp"
         android:backgroundTint="@color/BotonCancelar"
         android:text="@string/cancelar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/botonguardarDetalleActividad"
-        app:layout_constraintHorizontal_bias="0.544"
+        app:layout_constraintHorizontal_bias="0.535"
         app:layout_constraintStart_toStartOf="parent" />
 
 
