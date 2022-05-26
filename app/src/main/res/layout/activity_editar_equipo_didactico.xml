@@ -25,16 +25,21 @@
         app:layout_constraintVertical_bias="0.043" />
 
 
-    <Spinner
-        android:id="@+id/spinneridEquipoEditar"
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/idEquipoEditar"
         android:layout_width="360dp"
         android:layout_height="52dp"
-        android:layout_marginBottom="72dp"
-        app:layout_constraintBottom_toTopOf="@+id/nombreEquipoEditar"
+        android:focusable="false"
+        android:hint="@string/idEquipo"
+        android:inputType="textCapCharacters"
+        android:textAllCaps="true"
+        android:textColorHint="#616161"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.529"
-        app:layout_constraintStart_toStartOf="parent" />
-
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.231" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/nombreEquipoEditar"
@@ -47,10 +52,10 @@
         android:textColorHint="#616161"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.437" />
+        app:layout_constraintVertical_bias="0.406" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/descripcionEquipoEditar"

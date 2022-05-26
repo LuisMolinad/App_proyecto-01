@@ -24,26 +24,26 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.043" />
 
+
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/idEquipo"
-        android:textAllCaps="true"
+        android:id="@+id/idEquipoConsultar"
         android:layout_width="360dp"
         android:layout_height="52dp"
+        android:layout_marginTop="168dp"
         android:hint="@string/idEquipo"
         android:inputType="textCapCharacters"
+        android:textAllCaps="true"
         android:textColorHint="#616161"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.206" />
-
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/nombreEquipoConsulta"
+        android:id="@+id/nombreEquipoConsultar"
         android:layout_width="360dp"
         android:layout_height="52dp"
+        android:layout_marginBottom="368dp"
         android:focusable="false"
         android:hint="@string/nombreEquipo"
         android:inputType="textCapCharacters"
@@ -53,13 +53,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.421" />
+        app:layout_constraintTop_toBottomOf="@+id/idEquipoConsultar"
+        app:layout_constraintVertical_bias="1.0" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/descripcionEquipoConsulta"
+        android:id="@+id/descripcionEquipoConsultar"
         android:layout_width="360dp"
         android:layout_height="52dp"
+        android:layout_marginBottom="200dp"
         android:focusable="false"
         android:hint="@string/descripcionEquipo"
         android:inputType="textCapCharacters"
@@ -69,8 +70,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.599" />
+        app:layout_constraintTop_toBottomOf="@+id/nombreEquipoConsultar"
+        app:layout_constraintVertical_bias="0.681" />
 
     <Button
         android:id="@+id/botonConsultarEquipoDidactico"
