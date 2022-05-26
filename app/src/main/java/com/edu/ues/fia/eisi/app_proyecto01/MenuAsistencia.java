@@ -27,25 +27,20 @@ public class MenuAsistencia extends AppCompatActivity implements View.OnClickLis
             //   String opcioncRUD=tipoUsuario;
             switch (tipoUsuario) {
                 case "0100":
+                case "0400":
+                case "0600":
                     insertar.setOnClickListener(this);
                     consultar.setOnClickListener(this);
                     editar.setOnClickListener(this);
                     eliminar.setOnClickListener(this);
                     break;
                 case "0200":
+                case "0300":
+                case "0500":
                     insertar.setVisibility(View.GONE);
                     consultar.setOnClickListener(this);
                     editar.setOnClickListener(this);
                     eliminar.setVisibility(View.GONE);
-
-                    break;
-                case "0300":
-                    break;
-                case "0400":
-                    break;
-                case "0500":
-                    break;
-                case "0600":
                     break;
 
             }

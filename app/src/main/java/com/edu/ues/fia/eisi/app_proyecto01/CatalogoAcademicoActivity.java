@@ -21,13 +21,18 @@ public class CatalogoAcademicoActivity extends AppCompatActivity implements View
         Escuela = (CardView) findViewById(R.id.cardEscuela);
         Materia = (CardView) findViewById(R.id.cardMateria);
         DetalleOfertaAcademica = (CardView) findViewById(R.id.cardDetalleOferta);
+        OfertaAcademica.setOnClickListener(this);
+        Carrera.setOnClickListener(this);
+        Escuela.setOnClickListener(this);
+        Materia.setOnClickListener(this);
+        DetalleOfertaAcademica.setOnClickListener(this);
         Intent intent = getIntent();
         tipoUsuario = intent.getExtras().getString("OpcionCrud");
-        if (tipoUsuario != null) {
+       /* if (tipoUsuario != null) {
             //   String opcioncRUD=tipoUsuario;
             switch (tipoUsuario) {
                 case "0100":
-                    /*Le pones el capturador de eventos*/
+                    *//*Le pones el capturador de eventos*//*
                     OfertaAcademica.setOnClickListener(this);
                     Carrera.setOnClickListener(this);
                     Escuela.setOnClickListener(this);
@@ -37,9 +42,9 @@ public class CatalogoAcademicoActivity extends AppCompatActivity implements View
                 case "0200":
                     OfertaAcademica.setVisibility(View.GONE);
                     Carrera.setOnClickListener(this);
-                    Escuela.setVisibility(View.GONE);
+                    Escuela.setOnClickListener(this);
                     Materia.setVisibility(View.GONE);
-                    DetalleOfertaAcademica.setVisibility(View.GONE);
+                    DetalleOfertaAcademica.setOnClickListener(this);
                     break;
                 case "0300":
                     break;
@@ -53,7 +58,7 @@ public class CatalogoAcademicoActivity extends AppCompatActivity implements View
             }
 
 
-        }
+        }*/
     }
 
     @Override

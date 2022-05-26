@@ -11,7 +11,7 @@ public class MenuListaEquipo extends AppCompatActivity implements View.OnClickLi
 
     //Variables de CardView
     public CardView insertar, consultar, editar, eliminar;
-
+    String tipoUsuario;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,19 +19,41 @@ public class MenuListaEquipo extends AppCompatActivity implements View.OnClickLi
 
         //Insertar
         insertar = (CardView) findViewById(R.id.cardInsertarListaEquipo);
-        insertar.setOnClickListener(this);
-
-        //Consultar
-        consultar = (CardView) findViewById(R.id.cardConsultarListaEquipo);
-        consultar.setOnClickListener(this);
-
-        //Editar
         editar = (CardView) findViewById(R.id.cardEditarListaEquipo);
-        editar.setOnClickListener(this);
-
-        //Eliminar
+        consultar = (CardView) findViewById(R.id.cardConsultarListaEquipo);
         eliminar = (CardView) findViewById(R.id.cardEliminarListaEquipo);
-        eliminar.setOnClickListener(this);
+        //Consultar
+        Intent intent = getIntent();
+        tipoUsuario = intent.getExtras().getString("OpcionCrud");
+        if (tipoUsuario != null) {
+            //   String opcioncRUD=tipoUsuario;
+            switch (tipoUsuario) {
+                case "0100":
+                case "0400":
+                case "0600":
+                    consultar.setOnClickListener(this);
+                    insertar.setOnClickListener(this);
+                    editar.setOnClickListener(this);
+                    eliminar.setOnClickListener(this);
+                    break;
+                case "0200":
+                case "0300":
+                    consultar.setOnClickListener(this);
+                    insertar.setVisibility(View.GONE);
+                    editar.setVisibility(View.GONE);
+                    eliminar.setVisibility(View.GONE);
+                    break;
+                case "0500":
+                    consultar.setOnClickListener(this);
+                    insertar.setVisibility(View.GONE);
+                    editar.setOnClickListener(this);
+                    eliminar.setVisibility(View.GONE);
+                    break;
+
+            }
+
+
+        }
     }
 
     @Override

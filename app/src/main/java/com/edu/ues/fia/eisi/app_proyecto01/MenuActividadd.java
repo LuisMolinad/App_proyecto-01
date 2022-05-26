@@ -11,27 +11,48 @@ public class MenuActividadd extends AppCompatActivity implements View.OnClickLis
 
     //Variables de CardView
     public CardView insertar, consultar, editar, eliminar;
-
+    String tipoUsuario;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_actividadd);
 
         //Insertar
-        insertar = (CardView) findViewById(R.id.cardInsertarActividad);
-        insertar.setOnClickListener(this);
+        insertar = findViewById(R.id.cardInsertarActividad);
+        consultar = findViewById(R.id.cardConsultarActividad);
+        editar = findViewById(R.id.cardEditarActividad);
+        eliminar = findViewById(R.id.cardEliminarActividad);
+        Intent intent = getIntent();
+        tipoUsuario = intent.getExtras().getString("OpcionCrud");
+        if (tipoUsuario != null) {
+            //   String opcioncRUD=tipoUsuario;
+            switch (tipoUsuario) {
+                case "0100":
+                    insertar.setOnClickListener(this);
+                    consultar.setOnClickListener(this);
+                    editar.setOnClickListener(this);
+                    eliminar.setOnClickListener(this);
+                    break;
+                case "0200":
+                case "0300":
+                case "0500":
+                case "0600":
+                    insertar.setVisibility(View.GONE);
+                    consultar.setOnClickListener(this);
+                    editar.setVisibility(View.GONE);
+                    eliminar.setVisibility(View.GONE);
+                    break;
+                case "0400":
+                    insertar.setVisibility(View.GONE);
+                    consultar.setOnClickListener(this);
+                    editar.setOnClickListener(this);
+                    eliminar.setVisibility(View.GONE);
+                    break;
 
-        //Consultar
-        consultar = (CardView) findViewById(R.id.cardConsultarActividad);
-        consultar.setOnClickListener(this);
+            }
 
-        //Editar
-        editar = (CardView) findViewById(R.id.cardEditarActividad);
-        editar.setOnClickListener(this);
 
-        //Eliminar
-        eliminar = (CardView) findViewById(R.id.cardEliminarActividad);
-        eliminar.setOnClickListener(this);
+        }
     }
 
     @Override

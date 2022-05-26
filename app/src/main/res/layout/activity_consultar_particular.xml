@@ -80,7 +80,8 @@
                     android:id="@+id/consultar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Consultar" />
+                    android:text="Consultar"
+                    android:onClick="consultarParticular"/>
             </LinearLayout>
 
             <Space
@@ -94,7 +95,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/txtMiembroUniversitario"
+                    android:id="@+id/txtIdUsuario"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="2"
@@ -115,7 +116,7 @@
                 android:weightSum="5">
 
                 <TextView
-                    android:id="@+id/txtNombreActividad"
+                    android:id="@+id/txtNombreParticular"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="5"
@@ -136,7 +137,7 @@
                 android:weightSum="5">
 
                 <TextView
-                    android:id="@+id/txtFecha"
+                    android:id="@+id/txtApellidoParticular"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="5"

@@ -11,7 +11,7 @@ public class MenuListaHorario extends AppCompatActivity implements View.OnClickL
 
     //Variables de CardView
     public CardView insertar, consultar, editar, eliminar;
-
+    String tipoUsuario;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,19 +19,34 @@ public class MenuListaHorario extends AppCompatActivity implements View.OnClickL
 
         //Insertar
         insertar = (CardView) findViewById(R.id.cardInsertarListaHorario);
-        insertar.setOnClickListener(this);
-
-        //Consultar
         consultar = (CardView) findViewById(R.id.cardConsultarListaHorario);
-        consultar.setOnClickListener(this);
-
-        //Editar
         editar = (CardView) findViewById(R.id.cardEditarListaHorario);
-        editar.setOnClickListener(this);
-
-        //Eliminar
         eliminar = (CardView) findViewById(R.id.cardEliminarListaHorario);
-        eliminar.setOnClickListener(this);
+
+        Intent intent = getIntent();
+        tipoUsuario = intent.getExtras().getString("OpcionCrud");
+        if (tipoUsuario != null) {
+            //   String opcioncRUD=tipoUsuario;
+            switch (tipoUsuario) {
+                case "0100":
+                    consultar.setOnClickListener(this);
+                    insertar.setOnClickListener(this);
+                    editar.setOnClickListener(this);
+                    eliminar.setOnClickListener(this);
+                    break;
+                case "0200":
+                case "0300":
+                case "0500":
+                case "0400":
+                case "0600":
+                    consultar.setOnClickListener(this);
+                    insertar.setVisibility(View.GONE);
+                    editar.setVisibility(View.GONE);
+                    eliminar.setVisibility(View.GONE);
+                    break;
+
+            }
+        }
     }
 
     @Override

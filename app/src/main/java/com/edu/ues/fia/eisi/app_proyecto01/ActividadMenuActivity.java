@@ -23,14 +23,18 @@ public class ActividadMenuActivity extends AppCompatActivity implements View.OnC
         Asistencia = (CardView) findViewById(R.id.cardAsistencia);
         Actividad = (CardView) findViewById(R.id.cardActividad);
 
-
+        DetalleActividad.setOnClickListener(this);
+        ListaHorario.setOnClickListener(this);
+        ListaEquipoDidactico.setOnClickListener(this);
+        Asistencia.setOnClickListener(this);
+        Actividad.setOnClickListener(this);
         Intent intent = getIntent();
         tipoUsuario = intent.getExtras().getString("OpcionCrud");
-        if (tipoUsuario != null) {
+/*        if (tipoUsuario != null) {
             //   String opcioncRUD=tipoUsuario;
             switch (tipoUsuario) {
                 case "0100":
-                    /*Le pones el capturador de eventos*/
+                    *//*Le pones el capturador de eventos*//*
                     DetalleActividad.setOnClickListener(this);
                     ListaHorario.setOnClickListener(this);
                     ListaEquipoDidactico.setOnClickListener(this);
@@ -39,10 +43,10 @@ public class ActividadMenuActivity extends AppCompatActivity implements View.OnC
                     break;
                 case "0200":
                     DetalleActividad.setOnClickListener(this);
-                    ListaHorario.setVisibility(View.GONE);
-                    ListaEquipoDidactico.setVisibility(View.GONE);
+                    ListaHorario.setOnClickListener(this);
+                    ListaEquipoDidactico.setOnClickListener(this);
                     Asistencia.setOnClickListener(this);
-                    Actividad.setVisibility(View.GONE);
+                    Actividad.setOnClickListener(this);
                     break;
                 case "0300":
                     break;
@@ -56,7 +60,7 @@ public class ActividadMenuActivity extends AppCompatActivity implements View.OnC
             }
 
 
-        }
+        }*/
     }
 
     @Override

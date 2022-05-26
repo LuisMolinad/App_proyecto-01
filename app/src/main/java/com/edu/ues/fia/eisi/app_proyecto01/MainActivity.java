@@ -25,6 +25,14 @@ public Integer rol;
         BDhelper=new ControlBDActividades(this);
         Intent intent = getIntent();
        tipoUsuario = intent.getExtras().getString("OpcionCrud");
+        cardMenuActividad = (CardView) findViewById(R.id.cardActividad);
+        cardMenuCatalogo = (CardView) findViewById(R.id.cardCatalogoAcademico);
+        cardMenuParticular = (CardView) findViewById(R.id.cardParticular);
+        cardMenuMiembro = (CardView) findViewById(R.id.cardMiembroUniversitario);
+        cardMenuHorario = (CardView) findViewById(R.id.cardHorario);
+        cardMenuEquipo = (CardView) findViewById(R.id.cardEquipo);
+        cardMenuCiclo = (CardView) findViewById(R.id.cardCiclo);
+        cardMenuLocal = (CardView) findViewById(R.id.cardLocal);
 
 
         BDhelper.abrir();
@@ -32,84 +40,51 @@ public Integer rol;
         BDhelper.cerrar();
         Toast.makeText(this, tost, Toast.LENGTH_SHORT).show();
 
-        if(tipoUsuario!=null){
+       if(tipoUsuario!=null){
          //   String opcioncRUD=tipoUsuario;
             switch (tipoUsuario){
-                case "0100":
-                    cardMenuActividad = (CardView) findViewById(R.id.cardActividad);
-                    cardMenuActividad.setOnClickListener(this);
-
-                    cardMenuCatalogo = (CardView) findViewById(R.id.cardCatalogoAcademico);
-                    cardMenuCatalogo.setOnClickListener(this);
-
-                    cardMenuParticular = (CardView) findViewById(R.id.cardParticular);
-                    cardMenuParticular.setOnClickListener(this);
-
-                    cardMenuMiembro = (CardView) findViewById(R.id.cardMiembroUniversitario);
-                    cardMenuMiembro.setOnClickListener(this);
-
-                    cardMenuHorario = (CardView) findViewById(R.id.cardHorario);
-                    cardMenuHorario.setOnClickListener(this);
-
-                    cardMenuEquipo = (CardView) findViewById(R.id.cardEquipo);
-                    cardMenuEquipo.setOnClickListener(this);
-
-                    cardMenuCiclo = (CardView) findViewById(R.id.cardCiclo);
-                    cardMenuCiclo.setOnClickListener(this);
-
-                    cardMenuLocal = (CardView) findViewById(R.id.cardLocal);
-                    cardMenuLocal.setOnClickListener(this);
-                    break;
                 case "0200":
-                    cardMenuActividad = (CardView) findViewById(R.id.cardActividad);
                     cardMenuActividad.setOnClickListener(this);
-
-                    cardMenuCatalogo = (CardView) findViewById(R.id.cardCatalogoAcademico);
                     cardMenuCatalogo.setOnClickListener(this);
-
-                    cardMenuParticular = (CardView) findViewById(R.id.cardParticular);
+                    cardMenuCiclo.setOnClickListener(this);
                     cardMenuParticular.setVisibility(View.GONE);
-
-                    cardMenuMiembro = (CardView) findViewById(R.id.cardMiembroUniversitario);
                     cardMenuMiembro.setVisibility(View.GONE);
-
-                    cardMenuHorario = (CardView) findViewById(R.id.cardHorario);
-                    cardMenuHorario.setVisibility(View.GONE);
-
-                    cardMenuEquipo = (CardView) findViewById(R.id.cardEquipo);
-                    cardMenuEquipo.setVisibility(View.GONE);
-
-                    cardMenuCiclo = (CardView) findViewById(R.id.cardCiclo);
-                    cardMenuCiclo.setVisibility(View.GONE);
-
-                    cardMenuLocal = (CardView) findViewById(R.id.cardLocal);
+                    cardMenuHorario.setOnClickListener(this);
+                    cardMenuEquipo.setOnClickListener(this);
                     cardMenuLocal.setVisibility(View.GONE);
+                case "0300":
+                    cardMenuActividad.setOnClickListener(this);
+                    cardMenuCatalogo.setOnClickListener(this);
+                    cardMenuCiclo.setOnClickListener(this);
+                    cardMenuParticular.setVisibility(View.GONE);
+                    cardMenuMiembro.setVisibility(View.GONE);
+                    cardMenuHorario.setOnClickListener(this);
+                    cardMenuEquipo.setOnClickListener(this);
+                    cardMenuLocal.setOnClickListener(this);
 
                     break;
-                default:
-                    cardMenuActividad = (CardView) findViewById(R.id.cardActividad);
-                    cardMenuActividad.setVisibility(View.GONE);
-
-                    cardMenuCatalogo = (CardView) findViewById(R.id.cardCatalogoAcademico);
-                    cardMenuCatalogo.setVisibility(View.GONE);
-
-                    cardMenuParticular = (CardView) findViewById(R.id.cardParticular);
+                case "0500":
+                    cardMenuActividad.setOnClickListener(this);
+                    cardMenuCatalogo.setOnClickListener(this);
+                    cardMenuCiclo.setOnClickListener(this);
                     cardMenuParticular.setVisibility(View.GONE);
+                    cardMenuMiembro.setOnClickListener(this);
+                    cardMenuHorario.setOnClickListener(this);
+                    cardMenuEquipo.setOnClickListener(this);
+                    cardMenuLocal.setOnClickListener(this);
 
-                    cardMenuMiembro = (CardView) findViewById(R.id.cardMiembroUniversitario);
-                    cardMenuMiembro.setVisibility(View.GONE);
+                    break;
+                case "0100":
+                default:
+                    cardMenuActividad.setOnClickListener(this);
+                    cardMenuCatalogo.setOnClickListener(this);
+                    cardMenuParticular.setOnClickListener(this);
+                    cardMenuMiembro.setOnClickListener(this);
+                    cardMenuHorario.setOnClickListener(this);
+                    cardMenuEquipo.setOnClickListener(this);
+                    cardMenuCiclo.setOnClickListener(this);
+                    cardMenuLocal.setOnClickListener(this);
 
-                    cardMenuHorario = (CardView) findViewById(R.id.cardHorario);
-                    cardMenuHorario.setVisibility(View.GONE);
-
-                    cardMenuEquipo = (CardView) findViewById(R.id.cardEquipo);
-                    cardMenuEquipo.setVisibility(View.GONE);
-
-                    cardMenuCiclo = (CardView) findViewById(R.id.cardCiclo);
-                    cardMenuCiclo.setVisibility(View.GONE);
-
-                    cardMenuLocal = (CardView) findViewById(R.id.cardLocal);
-                    cardMenuLocal.setVisibility(View.GONE);
             }
 
         }
@@ -133,7 +108,7 @@ public Integer rol;
                 break;
             case R.id.cardParticular:
                 i=new Intent(this, MenuParticular.class);
-                // i.putExtra("Rol",rol);
+                i.putExtra("OpcionCrud",tipoUsuario);
                 startActivity(i);
                 break;
             case R.id.cardMiembroUniversitario:
@@ -146,7 +121,6 @@ public Integer rol;
             case R.id.cardHorario:
                 i=new Intent(this, MenuHorario.class);
                 // i.putExtra("Rol",rol);
-                i.putExtra("OpcionCrud",tipoUsuario);
                 i.putExtra("OpcionCrud",tipoUsuario);
                 startActivity(i);
                 break;

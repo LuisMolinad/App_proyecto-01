@@ -29,32 +29,20 @@ public class MenuDetalleActividad extends AppCompatActivity implements View.OnCl
             //   String opcioncRUD=tipoUsuario;
             switch (tipoUsuario) {
                 case "0100":
-                    /*Le pones el capturador de eventos*/
+                case "0400":
+                case "0600":
                     insertar.setOnClickListener(this);
-                    //Consultar
                     consultar.setOnClickListener(this);
-                    //Editar
                     editar.setOnClickListener(this);
-                    //Eliminar
                     eliminar.setOnClickListener(this);
                     break;
                 case "0200":
-                    /*Le pones el capturador de eventos*/
-                    insertar.setVisibility(View.GONE);
-                    //Consultar
-                    consultar.setOnClickListener(this);
-                    //Editar
-                    editar.setVisibility(View.GONE);
-                    //Eliminar
-                    eliminar.setVisibility(View.GONE);
-                    break;
                 case "0300":
-                    break;
-                case "0400":
-                    break;
                 case "0500":
-                    break;
-                case "0600":
+                    insertar.setVisibility(View.GONE);
+                    consultar.setOnClickListener(this);
+                    editar.setVisibility(View.GONE);
+                    eliminar.setVisibility(View.GONE);
                     break;
 
             }

@@ -9,7 +9,7 @@ import android.view.View;
 
 public class MenuParticular extends AppCompatActivity implements View.OnClickListener {
 CardView cardInsertarParticular, cardEditarParticular, cardEliminarParticular, cardConsultarParticular;
-    Intent i;
+    String tipoUsuario;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,25 +22,42 @@ CardView cardInsertarParticular, cardEditarParticular, cardEliminarParticular, c
         cardConsultarParticular = (CardView) findViewById(R.id.cardConsultarParticular);
 
 
+        Intent intent = getIntent();
+        tipoUsuario = intent.getExtras().getString("OpcionCrud");
+        if (tipoUsuario != null) {
+            //   String opcioncRUD=tipoUsuario;
+            switch (tipoUsuario) {
+                case "0100":
+                    cardInsertarParticular.setOnClickListener(this);
+                    cardEditarParticular.setOnClickListener(this);
+                    cardEliminarParticular.setOnClickListener(this);
+                    cardConsultarParticular.setOnClickListener(this);
+                    break;
+                case "0200":
+                case "0400":
+                case "0600":
+                    cardInsertarParticular.setVisibility(View.GONE);
+                    cardEditarParticular.setVisibility(View.GONE);
+                    cardEliminarParticular.setVisibility(View.GONE);
+                    cardConsultarParticular.setOnClickListener(this);
+                    break;
+                case "0500":
+                    break;
+
+            }
+        }
+
         cardInsertarParticular.setOnClickListener(this);
         cardEditarParticular.setOnClickListener(this);
         cardEliminarParticular.setOnClickListener(this);
         cardConsultarParticular.setOnClickListener(this);
 
-        //Para Ocultar
-        //cardEditarParticular.setVisibility(View.GONE);
-        //enviados a la siguiente vista como lo hace el Ing
-        /*cardInsertarParticular.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                i = new Intent(getApplicationContext(), InsertarParticularActivity.class);
-                startActivity(i);
-            }
-        });*/
+
     }
 
     @Override
     public void onClick(View view) {
+        Intent i ;
         switch (view.getId()){
             case R.id.cardInsertarParticular:
                 i=new Intent(this, InsertarParticularActivity.class);
