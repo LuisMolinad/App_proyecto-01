@@ -5,7 +5,6 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import java.util.Date;
 
 public class ControlBDActividades {
 
@@ -25,6 +24,8 @@ public class ControlBDActividades {
     /*Rosalio*/
     private static final String[] campoMiembroUniversitario = new String[]
             {"IDMIEMBROUNIVERSITARIO", "IDASIGNATURA", "IDUSUARIO", "NOMBREMIEMBROUNIVERSITARIO", "TIPOMIEMBRO"};
+    private static final String[] campoParticular = new String[]
+            {"IDPARTICULAR", "IDUSUARIO", "NOMBREPARTICULAR", "APELLIDOPARTICULAR"};
     //TODO: insertar los valores de tabla materia
 
     private final Context context;
@@ -201,40 +202,36 @@ public class ControlBDActividades {
                     return false;
             }
              */
-            case 1:
-            {
+            case 1: {
                 MiembroUniversitario miembroUniversitario = (MiembroUniversitario) dato;
-                Cursor c=db.query(true, "MIEMBROUNVERSITARIOS", new String[] {"IDMIEMBROUNIVERSITARIO" }, "IDMIEMBROUNIVERSITARIO='"+miembroUniversitario.getIdMiembroUniversitario()+"'",null, null, null, null, null);
-                if(c.moveToFirst())
+                Cursor c = db.query(true, "MIEMBROUNVERSITARIOS", new String[]{"IDMIEMBROUNIVERSITARIO"}, "IDMIEMBROUNIVERSITARIO='" + miembroUniversitario.getIdMiembroUniversitario() + "'", null, null, null, null, null);
+                if (c.moveToFirst())
                     return true;
                 else
                     return false;
             }
-            case 2:
-            {
+            case 2: {
                 MiembroUniversitario miembroUniversitario = (MiembroUniversitario) dato;
                 String[] id = {miembroUniversitario.getIdMiembroUniversitario()};
 
                 abrir();
                 Cursor c = db.query("MIEMBROUNIVERSITARIOS", null, "IDMIEMBROUNIVERSITARIO = ?", id, null, null, null);
-                if( c.moveToFirst()){
+                if (c.moveToFirst()) {
                     //Se encontro fk y pk existentes
                     return true;
-                }
-                else {
+                } else {
                     return false;
                 }
             }
-            case 3:
-            {
+            case 3: {
                 Materia materia = (Materia) dato;
-                Cursor c=db.query(true, "materia", new String[] {"IDASIGNATURA" }, "IDASIGNATURA='"+materia.getIDASIGNATURA()+"'",null, null, null, null, null);
-                if(c.moveToFirst())
+                Cursor c = db.query(true, "materia", new String[]{"IDASIGNATURA"}, "IDASIGNATURA='" + materia.getIDASIGNATURA() + "'", null, null, null, null, null);
+                if (c.moveToFirst())
                     return true;
                 else
                     return false;
             }
-            case 4:{
+            case 4: {
                 MiembroUniversitario miembroUniversitario = (MiembroUniversitario) dato;
                 String[] id2 = {miembroUniversitario.getIdUsuario()};
                 String[] id3 = {miembroUniversitario.getIdAsignatura()};
@@ -243,14 +240,13 @@ public class ControlBDActividades {
                 Cursor c2 = db.query("USUARIO", null, "IDUSUARIO = ?", id2, null, null, null);
                 Cursor c3 = db.query("MATERIA", null, "IDASIGNATURA = ?", id3, null, null, null);
 
-                if( c2.moveToFirst() && c3.moveToFirst()){
+                if (c2.moveToFirst() && c3.moveToFirst()) {
                     //Se encontro fk y pk existentes
                     return true;
                 }
                 return false;
             }
-            case 5:
-            {
+            case 5: {
                 //verificar que exista escuela y carrera
                 Escuela escuela = (Escuela) dato;
                 String[] id = {escuela.getIDESCUELA()};
@@ -260,14 +256,13 @@ public class ControlBDActividades {
                         null);
                 Cursor c3 = db.query("carrera", null, "IDCARRERA = ?", id2, null, null,
                         null);
-                if(c2.moveToFirst() && c3.moveToFirst()){
+                if (c2.moveToFirst() && c3.moveToFirst()) {
                     //Se encontro fk y pk existentes
                     return true;
                 }
                 return false;
             }
-            case 6:
-            {
+            case 6: {
                 //verificar que exista escuela y carrera
                 Materia materia = (Materia) dato;
                 String[] id4 = {materia.getIDASIGNATURA()};
@@ -277,7 +272,7 @@ public class ControlBDActividades {
                         null);
                 Cursor c3 = db.query("escuela", null, "IDESCUELA = ?", id3, null, null,
                         null);
-                if(c2.moveToFirst() && c3.moveToFirst()){
+                if (c2.moveToFirst() && c3.moveToFirst()) {
                     //Se encontro fk y pk existentes
                     return true;
                 }
@@ -285,14 +280,19 @@ public class ControlBDActividades {
             }
 
             /*Rosalio*/
-            case 7:{
+            //Insertar
+            case 20: {
+                Particular particular = (Particular) dato;
+                String[] id = {particular.getIDPUSUARIO()};
+                abrir();
+                Cursor c = db.query("USUARIO", null, "IDUSUARIO = ?", id, null, null, null);
+                if (c.moveToFirst()) {
+                    return true;
+                }
                 return false;
             }
-            default:
-                return false;
         }
-
-
+        return false;
     }
 
     /*LLenar base de datos */
@@ -755,22 +755,6 @@ public String insertarEscuela (Escuela escuela){
         }
     }
 
-    /*
-    public String eliminarMateria(Materia materia) {
-        String regAfectados="filas afectadas= ";
-        int contador=0;
-        if (verificarIntegridad(materia,3)) {
-            contador+=db.delete("materia", "IDASIGNATURA='"+materia.getIDASIGNATURA()+"'", null);
-            regAfectados+=contador;
-            return regAfectados;
-        }
-        else   {
-            return "Registro no existe ";
-        }
-        // contador+=db.delete("materia", "IDASIGNATURA='"+materia.getIDASIGNATURA()+"'", null);
-
-    }
-     */
     public MiembroUniversitario consultarMiembroUniversitario(String idMiembroUniversitario){
         String[] id = {idMiembroUniversitario};
 
@@ -790,6 +774,7 @@ public String insertarEscuela (Escuela escuela){
         }
     }
 
+    /*Actividad*/
     public String insertarActividad(Actividad actividad){
         String regInsertados = "Registro Insertado Nº = ";
 
@@ -819,6 +804,36 @@ public String insertarEscuela (Escuela escuela){
         }
         else {
             return "Verificar los datos";
+        }
+    }
+
+    /*==============================================================*/
+    /* Table: CRUD PARTICULAR                                       */
+    /*==============================================================*/
+    /*Insertar*/
+
+    public String insertarParticular(Particular particular){
+        String regInsertados = "Se han insertado un total de: ";
+        long contador = 0;
+        ContentValues cv = new ContentValues();
+
+        if(verificarIntegridad(particular, 20)){
+            cv.put("IDPARTICULAR", particular.getIDPARTICULAR());
+            cv.put("IDUSUARIO", particular.getIDPUSUARIO());
+            cv.put("NOMBREPARTICULAR ", particular.getNOMBREPARTICULAR());
+            cv.put("APELLIDOPARTICULAR", particular.getAPELLIDOPARTICULAR());
+
+            contador = db.insert("PARTICULAR", null, cv);
+            if (contador == -1 || contador ==0){
+                regInsertados = "Error al insertar el registro, el registro esta duplicado o algo, por favor revisar el dato que ud quiere insertar";
+            }
+            else {
+                regInsertados = regInsertados + contador;
+            }
+            return  regInsertados;
+        }
+        else {
+            return  "Error verificar datos";
         }
     }
 }
