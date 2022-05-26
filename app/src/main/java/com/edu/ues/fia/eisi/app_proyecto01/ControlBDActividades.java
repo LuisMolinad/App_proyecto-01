@@ -24,7 +24,10 @@ public class ControlBDActividades {
     /*Rosalio*/
     private static final String[] campoMiembroUniversitario = new String[]
             {"IDMIEMBROUNIVERSITARIO", "IDASIGNATURA", "IDUSUARIO", "NOMBREMIEMBROUNIVERSITARIO", "TIPOMIEMBRO"};
-    private static final String[] campoParticular = new String[] {"IDPARTICULAR", "IDUSUARIO", "NOMBREPARTICULAR", "APELLIDOPARTICULAR"};
+    private static final String[] campoParticular = new String[]
+            {"IDPARTICULAR", "IDUSUARIO", "NOMBREPARTICULAR", "APELLIDOPARTICULAR"};
+    private static final String[] campoActividad = new String[]
+            {"IDACTIVIDAD", "IDMIEMBROUNIVERSITARIO", "NOMBREACTIVIDAD", "FECHARESERVA", "DESDEACTIVIDAD", "HASTAACTIVIDAD", "APROBADO"};
     //TODO: insertar los valores de tabla materia
 
     private final Context context;
@@ -91,7 +94,7 @@ public class ControlBDActividades {
                         "   FECHARESERVA         VARCHAR2(15)                    not null,\n" +
                         "   DESDEACTIVIDAD       VARCHAR2(15)                    not null,\n" +
                         "   HASTAACTIVIDAD       VARCHAR2(15)                    not null,\n" +
-                        "   APROBADO             SMALLINT                        not null,\n" +
+                        "   APROBADO             VARCHAR2(2)                     not null,\n" +
                         "   constraint PK_ACTIVIDAD primary key (IDACTIVIDAD)\n" +
                         ");\n");
                 /*==============================================================*/
@@ -130,77 +133,6 @@ public class ControlBDActividades {
     /*Verificar integridad*/
     private boolean verificarIntegridad(Object dato, int relacion) throws SQLException {
         switch (relacion) {
-         /*   case 1:
-            {
-        //verificar que al insertar nota exista carnet del alumno y el codigo de materia
-                Nota nota = (Nota)dato;
-                String[] id1 = {nota.getCarnet()};
-                String[] id2 = {nota.getCodmateria()};
-                //abrir();
-                Cursor cursor1 = db.query("alumno", null, "carnet = ?", id1, null,
-                        null, null);
-                Cursor cursor2 = db.query("materia", null, "codmateria = ?", id2,
-                        null, null, null);
-                if(cursor1.moveToFirst() && cursor2.moveToFirst()){
-                    //Se encontraron datos
-                    return true;
-                }
-                return false;
-            }
-            case 2:
-            {
-                //verificar que al modificar nota exista carnet del alumno, el codigo de materia y el ciclo
-                Nota nota1 = (Nota)dato;
-                String[] ids = {nota1.getCarnet(), nota1.getCodmateria(),
-                        nota1.getCiclo()};
-                abrir();
-                Cursor c = db.query("nota", null, "carnet = ? AND codmateria = ? AND
-                        ciclo = ?", ids, null, null, null);
-                if(c.moveToFirst()){
-                        //Se encontraron datos
-                    return true;
-                }
-                return false;
-            }
-            case 3:
-            {
-                Alumno alumno = (Alumno)dato;
-                Cursor c=db.query(true, "nota", new String[] {"carnet" }, "carnet='"+alumno.getCarnet()+"'",null, null, null, null, null);
-                if(c.moveToFirst())
-                    return true;
-                else
-                    return false;
-            }
-            case 4:
-            {
-                Materia materia = (Materia)dato;
-                Cursor cmat=db.query(true, "nota", new String[] {
-                                "codmateria" },
-                        "codmateria='"+materia.getCodmateria()+"'",null, null, null, null, null);
-                if(cmat.moveToFirst())
-                    return true;
-                else
-                    return false;
-            }
-            case 1:
-            {
-                MiembroUniversitario miembroUniversitario = (MiembroUniversitario) dato;
-                String[] id = {miembroUniversitario.getIdMiembroUniversitario()};
-                String[] id2 = {miembroUniversitario.getIdUsuario()};
-                String[] id3 = {miembroUniversitario.getIdAsignatura()};
-
-                abrir();
-                Cursor c = db.query("MIEMBROUNIVERSITARIOS", null, "IDMIEMBROUNIVERSITARIO = ?", id, null, null, null);
-                Cursor c2 = db.query("USUARIO", null, "IDUSUARIO = ?", id2, null, null, null);
-                Cursor c3 = db.query("MATERIA", null, "IDASIGNATURA = ?", id3, null, null, null);
-
-                if( c.moveToFirst() && c2.moveToFirst() && c3.moveToFirst()){
-                    //Se encontro fk y pk existentes
-                    return true;
-                }
-                    return false;
-            }
-             */
             case 1: {
                 MiembroUniversitario miembroUniversitario = (MiembroUniversitario) dato;
                 Cursor c = db.query(true, "MIEMBROUNVERSITARIOS", new String[]{"IDMIEMBROUNIVERSITARIO"}, "IDMIEMBROUNIVERSITARIO='" + miembroUniversitario.getIdMiembroUniversitario() + "'", null, null, null, null, null);
@@ -290,10 +222,30 @@ public class ControlBDActividades {
                 }
                 return false;
             }
-            //Eliminar
+            //Eliminar particular
             case 21:{
                 Particular particular = (Particular) dato;
                 Cursor c = db.query(true, "PARTICULAR", new String[]{"IDPARTICULAR"}, "IDPARTICULAR = '" + particular.getIDPARTICULAR() + "' ", null, null, null, null, null);
+                if(c.moveToFirst())
+                    return true;
+                else
+                    return false;
+            }
+            //Insertar actividad
+            case 22:{
+                Actividad actividad = (Actividad) dato;
+                String[] id = {actividad.getIdMiembroUniversitario()};
+                abrir();
+                Cursor c = db.query("MIEMBROUNVERSITARIOS", null, "IDMIEMBROUNIVERSITARIO = ?", id,null, null, null);
+                if (c.moveToFirst()) {
+                    return true;
+                }
+                return false;
+            }
+            //Eliminar actividad
+            case 23:{
+                Actividad actividad = (Actividad) dato;
+                Cursor c = db.query("ACTIVIDAD", new String[]{"IDACTIVIDAD"}, "IDACTIVIDAD = '" + actividad.getIdActividad() + "'", null, null, null, null, null);
                 if(c.moveToFirst())
                     return true;
                 else
@@ -782,7 +734,10 @@ public String insertarEscuela (Escuela escuela){
         }
     }
 
-    /*Actividad*/
+    /*==============================================================*/
+    /* Table: ACTIVIDAD CRUD                                        */
+    /*==============================================================*/
+    //Insertar
     public String insertarActividad(Actividad actividad){
         String regInsertados = "Registro Insertado Nº = ";
 
@@ -790,7 +745,7 @@ public String insertarEscuela (Escuela escuela){
 
         ContentValues carr = new ContentValues();
 
-        if(verificarIntegridad(actividad, 7)){
+        if(verificarIntegridad(actividad, 22)){
             carr.put("IDACTIVIDAD", actividad.getIdActividad());
             carr.put("IDMIEMBROUNIVERSITARIO", actividad.getIdMiembroUniversitario());
             carr.put("NOMBREACTIVIDAD", actividad.getNombreActividad());
@@ -813,6 +768,73 @@ public String insertarEscuela (Escuela escuela){
         else {
             return "Verificar los datos";
         }
+    }
+
+    public String actualizarActividad(Actividad actividad){
+        String[] id = {actividad.getIdActividad()};
+        String regActualizados = "El total de registros actualizados es: ";
+
+        ContentValues cv = new ContentValues();
+        long contador = 0;
+
+        if(verificarIntegridad(actividad, 22)){
+            cv.put("IDMIEMBROUNIVERSITARIO", actividad.getIdMiembroUniversitario());
+            cv.put("NOMBREACTIVIDAD", actividad.getNombreActividad());
+            cv.put("FECHARESERVA",actividad.getFechaReserva());
+            cv.put("DESDEACTIVIDAD", actividad.getDesdeActividad());
+            cv.put("HASTAACTIVIDAD", actividad.getHastaActividad());
+            cv.put("APROBADO", actividad.getAprobado());
+
+            contador = db.update("ACTIVIDAD", cv, "IDACTIVIDAD = ?",id);
+
+            if(contador == -1 || contador == 0){
+                regActualizados = "Error al actualizar el registro, favor verifivar insercion";
+            }
+            else {
+                regActualizados = regActualizados + contador;
+            }
+            return regActualizados;
+        }
+        else {
+            return "No existe el registro";
+        }
+    }
+
+    //Consultar
+    public Actividad consultarActividad(String idActividad){
+        String[] id = {idActividad};
+
+        Cursor cursor = db.query("ACTIVIDAD",campoActividad, "IDACTIVIDAD = ?", id, null,null,null);
+
+        if(cursor.moveToFirst()){
+            Actividad actividad = new Actividad();
+            actividad.setIdMiembroUniversitario(cursor.getString(1));
+            actividad.setNombreActividad(cursor.getString(2));
+            actividad.setFechaReserva(cursor.getString(3));
+            actividad.setDesdeActividad(cursor.getString(4));
+            actividad.setHastaActividad(cursor.getString(5));
+            actividad.setAprobado(cursor.getString(6));
+
+            return actividad;
+        }
+
+        return null;
+    }
+
+    public String eliminarActividad(Actividad actividad){
+        String regAfectados = "La cantidad de datos eliminados es: ";
+        int contador = 0;
+
+        if(verificarIntegridad(actividad, 23)){
+            contador += db.delete("ACTIVIDAD", "IDACTIVIDAD = '" + actividad.getIdActividad() + "'" , null);
+            regAfectados += contador;
+
+            return regAfectados;
+        }
+        else {
+            return "No se encontreo el registro";
+        }
+
     }
 
     /*==============================================================*/

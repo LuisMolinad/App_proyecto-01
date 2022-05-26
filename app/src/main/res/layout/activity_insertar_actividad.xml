@@ -145,19 +145,64 @@
                     android:id="@+id/txtFecha"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="2"
+                    android:layout_weight="5"
                     android:text="Fecha de reserva"
                     android:textAlignment="center"
                     android:gravity="center"
                     android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:weightSum="11">
 
                 <EditText
-                    android:id="@+id/fechaDeReserva"
+                    android:id="@+id/diaFechaReserva"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="3"
-                    android:ems="10"
-                    android:inputType="date"
+                    android:hint="DIA"
+                    android:inputType="number"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="/"
+                    android:textAlignment="center"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/mesFechaReserva"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:hint="MES"
+                    android:inputType="number"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="/"
+                    android:textAlignment="center"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/anioFechaReserva"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:hint="AÑO"
+                    android:inputType="number"
                     android:textAlignment="center" />
             </LinearLayout>
 
@@ -182,19 +227,60 @@
                     android:textAlignment="center"
                     android:gravity="center"
                     android:textSize="20sp" />
-
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center">
+                android:orientation="horizontal"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:weightSum="11">
 
-                <DatePicker
-                    android:id="@+id/datePicker1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:minDate="1/1/2020" />
+                <EditText
+                    android:id="@+id/diaDesde"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:hint="DIA"
+                    android:inputType="number"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="/"
+                    android:textAlignment="center"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/mesDesde"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:hint="MES"
+                    android:inputType="number"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="/"
+                    android:textAlignment="center"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/anioDesde"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:hint="AÑO"
+                    android:inputType="number"
+                    android:textAlignment="center" />
             </LinearLayout>
 
             <Space
@@ -213,22 +299,66 @@
                     android:id="@+id/txtHastaActividad"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="2"
+                    android:layout_weight="5"
                     android:text="Hasta actividad"
                     android:textAlignment="center"
                     android:gravity="center"
                     android:textSize="20sp" />
-
-                <EditText
-                    android:id="@+id/hastaActividad"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:ems="10"
-                    android:inputType="date"
-                    android:textAlignment="center" />
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:weightSum="11">
+
+                <EditText
+                    android:id="@+id/diaHasta"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:hint="DIA"
+                    android:inputType="number"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="/"
+                    android:textAlignment="center"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/mesHasta"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:hint="MES"
+                    android:inputType="number"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="/"
+                    android:textAlignment="center"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/anioHasta"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:hint="AÑO"
+                    android:inputType="number"
+                    android:textAlignment="center" />
+            </LinearLayout>
 
             <Space
                 android:layout_width="0dp"
@@ -277,7 +407,8 @@
                     android:id="@+id/insertar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Insertar" />
+                    android:text="Insertar"
+                    android:onClick="insertarActividad"/>
             </LinearLayout>
 
         </LinearLayout>
