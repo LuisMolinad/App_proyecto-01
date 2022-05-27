@@ -56,6 +56,12 @@
     <string name="txtUpdate">Editar</string>
     <string name="txtDelete">Eliminar</string>
 
+    <!-- TODO CRUD Web -->
+    <string name="txtCreateWeb">Insertar Online</string>
+    <string name="txtReadWeb">Consultar Online</string>
+    <string name="txtUpdateWeb">Editar Online</string>
+    <string name="txtDeleteWeb">Eliminar Online</string>
+
     <!-- TODO Gestion Actividad -->
     <string name="GestionActividad">Menu Actividad</string>
 
@@ -103,7 +109,6 @@
     <!-- TODO Label DetalleActividad -->
     <string name="idDetalle">Código del detalle de actividad</string>
     <string name="descripcionActividad">Descripción de actividad</string>
-
 
 
 </resources>
