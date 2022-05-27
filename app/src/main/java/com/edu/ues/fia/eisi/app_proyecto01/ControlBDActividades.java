@@ -1099,7 +1099,6 @@ public String insertarEscuela (Escuela escuela){
         }
         return null;
     }
-
     /*Eliminar*/
     public String eliminarEquipoDidactico(EquipoDidactico equipodidactico){
         String regAfectados = "La cantidad de datos eliminados es: ";
@@ -1109,12 +1108,9 @@ public String insertarEscuela (Escuela escuela){
             return regAfectados;
         }
 
-
-
     /*Actualizar*/
     public String actualizarEquipoDidactico(EquipoDidactico equipodidactico){
         String regActualizados = "El total de registros actualizados es: ";
-
         String[] id = {equipodidactico.getIDEQUIPO()};
             ContentValues cv = new ContentValues();
         int contador = 0;
@@ -1130,32 +1126,4 @@ public String insertarEscuela (Escuela escuela){
             }
             return regActualizados;
         }
-
-  /*  public void actualizarEquipoDidactico(View v){
-        String id_equipo = idEquipoE.getText().toString();
-        String nombre_equipo = nombreE.getText().toString();
-        String descripcion_equipo = descripcionE.getText().toString();
-
-        //Validar que no este vacio
-        if(id_equipo.isEmpty() || nombre_equipo.isEmpty() || descripcion_equipo.isEmpty()){
-            Toast.makeText(this, "Todos los campos tiene que estar llenos", Toast.LENGTH_SHORT).show();
-        }
-        else {
-            String regActualizados;
-
-            EquipoDidactico equipodidactico = new EquipoDidactico();
-
-            equipodidactico.setIDEQUIPO(id_equipo);
-            equipodidactico.setNOMBRE(nombre_equipo);
-            equipodidactico.setDESCRIPCIONEQUIPO(descripcion_equipo);
-
-
-            helper.abrir();
-            regActualizados = helper.actualizarEquipoDidactico(equipodidactico);
-            helper.cerrar();
-
-            Toast.makeText(this, regActualizados, Toast.LENGTH_SHORT).show();
-        }
-    }*/
-
 }
