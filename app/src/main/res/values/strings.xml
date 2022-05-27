@@ -1,0 +1,109 @@
+<resources>
+
+    <string name="inicioSec">Iniciar Sesión</string>
+    <string name="usuario">Usuario</string>
+    <string name="contra">Contraseña</string>
+    <string name="ingresar">Iniciar sesión</string>
+    <string name="ingresarEnlinea"> Ingreso Online</string>
+    <string name="app_name">Control de Actividades FIA</string>
+    <string name="MenuActividad">Menu Actividad</string>
+    <string name="MenuDetalleActividad">Menu Detalle Actividad</string>
+    <string name="MenuAsistencia">Menu Asistencia</string>
+    <string name="MenuCarrera">Menu Carrera</string>
+    <string name="MenuCiclo">Menu Ciclo</string>
+    <string name="MenuDetalleOferta">Menu Detalle Oferta</string>
+    <string name="MenuEquipoDidactico">Menu Equipo Didactico</string>
+    <string name="MenuEscuela">Menu Escuela</string>
+    <string name="MenudeHorario">Menu de Horario</string>
+    <string name="MenuListaHorario">Menu Lista Horario</string>
+    <string name="MenuListaEquipo">Menu Lista Equipo</string>
+    <string name="MenuLocal">Menu Local</string>
+    <string name="MenuMateria">Menu Materia</string>
+    <string name="MenumiembroUniversitario">Menu miembro Universitario</string>
+    <string name="MenuOfertaAcademica">Menu Oferta Academica</string>
+    <!--TODO:MENU PRINCIPAL-->
+    <string name="MenuParticular">Menu de Particular</string>
+    <string name="MenuMain">Menu Principal</string>
+    <string name="TextActividad">Menu Actividad</string>
+    <string name="TextCatalogoActividad">Catalogo de Actividades</string>
+    <string name="TextParticular">Particular</string>
+    <string name="TextMiembroUniversitario">Miembro Universitario</string>
+    <string name="TextHorario">Horario</string>
+    <string name="textEquipo">Equipo</string>
+    <string name="TextCiclo">Ciclo</string>
+    <string name="TextLocal">Local</string>
+    <!--TODO:MENU CRUD-->
+    <string name="Insertar">Insertar </string>
+    <string name="editar">Editar</string>
+    <string name="consultar">Consultar</string>
+    <string name="eliminar">Eliminar</string>
+    <!--TODO:LABEL CRUD PARTICULAR-->
+    <string name="InsertarParticular">Insertar Particular</string>
+    <string name="editarParticular">Editar Particular </string>
+    <string name="consultarParticular">Consultar Particular</string>
+    <string name="eliminarParticular">Eliminar Particular</string>
+
+    <!-- TODO: Menu Actividad -->
+    <string name="TextDetalleActividad">Detalle Actividad</string>
+    <string name="TextListaHorario">Lista Horario</string>
+    <string name="TextListaEquipoDidactico">Lista Equipo Didactico</string>
+    <string name="txtActividad">Actividad</string>
+    <string name="txtAsistencia">Asistencia</string>
+
+    <!-- TODO CRUD -->
+    <string name="txtCreate">Insertar</string>
+    <string name="txtRead">Consultar</string>
+    <string name="txtUpdate">Editar</string>
+    <string name="txtDelete">Eliminar</string>
+
+    <!-- TODO Gestion Actividad -->
+    <string name="GestionActividad">Menu Actividad</string>
+
+    <string name="CatalogoAcademico">Catalogo Academico</string>
+    <string name="txtOfertaAcademica">Oferta Academica</string>
+    <string name="txtCarrera">Carrera</string>
+    <string name="txtEscuela">Escuela</string>
+    <string name="txtMateria">Materia</string>
+    <string name="txtDetalleOferta">Detalle Oferta</string>
+
+    <!-- TODO Label Crud -->
+    <string name="insertar">Insertar </string>
+    <string name="cancelar">Cancelar </string>
+    <string name="guardar">Guardar </string>
+    <string name="eliminarbtn">Eliminar </string>
+    <string name="idCarrera">ID CARRERA </string>
+    <!-- TODO Label Escuela -->
+    <string name="idEscuela">ID ESCUELA </string>
+    <string name="nombreEscuela">Nombre Escuela</string>
+
+
+    <!-- TODO Label Carrera -->
+    <string name="nombreCarrera">Nombre Carrera</string>
+
+
+    <!-- TODO Label Materia -->
+    <string name="idAsignatura">ID ASIGNATURA</string>
+    <string name="nombreAsignatura">Nombre Asignatura</string>
+    <string name="unidadesValorativas">Unidades Valorativas</string>
+
+
+    <!-- TODO Label EquipoDidactico -->
+
+    <string name="idEquipo">Código del equipo</string>
+    <string name="nombreEquipo">Nombre del equipo</string>
+    <string name="descripcionEquipo">Descripción del equipo</string>
+    <string name="fechaDeCompraEquipo">Fecha de compra del equipo</string>
+
+
+    <!-- TODO Label ListaEquipoDidactico -->
+
+    <string name="idListaEquipo">Código de la lista de equipo didactico </string>
+
+
+    <!-- TODO Label DetalleActividad -->
+    <string name="idDetalle">Código del detalle de actividad</string>
+    <string name="descripcionActividad">Descripción de actividad</string>
+
+
+
+</resources>

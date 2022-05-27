@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.edu.ues.fia.eisi.app_proyecto01">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_minerva"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_minerva_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.App_proyecto01">
+        <activity
+            android:name=".loginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".EliminarDetalleOferta"
+            android:exported="false" />
+        <activity
+            android:name=".EditarDetalleOferta"
+            android:exported="false" />
+        <activity
+            android:name=".ConsultarDetalleOferta"
+            android:exported="false" />
+        <activity
+            android:name=".InsertarDetalleOferta"
+            android:exported="false" />
+        <activity
+            android:name=".EliminarMateria"
+            android:exported="false" />
+        <activity
+            android:name=".EditarMateria"
+            android:exported="false" />
+        <activity
+            android:name=".ConsultarMateria"
+            android:exported="false" />
+        <activity
+            android:name=".InsertarMateria"
+            android:exported="false" />
+        <activity
+            android:name=".EliminarEscuela"
+            android:exported="false" />
+        <activity
+            android:name=".EditarEscuela"
+            android:exported="false" />
+        <activity
+            android:name=".ConsultarEscuela"
+            android:exported="false" />
+        <activity
+            android:name=".InsertarEscuela"
+            android:exported="false" />
+        <activity
+            android:name=".ConsultarCarrera"
+            android:exported="false" />
+        <activity
+            android:name=".EliminarCarrera"
+            android:exported="false" />
+        <activity
+            android:name=".EditarCarrera"
+            android:exported="false" />
+        <activity
+            android:name=".InsertarCarrera"
+            android:exported="false" />
+        <activity
+            android:name=".EditarOfertaAcademica"
+            android:exported="false" />
+        <activity
+            android:name=".ConsultarOfertaAcademica"
+            android:exported="false" />
+        <activity
+            android:name=".EliminarOfertaAcademica"
+            android:exported="false" />
+        <activity
+            android:name=".InsertarOfertaAcademica"
+            android:exported="false" />
+        <activity
+            android:name=".EliminarLocal"
+            android:exported="false" />
+        <activity
+            android:name=".EditarLocal"
+            android:exported="false" />
+        <activity
+            android:name=".ConsultarLocal"
+            android:exported="false" />
+        <activity
+            android:name=".InsertarLocal"
+            android:exported="false" />
+        <activity
+            android:name=".EliminarCiclo"
+            android:exported="false" />
+        <activity
+            android:name=".EditarCiclo"
+            android:exported="false" />
+        <activity
+            android:name=".ConsultarCiclo"
+            android:exported="false" />
+        <activity
+            android:name=".InsertarCiclo"
+            android:exported="false" />
+        <activity
+            android:name=".EliminarEquipoDidactico"
+            android:exported="false" />
+        <activity
+            android:name=".ConsultarEquipoDidactico"
+            android:exported="false" />
+        <activity
+            android:name=".EditarEquipoDidactico"
+            android:exported="false" />
+        <activity
+            android:name=".InsertarEquipoDidactico"
+            android:exported="false" />
+        <activity
+            android:name=".EditarHorario"
+            android:exported="false" />
+        <activity
+            android:name=".ConsultarHorario"
+            android:exported="false" />
+        <activity
+            android:name=".EliminarHorario"
+            android:exported="false" />
+        <activity
+            android:name=".InsertarHorario"
+            android:exported="false" />
+        <activity
+            android:name=".ConsultarMiembroUniversitario"
+            android:exported="false" />
+        <activity
+            android:name=".EliminarMiembroUniversitario"
+            android:exported="false" />
+        <activity
+            android:name=".EditarMiembroUniversitario"
+            android:exported="false" />
+        <activity
+            android:name=".InsertarMiembroUniversitario"
+            android:exported="false" />
+        <activity
+            android:name=".EliminarAsistencia"
+            android:exported="false" />
+        <activity
+            android:name=".ConsultarAsistencia"
+            android:exported="false" />
+        <activity
+            android:name=".EditarAsistencia"
+            android:exported="false" />
+        <activity
+            android:name=".InsertarAsistencia"
+            android:exported="false" />
+        <activity
+            android:name=".EliminarListaEquipo"
+            android:exported="false" />
+        <activity
+            android:name=".EditarListaEquipo"
+            android:exported="false" />
+        <activity
+            android:name=".ConsultarListaEquipo"
+            android:exported="false" />
+        <activity
+            android:name=".InsertarListaEquipo"
+            android:exported="false" />
+        <activity
+            android:name=".EliminarListaHorario"
+            android:exported="false" />
+        <activity
+            android:name=".EditarListaHorario"
+            android:exported="false" />
+        <activity
+            android:name=".ConsultarListaHorario"
+            android:exported="false" />
+        <activity
+            android:name=".InsertarListaHorario"
+            android:exported="false" />
+        <activity
+            android:name=".EditarDetalleActividad"
+            android:exported="false" />
+        <activity
+            android:name=".EliminarDetalleActividad"
+            android:exported="false" />
+        <activity
+            android:name=".ConsultarDetalleActividad"
+            android:exported="false" />
+        <activity
+            android:name=".InsertarDetalleActividad"
+            android:exported="false" />
+        <activity
+            android:name=".EliminarActividad"
+            android:exported="false" />
+        <activity
+            android:name=".EditarActividad"
+            android:exported="false" />
+        <activity
+            android:name=".ConsultarActividad"
+            android:exported="false" />
+        <activity
+            android:name=".InsertarActividad"
+            android:exported="false" />
+        <activity
+            android:name=".MenuActividadd"
+            android:exported="false" />
+        <activity
+            android:name=".EliminarParticularActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ConsultarParticularActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditarParticularActivity"
+            android:exported="false" />
+        <activity
+            android:name=".InsertarParticularActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MenuCicloActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CatalogoAcademicoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MenuParticular"
+            android:exported="false" />
+        <activity
+            android:name=".MenuMiembroUniversitario"
+            android:exported="false" />
+        <activity
+            android:name=".MenuMateria"
+            android:exported="false" />
+        <activity
+            android:name=".MenuLocal"
+            android:exported="false" />
+        <activity
+            android:name=".MenuListaHorario"
+            android:exported="false" />
+        <activity
+            android:name=".MenuHorario"
+            android:exported="false" />
+        <activity
+            android:name=".MenuEscuela"
+            android:exported="false" />
+        <activity
+            android:name=".MenuListaEquipo"
+            android:exported="false" />
+        <activity
+            android:name=".MenuEquipoDidactico"
+            android:exported="false" />
+        <activity
+            android:name=".MenuDetalleOferta"
+            android:exported="false" />
+        <activity
+            android:name=".MenuOfertaAcademica"
+            android:exported="false" />
+        <activity
+            android:name=".MenuCarrera"
+            android:exported="false" />
+        <activity
+            android:name=".MenuAsistencia"
+            android:exported="false" />
+        <activity
+            android:name=".MenuDetalleActividad"
+            android:exported="false" />
+        <activity
+            android:name=".ActividadMenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false">
+        </activity>
+    </application>
+
+</manifest>
