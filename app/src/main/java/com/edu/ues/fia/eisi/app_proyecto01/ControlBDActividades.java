@@ -52,7 +52,7 @@ public class ControlBDActividades {
 
     private static class DatabaseHelper extends SQLiteOpenHelper {
         private static final String BASE_DATOS = "CONTROLDEACTIVIDADES.s3db";
-        private static final int VERSION = 3;
+        private static final int VERSION = 4;
 
         public DatabaseHelper(Context context) {
             super(context, BASE_DATOS, null, VERSION);
@@ -1077,7 +1077,7 @@ public String insertarEscuela (Escuela escuela){
 
         contador = db.insert("EQUIPODIDACTICO", null, cv);
         if (contador == -1 || contador ==0){
-            regInsertados = "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+            regInsertados = "Error al Insertar el registro, Registro Duplicado. Verificar";
         }
         else {
             regInsertados = regInsertados + contador;
