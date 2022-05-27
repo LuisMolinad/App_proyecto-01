@@ -19,7 +19,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
-public class CotroladorServicio {
+public class ControladorServicio {
     public static String obtenerRespuestaPeticion(String url, Context ctx) {
         String respuesta = " ";
         // Estableciendo tiempo de espera del servicio
@@ -82,13 +82,12 @@ public class CotroladorServicio {
         String json = obtenerRespuestaPeticion(peticion, ctx);
         try {
             JSONObject resultado = new JSONObject(json);
-            Toast.makeText(ctx, "Registro ingresado"+ resultado.getJSONArray("resultado").toString(), Toast.LENGTH_LONG).show();
+            Toast.makeText(ctx, "Registro ingresado"+ resultado.getJSONArray("resultado"), Toast.LENGTH_LONG).show();
             int respuesta = resultado.getInt("resultado");
             if (respuesta == 1)
                 Toast.makeText(ctx, "Registro ingresado", Toast.LENGTH_LONG).show();
             else
-                Toast.makeText(ctx, "Error registro duplicado",
-                        Toast.LENGTH_LONG).show();
+                Toast.makeText(ctx, "Error registro duplicado", Toast.LENGTH_LONG).show();
         } catch (JSONException e) {
             e.printStackTrace();
         }
