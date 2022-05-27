@@ -105,6 +105,20 @@ public class ControlBDActividades {
                         "   constraint PK_ASISTENCIA primary key (IDASISTENCIA)\n" +
                         ");\n");
 
+                //Tablas Katya
+
+                /*==============================================================*/
+                /* Table: EQUIPODIDACTICO                                       */
+                /*==============================================================*/
+                db.execSQL("create table EQUIPODIDACTICO  (\n" +
+                        "   IDEQUIPO             VARCHAR2(30)                    not null,\n" +
+                        "   NOMBRE             VARCHAR2(30)                    not null,\n" +
+                        "   DESCRIPCIONEQUIPO    VARCHAR2(50)                    not null,\n" +
+                        "   constraint PK_EQUIPODIDACTICO primary key (IDEQUIPO)\n" +
+                        ");");
+
+
+
 
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -301,6 +315,7 @@ public class ControlBDActividades {
             }
         }
         return false;
+
     }
 
     /*LLenar base de datos */
@@ -908,4 +923,67 @@ public String insertarEscuela (Escuela escuela){
         }
 
     }
+
+
+    //Parte Katya
+
+    /*==============================================================*/
+    /* Table: CRUD EquipoDidactico                                  */
+    /*==============================================================*/
+    /*Insertar*/
+
+    public String insertarEquipoDidactico(EquipoDidactico equipodidactico){
+        String regInsertados = "Se han insertado un total de: ";
+        long contador = 0;
+        ContentValues cv = new ContentValues();
+
+            cv.put("IDEQUIPO", equipodidactico.getIDEQUIPO());
+            cv.put("NOMBRE", equipodidactico.getNOMBRE());
+            cv.put("DESCRIPCIONEQUIPO", equipodidactico.getDESCRIPCIONEQUIPO());
+
+            contador = db.insert("EQUIPODIDACTICO", null, cv);
+            if (contador == -1 || contador ==0){
+                regInsertados = "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+            }
+            else {
+                regInsertados = regInsertados + contador;
+            }
+            return  regInsertados;
+        }
+
+ /* String regInsertados = "Se han insertado un total de: ";
+        long contador = 0;
+        ContentValues cv = new ContentValues();
+
+        if(verificarIntegridad(particular, 20)){
+            cv.put("IDPARTICULAR", particular.getIDPARTICULAR());
+            cv.put("IDUSUARIO", particular.getIDPUSUARIO());
+            cv.put("NOMBREPARTICULAR ", particular.getNOMBREPARTICULAR());
+            cv.put("APELLIDOPARTICULAR", particular.getAPELLIDOPARTICULAR());
+
+            contador = db.insert("PARTICULAR", null, cv);
+            if (contador == -1 || contador ==0){
+                regInsertados = "Error al insertar el registro, el registro esta duplicado o algo, por favor revisar el dato que ud quiere insertar";
+            }
+            else {
+                regInsertados = regInsertados + contador;
+            }
+            return  regInsertados;
+        }
+        else {
+            return  "Error verificar datos";
+        }
+
+
+
+
+
+
+  db.execSQL("create table EQUIPODIDACTICO  (\n" +
+          "   IDEQUIPO             VARCHAR2(30)                    not null,\n" +
+          "   NOMBRE             VARCHAR2(30)                    not null,\n" +
+          "   DESCRIPCIONEQUIPO    VARCHAR2(50)                    not null,\n" +
+          "   constraint PK_EQUIPODIDACTICO primary key (IDEQUIPO)\n" +
+          ");");*/
+
 }
