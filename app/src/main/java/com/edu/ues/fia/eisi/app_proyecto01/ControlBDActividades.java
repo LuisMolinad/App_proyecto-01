@@ -64,6 +64,13 @@ public class ControlBDActividades {
                 db.execSQL("CREATE TABLE accesoUsuario(IDUSUARIO VARCHAR(30),IDOPCION VARCHAR(30),primary key (IDUSUARIO, IDOPCION));");
                 //  db.execSQL("CREATE TABLE nota(carnet VARCHAR(7) NOT NULL ,codmateria VARCHAR(6) NOT NULL ,ciclo VARCHAR(5) ,notafinal REAL ,PRIMARY KEY(carnet,codmateria,ciclo));");
 
+                //Tablas Katya
+                db.execSQL("create table EQUIPODIDACTICO  (\n" +
+                        "   IDEQUIPO             VARCHAR2(30)                    not null,\n" +
+                        "   DESCRIPCIONEQUIPO    VARCHAR2(50)                    not null,\n" +
+                        "   constraint PK_EQUIPODIDACTICO primary key (IDEQUIPO)\n" +
+                        ");\n");
+
                 //Tablas Rosalio
                 /*==============================================================*/
                 /* Table: MIEMBROS UNIVERSITARIOS                               */
