@@ -4,7 +4,7 @@ public class Asistencia {
     private String idAsistencia;
     private int idDetalle;
     private String idMiembroUniversitario;
-    private  int califacion;
+    private int califacion;
 
     public Asistencia(){}
 

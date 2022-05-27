@@ -28,6 +28,8 @@ public class ControlBDActividades {
             {"IDPARTICULAR", "IDUSUARIO", "NOMBREPARTICULAR", "APELLIDOPARTICULAR"};
     private static final String[] campoActividad = new String[]
             {"IDACTIVIDAD", "IDMIEMBROUNIVERSITARIO", "NOMBREACTIVIDAD", "FECHARESERVA", "DESDEACTIVIDAD", "HASTAACTIVIDAD", "APROBADO"};
+    private static final String[] campoAsistencia = new String[]
+            {"IDASISTENCIA", "ID_DETALLE", "IDMIEMBROUNIVERSITARIO", "CALIFICACION"};
     //TODO: insertar los valores de tabla materia
 
     private final Context context;
@@ -246,6 +248,26 @@ public class ControlBDActividades {
             case 23:{
                 Actividad actividad = (Actividad) dato;
                 Cursor c = db.query("ACTIVIDAD", new String[]{"IDACTIVIDAD"}, "IDACTIVIDAD = '" + actividad.getIdActividad() + "'", null, null, null, null, null);
+                if(c.moveToFirst())
+                    return true;
+                else
+                    return false;
+            }
+            //Insertar asistencia
+            case 24:{
+                Asistencia asistencia = (Asistencia) dato;
+                String[] id = {asistencia.getIdMiembroUniversitario()};
+                abrir();
+                Cursor c = db.query("MIEMBROUNVERSITARIOS", null, "IDMIEMBROUNIVERSITARIO = ?", id,null, null, null);
+                if (c.moveToFirst()) {
+                    return true;
+                }
+                return false;
+            }
+            //Eliminar asistencia
+            case 25:{
+                Asistencia asistencia = (Asistencia) dato;
+                Cursor c = db.query(true, "ASISTENCIA", new String[]{"IDASISTENCIA"}, "IDASISTENCIA = '" + asistencia.getIdAsistencia() + "' ", null, null, null, null, null);
                 if(c.moveToFirst())
                     return true;
                 else
@@ -929,5 +951,97 @@ public String insertarEscuela (Escuela escuela){
             return "No existe el registro con el id "+particular.getIDPARTICULAR();
         }
 
+    }
+
+    /*==============================================================*/
+    /* Table: CRUD ASISTENCIA                                       */
+    /*==============================================================*/
+    //Insertar
+
+    public String insertarAsistencia(Asistencia asistencia){
+        String regInsertados = "Se han insertado un total de: ";
+        long contador = 0;
+        ContentValues cv = new ContentValues();
+
+        if(verificarIntegridad(asistencia, 24)){
+            cv.put("IDASISTENCIA", asistencia.getIdAsistencia());
+            cv.put("ID_DETALLE", asistencia.getIdDetalle());
+            cv.put("IDMIEMBROUNIVERSITARIO", asistencia.getIdMiembroUniversitario());
+            cv.put("CALIFICACION", asistencia.getCalifacion());
+
+            contador = db.insert("ASISTENCIA", null, cv);
+            if (contador == -1 || contador ==0){
+                regInsertados = "Error al insertar el registro, el registro esta duplicado o algo, por favor revisar el dato que ud quiere insertar";
+            }
+            else {
+                regInsertados = regInsertados + contador;
+            }
+            return  regInsertados;
+        }
+        else {
+            return  "Error verificar datos";
+        }
+    }
+
+    public Asistencia consultarAsistencia(String idAsistencia){
+        String[] id = {idAsistencia};
+
+        Cursor cursor = db.query("ASISTENCIA", campoAsistencia, "IDASISTENCIA = ?", id, null, null, null);
+
+        if(cursor.moveToFirst()){
+            Asistencia asistencia = new Asistencia();
+            asistencia.setIdDetalle(Integer.parseInt(cursor.getString(1)));
+            asistencia.setIdMiembroUniversitario(cursor.getString(2));
+            asistencia.setCalifacion(Integer.parseInt(cursor.getString(3)));
+
+            return asistencia;
+        }
+        return null;
+    }
+
+    //Eliminar
+    public String eliminarAsistencia(Asistencia asistencia){
+        String regAfectados = "La cantidad de datos eliminados es: ";
+        int contador = 0;
+
+
+        if(verificarIntegridad(asistencia, 25)){
+            contador += db.delete("ASISTENCIA", "IDASISTENCIA = '" + asistencia.getIdAsistencia().toString() + "' ",null);
+            regAfectados += contador;
+
+            return regAfectados;
+        }
+        else{
+            return "No se encontro el registro";
+        }
+    }
+
+    //Actualizar
+    public String actualizarAsistencia(Asistencia asistencia){
+        String[] id = {asistencia.getIdAsistencia()};
+
+        String regActualizados = "El total de registros actualizados es: ";
+
+        ContentValues cv = new ContentValues();
+        int contador = 0;
+
+        if(verificarIntegridad(asistencia, 24)){
+            cv.put("ID_DETALLE",asistencia.getIdDetalle() );
+            cv.put("IDMIEMBROUNIVERSITARIO", asistencia.getIdMiembroUniversitario());
+            cv.put("CALIFICACION", asistencia.getCalifacion());
+
+            contador = db.update("ASISTENCIA", cv, "IDASISTENCIA = ?", id);
+
+            if(contador == -1 || contador == 0){
+                regActualizados = "Error al actualizar los registros, favor verficar insercion de datos";
+            }
+            else{
+                regActualizados = regActualizados + contador;
+            }
+            return regActualizados;
+        }
+        else {
+            return "No existe el registro con el id "+ asistencia.getIdAsistencia();
+        }
     }
 }

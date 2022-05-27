@@ -34,18 +34,3 @@ public class EliminarActividad extends AppCompatActivity {
         Toast.makeText(this, regEliminados, Toast.LENGTH_SHORT).show();
     }
 }
-
-/*
-    public void eliminarParticular(View v){
-        String regEliminados;
-
-        Particular particular = new Particular();
-        particular.setIDPARTICULAR(idParticular.getText().toString());
-
-        helper.abrir();
-        regEliminados = helper.eliminarParticular(particular);
-        helper.cerrar();
-
-        Toast.makeText(this, regEliminados, Toast.LENGTH_SHORT).show();
-    }
- */
