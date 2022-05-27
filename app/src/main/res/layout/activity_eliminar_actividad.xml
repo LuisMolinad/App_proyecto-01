@@ -83,7 +83,8 @@
                     android:id="@+id/eliminar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Eliminar" />
+                    android:text="Eliminar"
+                    android:onClick="eliminarActividad"/>
             </LinearLayout>
 
         </LinearLayout>

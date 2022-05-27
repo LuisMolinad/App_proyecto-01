@@ -9,11 +9,11 @@ public class Actividad {
     private String fechaReserva;
     private String desdeActividad;
     private String hastaActividad;
-    private int aprobado;
+    private String aprobado;
 
     public Actividad(){}
 
-    public Actividad(String idActividad, String idMiembroUniversitario, String nombreActividad, String fechaReserva, String desdeActividad, String hastaActividad, int aprobado){
+    public Actividad(String idActividad, String idMiembroUniversitario, String nombreActividad, String fechaReserva, String desdeActividad, String hastaActividad, String aprobado){
         idActividad = this.idActividad;
         idMiembroUniversitario = this.idMiembroUniversitario;
         nombreActividad = this.nombreActividad;
@@ -48,11 +48,11 @@ public class Actividad {
     }
 
 
-    public int getAprobado() {
+    public String getAprobado() {
         return aprobado;
     }
 
-    public void setAprobado(int aprobado) {
+    public void setAprobado(String aprobado) {
         this.aprobado = aprobado;
     }
 
