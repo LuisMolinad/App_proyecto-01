@@ -20,6 +20,10 @@ public class ControlBDActividades {
     private static final String[] camposAccesoUsuario = new String[]
             {"IDUSUARIO","IDOPCION"};
 
+/*Katya*/
+
+    private static final String[] campoEquipoDidactico = new String[]
+            {"IDEQUIPO", "NOMBRE", "DESCRIPCIONEQUIPO"};
 
     /*Rosalio*/
     private static final String[] campoMiembroUniversitario = new String[]
@@ -67,6 +71,7 @@ public class ControlBDActividades {
                 //Tablas Katya
                 db.execSQL("create table EQUIPODIDACTICO  (\n" +
                         "   IDEQUIPO             VARCHAR2(30)                    not null,\n" +
+                        "   NOMBRE               VARCHAR2(30)                    not null,\n" +
                         "   DESCRIPCIONEQUIPO    VARCHAR2(50)                    not null,\n" +
                         "   constraint PK_EQUIPODIDACTICO primary key (IDEQUIPO)\n" +
                         ");\n");
@@ -1051,4 +1056,78 @@ public String insertarEscuela (Escuela escuela){
             return "No existe el registro con el id "+ asistencia.getIdAsistencia();
         }
     }
+
+    //Parte Katya
+
+    /*==============================================================*/
+    /* Table: CRUD EquipoDidactico                                  */
+    /*==============================================================*/
+    /*Insertar*/
+
+    public String insertarEquipoDidactico(EquipoDidactico equipodidactico){
+        String regInsertados = "Se han insertado un total de: ";
+        long contador = 0;
+        ContentValues cv = new ContentValues();
+
+        cv.put("IDEQUIPO", equipodidactico.getIDEQUIPO());
+        cv.put("NOMBRE", equipodidactico.getNOMBRE());
+        cv.put("DESCRIPCIONEQUIPO", equipodidactico.getDESCRIPCIONEQUIPO());
+
+        contador = db.insert("EQUIPODIDACTICO", null, cv);
+        if (contador == -1 || contador ==0){
+            regInsertados = "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        }
+        else {
+            regInsertados = regInsertados + contador;
+        }
+        return  regInsertados;
+    }
+    /*Consultar*/
+    public EquipoDidactico consultarEquipoDidactico(String idEquipo){
+        String[] id = {idEquipo};
+
+        Cursor cursor = db.query("EQUIPODIDACTICO", campoEquipoDidactico, "IDEQUIPO = ?", id,null,null,null);
+
+        if(cursor.moveToFirst()){
+            EquipoDidactico equipodidactico = new EquipoDidactico();
+            equipodidactico.setNOMBRE(cursor.getString(1));
+            equipodidactico.setDESCRIPCIONEQUIPO(cursor.getString(2));
+
+            return equipodidactico;
+        }
+        return null;
+    }
+
+    /*Eliminar*/
+    public String eliminarEquipoDidactico(EquipoDidactico equipodidactico){
+        String regAfectados = "La cantidad de datos eliminados es: ";
+        int contador = 0;
+            contador += db.delete("EQUIPODIDACTICO", "IDEQUIPO ='" + equipodidactico.getIDEQUIPO().toString() + "' ",null);
+            regAfectados += contador;
+            return regAfectados;
+        }
+
+
+
+    /*Actualizar*/
+    public String actualizarEquipoDidactico(EquipoDidactico equipodidactico){
+        String regActualizados = "El total de registros actualizados es: ";
+
+        String[] id = {equipodidactico.getIDEQUIPO()};
+            ContentValues cv = new ContentValues();
+        int contador = 0;
+            cv.put("IDEQUIPO", equipodidactico.getIDEQUIPO());
+            cv.put("NOMBRE", equipodidactico.getNOMBRE());
+            cv.put("DESCRIPCIONEQUIPO", equipodidactico.getDESCRIPCIONEQUIPO());
+            db.update("EQUIPODIDACTICO", cv, "IDEQUIPO = ?", id);
+
+            if(contador == -1 || contador == 0){
+                regActualizados = "Error al actualizar los registros, favor verficar insercion de datos";
+            }
+            else{
+                regActualizados = regActualizados + contador;
+            }
+            return regActualizados;
+        }
+
 }

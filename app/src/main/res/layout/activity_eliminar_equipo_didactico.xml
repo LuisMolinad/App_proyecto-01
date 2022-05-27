@@ -25,18 +25,20 @@
         app:layout_constraintVertical_bias="0.043" />
 
 
-    <Spinner
-
-        android:id="@+id/spinneridEquipoEliminar"
-        android:layout_width="360dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="336dp"
-        app:layout_constraintBottom_toTopOf="@+id/botonEliminarEquipoDidactico"
+    <EditText
+        android:id="@+id/idEquipo"
+        android:layout_width="228dp"
+        android:layout_height="46dp"
+        android:layout_weight="3"
+        android:ems="10"
+        android:hint="Código del equipo"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.017" />
+        app:layout_constraintTop_toBottomOf="@+id/textView10"
+        app:layout_constraintVertical_bias="0.288" />
 
     <Button
         android:id="@+id/botonEliminarEquipoDidactico"
@@ -47,7 +49,8 @@
         android:backgroundTint="@color/BotonEliminar"
         android:text="@string/eliminar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:onClick="eliminarEquipoDidactico"/>
 
     <Button
         android:id="@+id/botoncancelarEquipoDidactico"

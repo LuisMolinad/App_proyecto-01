@@ -23,60 +23,59 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.043" />
 
+
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/idEquipoInsertar"
-        android:textAllCaps="true"
-        android:layout_width="360dp"
-        android:layout_height="52dp"
+        android:layout_width="323dp"
+        android:layout_height="57dp"
         android:hint="@string/idEquipo"
         android:inputType="textCapCharacters"
+        android:textAllCaps="true"
         android:textColorHint="#616161"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.206" />
-
+        app:layout_constraintVertical_bias="0.219" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/nombreEquipoInsertar"
-        android:layout_width="360dp"
-        android:layout_height="52dp"
+        android:layout_width="323dp"
+        android:layout_height="55dp"
         android:hint="@string/nombreEquipo"
         android:inputType="textCapCharacters"
         android:textAllCaps="true"
         android:textColorHint="#616161"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintHorizontal_bias="0.534"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.363" />
+        app:layout_constraintTop_toBottomOf="@+id/idEquipoInsertar"
+        app:layout_constraintVertical_bias="0.135" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/descripcionEquipoInsertar"
-        android:layout_width="360dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="400dp"
+        android:layout_width="322dp"
+        android:layout_height="104dp"
         android:hint="@string/descripcionEquipo"
         android:inputType="textCapCharacters"
         android:textAllCaps="true"
         android:textColorHint="#616161"
         app:layout_constraintBottom_toTopOf="@+id/botoncancelarEquipoDidactico"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintHorizontal_bias="0.528"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/nombreEquipoInsertar"
+        app:layout_constraintVertical_bias="0.361" />
 
     <Button
         android:id="@+id/botonguardarEquipoDidactico"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="68dp"
-        android:layout_marginBottom="104dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="56dp"
         android:backgroundTint="@color/BotonGuardarr"
+        android:onClick="insertarEquipoDidactico"
         android:text="@string/guardar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -85,12 +84,12 @@
         android:id="@+id/botoncancelarEquipoDidactico"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="104dp"
+        android:layout_marginBottom="56dp"
         android:backgroundTint="@color/BotonCancelar"
         android:text="@string/cancelar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/botonguardarEquipoDidactico"
-        app:layout_constraintHorizontal_bias="0.693"
+        app:layout_constraintHorizontal_bias="0.717"
         app:layout_constraintStart_toStartOf="parent" />
 
 

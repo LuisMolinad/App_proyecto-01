@@ -3,6 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/astri/Desktop/Final/App_proyecto-01/app/src/main/res/layout/activity_consultar_equipo_didactico.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/astri/Desktop/Final/App_proyecto-01/app/src/main/res/layout/activity_consultar_particular.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/astri/Desktop/Final/App_proyecto-01/app/src/main/res/layout/activity_editar_equipo_didactico.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/astri/Desktop/Final/App_proyecto-01/app/src/main/res/layout/activity_editar_horario.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/astri/Desktop/Final/App_proyecto-01/app/src/main/res/layout/activity_editar_particular.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/astri/Desktop/Final/App_proyecto-01/app/src/main/res/layout/activity_eliminar_equipo_didactico.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/astri/Desktop/Final/App_proyecto-01/app/src/main/res/layout/activity_eliminar_particular.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/astri/Desktop/Final/App_proyecto-01/app/src/main/res/layout/activity_insertar_asistencia.xml" value="0.15534420289855072" />
         <entry key="..\:/Users/astri/Desktop/Final/App_proyecto-01/app/src/main/res/layout/activity_insertar_equipo_didactico.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/astri/Desktop/Final/App_proyecto-01/app/src/main/res/layout/activity_insertar_escuela.xml" value="0.1" />
         <entry key="..\:/Users/astri/Desktop/ProFinal/App_proyecto-01/app/src/main/res/layout/activity_consultar_actividad.xml" value="0.20416666666666666" />
