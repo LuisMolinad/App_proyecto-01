@@ -5,6 +5,8 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.view.View;
+import android.widget.Toast;
 
 public class ControlBDActividades {
 
@@ -1116,10 +1118,9 @@ public String insertarEscuela (Escuela escuela){
         String[] id = {equipodidactico.getIDEQUIPO()};
             ContentValues cv = new ContentValues();
         int contador = 0;
-            cv.put("IDEQUIPO", equipodidactico.getIDEQUIPO());
             cv.put("NOMBRE", equipodidactico.getNOMBRE());
             cv.put("DESCRIPCIONEQUIPO", equipodidactico.getDESCRIPCIONEQUIPO());
-            db.update("EQUIPODIDACTICO", cv, "IDEQUIPO = ?", id);
+            contador = db.update("EQUIPODIDACTICO", cv, "IDEQUIPO = ?", id);
 
             if(contador == -1 || contador == 0){
                 regActualizados = "Error al actualizar los registros, favor verficar insercion de datos";
@@ -1129,5 +1130,32 @@ public String insertarEscuela (Escuela escuela){
             }
             return regActualizados;
         }
+
+  /*  public void actualizarEquipoDidactico(View v){
+        String id_equipo = idEquipoE.getText().toString();
+        String nombre_equipo = nombreE.getText().toString();
+        String descripcion_equipo = descripcionE.getText().toString();
+
+        //Validar que no este vacio
+        if(id_equipo.isEmpty() || nombre_equipo.isEmpty() || descripcion_equipo.isEmpty()){
+            Toast.makeText(this, "Todos los campos tiene que estar llenos", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            String regActualizados;
+
+            EquipoDidactico equipodidactico = new EquipoDidactico();
+
+            equipodidactico.setIDEQUIPO(id_equipo);
+            equipodidactico.setNOMBRE(nombre_equipo);
+            equipodidactico.setDESCRIPCIONEQUIPO(descripcion_equipo);
+
+
+            helper.abrir();
+            regActualizados = helper.actualizarEquipoDidactico(equipodidactico);
+            helper.cerrar();
+
+            Toast.makeText(this, regActualizados, Toast.LENGTH_SHORT).show();
+        }
+    }*/
 
 }
