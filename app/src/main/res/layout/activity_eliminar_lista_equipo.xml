@@ -45,25 +45,15 @@
         android:id="@+id/botonEliminarListaEquipoDidactico"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="76dp"
-        android:layout_marginBottom="188dp"
         android:backgroundTint="@color/BotonEliminar"
+        android:onClick="eliminarListaEquipo"
         android:text="@string/eliminar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:onClick="eliminarListaEquipo"/>
-
-    <Button
-        android:id="@+id/botonCancelarListaEquipoDidactico"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="188dp"
-        android:backgroundTint="@color/BotonCancelar"
-        android:text="@string/cancelar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/botonEliminarListaEquipoDidactico"
-        app:layout_constraintHorizontal_bias="0.588"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.789" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

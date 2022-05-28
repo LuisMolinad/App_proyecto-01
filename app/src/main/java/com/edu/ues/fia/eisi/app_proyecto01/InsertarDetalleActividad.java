@@ -50,5 +50,12 @@ public class InsertarDetalleActividad extends AppCompatActivity {
 
 
     }
+    public void CancelarInsertarDetalleActividad (View v){
+        idDetalle.setText("");
+        grupo.setText("");
+        idActividad.setText("");
+        idLocal.setText("");
+        descripcionActividad.setText("");
+    }
 
 }

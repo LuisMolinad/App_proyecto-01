@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public class InsertarCarreraExterno extends AppCompatActivity {
     EditText idCarrera, nombreCarrera;
     //Duque
-    private final String urlLocal = "http://192.168.0.3/Proyecto1.2/ws_nota_insertCarrera.php";
+    private final String urlLocal = "http://192.168.0.8/Proyecto1.2/ws_nota_insertCarrera.php";
 //aca pueden poner sus propias ur si quieren o solo cambian la mia
 @SuppressLint("NewApi")
     @Override

@@ -45,4 +45,10 @@ public class InsertarListaEquipo extends AppCompatActivity {
 
 
     }
+
+    public void CancelarInsertarListaEquipo (View v){
+        idListaEquipo.setText("");
+        idDetalle.setText("");
+        idEquipo.setText("");
+    }
 }

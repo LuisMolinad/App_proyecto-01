@@ -17,7 +17,7 @@ import java.util.List;
 @SuppressLint("NewApi")
 
 public class ConsultarCarreraExterno extends AppCompatActivity {
-    private final String urlLocal = "http://192.168.0.3/Proyecto1.2/ws_db_Carrera_Consultar.php";
+    private final String urlLocal = "http://192.168.0.8/Proyecto1.2/ws_db_Carrera_Consultar.php";
 
     EditText IDCARRERA,NombreCarrera;
 

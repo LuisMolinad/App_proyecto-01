@@ -45,4 +45,11 @@ public class ConsultarEquipoDidactico extends AppCompatActivity {
             }
         }
     }
+
+
+
+    public void CancelarConsultarEquipo (View v){
+        idEquipoConsultar.setText("");
+
+    }
 }

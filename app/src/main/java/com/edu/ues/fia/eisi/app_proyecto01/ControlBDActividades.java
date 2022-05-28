@@ -28,6 +28,11 @@ public class ControlBDActividades {
             {"IDEQUIPO", "NOMBRE", "DESCRIPCIONEQUIPO"};
     private static final String[] campoListaEquipo = new String[]
             {"IDLISTAEQUIPO", "ID_DETALLE", "IDEQUIPO"};
+    private static final String[] campoDetalleActividad = new String[]
+            {"ID_DETALLE", "GRUPO", "IDACTIVIDAD","IDLOCAL","DESCRIPCIONACTIVIDAD"};
+
+
+
     /*Rosalio*/
     private static final String[] campoMiembroUniversitario = new String[]
             {"IDMIEMBROUNIVERSITARIO", "IDASIGNATURA", "IDUSUARIO", "NOMBREMIEMBROUNIVERSITARIO", "TIPOMIEMBRO"};
@@ -348,7 +353,7 @@ public class ControlBDActividades {
             }
 
 
-
+                //Eliminar listaequipo
             case 35: {
                 ListaEquipo listaequipo = (ListaEquipo) dato;
                 Cursor c = db.query(true, "LISTAEQUIPO", new String[]{"IDLISTAEQUIPO"}, "IDLISTAEQUIPO='" + listaequipo.getIDLISTAEQUIPO() + "'", null, null, null, null, null);
@@ -377,6 +382,34 @@ public class ControlBDActividades {
                 }
                 return false;
             }
+            //Actualizar Detalleactividad
+            case 41:{
+                DetalleActividad detalleactividad = (DetalleActividad) dato;
+
+                //     String[] id = {Integer.toString(detalleactividad.getGRUPO())};
+                String[] id2 = {detalleactividad.getIDACTIVIDAD()};
+                //     String[] id3 = {detalleactividad.getIDLOCAL()};
+                abrir();
+                //    Cursor c = db.query("DETALLEOFERTA", null, "GRUPO = ?", id,null, null, null);
+                Cursor c2 = db.query("ACTIVIDAD", null, "IDACTIVIDAD = ?", id2,null, null, null);
+                //    Cursor c3 = db.query("LOCAL", null, "IDLOCAL = ?", id3,null, null, null);
+
+                //c.moveToFirst()&& c2.moveToFirst()&& c3.moveToFirst()
+                if ( c2.moveToFirst()) {
+                    return true;
+                }
+                return false;
+            }
+            case 42: {
+                DetalleActividad detalleactividad = (DetalleActividad) dato;
+                Cursor c = db.query(true, "DETALLEACTIVIDAD", new String[]{"ID_DETALLE"}, "ID_DETALLE='" + detalleactividad.getID_DETALLE() + "'", null, null, null, null, null);
+                if (c.moveToFirst())
+                    return true;
+                else
+                    return false;
+            }
+
+
         }
         return false;
     }
@@ -1263,6 +1296,9 @@ public String insertarEscuela (Escuela escuela){
         }
         return null;
     }
+
+    /*Eliminar*/
+
     public String eliminarListaEquipo(ListaEquipo listaequipo){
         String regAfectados = "La cantidad de datos eliminados es: ";
         int contador = 0;
@@ -1308,52 +1344,7 @@ public String insertarEscuela (Escuela escuela){
 
 
 
-     /*
 
-            if(contador == -1 || contador == 0){
-                regActualizados = "Error al actualizar los registros, favor verficar insercion de datos";
-            }
-            else{
-                regActualizados = regActualizados + contador;
-            }
-            return regActualizados;
-        }
-        else {
-            return "No existe el registro con el id "+ asistencia.getIdAsistencia();
-        }
-
-    *//*Eliminar*//*
-
-
-
-
-   /* public String actualizarAsistencia(Asistencia asistencia){
-        String[] id = {asistencia.getIdAsistencia()};
-
-        String regActualizados = "El total de registros actualizados es: ";
-
-        ContentValues cv = new ContentValues();
-        int contador = 0;
-
-        if(verificarIntegridad(asistencia, 24)){
-            cv.put("ID_DETALLE",asistencia.getIdDetalle() );
-            cv.put("IDMIEMBROUNIVERSITARIO", asistencia.getIdMiembroUniversitario());
-            cv.put("CALIFICACION", asistencia.getCalifacion());
-
-            contador = db.update("ASISTENCIA", cv, "IDASISTENCIA = ?", id);
-
-            if(contador == -1 || contador == 0){
-                regActualizados = "Error al actualizar los registros, favor verficar insercion de datos";
-            }
-            else{
-                regActualizados = regActualizados + contador;
-            }
-            return regActualizados;
-        }
-        else {
-            return "No existe el registro con el id "+ asistencia.getIdAsistencia();
-        }
-    }*/
     /*==============================================================*/
     /* Table: CRUD DETALLEACTIVIDAD                                 */
     /*==============================================================*/
@@ -1386,8 +1377,73 @@ public String insertarEscuela (Escuela escuela){
         }
     }
 
+    /*Consultar*/
+
+    public DetalleActividad consultarDetalleActividad(String idDetalleActividad){
+        String[] id = {idDetalleActividad};
+
+        Cursor cursor = db.query("DETALLEACTIVIDAD", campoDetalleActividad, "ID_DETALLE = ?", id,null,null,null);
+
+        if(cursor.moveToFirst()){
+            DetalleActividad idDetalle = new DetalleActividad();
+            idDetalle.setGRUPO(cursor.getInt(1));
+            idDetalle.setIDACTIVIDAD(cursor.getString(2));
+            idDetalle.setIDLOCAL(cursor.getString(3));
+            idDetalle.setDESCRIPCIONACTIVIDAD(cursor.getString(4));
+
+            return idDetalle;
+        }
+        return null;
+    }
 
 
+    /*Actualizar*/
+
+    public String actualizarDetalleActividad(DetalleActividad detalleactividad) {
+        String[] id = {Integer.toString(detalleactividad.getID_DETALLE())};
+
+        String regActualizados = "El total de registros actualizados es: ";
+
+        ContentValues cv = new ContentValues();
+        int contador = 0;
+
+        if(verificarIntegridad(detalleactividad, 41)){
+
+         //   cv.put("GRUPO", detalleactividad.getGRUPO());
+            cv.put("IDACTIVIDAD", detalleactividad.getIDACTIVIDAD());
+         //   cv.put("IDLOCAL", detalleactividad.getIDLOCAL());
+            cv.put("DESCRIPCIONACTIVIDAD", detalleactividad.getDESCRIPCIONACTIVIDAD());
+
+            contador = db.update("DETALLEACTIVIDAD", cv, "ID_DETALLE = ?", id);
+            if(contador == -1){
+                regActualizados = "Error al actualizar los registros, favor verficar insercion de datos";
+            }
+            else{
+                regActualizados = regActualizados + contador;
+            }
+            return regActualizados;
+        }
+        else {
+            return "No existe el registro con el id "+ detalleactividad.getID_DETALLE();
+        }
+    }
+    /*Eliminar*/
+
+    public String eliminarDetalleActividad(DetalleActividad detalleactividad){
+        String regAfectados = "La cantidad de datos eliminados es: ";
+        int contador = 0;
+
+
+        if(verificarIntegridad(detalleactividad, 42)){
+            contador += db.delete("DETALLEACTIVIDAD", "ID_DETALLE = '" + Integer.toString(detalleactividad.getID_DETALLE()) + "' ",null);
+            regAfectados += contador;
+
+            return regAfectados;
+        }
+        else{
+            return "No se encontro el registro";
+        }
+    }
 
 }
 

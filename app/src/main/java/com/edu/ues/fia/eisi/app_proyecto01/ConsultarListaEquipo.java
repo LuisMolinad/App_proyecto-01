@@ -46,4 +46,9 @@ public class ConsultarListaEquipo extends AppCompatActivity {
             }
         }
     }
+    public void CancelarConsultarListaEquipo (View v){
+        idListaEquipo.setText("");
+        idDetalle.setText("");
+        idEquipo.setText("");
+    }
 }

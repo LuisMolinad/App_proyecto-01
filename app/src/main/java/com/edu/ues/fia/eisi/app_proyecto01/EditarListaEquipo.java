@@ -79,4 +79,9 @@ public class EditarListaEquipo extends AppCompatActivity {
             Toast.makeText(this, regActualizados, Toast.LENGTH_SHORT).show();
         }
     }
+    public void CancelarActualizarListaEquipo (View v){
+        idListaEquipo.setText("");
+        idDetalle.setText("");
+        idEquipo.setText("");
+    }
 }
