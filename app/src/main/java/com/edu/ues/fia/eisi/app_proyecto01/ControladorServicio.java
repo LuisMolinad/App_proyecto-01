@@ -77,8 +77,8 @@ public class ControladorServicio {
         }
         return respuesta;
     }
-
-    public static void insertarCarreraExterno(String peticion, Context ctx) {
+//Creo que este se reutiiza
+    public static void insertar(String peticion, Context ctx) {
         String json = obtenerRespuestaPeticion(peticion, ctx);
         try {
             JSONObject resultado = new JSONObject(json);

@@ -38,7 +38,7 @@ public class InsertarCarreraExterno extends AppCompatActivity {
         switch (v.getId()) {
             case R.id.botonguardarCarreraExterno:
                 url = urlLocal+ "?IDCARRERA=" + IDCARRERA + "&NOMBRECARREARA=" + NOMBRECARREARA ;
-                ControladorServicio.insertarCarreraExterno(url, this);
+                ControladorServicio.insertar(url, this);
                 break;
 
         }
