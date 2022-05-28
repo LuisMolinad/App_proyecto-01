@@ -17,14 +17,15 @@ public class ConsultarOfertaAcademica extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consultar_oferta_academica);
         helper = new ControlBDActividades(this);
-        idMateriaActiva=findViewById(R.id.edtIdMateriaActivaConsultarOferta);
+        idMateriaActiva=findViewById(R.id.edtIdMateriaActivaConsultarOfertaAcademica);
         idCiclo=findViewById(R.id.txtIdCicloConsultarOfertaAcademica);
-        idAsignatura=findViewById(R.id.txtIdCicloConsultarOfertaAcademica);
-        nombreMateriaActiva=findViewById(R.id.txtNombreMateriaActivaOfertaAcademica);
+        idAsignatura=findViewById(R.id.txtIdAsignaturaConsultarOfertaAcademica);
+        nombreMateriaActiva=findViewById(R.id.txtNombreMateriaActivaConsultarOfertaAcademica);
     }
     public void consultarOfertaAcademica(View v){
         helper.abrir();
         OfertaAcademica ofertaAcademica = helper.consultarOfertaAcademica(idMateriaActiva.getText().toString());
+
         helper.cerrar();
         if(ofertaAcademica==null){
             Toast.makeText(this, "La oferta académica con el id "+idMateriaActiva.getText().toString()+" no ha sido encontrada.",Toast.LENGTH_LONG).show();

@@ -20,7 +20,7 @@ public class ConsultarDetalleOferta extends AppCompatActivity {
         idGrupo = findViewById(R.id.edtIdGrupoDetelleOfertaConsultar);
         idMateriaActiva = findViewById(R.id.txtIdMateriaActivaDetalleOfertaConsultar);
         tipoGrupo = findViewById(R.id.txtTipoGrupoDetalleOfertaConsultar);
-        numeroGrupo = findViewById(R.id.txtNumeroCicloConsultar);
+        numeroGrupo = findViewById(R.id.txtNumeroGrupoDetalleOfertaConsultar);
         tamanoGrupo = findViewById(R.id.txtTamanoGrupoDetalleOfertaConsultar);
     }
     public void consultarDetalleOferta(View v){
