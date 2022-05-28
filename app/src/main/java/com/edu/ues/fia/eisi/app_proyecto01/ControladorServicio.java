@@ -24,8 +24,8 @@ public class ControladorServicio {
         String respuesta = " ";
         // Estableciendo tiempo de espera del servicio
         HttpParams parametros = new BasicHttpParams();
-        HttpConnectionParams.setConnectionTimeout(parametros, 3000);
-        HttpConnectionParams.setSoTimeout(parametros, 5000);
+        HttpConnectionParams.setConnectionTimeout(parametros, 5000);
+        HttpConnectionParams.setSoTimeout(parametros, 8000);
         // Creando objetos de conexion
         HttpClient cliente = new DefaultHttpClient(parametros);
         HttpGet httpGet = new HttpGet(url);
@@ -107,24 +107,20 @@ public class ControladorServicio {
             return " ";
         }
     }
-/*    public static List<Carrera> obtenerCarreraLocal(String json, Context ctx) {
-        List<Carrera> listaMaterias = new ArrayList<Carrera>();
+
+
+    public static void ActualizarCarreraExterno(String peticion, Context ctx) {
+        String json = obtenerRespuestaPeticion(peticion, ctx);
         try {
-            JSONArray materiasJSON = new JSONArray(json);
-            for (int i = 0; i < materiasJSON.length(); i++) {
-                JSONObject obj = materiasJSON.getJSONObject(i);
-                Carrera carrera = new Carrera();
-                carrera.setIDCARRERA(obj.getString("IDCARRERA"));
-                carrera.setNOMBRECARRERA(obj.getString("CARRERA"));
-                listaMaterias.add(carrera);
-            }
-            return listaMaterias;
-        } catch (Exception e) {
-            Toast.makeText(ctx, "Error en parseO de JSON", Toast.LENGTH_LONG)
-                    .show();
-            return null;
+            JSONObject resultado2 = new JSONObject(json);
+            Toast.makeText(ctx, "Registro Actualizado"+ resultado2.getJSONArray("resultado"), Toast.LENGTH_LONG).show();
+            int respuesta = resultado2.getInt("resultado");
+            if (respuesta == 1)
+                Toast.makeText(ctx, "Registro Actualizado", Toast.LENGTH_LONG).show();
+            else
+                Toast.makeText(ctx, "Error no existe", Toast.LENGTH_LONG).show();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-    }*/
-
-
+    }
 }
