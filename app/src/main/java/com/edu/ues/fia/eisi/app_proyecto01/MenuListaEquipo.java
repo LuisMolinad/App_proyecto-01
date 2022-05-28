@@ -29,6 +29,8 @@ public class MenuListaEquipo extends AppCompatActivity implements View.OnClickLi
             //   String opcioncRUD=tipoUsuario;
             switch (tipoUsuario) {
                 case "0100":
+                case "0400":
+                case "0600":
                     consultar.setOnClickListener(this);
                     insertar.setOnClickListener(this);
                     editar.setOnClickListener(this);
@@ -41,11 +43,11 @@ public class MenuListaEquipo extends AppCompatActivity implements View.OnClickLi
                     editar.setVisibility(View.GONE);
                     eliminar.setVisibility(View.GONE);
                     break;
-                case "0400":
-                    break;
                 case "0500":
-                    break;
-                case "0600":
+                    consultar.setOnClickListener(this);
+                    insertar.setVisibility(View.GONE);
+                    editar.setOnClickListener(this);
+                    eliminar.setVisibility(View.GONE);
                     break;
 
             }

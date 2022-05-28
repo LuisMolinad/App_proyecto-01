@@ -6,10 +6,22 @@ public class Actividad {
     private String idActividad;
     private String idMiembroUniversitario;
     private String nombreActividad;
-    private Date fechaReserva;
-    private Date desdeActividad;
-    private Date hastaActividad;
-    private int aprobado;
+    private String fechaReserva;
+    private String desdeActividad;
+    private String hastaActividad;
+    private String aprobado;
+
+    public Actividad(){}
+
+    public Actividad(String idActividad, String idMiembroUniversitario, String nombreActividad, String fechaReserva, String desdeActividad, String hastaActividad, String aprobado){
+        idActividad = this.idActividad;
+        idMiembroUniversitario = this.idMiembroUniversitario;
+        nombreActividad = this.nombreActividad;
+        fechaReserva = this.fechaReserva;
+        desdeActividad = this.desdeActividad;
+        hastaActividad = this.hastaActividad;
+        aprobado = this.aprobado;
+    }
 
     public String getIdActividad() {
         return idActividad;
@@ -35,35 +47,36 @@ public class Actividad {
         this.nombreActividad = nombreActividad;
     }
 
-    public Date getFechaReserva() {
-        return fechaReserva;
-    }
 
-    public void setFechaReserva(Date fechaReserva) {
-        this.fechaReserva = fechaReserva;
-    }
-
-    public Date getDesdeActividad() {
-        return desdeActividad;
-    }
-
-    public void setDesdeActividad(Date desdeActividad) {
-        this.desdeActividad = desdeActividad;
-    }
-
-    public Date getHastaActividad() {
-        return hastaActividad;
-    }
-
-    public void setHastaActividad(Date hastaActividad) {
-        this.hastaActividad = hastaActividad;
-    }
-
-    public int getAprobado() {
+    public String getAprobado() {
         return aprobado;
     }
 
-    public void setAprobado(int aprobado) {
+    public void setAprobado(String aprobado) {
         this.aprobado = aprobado;
+    }
+
+    public String getFechaReserva() {
+        return fechaReserva;
+    }
+
+    public void setFechaReserva(String fechaReserva) {
+        this.fechaReserva = fechaReserva;
+    }
+
+    public String getDesdeActividad() {
+        return desdeActividad;
+    }
+
+    public void setDesdeActividad(String desdeActividad) {
+        this.desdeActividad = desdeActividad;
+    }
+
+    public String getHastaActividad() {
+        return hastaActividad;
+    }
+
+    public void setHastaActividad(String hastaActividad) {
+        this.hastaActividad = hastaActividad;
     }
 }

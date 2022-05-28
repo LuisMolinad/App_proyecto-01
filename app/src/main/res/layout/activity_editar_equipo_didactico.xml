@@ -19,77 +19,94 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.061" />
+
+    <EditText
+        android:id="@+id/idEquipoEditar"
+        android:layout_width="256dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="36dp"
+        android:layout_weight="3"
+        android:ems="10"
+        android:hint="Código del equipo didactico"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.043" />
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
-
-    <Spinner
-        android:id="@+id/spinneridEquipoEditar"
-        android:layout_width="360dp"
-        android:layout_height="52dp"
-        android:layout_marginBottom="72dp"
-        app:layout_constraintBottom_toTopOf="@+id/nombreEquipoEditar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.529"
-        app:layout_constraintStart_toStartOf="parent" />
-
-
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
         android:id="@+id/nombreEquipoEditar"
-        android:layout_width="360dp"
-        android:layout_height="52dp"
-        android:focusable="false"
-        android:hint="@string/nombreEquipo"
-        android:inputType="textCapCharacters"
-        android:textAllCaps="true"
-        android:textColorHint="#616161"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="256dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="40dp"
+        android:layout_weight="3"
+        android:ems="10"
+        android:hint="Nombre del equipo didactico"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.437" />
+        app:layout_constraintTop_toBottomOf="@+id/consultar" />
 
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
         android:id="@+id/descripcionEquipoEditar"
-        android:layout_width="360dp"
-        android:layout_height="52dp"
-        android:focusable="false"
-        android:hint="@string/descripcionEquipo"
-        android:inputType="textCapCharacters"
-        android:textAllCaps="true"
-        android:textColorHint="#616161"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="256dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="40dp"
+        android:layout_weight="3"
+        android:ems="10"
+        android:hint="Descripción del equipo didactico"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.58" />
+        app:layout_constraintTop_toBottomOf="@+id/nombreEquipoEditar" />
 
     <Button
         android:id="@+id/botonEditarEquipoDidactico"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="100dp"
-        android:layout_marginBottom="120dp"
         android:backgroundTint="@color/BotonConsultar"
+        android:onClick="actualizarEquipoDidactico"
         android:text="@string/editar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.678"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.821" />
+
+    <Button
+        android:id="@+id/consultar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:onClick="consultarEquipoDidactico"
+        android:text="Consultar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/idEquipoEditar" />
 
     <Button
         android:id="@+id/botoncancelarEquipoDidactico"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="120dp"
         android:backgroundTint="@color/BotonCancelar"
         android:text="@string/cancelar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/botonEditarEquipoDidactico"
-        app:layout_constraintHorizontal_bias="0.779"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.619"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.821" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

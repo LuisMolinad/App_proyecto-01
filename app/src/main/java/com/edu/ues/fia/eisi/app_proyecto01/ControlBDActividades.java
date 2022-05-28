@@ -5,6 +5,8 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.view.View;
+import android.widget.Toast;
 
 public class ControlBDActividades {
 
@@ -20,6 +22,10 @@ public class ControlBDActividades {
     private static final String[] camposAccesoUsuario = new String[]
             {"IDUSUARIO","IDOPCION"};
 
+/*Katya*/
+
+    private static final String[] campoEquipoDidactico = new String[]
+            {"IDEQUIPO", "NOMBRE", "DESCRIPCIONEQUIPO"};
 
     /*Rosalio*/
     private static final String[] campoMiembroUniversitario = new String[]
@@ -28,6 +34,12 @@ public class ControlBDActividades {
     private static final String[] campoCiclo = new String []{"IDCICLO","NUMEROCICLO","FECHAINICIO","FECHAFIN","ANIO"};
     private static final String[] campoOfertaAcademica = new String[]{"IDMATERIAACTIVA","IDCICLO","IDASIGNATURA","NOMBREMATERIASACTIVAS"};
     private static final String[] campoDetalleOferta = new String[]{"IDGRUPO","IDMATERIAACTIVA","NUMEROGRUPO","TAMANOGRUPO","TIPOGRUPO"};
+    private static final String[] campoParticular = new String[]
+            {"IDPARTICULAR", "IDUSUARIO", "NOMBREPARTICULAR", "APELLIDOPARTICULAR"};
+    private static final String[] campoActividad = new String[]
+            {"IDACTIVIDAD", "IDMIEMBROUNIVERSITARIO", "NOMBREACTIVIDAD", "FECHARESERVA", "DESDEACTIVIDAD", "HASTAACTIVIDAD", "APROBADO"};
+    private static final String[] campoAsistencia = new String[]
+            {"IDASISTENCIA", "ID_DETALLE", "IDMIEMBROUNIVERSITARIO", "CALIFICACION"};
     //TODO: insertar los valores de tabla materia
 
     private final Context context;
@@ -44,7 +56,7 @@ public class ControlBDActividades {
 
     private static class DatabaseHelper extends SQLiteOpenHelper {
         private static final String BASE_DATOS = "CONTROLDEACTIVIDADES.s3db";
-        private static final int VERSION = 3;
+        private static final int VERSION = 4;
 
         public DatabaseHelper(Context context) {
             super(context, BASE_DATOS, null, VERSION);
@@ -61,6 +73,14 @@ public class ControlBDActividades {
                 db.execSQL("CREATE TABLE opcioncrud(IDOPCION VARCHAR(20) NOT NULL PRIMARY KEY,DESOPCION VARCHAR(30),NUMCRUD INTEGER);");
                 db.execSQL("CREATE TABLE accesoUsuario(IDUSUARIO VARCHAR(30),IDOPCION VARCHAR(30),primary key (IDUSUARIO, IDOPCION));");
                 //  db.execSQL("CREATE TABLE nota(carnet VARCHAR(7) NOT NULL ,codmateria VARCHAR(6) NOT NULL ,ciclo VARCHAR(5) ,notafinal REAL ,PRIMARY KEY(carnet,codmateria,ciclo));");
+
+                //Tablas Katya
+                db.execSQL("create table EQUIPODIDACTICO  (\n" +
+                        "   IDEQUIPO             VARCHAR2(30)                    not null,\n" +
+                        "   NOMBRE               VARCHAR2(30)                    not null,\n" +
+                        "   DESCRIPCIONEQUIPO    VARCHAR2(50)                    not null,\n" +
+                        "   constraint PK_EQUIPODIDACTICO primary key (IDEQUIPO)\n" +
+                        ");\n");
 
                 //Tablas Rosalio
                 /*==============================================================*/
@@ -91,10 +111,10 @@ public class ControlBDActividades {
                         "   IDACTIVIDAD          VARCHAR2(30)                    not null,\n" +
                         "   IDMIEMBROUNIVERSITARIO VARCHAR2(30),\n" +
                         "   NOMBREACTIVIDAD      VARCHAR2(30)                    not null,\n" +
-                        "   FECHARESERVA         DATE                            not null,\n" +
-                        "   DESDEACTIVIDAD       DATE                            not null,\n" +
-                        "   HASTAACTIVIDAD       DATE                            not null,\n" +
-                        "   APROBADO             SMALLINT                        not null,\n" +
+                        "   FECHARESERVA         VARCHAR2(15)                    not null,\n" +
+                        "   DESDEACTIVIDAD       VARCHAR2(15)                    not null,\n" +
+                        "   HASTAACTIVIDAD       VARCHAR2(15)                    not null,\n" +
+                        "   APROBADO             VARCHAR2(2)                     not null,\n" +
                         "   constraint PK_ACTIVIDAD primary key (IDACTIVIDAD)\n" +
                         ");\n");
                 /*==============================================================*/
@@ -161,128 +181,51 @@ public class ControlBDActividades {
     /*Verificar integridad*/
     private boolean verificarIntegridad(Object dato, int relacion) throws SQLException {
         switch (relacion) {
-         /*   case 1:
-            {
-        //verificar que al insertar nota exista carnet del alumno y el codigo de materia
-                Nota nota = (Nota)dato;
-                String[] id1 = {nota.getCarnet()};
-                String[] id2 = {nota.getCodmateria()};
-                //abrir();
-                Cursor cursor1 = db.query("alumno", null, "carnet = ?", id1, null,
-                        null, null);
-                Cursor cursor2 = db.query("materia", null, "codmateria = ?", id2,
-                        null, null, null);
-                if(cursor1.moveToFirst() && cursor2.moveToFirst()){
-                    //Se encontraron datos
-                    return true;
-                }
-                return false;
-            }
-            case 2:
-            {
-                //verificar que al modificar nota exista carnet del alumno, el codigo de materia y el ciclo
-                Nota nota1 = (Nota)dato;
-                String[] ids = {nota1.getCarnet(), nota1.getCodmateria(),
-                        nota1.getCiclo()};
-                abrir();
-                Cursor c = db.query("nota", null, "carnet = ? AND codmateria = ? AND
-                        ciclo = ?", ids, null, null, null);
-                if(c.moveToFirst()){
-                        //Se encontraron datos
-                    return true;
-                }
-                return false;
-            }
-            case 3:
-            {
-                Alumno alumno = (Alumno)dato;
-                Cursor c=db.query(true, "nota", new String[] {"carnet" }, "carnet='"+alumno.getCarnet()+"'",null, null, null, null, null);
-                if(c.moveToFirst())
-                    return true;
-                else
-                    return false;
-            }
-            case 4:
-            {
-                Materia materia = (Materia)dato;
-                Cursor cmat=db.query(true, "nota", new String[] {
-                                "codmateria" },
-                        "codmateria='"+materia.getCodmateria()+"'",null, null, null, null, null);
-                if(cmat.moveToFirst())
-                    return true;
-                else
-                    return false;
-            }*/
-            /*
-            case 1:
-            {
+            case 1: {
                 MiembroUniversitario miembroUniversitario = (MiembroUniversitario) dato;
-                String[] id = {miembroUniversitario.getIdMiembroUniversitario()};
-                String[] id2 = {miembroUniversitario.getIdUsuario()};
-                String[] id3 = {miembroUniversitario.getIdAsignatura()};
-
-                abrir();
-                Cursor c = db.query("MIEMBROUNIVERSITARIOS", null, "IDMIEMBROUNIVERSITARIO = ?", id, null, null, null);
-                Cursor c2 = db.query("USUARIO", null, "IDUSUARIO = ?", id2, null, null, null);
-                Cursor c3 = db.query("MATERIA", null, "IDASIGNATURA = ?", id3, null, null, null);
-
-                if( c.moveToFirst() && c2.moveToFirst() && c3.moveToFirst()){
-                    //Se encontro fk y pk existentes
-                    return true;
-                }
-                    return false;
-            }
-             */
-            case 1:
-            {
-                MiembroUniversitario miembroUniversitario = (MiembroUniversitario) dato;
-                Cursor c=db.query(true, "MIEMBROUNVERSITARIOS", new String[] {"IDMIEMBROUNIVERSITARIO" }, "IDMIEMBROUNIVERSITARIO='"+miembroUniversitario.getIdMiembroUniversitario()+"'",null, null, null, null, null);
-                if(c.moveToFirst())
+                Cursor c = db.query(true, "MIEMBROUNVERSITARIOS", new String[]{"IDMIEMBROUNIVERSITARIO"}, "IDMIEMBROUNIVERSITARIO='" + miembroUniversitario.getIdMiembroUniversitario() + "'", null, null, null, null, null);
+                if (c.moveToFirst())
                     return true;
                 else
                     return false;
             }
-            case 2:
-            {
+            case 2: {
                 MiembroUniversitario miembroUniversitario = (MiembroUniversitario) dato;
                 String[] id = {miembroUniversitario.getIdMiembroUniversitario()};
 
                 abrir();
                 Cursor c = db.query("MIEMBROUNIVERSITARIOS", null, "IDMIEMBROUNIVERSITARIO = ?", id, null, null, null);
-                if( c.moveToFirst()){
+                if (c.moveToFirst()) {
                     //Se encontro fk y pk existentes
                     return true;
-                }
-                else {
+                } else {
                     return false;
                 }
             }
-            case 4:{
-                MiembroUniversitario miembroUniversitario = (MiembroUniversitario) dato;
-                String[] id2 = {miembroUniversitario.getIdUsuario()};
-                String[] id3 = {miembroUniversitario.getIdAsignatura()};
-
-                abrir();
-                Cursor c2 = db.query("USUARIO", null, "IDUSUARIO = ?", id2, null, null, null);
-                Cursor c3 = db.query("MATERIA", null, "IDASIGNATURA = ?", id3, null, null, null);
-
-                if( c2.moveToFirst() && c3.moveToFirst()){
-                    //Se encontro fk y pk existentes
-                    return true;
-                }
-                return false;
-            }
-            case 3:
-            {
+            case 3: {
                 Materia materia = (Materia) dato;
-                Cursor c=db.query(true, "materia", new String[] {"IDASIGNATURA" }, "IDASIGNATURA='"+materia.getIDASIGNATURA()+"'",null, null, null, null, null);
-                if(c.moveToFirst())
+                Cursor c = db.query(true, "materia", new String[]{"IDASIGNATURA"}, "IDASIGNATURA='" + materia.getIDASIGNATURA() + "'", null, null, null, null, null);
+                if (c.moveToFirst())
                     return true;
                 else
                     return false;
             }
-            case 5:
-            {
+            case 4: {
+                MiembroUniversitario miembroUniversitario = (MiembroUniversitario) dato;
+                String[] id2 = {miembroUniversitario.getIdUsuario()};
+                String[] id3 = {miembroUniversitario.getIdAsignatura()};
+
+                abrir();
+                Cursor c2 = db.query("USUARIO", null, "IDUSUARIO = ?", id2, null, null, null);
+                Cursor c3 = db.query("MATERIA", null, "IDASIGNATURA = ?", id3, null, null, null);
+
+                if (c2.moveToFirst() && c3.moveToFirst()) {
+                    //Se encontro fk y pk existentes
+                    return true;
+                }
+                return false;
+            }
+            case 5: {
                 //verificar que exista escuela y carrera
                 Escuela escuela = (Escuela) dato;
                 String[] id = {escuela.getIDESCUELA()};
@@ -292,14 +235,13 @@ public class ControlBDActividades {
                         null);
                 Cursor c3 = db.query("carrera", null, "IDCARRERA = ?", id2, null, null,
                         null);
-                if(c2.moveToFirst() && c3.moveToFirst()){
+                if (c2.moveToFirst() && c3.moveToFirst()) {
                     //Se encontro fk y pk existentes
                     return true;
                 }
                 return false;
             }
-            case 6:
-            {
+            case 6: {
                 //verificar que exista escuela y carrera
                 Materia materia = (Materia) dato;
                 String[] id4 = {materia.getIDASIGNATURA()};
@@ -309,31 +251,76 @@ public class ControlBDActividades {
                         null);
                 Cursor c3 = db.query("escuela", null, "IDESCUELA = ?", id3, null, null,
                         null);
-                if(c2.moveToFirst() && c3.moveToFirst()){
+                if (c2.moveToFirst() && c3.moveToFirst()) {
                     //Se encontro fk y pk existentes
                     return true;
                 }
                 return false;
             }
-     /*       case 6:
-            {
-                    //verificar que exista Materia
-                Materia materia2 = (Materia)dato;
-                String[] idm = {materia2.getCodmateria()};
+
+            /*Rosalio*/
+            //Insertar
+            case 20: {
+                Particular particular = (Particular) dato;
+                String[] id = {particular.getIDPUSUARIO()};
                 abrir();
-                Cursor cm = db.query("materia", null, "codmateria = ?", idm, null,
-                        null, null);
-                if(cm.moveToFirst()){
-                    //Se encontro Materia
+                Cursor c = db.query("USUARIO", null, "IDUSUARIO = ?", id, null, null, null);
+                if (c.moveToFirst()) {
                     return true;
                 }
                 return false;
-            }*/
-            default:
+            }
+            //Eliminar particular
+            case 21:{
+                Particular particular = (Particular) dato;
+                Cursor c = db.query(true, "PARTICULAR", new String[]{"IDPARTICULAR"}, "IDPARTICULAR = '" + particular.getIDPARTICULAR() + "' ", null, null, null, null, null);
+                if(c.moveToFirst())
+                    return true;
+                else
+                    return false;
+            }
+            //Insertar actividad
+            case 22:{
+                Actividad actividad = (Actividad) dato;
+                String[] id = {actividad.getIdMiembroUniversitario()};
+                abrir();
+                Cursor c = db.query("MIEMBROUNVERSITARIOS", null, "IDMIEMBROUNIVERSITARIO = ?", id,null, null, null);
+                if (c.moveToFirst()) {
+                    return true;
+                }
                 return false;
+            }
+            //Eliminar actividad
+            case 23:{
+                Actividad actividad = (Actividad) dato;
+                Cursor c = db.query("ACTIVIDAD", new String[]{"IDACTIVIDAD"}, "IDACTIVIDAD = '" + actividad.getIdActividad() + "'", null, null, null, null, null);
+                if(c.moveToFirst())
+                    return true;
+                else
+                    return false;
+            }
+            //Insertar asistencia
+            case 24:{
+                Asistencia asistencia = (Asistencia) dato;
+                String[] id = {asistencia.getIdMiembroUniversitario()};
+                abrir();
+                Cursor c = db.query("MIEMBROUNVERSITARIOS", null, "IDMIEMBROUNIVERSITARIO = ?", id,null, null, null);
+                if (c.moveToFirst()) {
+                    return true;
+                }
+                return false;
+            }
+            //Eliminar asistencia
+            case 25:{
+                Asistencia asistencia = (Asistencia) dato;
+                Cursor c = db.query(true, "ASISTENCIA", new String[]{"IDASISTENCIA"}, "IDASISTENCIA = '" + asistencia.getIdAsistencia() + "' ", null, null, null, null, null);
+                if(c.moveToFirst())
+                    return true;
+                else
+                    return false;
+            }
         }
-
-
+        return false;
     }
 
     /*LLenar base de datos */
@@ -844,22 +831,6 @@ public String insertarEscuela (Escuela escuela){
         }
     }
 
-    /*
-    public String eliminarMateria(Materia materia) {
-        String regAfectados="filas afectadas= ";
-        int contador=0;
-        if (verificarIntegridad(materia,3)) {
-            contador+=db.delete("materia", "IDASIGNATURA='"+materia.getIDASIGNATURA()+"'", null);
-            regAfectados+=contador;
-            return regAfectados;
-        }
-        else   {
-            return "Registro no existe ";
-        }
-        // contador+=db.delete("materia", "IDASIGNATURA='"+materia.getIDASIGNATURA()+"'", null);
-
-    }
-     */
     public MiembroUniversitario consultarMiembroUniversitario(String idMiembroUniversitario){
         String[] id = {idMiembroUniversitario};
 
@@ -979,4 +950,361 @@ public String insertarEscuela (Escuela escuela){
     public Ciclo actualizarCiclo(String idCiclo){
 
     }
+
+    /*==============================================================*/
+    /* Table: ACTIVIDAD CRUD                                        */
+    /*==============================================================*/
+    //Insertar
+    public String insertarActividad(Actividad actividad){
+        String regInsertados = "Registro Insertado Nº = ";
+
+        long contador=0;
+
+        ContentValues carr = new ContentValues();
+
+        if(verificarIntegridad(actividad, 22)){
+            carr.put("IDACTIVIDAD", actividad.getIdActividad());
+            carr.put("IDMIEMBROUNIVERSITARIO", actividad.getIdMiembroUniversitario());
+            carr.put("NOMBREACTIVIDAD", actividad.getNombreActividad());
+            carr.put("FECHARESERVA",actividad.getFechaReserva());
+            carr.put("DESDEACTIVIDAD", actividad.getDesdeActividad());
+            carr.put("HASTAACTIVIDAD", actividad.getHastaActividad());
+            carr.put("APROBADO", actividad.getAprobado());
+
+            contador = db.insert("ACTIVIDAD", null, carr);
+
+            if(contador == -1 || contador == 0){
+                regInsertados = "Error al insertar el registro, o registro duplicado favor verifivar insercion";
+            }
+            else {
+                regInsertados = regInsertados + contador;
+            }
+
+            return regInsertados;
+        }
+        else {
+            return "Verificar los datos";
+        }
+    }
+
+    public String actualizarActividad(Actividad actividad){
+        String[] id = {actividad.getIdActividad()};
+        String regActualizados = "El total de registros actualizados es: ";
+
+        ContentValues cv = new ContentValues();
+        long contador = 0;
+
+        if(verificarIntegridad(actividad, 22)){
+            cv.put("IDMIEMBROUNIVERSITARIO", actividad.getIdMiembroUniversitario());
+            cv.put("NOMBREACTIVIDAD", actividad.getNombreActividad());
+            cv.put("FECHARESERVA",actividad.getFechaReserva());
+            cv.put("DESDEACTIVIDAD", actividad.getDesdeActividad());
+            cv.put("HASTAACTIVIDAD", actividad.getHastaActividad());
+            cv.put("APROBADO", actividad.getAprobado());
+
+            contador = db.update("ACTIVIDAD", cv, "IDACTIVIDAD = ?",id);
+
+            if(contador == -1 || contador == 0){
+                regActualizados = "Error al actualizar el registro, favor verifivar insercion";
+            }
+            else {
+                regActualizados = regActualizados + contador;
+            }
+            return regActualizados;
+        }
+        else {
+            return "No existe el registro";
+        }
+    }
+
+    //Consultar
+    public Actividad consultarActividad(String idActividad){
+        String[] id = {idActividad};
+
+        Cursor cursor = db.query("ACTIVIDAD",campoActividad, "IDACTIVIDAD = ?", id, null,null,null);
+
+        if(cursor.moveToFirst()){
+            Actividad actividad = new Actividad();
+            actividad.setIdMiembroUniversitario(cursor.getString(1));
+            actividad.setNombreActividad(cursor.getString(2));
+            actividad.setFechaReserva(cursor.getString(3));
+            actividad.setDesdeActividad(cursor.getString(4));
+            actividad.setHastaActividad(cursor.getString(5));
+            actividad.setAprobado(cursor.getString(6));
+
+            return actividad;
+        }
+
+        return null;
+    }
+
+    public String eliminarActividad(Actividad actividad){
+        String regAfectados = "La cantidad de datos eliminados es: ";
+        int contador = 0;
+
+        if(verificarIntegridad(actividad, 23)){
+            contador += db.delete("ACTIVIDAD", "IDACTIVIDAD = '" + actividad.getIdActividad() + "'" , null);
+            regAfectados += contador;
+
+            return regAfectados;
+        }
+        else {
+            return "No se encontreo el registro";
+        }
+
+    }
+
+    /*==============================================================*/
+    /* Table: CRUD PARTICULAR                                       */
+    /*==============================================================*/
+    /*Insertar*/
+
+    public String insertarParticular(Particular particular){
+        String regInsertados = "Se han insertado un total de: ";
+        long contador = 0;
+        ContentValues cv = new ContentValues();
+
+        if(verificarIntegridad(particular, 20)){
+            cv.put("IDPARTICULAR", particular.getIDPARTICULAR());
+            cv.put("IDUSUARIO", particular.getIDPUSUARIO());
+            cv.put("NOMBREPARTICULAR ", particular.getNOMBREPARTICULAR());
+            cv.put("APELLIDOPARTICULAR", particular.getAPELLIDOPARTICULAR());
+
+            contador = db.insert("PARTICULAR", null, cv);
+            if (contador == -1 || contador ==0){
+                regInsertados = "Error al insertar el registro, el registro esta duplicado o algo, por favor revisar el dato que ud quiere insertar";
+            }
+            else {
+                regInsertados = regInsertados + contador;
+            }
+            return  regInsertados;
+        }
+        else {
+            return  "Error verificar datos";
+        }
+    }
+
+    /*Consultar*/
+    public Particular consultarParticular(String idParticular){
+        String[] id = {idParticular};
+
+        Cursor cursor = db.query("PARTICULAR", campoParticular, "IDPARTICULAR = ?", id,null,null,null);
+
+        if(cursor.moveToFirst()){
+            Particular particular = new Particular();
+            particular.setIDPUSUARIO(cursor.getString(1));
+            particular.setNOMBREPARTICULAR(cursor.getString(2));
+            particular.setAPELLIDOPARTICULAR(cursor.getString(3));
+
+            return particular;
+        }
+        return null;
+    }
+
+    /*Eliminar*/
+    public String eliminarParticular(Particular particular){
+        String regAfectados = "La cantidad de datos eliminados es: ";
+        int contador = 0;
+
+
+        if(verificarIntegridad(particular, 21)){
+            contador += db.delete("PARTICULAR", "IDPARTICULAR = '" + particular.getIDPARTICULAR().toString() + "' ",null);
+            regAfectados += contador;
+
+            return regAfectados;
+        }
+        else{
+            return "No se encontro el registro";
+        }
+    }
+
+    /*Actualizar*/
+    public String actualizarParticular(Particular particular){
+        String[] id = {particular.getIDPARTICULAR()};
+        String regActualizados = "El total de registros actualizados es: ";
+
+        ContentValues cv = new ContentValues();
+        int contador = 0;
+
+        if(verificarIntegridad(particular, 20)){
+            cv.put("IDPARTICULAR", particular.getIDPARTICULAR());
+            cv.put("IDUSUARIO", particular.getIDPUSUARIO());
+            cv.put("NOMBREPARTICULAR", particular.getNOMBREPARTICULAR());
+            cv.put("APELLIDOPARTICULAR", particular.getAPELLIDOPARTICULAR());
+
+            contador = db.update("PARTICULAR", cv, "IDPARTICULAR = ?", id);
+
+            if(contador == -1 || contador == 0){
+                regActualizados = "Error al actualizar los registros, favor verficar insercion de datos";
+            }
+            else{
+                regActualizados = regActualizados + contador;
+            }
+            return regActualizados;
+        }
+        else {
+            return "No existe el registro con el id "+particular.getIDPARTICULAR();
+        }
+
+    }
+
+    /*==============================================================*/
+    /* Table: CRUD ASISTENCIA                                       */
+    /*==============================================================*/
+    //Insertar
+
+    public String insertarAsistencia(Asistencia asistencia){
+        String regInsertados = "Se han insertado un total de: ";
+        long contador = 0;
+        ContentValues cv = new ContentValues();
+
+        if(verificarIntegridad(asistencia, 24)){
+            cv.put("IDASISTENCIA", asistencia.getIdAsistencia());
+            cv.put("ID_DETALLE", asistencia.getIdDetalle());
+            cv.put("IDMIEMBROUNIVERSITARIO", asistencia.getIdMiembroUniversitario());
+            cv.put("CALIFICACION", asistencia.getCalifacion());
+
+            contador = db.insert("ASISTENCIA", null, cv);
+            if (contador == -1 || contador ==0){
+                regInsertados = "Error al insertar el registro, el registro esta duplicado o algo, por favor revisar el dato que ud quiere insertar";
+            }
+            else {
+                regInsertados = regInsertados + contador;
+            }
+            return  regInsertados;
+        }
+        else {
+            return  "Error verificar datos";
+        }
+    }
+
+    public Asistencia consultarAsistencia(String idAsistencia){
+        String[] id = {idAsistencia};
+
+        Cursor cursor = db.query("ASISTENCIA", campoAsistencia, "IDASISTENCIA = ?", id, null, null, null);
+
+        if(cursor.moveToFirst()){
+            Asistencia asistencia = new Asistencia();
+            asistencia.setIdDetalle(Integer.parseInt(cursor.getString(1)));
+            asistencia.setIdMiembroUniversitario(cursor.getString(2));
+            asistencia.setCalifacion(Integer.parseInt(cursor.getString(3)));
+
+            return asistencia;
+        }
+        return null;
+    }
+
+    //Eliminar
+    public String eliminarAsistencia(Asistencia asistencia){
+        String regAfectados = "La cantidad de datos eliminados es: ";
+        int contador = 0;
+
+
+        if(verificarIntegridad(asistencia, 25)){
+            contador += db.delete("ASISTENCIA", "IDASISTENCIA = '" + asistencia.getIdAsistencia().toString() + "' ",null);
+            regAfectados += contador;
+
+            return regAfectados;
+        }
+        else{
+            return "No se encontro el registro";
+        }
+    }
+
+    //Actualizar
+    public String actualizarAsistencia(Asistencia asistencia){
+        String[] id = {asistencia.getIdAsistencia()};
+
+        String regActualizados = "El total de registros actualizados es: ";
+
+        ContentValues cv = new ContentValues();
+        int contador = 0;
+
+        if(verificarIntegridad(asistencia, 24)){
+            cv.put("ID_DETALLE",asistencia.getIdDetalle() );
+            cv.put("IDMIEMBROUNIVERSITARIO", asistencia.getIdMiembroUniversitario());
+            cv.put("CALIFICACION", asistencia.getCalifacion());
+
+            contador = db.update("ASISTENCIA", cv, "IDASISTENCIA = ?", id);
+
+            if(contador == -1 || contador == 0){
+                regActualizados = "Error al actualizar los registros, favor verficar insercion de datos";
+            }
+            else{
+                regActualizados = regActualizados + contador;
+            }
+            return regActualizados;
+        }
+        else {
+            return "No existe el registro con el id "+ asistencia.getIdAsistencia();
+        }
+    }
+
+    //Parte Katya
+
+    /*==============================================================*/
+    /* Table: CRUD EquipoDidactico                                  */
+    /*==============================================================*/
+    /*Insertar*/
+
+    public String insertarEquipoDidactico(EquipoDidactico equipodidactico){
+        String regInsertados = "Se han insertado un total de: ";
+        long contador = 0;
+        ContentValues cv = new ContentValues();
+
+        cv.put("IDEQUIPO", equipodidactico.getIDEQUIPO());
+        cv.put("NOMBRE", equipodidactico.getNOMBRE());
+        cv.put("DESCRIPCIONEQUIPO", equipodidactico.getDESCRIPCIONEQUIPO());
+
+        contador = db.insert("EQUIPODIDACTICO", null, cv);
+        if (contador == -1 || contador ==0){
+            regInsertados = "Error al Insertar el registro, Registro Duplicado. Verificar";
+        }
+        else {
+            regInsertados = regInsertados + contador;
+        }
+        return  regInsertados;
+    }
+    /*Consultar*/
+    public EquipoDidactico consultarEquipoDidactico(String idEquipo){
+        String[] id = {idEquipo};
+
+        Cursor cursor = db.query("EQUIPODIDACTICO", campoEquipoDidactico, "IDEQUIPO = ?", id,null,null,null);
+
+        if(cursor.moveToFirst()){
+            EquipoDidactico equipodidactico = new EquipoDidactico();
+            equipodidactico.setNOMBRE(cursor.getString(1));
+            equipodidactico.setDESCRIPCIONEQUIPO(cursor.getString(2));
+
+            return equipodidactico;
+        }
+        return null;
+    }
+    /*Eliminar*/
+    public String eliminarEquipoDidactico(EquipoDidactico equipodidactico){
+        String regAfectados = "La cantidad de datos eliminados es: ";
+        int contador = 0;
+            contador += db.delete("EQUIPODIDACTICO", "IDEQUIPO ='" + equipodidactico.getIDEQUIPO().toString() + "' ",null);
+            regAfectados += contador;
+            return regAfectados;
+        }
+
+    /*Actualizar*/
+    public String actualizarEquipoDidactico(EquipoDidactico equipodidactico){
+        String regActualizados = "El total de registros actualizados es: ";
+        String[] id = {equipodidactico.getIDEQUIPO()};
+            ContentValues cv = new ContentValues();
+        int contador = 0;
+            cv.put("NOMBRE", equipodidactico.getNOMBRE());
+            cv.put("DESCRIPCIONEQUIPO", equipodidactico.getDESCRIPCIONEQUIPO());
+            contador = db.update("EQUIPODIDACTICO", cv, "IDEQUIPO = ?", id);
+
+            if(contador == -1 || contador == 0){
+                regActualizados = "Error al actualizar los registros, favor verficar insercion de datos";
+            }
+            else{
+                regActualizados = regActualizados + contador;
+            }
+            return regActualizados;
+        }
 }

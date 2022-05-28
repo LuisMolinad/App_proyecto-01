@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EliminarEquipoDidactico">
-
+    android:background="#ECECEC"
+    tools:context=".EliminarCarreraExterno">
 
     <TextView
         android:id="@+id/textView10"
@@ -24,45 +24,47 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.043" />
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="28dp">
 
-    <EditText
-        android:id="@+id/idEquipo"
-        android:layout_width="228dp"
-        android:layout_height="46dp"
-        android:layout_weight="3"
-        android:ems="10"
-        android:hint="Código del equipo"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/idCarreraEliminarExterno"
+        android:hint="@string/idCarrera"
+        android:layout_width="360dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="248dp"
+        app:layout_constraintBottom_toTopOf="@+id/botonEliminarCarrera"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10"
-        app:layout_constraintVertical_bias="0.288" />
+        app:layout_constraintHorizontal_bias="0.686"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/botonEliminarEquipoDidactico"
+        android:id="@+id/botonEliminarCarrera"
         android:layout_width="wrap_content"
+
         android:layout_height="wrap_content"
-        android:layout_marginEnd="64dp"
-        android:layout_marginBottom="128dp"
+        android:layout_marginEnd="152dp"
         android:backgroundTint="@color/BotonEliminar"
         android:text="@string/eliminar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:onClick="eliminarEquipoDidactico"/>
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
+        app:layout_constraintVertical_bias="0.821" />
 
-    <Button
-        android:id="@+id/botoncancelarEquipoDidactico"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="128dp"
-        android:backgroundTint="@color/BotonCancelar"
-        android:text="@string/cancelar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/botonEliminarEquipoDidactico"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent" />
+
+    <!--android:onClick="zzz" Este metodo va dentro del boton-->
+
+    <!--android:onClick="zzz" Este metodo va dentro del boton-->
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

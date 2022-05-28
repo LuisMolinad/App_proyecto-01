@@ -18,10 +18,10 @@ public class MenuLocal extends AppCompatActivity implements View.OnClickListener
         setContentView(R.layout.activity_menu_local);
 
         //Insertar
-        insertar = (CardView) findViewById(R.id.cardInsertarLocal);
-        consultar = (CardView) findViewById(R.id.cardConsultarLocal);
-        editar = (CardView) findViewById(R.id.cardEditarLocal);
-        eliminar = (CardView) findViewById(R.id.cardEliminarLocal);
+        insertar = findViewById(R.id.cardInsertarLocal);
+        consultar = findViewById(R.id.cardConsultarLocal);
+        editar = findViewById(R.id.cardEditarLocal);
+        eliminar = findViewById(R.id.cardEliminarLocal);
 
         Intent intent = getIntent();
         tipoUsuario = intent.getExtras().getString("OpcionCrud");
@@ -36,16 +36,13 @@ public class MenuLocal extends AppCompatActivity implements View.OnClickListener
                     break;
                 case "0200":
                 case "0300":
+                case "0500":
+                case "0400":
+                case "0600":
                     consultar.setOnClickListener(this);
                     insertar.setVisibility(View.GONE);
                     editar.setVisibility(View.GONE);
                     eliminar.setVisibility(View.GONE);
-                    break;
-                case "0400":
-                    break;
-                case "0500":
-                    break;
-                case "0600":
                     break;
 
             }

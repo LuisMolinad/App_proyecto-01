@@ -11,6 +11,7 @@ public class MenuCarrera extends AppCompatActivity implements View.OnClickListen
 
     //Variables de CardView
     public CardView insertar, consultar, editar, eliminar;
+    public CardView insertarExterno, consultarExterno, editarExterno, eliminarExterno;
     String tipoUsuario;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,10 +19,15 @@ public class MenuCarrera extends AppCompatActivity implements View.OnClickListen
         setContentView(R.layout.activity_menu_carrera);
 
         //Insertar
-        insertar = (CardView) findViewById(R.id.cardInsertarCarrera);
-        consultar = (CardView) findViewById(R.id.cardConsultarCarrera);
-        editar = (CardView) findViewById(R.id.cardEditarCarrera);
-        eliminar = (CardView) findViewById(R.id.cardEliminarCarrera);
+        insertar =  findViewById(R.id.cardInsertarCarrera);
+        consultar =  findViewById(R.id.cardConsultarCarrera);
+        editar =  findViewById(R.id.cardEditarCarrera);
+        eliminar = findViewById(R.id.cardEliminarCarrera);
+
+        insertarExterno = findViewById(R.id.cardInsertarCarreraExterno);
+        consultarExterno =  findViewById(R.id.cardConsultarCarreraExterno);
+        editarExterno = findViewById(R.id.cardEditarCarreraExterno);
+        eliminarExterno =  findViewById(R.id.cardEliminarCarreraExterno);
 
         Intent intent = getIntent();
         tipoUsuario = intent.getExtras().getString("OpcionCrud");
@@ -34,20 +40,24 @@ public class MenuCarrera extends AppCompatActivity implements View.OnClickListen
                     consultar.setOnClickListener(this);
                     editar.setOnClickListener(this);
                     eliminar.setOnClickListener(this);
+                    insertarExterno.setOnClickListener(this);
+                    consultarExterno.setOnClickListener(this);
+                    editarExterno.setOnClickListener(this);
+                    eliminarExterno.setOnClickListener(this);
                     break;
                 case "0200":
                 case "0300":
+                case "0500":
+                case "0400":
+                case "0600":
                     insertar.setVisibility(View.GONE);
                     consultar.setOnClickListener(this);
                     editar.setVisibility(View.GONE);
                     eliminar.setVisibility(View.GONE);
-
-                    break;
-                case "0400":
-                    break;
-                case "0500":
-                    break;
-                case "0600":
+                    insertarExterno.setVisibility(View.GONE);
+                    consultarExterno.setOnClickListener(this);
+                    editarExterno.setVisibility(View.GONE);
+                    eliminarExterno.setVisibility(View.GONE);
                     break;
 
             }
@@ -76,6 +86,22 @@ public class MenuCarrera extends AppCompatActivity implements View.OnClickListen
                 break;
             case R.id.cardEliminarCarrera:
                 i = new Intent(this, EliminarCarrera.class);
+                startActivity(i);
+                break;
+            case R.id.cardInsertarCarreraExterno:
+                i = new Intent(this, InsertarCarreraExterno.class);
+                startActivity(i);
+                break;
+            case R.id.cardConsultarCarreraExterno:
+                i = new Intent(this, ConsultarCarreraExterno.class);
+                startActivity(i);
+                break;
+            case R.id.cardEditarCarreraExterno:
+                i = new Intent(this, EditarCarreraExterno.class);
+                startActivity(i);
+                break;
+            case R.id.cardEliminarCarreraExterno:
+                i = new Intent(this, EliminarCarreraExterno.class);
                 startActivity(i);
                 break;
         }

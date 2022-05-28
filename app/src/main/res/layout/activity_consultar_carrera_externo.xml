@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".InsertarListaEquipo">
-
+    android:background="#ECECEC"
+    tools:context=".ConsultarCarreraExterno">
 
     <TextView
         android:id="@+id/textView10"
         android:layout_width="152dp"
         android:layout_height="37dp"
         android:gravity="center"
-        android:text="@string/Insertar"
+        android:text="@string/consultar"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="20sp"
@@ -24,66 +24,69 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.043" />
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="28dp">
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/idListaEquipoInsertar"
+        android:id="@+id/idCarreraConsultaExterno"
+        android:textAllCaps="true"
         android:layout_width="360dp"
         android:layout_height="52dp"
-        android:hint="@string/idListaEquipo"
+        android:hint="@string/idCarrera"
         android:inputType="textCapCharacters"
-        android:textAllCaps="true"
         android:textColorHint="#616161"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.238" />
+        app:layout_constraintVertical_bias="0.206" />
+
+
+
 
     <com.google.android.material.textfield.TextInputEditText
-
-        android:id="@+id/idDetalleInsertar"
+        android:id="@+id/nombreCarreraConsultaExterno"
+        android:textAllCaps="true"
         android:layout_width="360dp"
         android:layout_height="52dp"
-        android:layout_marginTop="64dp"
-        android:hint="@string/idDetalle"
+        android:hint="@string/nombreCarrera"
+        android:inputType="textCapCharacters"
+        android:textColorHint="#616161"
+        android:focusable="false"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idListaEquipoInsertar" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/idEquipoInsertar"
-        android:layout_width="360dp"
-        android:layout_height="52dp"
-        android:hint="@string/idEquipo"
-        android:layout_marginTop="80dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idDetalleInsertar" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.477" />
 
     <Button
-        android:id="@+id/botonGuardarListaEquipo"
+        android:id="@+id/botonConsultarCarreraExterna"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="84dp"
-        android:layout_marginBottom="164dp"
-        android:backgroundTint="@color/BotonGuardarr"
-        android:text="@string/guardar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
-    <Button
-        android:id="@+id/botonCancelarListaEquipoDidactico"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="212dp"
-        android:layout_marginBottom="164dp"
-        android:backgroundTint="@color/BotonCancelar"
-        android:text="@string/cancelar"
+        android:layout_marginEnd="144dp"
+        android:backgroundTint="@color/BotonConsultar"
+        android:text="@string/consultar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
+        app:layout_constraintVertical_bias="0.839" />
+
+
+    <!--android:onClick="zzz" Este metodo va dentro del boton-->
+
+    <!--android:onClick="zzz" Este metodo va dentro del boton-->
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

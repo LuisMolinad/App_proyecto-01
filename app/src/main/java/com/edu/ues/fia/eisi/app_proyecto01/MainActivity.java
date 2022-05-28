@@ -63,6 +63,17 @@ public Integer rol;
                     cardMenuLocal.setOnClickListener(this);
 
                     break;
+                case "0500":
+                    cardMenuActividad.setOnClickListener(this);
+                    cardMenuCatalogo.setOnClickListener(this);
+                    cardMenuCiclo.setOnClickListener(this);
+                    cardMenuParticular.setVisibility(View.GONE);
+                    cardMenuMiembro.setOnClickListener(this);
+                    cardMenuHorario.setOnClickListener(this);
+                    cardMenuEquipo.setOnClickListener(this);
+                    cardMenuLocal.setOnClickListener(this);
+
+                    break;
                 case "0100":
                 default:
                     cardMenuActividad.setOnClickListener(this);

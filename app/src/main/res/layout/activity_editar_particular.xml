@@ -80,7 +80,8 @@
                     android:id="@+id/consultar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Consultar" />
+                    android:text="Consultar"
+                    android:onClick="consultarParticular"/>
             </LinearLayout>
 
             <Space
@@ -193,7 +194,8 @@
                     android:id="@+id/actualizar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Actualizar" />
+                    android:text="Actualizar"
+                    android:onClick="actualizarParticular"/>
             </LinearLayout>
 
         </LinearLayout>

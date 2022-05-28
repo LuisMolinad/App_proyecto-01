@@ -1,50 +1,50 @@
 package com.edu.ues.fia.eisi.app_proyecto01;
 
 public class Particular {
-    private String idParticular;
-    private String idUsuario;
-    private String nombreParticular;
-    private String apellidoParticular;
+    private String IDPARTICULAR;
+    private String IDPUSUARIO;
+    private String NOMBREPARTICULAR;
+    private String APELLIDOPARTICULAR;
+
+    public Particular(String idparticular, String idpusuario, String nombreparticular, String apellidoparticular) {
+        IDPARTICULAR = idparticular;
+        IDPUSUARIO = idpusuario;
+        NOMBREPARTICULAR = nombreparticular;
+        APELLIDOPARTICULAR = apellidoparticular;
+    }
 
     public Particular(){}
 
-    public Particular(String idParticular, String idUsuario, String nombreParticular, String apellidoParticular) {
-        this.idParticular = idParticular;
-        this.idUsuario = idUsuario;
-        this.nombreParticular = nombreParticular;
-        this.apellidoParticular = apellidoParticular;
+
+    public String getIDPARTICULAR() {
+        return IDPARTICULAR;
     }
 
-
-    public String getIdParticular() {
-        return idParticular;
+    public void setIDPARTICULAR(String IDPARTICULAR) {
+        this.IDPARTICULAR = IDPARTICULAR;
     }
 
-    public void setIdParticular(String idParticular) {
-        this.idParticular = idParticular;
+    public String getIDPUSUARIO() {
+        return IDPUSUARIO;
     }
 
-    public String getIdUsuario() {
-        return idUsuario;
+    public void setIDPUSUARIO(String IDPUSUARIO) {
+        this.IDPUSUARIO = IDPUSUARIO;
     }
 
-    public void setIdUsuario(String idUsuario) {
-        this.idUsuario = idUsuario;
+    public String getNOMBREPARTICULAR() {
+        return NOMBREPARTICULAR;
     }
 
-    public String getNombreParticular() {
-        return nombreParticular;
+    public void setNOMBREPARTICULAR(String NOMBREPARTICULAR) {
+        this.NOMBREPARTICULAR = NOMBREPARTICULAR;
     }
 
-    public void setNombreParticular(String nombreParticular) {
-        this.nombreParticular = nombreParticular;
+    public String getAPELLIDOPARTICULAR() {
+        return APELLIDOPARTICULAR;
     }
 
-    public String getApellidoParticular() {
-        return apellidoParticular;
-    }
-
-    public void setApellidoParticular(String apellidoParticular) {
-        this.apellidoParticular = apellidoParticular;
+    public void setAPELLIDOPARTICULAR(String APELLIDOPARTICULAR) {
+        this.APELLIDOPARTICULAR = APELLIDOPARTICULAR;
     }
 }

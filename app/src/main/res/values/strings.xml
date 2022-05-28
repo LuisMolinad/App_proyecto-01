@@ -56,6 +56,12 @@
     <string name="txtUpdate">Editar</string>
     <string name="txtDelete">Eliminar</string>
 
+    <!-- TODO CRUD Web -->
+    <string name="txtCreateWeb">Insertar Online</string>
+    <string name="txtReadWeb">Consultar Online</string>
+    <string name="txtUpdateWeb">Editar Online</string>
+    <string name="txtDeleteWeb">Eliminar Online</string>
+
     <!-- TODO Gestion Actividad -->
     <string name="GestionActividad">Menu Actividad</string>
 
@@ -122,7 +128,6 @@
     <string name="idMateriaActiva">Id materia activa</string>
     <string name="nombreMateriaActiva">Nombre materia activa</string>
     <string name="consultarOfertaAcademica">Consultar oferta académica</string>
-
     <!-- TODO CRUD DetalleOferta-->
     <string name="insertarDetalleOferta">Insertar detalle oferta</string>
     <string name="idGrupoDetalleOferta">Id grupo</string>
