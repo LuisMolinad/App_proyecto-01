@@ -44,25 +44,15 @@
         android:id="@+id/botonEliminarEquipoDidactico"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="64dp"
-        android:layout_marginBottom="128dp"
         android:backgroundTint="@color/BotonEliminar"
+        android:onClick="eliminarEquipoDidactico"
         android:text="@string/eliminar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:onClick="eliminarEquipoDidactico"/>
-
-    <Button
-        android:id="@+id/botoncancelarEquipoDidactico"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="128dp"
-        android:backgroundTint="@color/BotonCancelar"
-        android:text="@string/cancelar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/botonEliminarEquipoDidactico"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.773" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

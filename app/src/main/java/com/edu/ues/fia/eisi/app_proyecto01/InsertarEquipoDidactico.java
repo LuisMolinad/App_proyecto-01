@@ -45,4 +45,9 @@ public class InsertarEquipoDidactico extends AppCompatActivity {
             Toast.makeText(this, regInsertados, Toast.LENGTH_SHORT).show();
         }
     }
+    public void CancelarInsertarEquipo (View v){
+        idEquipo.setText("");
+        nombre.setText("");
+        descripcionEquipo.setText("");
+    }
 }

@@ -24,8 +24,8 @@ public class ControladorServicio {
         String respuesta = " ";
         // Estableciendo tiempo de espera del servicio
         HttpParams parametros = new BasicHttpParams();
-        HttpConnectionParams.setConnectionTimeout(parametros, 3000);
-        HttpConnectionParams.setSoTimeout(parametros, 5000);
+        HttpConnectionParams.setConnectionTimeout(parametros, 5000);
+        HttpConnectionParams.setSoTimeout(parametros, 8000);
         // Creando objetos de conexion
         HttpClient cliente = new DefaultHttpClient(parametros);
         HttpGet httpGet = new HttpGet(url);
@@ -77,8 +77,8 @@ public class ControladorServicio {
         }
         return respuesta;
     }
-
-    public static void insertarCarreraExterno(String peticion, Context ctx) {
+//Creo que este se reutiiza
+    public static void insertar(String peticion, Context ctx) {
         String json = obtenerRespuestaPeticion(peticion, ctx);
         try {
             JSONObject resultado = new JSONObject(json);
@@ -88,6 +88,37 @@ public class ControladorServicio {
                 Toast.makeText(ctx, "Registro ingresado", Toast.LENGTH_LONG).show();
             else
                 Toast.makeText(ctx, "Error registro duplicado", Toast.LENGTH_LONG).show();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+    public static String obtenerCarreraJSON(String json, Context ctx) {
+        try {
+            JSONArray objs = new JSONArray(json);
+            if (objs.length() != 0)
+                //NOTAFINAL PROMEDIO
+                return objs.getJSONObject(0).getString("CARRE");
+            else {
+                Toast.makeText(ctx, "Error carrera no existe", Toast.LENGTH_LONG).show();
+                return " ";
+            }
+        } catch (JSONException e) {
+            Toast.makeText(ctx, "Error con la respuesta JSON", Toast.LENGTH_LONG).show();
+            return " ";
+        }
+    }
+
+
+    public static void ActualizarCarreraExterno(String peticion, Context ctx) {
+        String json = obtenerRespuestaPeticion(peticion, ctx);
+        try {
+            JSONObject resultado2 = new JSONObject(json);
+            Toast.makeText(ctx, "Registro Actualizado"+ resultado2.getJSONArray("resultado"), Toast.LENGTH_LONG).show();
+            int respuesta = resultado2.getInt("resultado");
+            if (respuesta == 1)
+                Toast.makeText(ctx, "Registro Actualizado", Toast.LENGTH_LONG).show();
+            else
+                Toast.makeText(ctx, "Error no existe", Toast.LENGTH_LONG).show();
         } catch (JSONException e) {
             e.printStackTrace();
         }

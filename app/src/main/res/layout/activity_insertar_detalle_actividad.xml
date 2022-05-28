@@ -25,8 +25,8 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/descripcionActividadInsertar"
-        android:layout_width="360dp"
-        android:layout_height="52dp"
+        android:layout_width="322dp"
+        android:layout_height="54dp"
         android:layout_marginTop="20dp"
         android:hint="@string/descripcionActividad"
         android:inputType="textCapCharacters"
@@ -39,47 +39,47 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/idDetalleInsertar"
-        android:layout_width="360dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="100dp"
+        android:layout_width="320dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="84dp"
         android:hint="@string/idDetalle"
         android:inputType="textCapCharacters"
         android:textAllCaps="true"
         android:textColorHint="#616161"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.313"
+        app:layout_constraintHorizontal_bias="0.307"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
 
         android:id="@+id/idActividadInsertar"
-        android:layout_width="360dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="324dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="12dp"
         android:hint="Código de actividad"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.313"
+        app:layout_constraintHorizontal_bias="0.321"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/descripcionActividadInsertar" />
 
     <com.google.android.material.textfield.TextInputEditText
 
         android:id="@+id/GrupoInsertar"
-        android:layout_width="360dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="321dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="12dp"
         android:hint="Grupo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.313"
+        app:layout_constraintHorizontal_bias="0.314"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/idActividadInsertar" />
 
     <com.google.android.material.textfield.TextInputEditText
 
         android:id="@+id/idLocalInsertar"
-        android:layout_width="360dp"
-        android:layout_height="52dp"
+        android:layout_width="322dp"
+        android:layout_height="65dp"
         android:hint="Código del local"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -92,9 +92,10 @@
         android:id="@+id/botonguardarDetalleActividad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="84dp"
+        android:layout_marginEnd="60dp"
         android:layout_marginBottom="28dp"
         android:backgroundTint="@color/BotonGuardarr"
+        android:onClick="insertarDetalleActividad"
         android:text="@string/guardar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -108,8 +109,9 @@
         android:text="@string/cancelar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/botonguardarDetalleActividad"
-        app:layout_constraintHorizontal_bias="0.535"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.598"
+        app:layout_constraintStart_toStartOf="parent"
+        android:onClick="CancelarInsertarDetalleActividad"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

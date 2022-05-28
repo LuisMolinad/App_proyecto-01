@@ -40,15 +40,15 @@
         android:layout_width="360dp"
         android:layout_height="52dp"
         android:layout_marginBottom="248dp"
-        app:layout_constraintBottom_toTopOf="@+id/botonEliminarCarrera"
+        app:layout_constraintBottom_toTopOf="@+id/botonEliminarCarreraExterno"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.686"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/botonEliminarCarrera"
+        android:id="@+id/botonEliminarCarreraExterno"
         android:layout_width="wrap_content"
-
+        android:onClick="EliminarCarreraEXTERNO"
         android:layout_height="wrap_content"
         android:layout_marginEnd="152dp"
         android:backgroundTint="@color/BotonEliminar"

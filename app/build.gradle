@@ -7,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId "com.edu.ues.fia.eisi.app_proyecto01"
-        minSdk 21
+        minSdk 22
         targetSdk 32
         versionCode 1
         versionName "1.0"

@@ -27,9 +27,8 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/idDetalleConsultar"
-        android:layout_width="360dp"
-        android:layout_height="52dp"
-        android:layout_marginBottom="272dp"
+        android:layout_width="284dp"
+        android:layout_height="60dp"
         android:focusable="false"
         android:hint="@string/idDetalle"
         android:inputType="textCapCharacters"
@@ -37,14 +36,14 @@
         android:textColorHint="#616161"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0.195" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.606" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/idListaEquipoConsultar"
-        android:layout_width="360dp"
-        android:layout_height="52dp"
+        android:layout_width="301dp"
+        android:layout_height="51dp"
         android:hint="@string/idListaEquipo"
         android:inputType="textCapCharacters"
         android:textAllCaps="true"
@@ -54,12 +53,12 @@
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.293" />
+        app:layout_constraintVertical_bias="0.194" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/idEquipoConsultar"
-        android:layout_width="360dp"
-        android:layout_height="52dp"
+        android:layout_width="295dp"
+        android:layout_height="62dp"
         android:focusable="false"
         android:hint="@string/idEquipo"
         android:inputType="textCapCharacters"
@@ -67,21 +66,24 @@
         android:textColorHint="#616161"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintHorizontal_bias="0.537"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idListaEquipoConsultar"
-        app:layout_constraintVertical_bias="0.13" />
+        app:layout_constraintTop_toBottomOf="@+id/botonConsultarListaEquipoDidactico"
+        app:layout_constraintVertical_bias="0.069" />
 
     <Button
         android:id="@+id/botonConsultarListaEquipoDidactico"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="64dp"
-        android:layout_marginBottom="56dp"
         android:backgroundTint="@color/BotonConsultar"
+        android:onClick="consultarListaEquipo"
         android:text="@string/consultar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.313" />
 
     <Button
         android:id="@+id/botonCancelarListaEquipoDidactico"
@@ -91,9 +93,10 @@
         android:backgroundTint="@color/BotonCancelar"
         android:text="@string/cancelar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/botonConsultarListaEquipoDidactico"
-        app:layout_constraintHorizontal_bias="0.625"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="parent"
+        android:onClick="CancelarConsultarListaEquipo"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

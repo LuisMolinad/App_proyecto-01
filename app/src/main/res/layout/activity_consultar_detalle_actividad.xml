@@ -27,91 +27,94 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/idDetalleConsultar"
-        android:layout_width="360dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="56dp"
+        android:layout_width="268dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="28dp"
         android:hint="@string/idDetalle"
         android:inputType="textCapCharacters"
         android:textAllCaps="true"
         android:textColorHint="#616161"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <com.google.android.material.textfield.TextInputEditText
 
         android:id="@+id/idActividadConsultar"
-        android:layout_width="361dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="36dp"
+        android:layout_width="273dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="48dp"
         android:hint="Código de actividad"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.46"
+        app:layout_constraintHorizontal_bias="0.514"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/descripcionActividadConsultar" />
+        app:layout_constraintTop_toTopOf="@+id/GrupoConsultar" />
 
     <com.google.android.material.textfield.TextInputEditText
 
         android:id="@+id/GrupoConsultar"
-        android:layout_width="360dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="277dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="60dp"
         android:hint="Grupo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idActividadConsultar" />
+        app:layout_constraintTop_toBottomOf="@+id/idDetalleConsultar" />
 
     <com.google.android.material.textfield.TextInputEditText
 
         android:id="@+id/idLocalConsultar"
-        android:layout_width="360dp"
-        android:layout_height="52dp"
+        android:layout_width="277dp"
+        android:layout_height="57dp"
         android:hint="Código del local"
         app:layout_constraintBottom_toTopOf="@+id/botoncancelarDetalleActividad"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/GrupoConsultar"
-        app:layout_constraintVertical_bias="0.364" />
+        app:layout_constraintTop_toTopOf="@+id/idActividadConsultar"
+        app:layout_constraintVertical_bias="0.393" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/descripcionActividadConsultar"
-        android:layout_width="360dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="278dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="64dp"
         android:focusable="false"
         android:hint="@string/descripcionActividad"
         android:inputType="textCapCharacters"
         android:textAllCaps="true"
         android:textColorHint="#616161"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintHorizontal_bias="0.481"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idDetalleConsultar" />
+        app:layout_constraintTop_toTopOf="@+id/idLocalConsultar" />
 
     <Button
         android:id="@+id/botonConsultarDetalleActividad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="80dp"
-        android:layout_marginBottom="76dp"
         android:backgroundTint="@color/BotonConsultar"
+        android:onClick="consultarDetalleActividad"
         android:text="@string/consultar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/idDetalleConsultar"
+        app:layout_constraintVertical_bias="0.108" />
 
     <Button
         android:id="@+id/botoncancelarDetalleActividad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="76dp"
+        android:layout_marginBottom="28dp"
         android:backgroundTint="@color/BotonCancelar"
         android:text="@string/cancelar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/botonConsultarDetalleActividad"
-        app:layout_constraintHorizontal_bias="0.567"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="parent"
+        android:onClick="CancelarConsultarDetalleActividad"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

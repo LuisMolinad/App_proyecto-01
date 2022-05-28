@@ -28,39 +28,34 @@
         app:layout_constraintVertical_bias="0.043" />
 
 
-    <Spinner
-        android:id="@+id/spinneridDetalleEliminar"
-        android:layout_width="360dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="164dp"
+    <EditText
+        android:id="@+id/idDetalleEliminar"
+        android:layout_width="271dp"
+        android:layout_height="45dp"
+        android:layout_weight="3"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.686"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.418" />
+
 
     <Button
         android:id="@+id/botonEliminarDetalleActividad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="60dp"
-        android:layout_marginBottom="204dp"
         android:backgroundTint="@color/BotonEliminar"
+        android:onClick="eliminarDetalleActividad"
         android:text="@string/eliminar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <Button
-        android:id="@+id/botoncancelarDetalleActividad"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginBottom="204dp"
-        android:backgroundTint="@color/BotonCancelar"
-        android:text="@string/cancelar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.762" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

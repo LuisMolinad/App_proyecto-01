@@ -87,6 +87,7 @@
         android:layout_marginBottom="56dp"
         android:backgroundTint="@color/BotonCancelar"
         android:text="@string/cancelar"
+        android:onClick="CancelarInsertarEquipo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/botonguardarEquipoDidactico"
         app:layout_constraintHorizontal_bias="0.717"

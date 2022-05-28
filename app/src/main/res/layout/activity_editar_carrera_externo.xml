@@ -65,18 +65,16 @@
     <Button
         android:id="@+id/botonEditarCarrera"
         android:layout_width="wrap_content"
-
         android:layout_height="wrap_content"
-        android:layout_marginEnd="56dp"
+        android:layout_marginEnd="160dp"
         android:backgroundTint="@color/BotonConsultar"
+        android:onClick="EDITARCarreraEXTERNO"
         android:text="@string/editar"
         android:textColor="#212121"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
         app:layout_constraintVertical_bias="0.827" />
-
-
 
 
     <!--android:onClick="zzz" Este metodo va dentro del boton-->

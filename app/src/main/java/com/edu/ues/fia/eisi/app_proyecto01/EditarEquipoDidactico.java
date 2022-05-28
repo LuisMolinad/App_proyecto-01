@@ -73,5 +73,9 @@ public class EditarEquipoDidactico extends AppCompatActivity {
             Toast.makeText(this, regActualizados, Toast.LENGTH_SHORT).show();
         }
     }
+    public void CancelarActualizarEquipo (View v){
+        idEquipoE.setText("");
+
+    }
 
 }
