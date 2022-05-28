@@ -27,17 +27,19 @@
         app:layout_constraintVertical_bias="0.043" />
 
 
-    <Spinner
-        android:id="@+id/spinneridListaEquipoEliminar"
-        android:layout_width="360dp"
-        android:layout_height="52dp"
-        android:layout_marginBottom="172dp"
-        app:layout_constraintBottom_toTopOf="@+id/botonEliminarListaEquipoDidactico"
+    <EditText
+        android:id="@+id/idListaEquipoEliminar"
+        android:layout_width="271dp"
+        android:layout_height="45dp"
+        android:layout_weight="3"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.418" />
 
     <Button
         android:id="@+id/botonEliminarListaEquipoDidactico"
@@ -48,7 +50,8 @@
         android:backgroundTint="@color/BotonEliminar"
         android:text="@string/eliminar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:onClick="eliminarListaEquipo"/>
 
     <Button
         android:id="@+id/botonCancelarListaEquipoDidactico"

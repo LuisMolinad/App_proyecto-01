@@ -97,7 +97,8 @@
         android:backgroundTint="@color/BotonGuardarr"
         android:text="@string/guardar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:onClick="insertarDetalleActividad"/>
 
     <Button
         android:id="@+id/botoncancelarDetalleActividad"

@@ -27,8 +27,8 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/idListaEquipoInsertar"
-        android:layout_width="360dp"
-        android:layout_height="52dp"
+        android:layout_width="295dp"
+        android:layout_height="54dp"
         android:hint="@string/idListaEquipo"
         android:inputType="textCapCharacters"
         android:textAllCaps="true"
@@ -43,8 +43,8 @@
     <com.google.android.material.textfield.TextInputEditText
 
         android:id="@+id/idDetalleInsertar"
-        android:layout_width="360dp"
-        android:layout_height="52dp"
+        android:layout_width="286dp"
+        android:layout_height="54dp"
         android:layout_marginTop="64dp"
         android:hint="@string/idDetalle"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,12 +54,11 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/idEquipoInsertar"
-        android:layout_width="360dp"
-        android:layout_height="52dp"
+        android:layout_width="283dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="36dp"
         android:hint="@string/idEquipo"
-        android:layout_marginTop="80dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/idDetalleInsertar" />
 
@@ -67,23 +66,26 @@
         android:id="@+id/botonGuardarListaEquipo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="84dp"
-        android:layout_marginBottom="164dp"
+        android:layout_marginBottom="68dp"
         android:backgroundTint="@color/BotonGuardarr"
+        android:onClick="insertarListaEquipo"
         android:text="@string/guardar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.722"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/botonCancelarListaEquipoDidactico"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="212dp"
-        android:layout_marginBottom="164dp"
+        android:layout_marginBottom="68dp"
         android:backgroundTint="@color/BotonCancelar"
         android:text="@string/cancelar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.215"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,15 +4,22 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/astri/Desktop/Final/App_proyecto-01/app/src/main/res/layout/activity_consultar_equipo_didactico.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/astri/Desktop/Final/App_proyecto-01/app/src/main/res/layout/activity_consultar_lista_equipo.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/astri/Desktop/Final/App_proyecto-01/app/src/main/res/layout/activity_consultar_particular.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/astri/Desktop/Final/App_proyecto-01/app/src/main/res/layout/activity_editar_equipo_didactico.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/astri/Desktop/Final/App_proyecto-01/app/src/main/res/layout/activity_editar_equipo_didactico.xml" value="0.1" />
         <entry key="..\:/Users/astri/Desktop/Final/App_proyecto-01/app/src/main/res/layout/activity_editar_horario.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/astri/Desktop/Final/App_proyecto-01/app/src/main/res/layout/activity_editar_lista_equipo.xml" value="0.20380434782608695" />
         <entry key="..\:/Users/astri/Desktop/Final/App_proyecto-01/app/src/main/res/layout/activity_editar_particular.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/astri/Desktop/Final/App_proyecto-01/app/src/main/res/layout/activity_eliminar_equipo_didactico.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/astri/Desktop/Final/App_proyecto-01/app/src/main/res/layout/activity_eliminar_lista_equipo.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/astri/Desktop/Final/App_proyecto-01/app/src/main/res/layout/activity_eliminar_particular.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/astri/Desktop/Final/App_proyecto-01/app/src/main/res/layout/activity_insertar_asistencia.xml" value="0.15534420289855072" />
+        <entry key="..\:/Users/astri/Desktop/Final/App_proyecto-01/app/src/main/res/layout/activity_insertar_detalle_actividad.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/astri/Desktop/Final/App_proyecto-01/app/src/main/res/layout/activity_insertar_equipo_didactico.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/astri/Desktop/Final/App_proyecto-01/app/src/main/res/layout/activity_insertar_escuela.xml" value="0.1" />
+        <entry key="..\:/Users/astri/Desktop/Final/App_proyecto-01/app/src/main/res/layout/activity_insertar_lista_equipo.xml" value="0.22" />
+        <entry key="..\:/Users/astri/Desktop/Final/App_proyecto-01/app/src/main/res/layout/activity_insertar_particular.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/astri/Desktop/Final/App_proyecto-01/app/src/main/res/layout/activity_menu_detalle_actividad.xml" value="0.20380434782608695" />
         <entry key="..\:/Users/astri/Desktop/ProFinal/App_proyecto-01/app/src/main/res/layout/activity_consultar_actividad.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/astri/Desktop/ProFinal/App_proyecto-01/app/src/main/res/layout/activity_consultar_asistencia.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/astri/Desktop/ProFinal/App_proyecto-01/app/src/main/res/layout/activity_consultar_carrera.xml" value="0.20416666666666666" />
