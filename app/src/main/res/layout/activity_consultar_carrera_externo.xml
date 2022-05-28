@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout tools:context=".ConsultarCarreraExterno"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:id="@+id/LinearLayout1"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/textView1"
+        android:text="@string/idCarrera"/>
+    <EditText android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/idCarreraConsultarExterna"
+        android:inputType="textCapCharacters"
+        android:hint="@string/idCarrera" android:ems="10">
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/NOMBRECARRERAConsultarExterna"
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        android:hint="@string/nombreCarrera"
+        android:inputType="textCapCharacters">
+
+    </EditText>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/BotonConsultar"
+        android:onClick="consultarCARRERALocal"
+        android:text="@string/consultar" />
+
+
+</LinearLayout>

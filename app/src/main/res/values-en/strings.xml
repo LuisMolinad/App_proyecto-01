@@ -74,4 +74,8 @@
     <string name="descripcionActividad">Activity Description</string>
 
     <string name="app_name">FIA Activity Control</string>
+    <string name="txtCreateWeb">Insert</string>
+    <string name="txtReadWeb">Consult</string>
+    <string name="txtUpdateWeb">Edit</string>
+    <string name="txtDeleteWeb">Delete</string>
 </resources>

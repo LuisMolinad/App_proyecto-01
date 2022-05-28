@@ -1189,7 +1189,6 @@ public String insertarEscuela (Escuela escuela){
         }
         return null;
     }
-
     /*Eliminar*/
     public String eliminarEquipoDidactico(EquipoDidactico equipodidactico){
         String regAfectados = "La cantidad de datos eliminados es: ";
@@ -1199,12 +1198,9 @@ public String insertarEscuela (Escuela escuela){
             return regAfectados;
         }
 
-
-
     /*Actualizar*/
     public String actualizarEquipoDidactico(EquipoDidactico equipodidactico){
         String regActualizados = "El total de registros actualizados es: ";
-
         String[] id = {equipodidactico.getIDEQUIPO()};
             ContentValues cv = new ContentValues();
         int contador = 0;
@@ -1220,6 +1216,7 @@ public String insertarEscuela (Escuela escuela){
             }
             return regActualizados;
         }
+<<<<<<< HEAD
 
     /*==============================================================*/
     /* Table: CRUD LISTAEQUIPO                                      */
@@ -1393,3 +1390,6 @@ public String insertarEscuela (Escuela escuela){
 
 
 }
+=======
+}
+>>>>>>> f461cc915c916b502177bd34823d0ed6c40e5ee2
