@@ -92,4 +92,39 @@ public class ControladorServicio {
             e.printStackTrace();
         }
     }
+    public static String obtenerCarreraJSON(String json, Context ctx) {
+        try {
+            JSONArray objs = new JSONArray(json);
+            if (objs.length() != 0)
+                //NOTAFINAL PROMEDIO
+                return objs.getJSONObject(0).getString("CARRE");
+            else {
+                Toast.makeText(ctx, "Error carrera no existe", Toast.LENGTH_LONG).show();
+                return " ";
+            }
+        } catch (JSONException e) {
+            Toast.makeText(ctx, "Error con la respuesta JSON", Toast.LENGTH_LONG).show();
+            return " ";
+        }
+    }
+/*    public static List<Carrera> obtenerCarreraLocal(String json, Context ctx) {
+        List<Carrera> listaMaterias = new ArrayList<Carrera>();
+        try {
+            JSONArray materiasJSON = new JSONArray(json);
+            for (int i = 0; i < materiasJSON.length(); i++) {
+                JSONObject obj = materiasJSON.getJSONObject(i);
+                Carrera carrera = new Carrera();
+                carrera.setIDCARRERA(obj.getString("IDCARRERA"));
+                carrera.setNOMBRECARRERA(obj.getString("CARRERA"));
+                listaMaterias.add(carrera);
+            }
+            return listaMaterias;
+        } catch (Exception e) {
+            Toast.makeText(ctx, "Error en parseO de JSON", Toast.LENGTH_LONG)
+                    .show();
+            return null;
+        }
+    }*/
+
+
 }
