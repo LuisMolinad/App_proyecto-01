@@ -2,16 +2,22 @@ package com.edu.ues.fia.eisi.app_proyecto01;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
 import org.json.JSONObject;
-
+@SuppressLint("NewApi")
 public class EditarCarreraExterno extends AppCompatActivity {
     EditText idCarrera, nombreCarrera;
     //Duque
+<<<<<<< HEAD
     private final String urlLocal = "http://192.168.0.8/Proyecto1.2/ws_CARRERA_update.php";
+=======
+    private final String urlLocal = "http://192.168.0.3/Proyecto1.2/ws_CARRERA_update.php";
+    @SuppressLint("NewApi")
+>>>>>>> 584cc67bf6fe1d10f1791f2256f28d24228f32d5
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
