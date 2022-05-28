@@ -33,7 +33,7 @@
     <string name="TextCiclo">Ciclo</string>
     <string name="TextLocal">Local</string>
     <!--TODO:MENU CRUD-->
-    <string name="Insertar">Insertar </string>
+    <string name="Insertar">Insertar</string>
     <string name="editar">Editar</string>
     <string name="consultar">Consultar</string>
     <string name="eliminar">Eliminar</string>
@@ -103,7 +103,40 @@
     <!-- TODO Label DetalleActividad -->
     <string name="idDetalle">Código del detalle de actividad</string>
     <string name="descripcionActividad">Descripción de actividad</string>
+    <!-- TODO CRUD Ciclo-->
+    <string name="insertarCiclo">Insertar ciclo</string>
+    <string name="idCiclo">Id ciclo</string>
+    <string name="numeroCiclo">Número ciclo</string>
+    <string name="inicioCiclo">Inicio ciclo</string>
+    <string name="finCiclo">Fin ciclo</string>
+    <string name="anioCiclo">Año</string>
+    <string-array name="opcionesNumeroCiclo">
+        <item>Seleccione</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string name="consultarCiclo">Consultar ciclo</string>
 
+    <!-- TODO CRUD OfertaAcademica-->
+    <string name="insertarOfertaAcademica">Insertar oferta académica</string>
+    <string name="idMateriaActiva">Id materia activa</string>
+    <string name="nombreMateriaActiva">Nombre materia activa</string>
+    <string name="consultarOfertaAcademica">Consultar oferta académica</string>
 
-
+    <!-- TODO CRUD DetalleOferta-->
+    <string name="insertarDetalleOferta">Insertar detalle oferta</string>
+    <string name="idGrupoDetalleOferta">Id grupo</string>
+    <string name="numeroGrupo">Número grupo</string>
+    <string name="tipoGrupo">Tipo grupo</string>
+    <string-array name="opcionesTipoGrupo">
+        <item>Seleccione</item>
+        <item>Teórico</item>
+        <item>Discusión</item>
+        <item>Laboratorio</item>
+        <item>Exámen parcial</item>
+        <item>Exámen laboratorio</item>
+        <item>Ponencia</item>
+    </string-array>
+    <string name="tamanoGrupo">Cupo de grupo</string>
+    <string name="consultarDetalleOferta">Consultar detalle oferta</string>
 </resources>

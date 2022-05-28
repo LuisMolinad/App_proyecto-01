@@ -24,6 +24,10 @@ public class ControlBDActividades {
     /*Rosalio*/
     private static final String[] campoMiembroUniversitario = new String[]
             {"IDMIEMBROUNIVERSITARIO", "IDASIGNATURA", "IDUSUARIO", "NOMBREMIEMBROUNIVERSITARIO", "TIPOMIEMBRO"};
+    //==andres
+    private static final String[] campoCiclo = new String []{"IDCICLO","NUMEROCICLO","FECHAINICIO","FECHAFIN","ANIO"};
+    private static final String[] campoOfertaAcademica = new String[]{"IDMATERIAACTIVA","IDCICLO","IDASIGNATURA","NOMBREMATERIASACTIVAS"};
+    private static final String[] campoDetalleOferta = new String[]{"IDGRUPO","IDMATERIAACTIVA","NUMEROGRUPO","TAMANOGRUPO","TIPOGRUPO"};
     //TODO: insertar los valores de tabla materia
 
     private final Context context;
@@ -103,8 +107,36 @@ public class ControlBDActividades {
                         "   CALIFICACION         INTEGER,\n" +
                         "   constraint PK_ASISTENCIA primary key (IDASISTENCIA)\n" +
                         ");\n");
-
-
+                //==andres
+                db.execSQL("create table CICLO (\n" +
+                        "IDCICLO              VARCHAR(10)                    not null,\n" +
+                        "NUMEROCICLO          INTEGER                        not null,\n" +
+                        "FECHAINICIO          DATE                           not null,\n" +
+                        "FECHAFIN             DATE                           not null,\n" +
+                        "ANIO                 VARCHAR(4)                     not null,\n" +
+                        "primary key (IDCICLO)\n" +
+                        ");");
+                db.execSQL("create table OFERTAACADEMICA (\n" +
+                        "IDMATERIAACTIVA      VARCHAR(10)                    not null,\n" +
+                        "IDCICLO              VARCHAR(10),\n" +
+                        "IDASIGNATURA         VARCHAR(20),\n" +
+                        "NOMBREMATERIAACTIVA  VARCHAR(20)                    not null,\n" +
+                        "primary key (IDMATERIAACTIVA),\n" +
+                        "foreign key (IDASIGNATURA)\n" +
+                        "      references MATERIA (IDASIGNATURA),\n" +
+                        "foreign key (IDCICLO)\n" +
+                        "      references CICLO (IDCICLO)\n" +
+                        ");");
+                db.execSQL("create table DETALLEOFERTA (\n" +
+                        "IDGRUPO              VARCHAR(10)                    not null,\n" +
+                        "IDMATERIAACTIVA      VARCHAR(10),\n" +
+                        "NUMEROGRUPO          INTEGER                        not null,\n" +
+                        "TAMANOGRUPO          INTEGER                        not null,\n" +
+                        "TIPOGRUPO            VARCHAR(15)                    not null,\n" +
+                        "primary key (IDGRUPO),\n" +
+                        "foreign key (IDMATERIAACTIVA)\n" +
+                        "      references OFERTAACADEMICA (IDMATERIAACTIVA)\n" +
+                        ");");
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -335,6 +367,25 @@ public class ControlBDActividades {
         final String [] DESOPCION = {"Vistas administrador","Vistas Particular","Vistas estudiantes",
                 "Vistas coordinadodr de catedra","Vistas de auxiliar","DOCENTE","DEFAULT"};
         final String [] NUMCRUD = {"1","2","3","4","5","6"};
+
+        //==ANDRES
+        //tabla ciclo
+        final String [] idCiclo = {"01","02","03"};
+        final Integer [] numeroCiclo = {1,2,1};
+        final String [] fechaInicio = {"2021-02-20","2021-07-20","2022-02-19"};
+        final String [] fechaFin = {"2021-06-20","2021-12-20","2022-06-19"};
+        final String [] anio = {"2021","2021","2022"};
+        //tabla oferta academica
+        final String [] idMateriaActiva ={"01","02","03"};
+        final String [] idCicloOferta={"01","02","03"};
+        final String [] idAsignaturaOferta={"IAI115","PRN115","PRN215"};
+        final String [] nombreMateriaActiva={"INTRODUCCION A LA INFORMATICA","PROGRAMACION I","PROGRAMACION II"};
+        //tabla detalle oferta
+        final String [] idGrupo={"001","002","003"};
+        final String [] idMateriaActivaDetalleOferta={"01","02","03"};
+        final Integer [] numeroGrupo= {1,2,3};
+        final Integer [] tamanoGrupo={10,20,30};
+        final String [] tipoGrupo={"Laboratorio","Discusión","Teórico"};
         abrir();
 
         db.execSQL("DELETE FROM CARRERA");
@@ -343,6 +394,9 @@ public class ControlBDActividades {
         db.execSQL("DELETE FROM usuario");
         db.execSQL("DELETE FROM accesoUSUARIO");
         db.execSQL("DELETE FROM opcioncrud");
+        db.execSQL("DELETE FROM CICLO");
+        db.execSQL("DELETE FROM OFERTAACADEMICA");
+        db.execSQL("DELETE FROM DETALLEOFERTA");
 
 //Llenao de usuario, opcion crud y acceso usuario
         USUARIO usuario = new USUARIO();
@@ -395,13 +449,39 @@ public class ControlBDActividades {
             materia.setNOMBREASIGNATURA(nombreAsgnatura[i]);
             insertarAsignatura(materia);
         }
+        Ciclo ciclo = new Ciclo();
+        for(int i=0;i<3;i++){
+            ciclo.setIdCiclo(idCiclo[i]);
+            ciclo.setNumeroCiclo(numeroCiclo[i]);
+            ciclo.setFechaInicio(fechaInicio[i]);
+            ciclo.setFechaFin(fechaFin[i]);
+            ciclo.setAnio(anio[i]);
+            insertarCiclo(ciclo);
+        }
+        OfertaAcademica ofertaAcademica = new OfertaAcademica();
+        for(int i=0;i<3;i++){
+            ofertaAcademica.setIdMateriaActiva(idMateriaActiva[i]);
+            ofertaAcademica.setIdCiclo(idCicloOferta[i]);
+            ofertaAcademica.setIdAsignatura(idAsignaturaOferta[i]);
+            ofertaAcademica.setNombreMateriaActiva(nombreMateriaActiva[i]);
+            insertarOfertaAcademica(ofertaAcademica);
+        }
+        DetalleOferta detalleOferta = new DetalleOferta();
+        for(int i=0;i<3;i++){
+            detalleOferta.setIdGrupo(idGrupo[i]);
+            detalleOferta.setIdMateriaActiva(idMateriaActiva[i]);
+            detalleOferta.setNumeroGrupo(numeroGrupo[i]);
+            detalleOferta.setTamanoGrupo(tamanoGrupo[i]);
+            detalleOferta.setTipoGrupo(tipoGrupo[i]);
+            insertarDetalleOferta(detalleOferta);
+        }
         cerrar();
         return "Guardo Correctamente";
 
 
 
-    }
 
+    }
     //Insertado a la tabla
     public String insertar(Carrera carrera) {
         String regInsertados="Registro Insertado Nº= ";
@@ -797,5 +877,106 @@ public String insertarEscuela (Escuela escuela){
         else {
             return null;
         }
+    }
+    /*andres*/
+    public String insertarCiclo(Ciclo ciclo){
+        String regInsertados="Registro insertado N° =";
+        long contador=0;
+        ContentValues carr = new ContentValues();
+        carr.put("IDCICLO",ciclo.getIdCiclo());
+        carr.put("NUMEROCICLO",ciclo.getNumeroCiclo());
+        carr.put("FECHAINICIO",ciclo.getFechaInicio());
+        carr.put("FECHAFIN",ciclo.getFechaFin());
+        carr.put("ANIO",ciclo.getAnio());
+        contador=db.insert("CICLO",null,carr);
+        if(contador==-1||contador==0)
+        {
+            regInsertados="Error al Insertar el registro, Registro Duplicado.Verificar insercción";
+        }
+        else{
+            regInsertados=regInsertados+contador;
+        }
+        return regInsertados;
+    }
+    public String insertarOfertaAcademica(OfertaAcademica ofertaAcademica){
+        String regInsertados="Registro insertado N° =";
+        long contador=0;
+        ContentValues carr = new ContentValues();
+        carr.put("IDMATERIAACTIVA",ofertaAcademica.getIdMateriaActiva());
+        carr.put("IDCICLO",ofertaAcademica.getIdCiclo());
+        carr.put("IDASIGNATURA",ofertaAcademica.getIdAsignatura());
+        carr.put("NOMBREMATERIAACTIVA",ofertaAcademica.getNombreMateriaActiva());
+        contador=db.insert("OFERTAACADEMICA",null,carr);
+        if(contador==-1||contador==0)
+        {
+            regInsertados="Error al Insertar el registro, Registro Duplicado.Verificar insercción";
+        }
+        else{
+            regInsertados=regInsertados+contador;
+        }
+        return regInsertados;
+    }
+    public String insertarDetalleOferta(DetalleOferta detalleOferta){
+        String regInsertados="Registro insertado N° =";
+        long contador=0;
+        ContentValues carr = new ContentValues();
+        carr.put("IDGRUPO",detalleOferta.getIdGrupo());
+        carr.put("IDMATERIAACTIVA",detalleOferta.getIdMateriaActiva());
+        carr.put("NUMEROGRUPO",detalleOferta.getNumeroGrupo());
+        carr.put("TAMANOGRUPO",detalleOferta.getTamanoGrupo());
+        carr.put("TIPOGRUPO",detalleOferta.getTipoGrupo());
+        contador=db.insert("DETALLEOFERTA",null,carr);
+        if(contador==-1||contador==0)
+        {
+            regInsertados="Error al Insertar el registro, Registro Duplicado.Verificar insercción";
+        }
+        else{
+            regInsertados=regInsertados+contador;
+        }
+        return regInsertados;
+    }
+    public Ciclo consultarCiclo(String idCiclo){
+        String[] id={idCiclo};
+        Cursor cursor=db.query("CICLO",campoCiclo,"IDCICLO= ?",id,null,null,null,null);
+        if(cursor.moveToFirst()){
+            Ciclo ciclo = new Ciclo();
+            ciclo.setIdCiclo(cursor.getString(0));
+            ciclo.setNumeroCiclo(Integer.valueOf(cursor.getString(1)));
+            ciclo.setFechaInicio(cursor.getString(2));
+            ciclo.setFechaFin(cursor.getString(3));
+            ciclo.setAnio(cursor.getString(4));
+            return ciclo;
+        }
+        else{return null;}
+    }
+    public OfertaAcademica consultarOfertaAcademica(String idOfertaAcademica){
+        String[] id={idOfertaAcademica};
+        Cursor cursor=db.query("OFERTAACADEMICA",campoOfertaAcademica,"IDMATERIAACTIVA= ?",id,null,null,null);
+        if(cursor.moveToFirst()){
+            OfertaAcademica ofertaAcademica = new OfertaAcademica();
+            ofertaAcademica.setIdMateriaActiva(cursor.getString(0));
+            ofertaAcademica.setIdCiclo(cursor.getString(1));
+            ofertaAcademica.setIdAsignatura(cursor.getString(2));
+            ofertaAcademica.setNombreMateriaActiva(cursor.getString(3));
+            return ofertaAcademica;
+        }
+        else{return null;}
+    }
+    public DetalleOferta consultarDetellaOferta(String idDetalleOferta){
+        String[] id={idDetalleOferta};
+        Cursor cursor=db.query("DETALLEOFERTA",campoDetalleOferta,"IDGRUPO= ?",id,null,null,null);
+        if(cursor.moveToFirst()){
+            DetalleOferta detalleOferta = new DetalleOferta();
+            detalleOferta.setIdGrupo(cursor.getString(0));
+            detalleOferta.setIdMateriaActiva(cursor.getString(1));
+            detalleOferta.setNumeroGrupo(Integer.valueOf(cursor.getString(2)));
+            detalleOferta.setTamanoGrupo(Integer.valueOf(cursor.getString(3)));
+            detalleOferta.setTipoGrupo(cursor.getString(4));
+            return detalleOferta;
+        }
+        else{return null;}
+    }
+    public Ciclo actualizarCiclo(String idCiclo){
+
     }
 }

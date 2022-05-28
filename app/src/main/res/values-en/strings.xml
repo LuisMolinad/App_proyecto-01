@@ -73,4 +73,27 @@
     <string name="idDetalle">Activity detail code</string>
     <string name="descripcionActividad">Activity Description</string>
     <string name="app_name">FIA Activity Control</string>
+    <!-- TODO CRUD ciclo-->
+    <string name="insertarCiclo">Insert Cycle</string>
+    <string name="idCiclo">Cycle Id</string>
+    <string name="numeroCiclo">Cycle number</string>
+    <string name="inicioCiclo">Cycle start</string>
+    <string name="finCiclo">Cycle end</string>
+    <string name="anioCiclo">Year</string>
+    <string name="consultarCiclo">Read cycle</string>
+
+    <!-- TODO CRUD OfertaAcademica-->
+    <string name="insertarOfertaAcademica">Insert academic offer</string>
+    <string name="idMateriaActiva">Active subject id</string>
+    <string name="nombreMateriaActiva">Active subject name</string>
+    <string name="consultarOfertaAcademica">Read academic offer</string>
+
+    <!-- TODO CRUD DetalleOferta-->
+    <string name="insertarDetalleOferta">Insert offer detail</string>
+    <string name="idGrupoDetalleOferta">Group Id</string>
+    <string name="numeroGrupo">Group number</string>
+    <string name="tipoGrupo">Group Type</string>
+    <string name="tamanoGrupo">Group quota</string>
+    <string name="consultarDetalleOferta">Read offer detail</string>
+
 </resources>
