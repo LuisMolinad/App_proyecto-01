@@ -17,10 +17,9 @@ import java.util.List;
 @SuppressLint("NewApi")
 
 public class ConsultarCarreraExterno extends AppCompatActivity {
-    private final String urlLocal = "http://192.168.0.8/Proyecto1.2/ws_db_Carrera_Consultar.php";
+    private final String urlLocal = "http://192.168.0.3/Proyecto1.2/ws_db_Carrera_Consultar.php";
 
     EditText IDCARRERA,NombreCarrera;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +35,9 @@ public class ConsultarCarreraExterno extends AppCompatActivity {
     }
     public void consultarCARRERALocal(View v) {
         String IDCARRERA1 = IDCARRERA.getText().toString();
-        String url = urlLocal + "?IDCARRERA=" + IDCARRERA1;
-        String notaPromedioJSON = ControladorServicio.obtenerRespuestaPeticion(url, this);
-        NombreCarrera.setText("CARRERA " + ControladorServicio.obtenerCarreraJSON(notaPromedioJSON,this));
+       // String url = urlLocal + "?IDCARRERA=" + IDCARRERA1;
+        String notaPromedioJSON = ControladorServicio.obtenerRespuestaPeticion("http://192.168.0.3/Proyecto1.2/ws_db_Carrera_Consultar.php?IDCARRERA=" + IDCARRERA1, this);
+        NombreCarrera.setText(ControladorServicio.obtenerCarreraJSON(notaPromedioJSON,this));
     }
 
 }
