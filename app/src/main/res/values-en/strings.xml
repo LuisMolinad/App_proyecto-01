@@ -83,13 +83,15 @@
     <string name="anioCiclo">Year</string>
     <string name="consultarCiclo">Read cycle</string>
     <string name="editarCiclo">Edit cycle</string>
-
+    <string name="eliminarCiclo">Delete cycle</string>
     <!-- TODO CRUD OfertaAcademica-->
     <string name="insertarOfertaAcademica">Insert academic offer</string>
     <string name="idMateriaActiva">Active subject id</string>
     <string name="nombreMateriaActiva">Active subject name</string>
     <string name="consultarOfertaAcademica">Read academic offer</string>
     <string name="editarOfertaAcademica">Edit academic offer</string>
+    <string name="eliminarOfertaAcademica">Delete academic offer</string>
+
     <!-- TODO CRUD DetalleOferta-->
     <string name="insertarDetalleOferta">Insert offer detail</string>
     <string name="idGrupoDetalleOferta">Group Id</string>
@@ -97,10 +99,11 @@
     <string name="tipoGrupo">Group Type</string>
     <string name="tamanoGrupo">Group quota</string>
     <string name="consultarDetalleOferta">Read offer detail</string>
+    <string name="editarDetalleOferta">Edit offer detail</string>s
+    <string name="eliminarDetalleOferta">Delete offer detail</string>
     <string name="txtCreateWeb">Insert</string>
     <string name="txtReadWeb">Consult</string>
     <string name="txtUpdateWeb">Edit</string>
     <string name="txtDeleteWeb">Delete</string>
-    <string name="editarDetalleOferta">Edit offer detail</string>s
 
 </resources>

@@ -123,6 +123,7 @@
     </string-array>
     <string name="consultarCiclo">Consultar ciclo</string>
     <string name="editarCiclo">Editar ciclo</string>
+    <string name="eliminarCiclo">Eliminar ciclo</string>
 
     <!-- TODO CRUD OfertaAcademica-->
     <string name="insertarOfertaAcademica">Insertar oferta académica</string>
@@ -130,6 +131,7 @@
     <string name="nombreMateriaActiva">Nombre materia activa</string>
     <string name="consultarOfertaAcademica">Consultar oferta académica</string>
     <string name="editarOfertaAcademica">Editar oferta académica</string>
+    <string name="eliminarOfertaAcademica">Eliminar oferta académica</string>
     <!-- TODO CRUD DetalleOferta-->
     <string name="insertarDetalleOferta">Insertar detalle oferta</string>
     <string name="idGrupoDetalleOferta">Id grupo</string>
@@ -147,4 +149,5 @@
     <string name="tamanoGrupo">Cupo de grupo</string>
     <string name="consultarDetalleOferta">Consultar detalle oferta</string>
     <string name="editarDetalleOferta">Editar detalle oferta</string>
+    <string name="eliminarDetalleOferta">Eliminar detalle oferta</string>
 </resources>

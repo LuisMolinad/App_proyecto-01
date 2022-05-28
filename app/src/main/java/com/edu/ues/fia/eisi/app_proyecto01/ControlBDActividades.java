@@ -1104,6 +1104,16 @@ public String insertarEscuela (Escuela escuela){
         }
         else{return null;}
     }
+
+    public String eliminarCiclo(Ciclo ciclo){
+
+    }
+    public String eliminarOfertaAcademina(OfertaAcademica ofertaAcademica){
+        
+    }
+    public String eliminarDetalleOferta(DetalleOferta detalleOferta){
+
+    }
     public String actualizarCiclo(Ciclo ciclo){
         if(verificarIntegridad(ciclo, 43)){
             String[] id = {ciclo.getIdCiclo()};
