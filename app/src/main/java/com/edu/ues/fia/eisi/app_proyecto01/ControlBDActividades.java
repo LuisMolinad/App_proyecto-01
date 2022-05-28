@@ -1216,7 +1216,7 @@ public String insertarEscuela (Escuela escuela){
             }
             return regActualizados;
         }
-<<<<<<< HEAD
+
 
     /*==============================================================*/
     /* Table: CRUD LISTAEQUIPO                                      */
@@ -1390,6 +1390,6 @@ public String insertarEscuela (Escuela escuela){
 
 
 }
-=======
-}
->>>>>>> f461cc915c916b502177bd34823d0ed6c40e5ee2
+
+
+
