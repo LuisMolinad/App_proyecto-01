@@ -70,12 +70,15 @@
         <entry key="app/src/main/res/layout/activity_eliminar_asistencia.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_eliminar_miembro_universitario.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_eliminar_particular.xml" value="0.3416666666666667" />
-        <entry key="app/src/main/res/layout/activity_insertar_actividad.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/activity_insertar_actividad.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_insertar_actividad_externo.xml" value="0.3052536231884058" />
         <entry key="app/src/main/res/layout/activity_insertar_asistencia.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/activity_insertar_carrera_externo.xml" value="0.3052536231884058" />
         <entry key="app/src/main/res/layout/activity_insertar_miembro_universitario.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_insertar_particular.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3416666666666667" />
-        <entry key="app/src/main/res/layout/activity_menu_actividadd.xml" value="0.1661600810536981" />
+        <entry key="app/src/main/res/layout/activity_menu_actividadd.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/activity_menu_carrera.xml" value="0.2504528985507246" />
         <entry key="app/src/main/res/layout/activity_menu_horario.xml" value="0.1661600810536981" />
         <entry key="app/src/main/res/layout/activity_menu_miembro_universitario.xml" value="0.3416666666666667" />
       </map>

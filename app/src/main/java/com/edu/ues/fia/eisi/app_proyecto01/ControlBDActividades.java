@@ -150,6 +150,19 @@ public class ControlBDActividades {
                         "   APROBADO             VARCHAR2(2)                     not null,\n" +
                         "   constraint PK_ACTIVIDAD primary key (IDACTIVIDAD)\n" +
                         ");\n");
+
+                /*
+                create table ACTIVIDAD  (
+                   IDACTIVIDAD          VARCHAR(30)                    not null,
+                   IDMIEMBROUNIVERSITARIO VARCHAR(30),
+                   NOMBREACTIVIDAD      VARCHAR(12)                    not null,
+                   FECHARESERVA         VARCHAR(12)                            not null,
+                   DESDEACTIVIDAD       VARCHAR(12)                            not null,
+                   HASTAACTIVIDAD       VARCHAR(12)                            not null,
+                   APROBADO             VARCHAR(2)                        not null,
+                   constraint PK_ACTIVIDAD primary key (IDACTIVIDAD)
+                );
+                 */
                 /*==============================================================*/
                 /* Table: ASISTENCIA                                            */
                 /*==============================================================*/

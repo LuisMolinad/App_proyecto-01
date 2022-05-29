@@ -40,7 +40,6 @@ public class InsertarCarreraExterno extends AppCompatActivity {
                 url = urlLocal+ "?IDCARRERA=" + IDCARRERA + "&NOMBRECARRERA=" + NOMBRECARREARA ;
                 ControladorServicio.insertar(url, this);
                 break;
-
         }
     }
 

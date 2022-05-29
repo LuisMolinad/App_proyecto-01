@@ -11,6 +11,8 @@ public class MenuActividadd extends AppCompatActivity implements View.OnClickLis
 
     //Variables de CardView
     public CardView insertar, consultar, editar, eliminar;
+    public CardView insertarExterno, consultarExterno, editarExterno, eliminarExterno;
+
     String tipoUsuario;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,10 +20,16 @@ public class MenuActividadd extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_menu_actividadd);
 
         //Insertar
-        insertar = findViewById(R.id.cardInsertarActividad);
-        consultar = findViewById(R.id.cardConsultarActividad);
-        editar = findViewById(R.id.cardEditarActividad);
-        eliminar = findViewById(R.id.cardEliminarActividad);
+        insertar = findViewById(R.id.cardInsertar);
+        consultar = findViewById(R.id.cardConsultar);
+        editar = findViewById(R.id.cardEditar);
+        eliminar = findViewById(R.id.cardEliminar);
+
+        insertarExterno = findViewById(R.id.cardInsertarOnline);
+        consultarExterno =  findViewById(R.id.cardConsultarOnline);
+        editarExterno = findViewById(R.id.cardEditarOnline);
+        eliminarExterno =  findViewById(R.id.cardEliminarOnline);
+
         Intent intent = getIntent();
         tipoUsuario = intent.getExtras().getString("OpcionCrud");
         if (tipoUsuario != null) {
@@ -32,6 +40,11 @@ public class MenuActividadd extends AppCompatActivity implements View.OnClickLis
                     consultar.setOnClickListener(this);
                     editar.setOnClickListener(this);
                     eliminar.setOnClickListener(this);
+
+                    insertarExterno.setOnClickListener(this);
+                    consultarExterno.setOnClickListener(this);
+                    editarExterno.setOnClickListener(this);
+                    eliminarExterno.setOnClickListener(this);
                     break;
                 case "0200":
                 case "0300":
@@ -41,12 +54,22 @@ public class MenuActividadd extends AppCompatActivity implements View.OnClickLis
                     consultar.setOnClickListener(this);
                     editar.setVisibility(View.GONE);
                     eliminar.setVisibility(View.GONE);
+
+                    insertarExterno.setOnClickListener(this);
+                    consultarExterno.setOnClickListener(this);
+                    editarExterno.setOnClickListener(this);
+                    eliminarExterno.setOnClickListener(this);
                     break;
                 case "0400":
                     insertar.setVisibility(View.GONE);
                     consultar.setOnClickListener(this);
                     editar.setOnClickListener(this);
                     eliminar.setVisibility(View.GONE);
+
+                    insertarExterno.setOnClickListener(this);
+                    consultarExterno.setOnClickListener(this);
+                    editarExterno.setOnClickListener(this);
+                    eliminarExterno.setOnClickListener(this);
                     break;
 
             }
@@ -60,20 +83,24 @@ public class MenuActividadd extends AppCompatActivity implements View.OnClickLis
         Intent i;
 
         switch (view.getId()){
-            case R.id.cardInsertarActividad:
+            case R.id.cardInsertar:
                 i = new Intent(this, InsertarActividad.class);
                 startActivity(i);
                 break;
-            case R.id.cardConsultarActividad:
+            case R.id.cardConsultar:
                 i = new Intent(this, ConsultarActividad.class);
                 startActivity(i);
                 break;
-            case R.id.cardEditarActividad:
+            case R.id.cardEditar:
                 i = new Intent(this, EditarActividad.class);
                 startActivity(i);
                 break;
-            case R.id.cardEliminarActividad:
+            case R.id.cardEliminar:
                 i = new Intent(this, EliminarActividad.class);
+                startActivity(i);
+                break;
+            case R.id.cardInsertarOnline:
+                i = new Intent(this, InsertarActividadExterno.class);
                 startActivity(i);
                 break;
         }
