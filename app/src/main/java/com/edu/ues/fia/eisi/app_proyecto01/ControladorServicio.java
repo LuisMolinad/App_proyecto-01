@@ -107,9 +107,56 @@ public class ControladorServicio {
             return " ";
         }
     }
-
+    public static List<Escuela> obtenerEscuelaExterno(String json, Context ctx)
+    {
+        List<Escuela> listaMaterias = new ArrayList<Escuela>();
+        try {
+            JSONArray materiasJSON = new JSONArray(json);
+            for (int i = 0; i < materiasJSON.length(); i++) {
+                JSONObject obj = materiasJSON.getJSONObject(i);
+                Escuela materia = new Escuela();
+                materia.setIDESCUELA(obj.getString("IDESCUELA"));
+                materia.setIDCARRERA(obj.getString("IDCARRERA"));
+                materia.setNOMBRE_ESCUELA(obj.getString("NOMBRE_ESCUELA"));
+                listaMaterias.add(materia);
+            }
+            return listaMaterias;
+        } catch (Exception e) {
+            Toast.makeText(ctx, "Error en parseOO de JSON", Toast.LENGTH_LONG)
+                    .show();
+            return null;
+        }
+    }
 
     public static void ActualizarCarreraExterno(String peticion, Context ctx) {
+        String json = obtenerRespuestaPeticion(peticion, ctx);
+        try {
+            JSONObject resultado2 = new JSONObject(json);
+            Toast.makeText(ctx, "Registro Actualizado"+ resultado2.getJSONArray("resultado"), Toast.LENGTH_LONG).show();
+            int respuesta = resultado2.getInt("resultado");
+            if (respuesta == 1)
+                Toast.makeText(ctx, "Registro Actualizado", Toast.LENGTH_LONG).show();
+            else
+                Toast.makeText(ctx, "Error no existe", Toast.LENGTH_LONG).show();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void ActualizarEscuelaExterno(String peticion, Context ctx) {
+        String json = obtenerRespuestaPeticion(peticion, ctx);
+        try {
+            JSONObject resultado2 = new JSONObject(json);
+            Toast.makeText(ctx, "Registro Actualizado"+ resultado2.getJSONArray("resultado"), Toast.LENGTH_LONG).show();
+            int respuesta = resultado2.getInt("resultado");
+            if (respuesta == 1)
+                Toast.makeText(ctx, "Registro Actualizado", Toast.LENGTH_LONG).show();
+            else
+                Toast.makeText(ctx, "Error no existe", Toast.LENGTH_LONG).show();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void EliminarescuelaExterno(String peticion, Context ctx) {
         String json = obtenerRespuestaPeticion(peticion, ctx);
         try {
             JSONObject resultado2 = new JSONObject(json);
