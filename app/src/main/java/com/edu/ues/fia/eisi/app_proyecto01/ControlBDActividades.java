@@ -1106,13 +1106,28 @@ public String insertarEscuela (Escuela escuela){
     }
 
     public String eliminarCiclo(Ciclo ciclo){
-
+        String regAfectados="Filas afectadas= ";
+        int contador=0;
+        String where="IDCICLO='"+ciclo.getIdCiclo()+"'";
+        contador+=db.delete("CICLO",where,null);
+        regAfectados+=contador;
+        return regAfectados;
     }
-    public String eliminarOfertaAcademina(OfertaAcademica ofertaAcademica){
-        
+    public String eliminarOfertaAcademica(OfertaAcademica ofertaAcademica){
+        String regAfectados="Filas afectadas= ";
+        int contador=0;
+        String where="IDMATERIAACTIVA='"+ofertaAcademica.getIdMateriaActiva()+"'";
+        contador+=db.delete("OFERTAACADEMICA",where,null);
+        regAfectados+=contador;
+        return regAfectados;
     }
     public String eliminarDetalleOferta(DetalleOferta detalleOferta){
-
+        String regAfectados="Filas afectadas= ";
+        int contador=0;
+        String where="IDGRUPO='"+detalleOferta.getIdGrupo()+"'";
+        contador+=db.delete("DETALLEOFERTA",where,null);
+        regAfectados+=contador;
+        return regAfectados;
     }
     public String actualizarCiclo(Ciclo ciclo){
         if(verificarIntegridad(ciclo, 43)){
