@@ -88,9 +88,14 @@ public class ConsultarActividadExterno extends AppCompatActivity {
     public void consultarActividadExterno(View v){
         String url;
         String id_actividad = idActividad.getText().toString();
-        url = urlLocal + "?IDACTIVIDAD="+id_actividad;
+        if(id_actividad == null){
+            Toast.makeText(this, "Favor ingresar el campo del id", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            url = urlLocal + "?IDACTIVIDAD="+id_actividad;
 
-        buscarActividadExterno(url);
+            buscarActividadExterno(url);
+        }
     }
 
     public void buscarActividadExterno(String url){
