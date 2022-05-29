@@ -11,6 +11,7 @@ public class MenuEscuela extends AppCompatActivity implements View.OnClickListen
 
     //Variables de CardView
     public CardView insertar, consultar, editar, eliminar;
+    public CardView insertarExterno, consultarExterno, editarExterno, eliminarExterno;
     String tipoUsuario;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,10 +19,14 @@ public class MenuEscuela extends AppCompatActivity implements View.OnClickListen
         setContentView(R.layout.activity_menu_escuela);
 
         //Insertar
-        insertar = (CardView) findViewById(R.id.cardInsertarEscuela);
-        consultar = (CardView) findViewById(R.id.cardConsultarEscuela);
-        editar = (CardView) findViewById(R.id.cardEditarEscuela);
-        eliminar = (CardView) findViewById(R.id.cardEliminarEscuela);
+        insertar = findViewById(R.id.cardInsertarEscuela);
+        consultar = findViewById(R.id.cardConsultarEscuela);
+        editar = findViewById(R.id.cardEditarEscuela);
+        eliminar = findViewById(R.id.cardEliminarEscuela);
+        insertarExterno = findViewById(R.id.cardInsertarEscuelaExterno);
+        consultarExterno = findViewById(R.id.cardConsultarEscuelaExterno);
+        editarExterno = findViewById(R.id.cardEditarEscuelaExterno);
+        eliminarExterno = findViewById(R.id.cardEliminarEscuelaExterno);
         Intent intent = getIntent();
         tipoUsuario = intent.getExtras().getString("OpcionCrud");
         if (tipoUsuario != null) {
@@ -33,6 +38,10 @@ public class MenuEscuela extends AppCompatActivity implements View.OnClickListen
                     insertar.setOnClickListener(this);
                     editar.setOnClickListener(this);
                     eliminar.setOnClickListener(this);
+                    consultarExterno.setOnClickListener(this);
+                    insertarExterno.setOnClickListener(this);
+                    editarExterno.setOnClickListener(this);
+                    eliminarExterno.setOnClickListener(this);
                     break;
                 case "0200":
                 case "0300":
@@ -43,6 +52,10 @@ public class MenuEscuela extends AppCompatActivity implements View.OnClickListen
                     insertar.setVisibility(View.GONE);
                     editar.setVisibility(View.GONE);
                     eliminar.setVisibility(View.GONE);
+                    consultarExterno.setOnClickListener(this);
+                    insertarExterno.setVisibility(View.GONE);
+                    editarExterno.setVisibility(View.GONE);
+                    eliminarExterno.setVisibility(View.GONE);
                     break;
 
             }
@@ -71,6 +84,22 @@ public class MenuEscuela extends AppCompatActivity implements View.OnClickListen
                 break;
             case R.id.cardEliminarEscuela:
                 i = new Intent(this, EliminarEscuela.class);
+                startActivity(i);
+                break;
+            case R.id.cardInsertarEscuelaExterno:
+                i = new Intent(this, InsertarEscuelaExterno.class);
+                startActivity(i);
+                break;
+            case R.id.cardConsultarEscuelaExterno:
+                i = new Intent(this, ConsultarEscuelaExterno.class);
+                startActivity(i);
+                break;
+            case R.id.cardEditarEscuelaExterno:
+                i = new Intent(this, EditarEscuelaExterno.class);
+                startActivity(i);
+                break;
+            case R.id.cardEliminarEscuelaExterno:
+                i = new Intent(this, EliminarEscuelaExterno.class);
                 startActivity(i);
                 break;
         }

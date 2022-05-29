@@ -13,7 +13,7 @@ public class EditarCarreraExterno extends AppCompatActivity {
     EditText idCarrera, nombreCarrera;
     //Duque
 
-    private final String urlLocal = "http://192.168.0.8/Proyecto1.2/ws_CARRERA_update.php";
+    private final String urlLocal = "http://192.168.0.3/Proyecto1.2/ws_CARRERA_update.php";
 
     @SuppressLint("NewApi")
 

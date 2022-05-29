@@ -123,4 +123,32 @@ public class ControladorServicio {
             e.printStackTrace();
         }
     }
+    public static void ActualizarEscuelaExterno(String peticion, Context ctx) {
+        String json = obtenerRespuestaPeticion(peticion, ctx);
+        try {
+            JSONObject resultado2 = new JSONObject(json);
+            Toast.makeText(ctx, "Registro Actualizado"+ resultado2.getJSONArray("resultado"), Toast.LENGTH_LONG).show();
+            int respuesta = resultado2.getInt("resultado");
+            if (respuesta == 1)
+                Toast.makeText(ctx, "Registro Actualizado", Toast.LENGTH_LONG).show();
+            else
+                Toast.makeText(ctx, "Error no existe", Toast.LENGTH_LONG).show();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void EliminarescuelaExterno(String peticion, Context ctx) {
+        String json = obtenerRespuestaPeticion(peticion, ctx);
+        try {
+            JSONObject resultado2 = new JSONObject(json);
+            Toast.makeText(ctx, "Registro Actualizado"+ resultado2.getJSONArray("resultado"), Toast.LENGTH_LONG).show();
+            int respuesta = resultado2.getInt("resultado");
+            if (respuesta == 1)
+                Toast.makeText(ctx, "Registro Actualizado", Toast.LENGTH_LONG).show();
+            else
+                Toast.makeText(ctx, "Error no existe", Toast.LENGTH_LONG).show();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
 }

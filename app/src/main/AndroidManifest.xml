@@ -14,6 +14,18 @@
         android:theme="@style/Theme.App_proyecto01"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ConsultarEscuelaExterno"
+            android:exported="false" />
+        <activity
+            android:name=".EliminarEscuelaExterno"
+            android:exported="false" />
+        <activity
+            android:name=".EditarEscuelaExterno"
+            android:exported="false" />
+        <activity
+            android:name=".InsertarEscuelaExterno"
+            android:exported="false" />
+        <activity
             android:name=".EliminarCarreraExterno"
             android:exported="false" />
         <activity
