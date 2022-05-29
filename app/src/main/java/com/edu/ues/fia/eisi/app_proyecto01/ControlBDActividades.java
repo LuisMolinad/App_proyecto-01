@@ -62,7 +62,7 @@ public class ControlBDActividades {
 
     private static class DatabaseHelper extends SQLiteOpenHelper {
         private static final String BASE_DATOS = "CONTROLDEACTIVIDADES.s3db";
-        private static final int VERSION = 4;
+        private static final int VERSION = 5;
 
         public DatabaseHelper(Context context) {
             super(context, BASE_DATOS, null, VERSION);
