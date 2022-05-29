@@ -176,7 +176,8 @@
                     android:id="@+id/insertar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Insertar"
+        android:backgroundTint="@color/BotonGuardarr"
+        android:text="@string/guardar"
                     android:onClick="insertarParticular"/>
             </LinearLayout>
 

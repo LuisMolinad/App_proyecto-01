@@ -82,7 +82,8 @@
                     android:id="@+id/consultar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Consultar"
+        android:backgroundTint="@color/BotonConsultar"
+        android:text="@string/consultar"
                     android:onClick="consultarMiembroUniversitario"/>
             </LinearLayout>
 
