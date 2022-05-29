@@ -1,7 +1,19 @@
 package com.edu.ues.fia.eisi.app_proyecto01;
+import static android.provider.ContactsContract.CommonDataKinds.Website.URL;
+
 import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
+
+import android.widget.Toast;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
@@ -18,7 +30,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 public class ControladorServicio {
     public static String obtenerRespuestaPeticion(String url, Context ctx) {
         String respuesta = " ";
@@ -127,6 +142,36 @@ public class ControladorServicio {
             return null;
         }
     }
+
+    public static List<Actividad> obtenerActividadExterno(String json, Context ctx){
+        List<Actividad> listaActividad = new ArrayList<Actividad>();
+        Actividad _actividad = new Actividad();
+
+        try{
+            JSONArray actividadJson = new JSONArray(json);
+
+            for(int i = 0; i < actividadJson.length(); i++){
+                JSONObject obj = actividadJson.getJSONObject(i);
+                _actividad.setIdActividad(obj.getString("IDACTIVIDAD"));
+                _actividad.setIdMiembroUniversitario(obj.getString("IDMIEMBROUNIVERSITARIO"));
+                _actividad.setNombreActividad(obj.getString("NOMBREACTIVIDAD"));
+                _actividad.setFechaReserva(obj.getString("FECHARESERVA"));
+                _actividad.setDesdeActividad(obj.getString("DESDEACTIVIDAD"));
+                _actividad.setHastaActividad(obj.getString("HASTACTIVIDAD"));
+                _actividad.setAprobado(obj.getString("APROBADO"));
+
+                listaActividad.add(_actividad);
+
+            }
+            return listaActividad;
+        }
+        catch (Exception e){
+            Toast.makeText(ctx, "Error en parseOO de JSON", Toast.LENGTH_LONG)
+                    .show();
+            return null;
+        }
+    }
+
 
     public static void ActualizarCarreraExterno(String peticion, Context ctx) {
         String json = obtenerRespuestaPeticion(peticion, ctx);

@@ -11,7 +11,9 @@ public class Actividad {
     private String hastaActividad;
     private String aprobado;
 
-    public Actividad(){}
+    public Actividad(){
+
+    }
 
     public Actividad(String idActividad, String idMiembroUniversitario, String nombreActividad, String fechaReserva, String desdeActividad, String hastaActividad, String aprobado){
         idActividad = this.idActividad;

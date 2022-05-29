@@ -39,7 +39,6 @@ public class ConsultarCarreraExterno extends AppCompatActivity {
         String notaPromedioJSON = ControladorServicio.obtenerRespuestaPeticion("http://192.168.0.3/Proyecto1.2/ws_db_Carrera_Consultar.php?IDCARRERA=" + IDCARRERA1, this);
         NombreCarrera.setText(ControladorServicio.obtenerCarreraJSON(notaPromedioJSON,this));
     }
-
 }
 
 

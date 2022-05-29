@@ -107,6 +107,10 @@ public class MenuActividadd extends AppCompatActivity implements View.OnClickLis
                 i = new Intent(this, EliminarActividadExterno.class);
                 startActivity(i);
                 break;
+            case R.id.cardConsultarOnline:
+                i = new Intent(this, ConsultarActividadExterno.class);
+                startActivity(i);
+                break;
         }
     }
 }
