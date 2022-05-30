@@ -21,7 +21,7 @@ public class InsertarLocal extends AppCompatActivity {
         helper = new ControlBDActividades(this);
 
         //Capturar los ide de cada EditText
-        idLocal = findViewById(R.id.idLocal);
+        idLocal = findViewById(R.id.idLocalIns);
         nombreLocal = findViewById(R.id.nombreLocal);
         cupo = findViewById(R.id.cupo);
     }
@@ -38,7 +38,7 @@ public class InsertarLocal extends AppCompatActivity {
 
             local.setIDLOCAL(idLocal.getText().toString());
             local.setNOMBRELOCAL(nombreLocal.getText().toString());
-            local.setCUPO(Integer.parseInt(cupo.getText().toString()));
+            local.setCUPO(Integer.valueOf(cupo.getText().toString()));
 
             helper.abrir();
             regInsertados = helper.insertarLocal(local);
