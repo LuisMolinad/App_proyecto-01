@@ -207,6 +207,10 @@
     <string name="eliminarParticular">Eliminar particular</string>
     <string name="editarParticular">Editar particular</string>
     <string name="insertarParticular">Insertar particular</string>
+    <string name="consultarParticularO">Consultar particular Online</string>
+    <string name="eliminarParticularO">Eliminar particular Online</string>
+    <string name="editarParticularO">Editar particular Online</string>
+    <string name="insertarParticularO">Insertar particular Online</string>
     <string name="idParticular">Id particular</string>
     <string name="nombreParticular">Nombre particular</string>
     <string name="apellidoParticular">Apellido particular</string>
