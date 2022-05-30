@@ -161,10 +161,31 @@
     <string name="idMiembroUniversitario">Id miembro universitario</string>
     <string name="nombreActividad">Nombre actividad</string>
     <string name="fechaReserva">FECHA DE RESERVA</string>
+    <string name="fechaDesde">FECHA DESDE</string>
+    <string name="fechaHasta">FECHA HASTA</string>
     <string name="dia">DIA</string>
     <string name="mes">MES</string>
     <string name="anio">AÑO</string>
     <string name="aprobado">Aprobado</string>
     <string name="eliminarActividad">Eliminar actividad</string>
+    <string name="consultarActividad">Consultar actividad</string>
+    <string name="editarActividad">Editar actividad</string>
+
+    <string name="eliminarActividadO">Eliminar actividad online</string>
+    <string name="consultarActividadO">Consultar actividad online</string>
+    <string name="editarActividadO">Editar actividad online</string>
+    <string name="insertarActividadO">Insertar actividad online</string>
+
+    <string name="eliminarMiembroO">Eliminar miembro online</string>
+    <string name="consultarMiembroO">Consultar miembro online</string>
+    <string name="editarMiembroO">Editar miembro online</string>
+    <string name="insertarMiembroO">Insertar miembro online</string>
+    <string name="consultarMiembro">Consultar miembro</string>
+    <string name="eliminarMiembro">Eliminar miembro</string>
+    <string name="editarMiembro">Editar miembro</string>
+    <string name="insertarMiembro">Insertar miembro</string>
+    <string name="idUsuario">Id usuario</string>
+    <string name="nombreMiembro">Nombre miembro</string>
+    <string name="tipoMiembro">Tipo miembro</string>
 
 </resources>

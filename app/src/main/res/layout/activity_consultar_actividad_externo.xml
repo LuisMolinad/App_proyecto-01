@@ -7,7 +7,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ConsultarActividadExterno"
+        tools:context=".ConsultarActividad"
         >
 
         <LinearLayout
@@ -30,7 +30,7 @@
                     android:id="@+id/titulo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Consultar actividad"
+                    android:text="@string/consultarActividadO"
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="30sp" />
@@ -58,7 +58,7 @@
                     android:textSize="20sp" />
 
                 <EditText
-                    android:id="@+id/idActividadE"
+                    android:id="@+id/idActividad"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
@@ -81,8 +81,8 @@
                     android:id="@+id/consultar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-        android:backgroundTint="@color/BotonConsultar"
-        android:text="@string/consultar"
+                    android:backgroundTint="@color/BotonConsultar"
+                    android:text="@string/consultar"
                     android:onClick="consultarActividadExterno"/>
             </LinearLayout>
 

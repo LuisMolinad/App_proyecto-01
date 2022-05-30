@@ -50,7 +50,7 @@ public class ConsultarActividadExterno extends AppCompatActivity {
         StrictMode.setThreadPolicy(policy);
 
         //Cargamos los ids
-        idActividad = findViewById(R.id.idActividadE);
+        idActividad = findViewById(R.id.idActividad);
         txtIdMiembroUniversitario = findViewById(R.id.txtMiembroUniversitario);
         txtNombreActividad = findViewById(R.id.txtNombreActividad);
         txtFechaReserva = findViewById(R.id.txtFecha);

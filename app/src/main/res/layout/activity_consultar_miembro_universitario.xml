@@ -30,7 +30,7 @@
                     android:id="@+id/titulo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Consultar miembro universitario"
+                    android:text="@string/consultarMiembro"
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="30sp" />
@@ -53,7 +53,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="2"
-                    android:text="Id miembro universitario"
+                    android:text="@string/idMiembroUniversitario"
                     android:textAlignment="center"
                     android:gravity="center"
                     android:textSize="20sp"/>
@@ -102,7 +102,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="2"
-                    android:text="Id asignatura"
+                    android:text="@string/idAsignatura"
                     android:gravity="center_vertical"
                     android:textSize="20sp" />
             </LinearLayout>
@@ -122,7 +122,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="2"
-                    android:text="Id Usuario"
+                    android:text="@string/idUsuario"
                     android:gravity="center_vertical"
                     android:textSize="20sp" />
             </LinearLayout>
@@ -142,7 +142,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="2"
-                    android:text="Nombre"
+                    android:text="@string/nombreMiembro"
                     android:gravity="center_vertical"
                     android:textSize="20sp" />
             </LinearLayout>
@@ -162,7 +162,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="2"
-                    android:text="Tipo de miembro"
+                    android:text="@string/tipoMiembro"
                     android:gravity="center_vertical"
                     android:textSize="20sp" />
             </LinearLayout>
