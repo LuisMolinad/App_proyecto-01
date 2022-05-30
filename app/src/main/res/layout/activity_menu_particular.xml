@@ -15,8 +15,7 @@
         android:background="#ECECEC"
 
         android:orientation="vertical"
-        android:scrollbars=""
-        tools:context=".MainActivity">
+        android:scrollbars="">
 
         <TextView
             android:id="@+id/textView6"

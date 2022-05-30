@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.view.View;
 import android.widget.Toast;
 
+import java.util.List;
+
 public class ControlBDActividades {
 
     private static final String[] camposCarrera = new String[]
@@ -52,6 +54,10 @@ public class ControlBDActividades {
     private DatabaseHelper DBHelper;
     private SQLiteDatabase db;
 
+    /*Alejandro*/
+    private static final String[] campoHorario = new    String[]{"IDHORARIO","DESDEHORARIO","HASTAHORARIO","DIA"};
+    private static final String[] campoListaHorario = new    String[]{"IDLISTAHORARIO","ID_DETALLE","IDHORARIO"};
+    private static final String[] campoLocal = new    String[]{"IDLOCAL","NOMBRELOCAL","CUPO"};
 
     public ControlBDActividades(Context ctx) {
         this.context = ctx;
@@ -62,7 +68,7 @@ public class ControlBDActividades {
 
     private static class DatabaseHelper extends SQLiteOpenHelper {
         private static final String BASE_DATOS = "CONTROLDEACTIVIDADES.s3db";
-        private static final int VERSION = 5;
+        private static final int VERSION = 6;
 
         public DatabaseHelper(Context context) {
             super(context, BASE_DATOS, null, VERSION);
@@ -207,6 +213,38 @@ public class ControlBDActividades {
                         "primary key (IDGRUPO),\n" +
                         "foreign key (IDMATERIAACTIVA)\n" +
                         "      references OFERTAACADEMICA (IDMATERIAACTIVA)\n" +
+                        ");");
+
+                //Alejandro
+                /*==============================================================*/
+                /* Table: HORARIO                                               */
+                /*==============================================================*/
+                db.execSQL("create table HORARIO  (\n" +
+                        "   IDHORARIO            VARCHAR2(5)                     not null,\n" +
+                        "   DESDEHORARIO         VARCHAR2(5)                     not null,\n" +
+                        "   HASTAHORARIO         VARCHAR2(5)                     not null,\n" +
+                        "   DIA                  CHAR(5)                         not null,\n" +
+                        "   constraint PK_HORARIO primary key (IDHORARIO)\n" +
+                        ");");
+
+                /*==============================================================*/
+                /* Table: LOCAL                                                 */
+                /*==============================================================*/
+                db.execSQL("create table LOCAL  (\n" +
+                        "   IDLOCAL              VARCHAR2(20)                    not null,\n" +
+                        "   NOMBRELOCAL          VARCHAR2(30)                    not null,\n" +
+                        "   CUPO                 INTEGER                         not null,\n" +
+                        "   constraint PK_LOCAL primary key (IDLOCAL)\n" +
+                        ");");
+
+                /*==============================================================*/
+                /* Table: LISTAHORARIO                                          */
+                /*==============================================================*/
+                db.execSQL("create table LISTAHORARIO  (\n" +
+                        "   IDLISTAHORARIO       INTEGER                         not null,\n" +
+                        "   ID_DETALLE           INTEGER,\n" +
+                        "   IDHORARIO            VARCHAR2(5),\n" +
+                        "   constraint PK_LISTAHORARIO primary key (IDLISTAHORARIO)\n" +
                         ");");
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -488,6 +526,48 @@ public class ControlBDActividades {
                 return false;
             }
 
+            //Alejandro
+            //InsertarListaHorario
+            case 50: {
+                ListaHorario listaHorario = (ListaHorario) dato;
+                String[] id = {Integer.toString(listaHorario.getID_DETALLE())};
+                String[] id2 = {Integer.toString(listaHorario.getIDHORARIO())};
+
+                abrir();
+                Cursor c = db.query("DETALLEACTIVIDAD", null, "ID_DETALLE = ?", id,null, null, null);
+                Cursor c2 = db.query("HORARIO", null, "IDHORARIO = ?", id2,null, null, null);
+
+                //c.moveToFirst()&& c2.moveToFirst()&& c3.moveToFirst()
+                if ( c.moveToFirst()&& c2.moveToFirst()) {
+                    return true;
+                }
+                return false;
+            }
+
+            //Actualizar
+            case 51:{
+                ListaHorario listaHorario = (ListaHorario) dato;
+                String[] id = {Integer.toString(listaHorario.getID_DETALLE())};
+                String[] id2 = {Integer.toString(listaHorario.getIDHORARIO())};
+
+                abrir();
+                Cursor c = db.query("DETALLEACTIVIDAD", null, "ID_DETALLE = ?", id,null, null, null);
+                Cursor c2 = db.query("HORARIO", null, "IDHORARIO = ?", id2,null, null, null);
+                if (c.moveToFirst()&& c2.moveToFirst()) {
+                    return true;
+                }
+                return false;
+            }
+            //Eliminar
+            case 52:{
+                ListaHorario listaHorario = (ListaHorario) dato;
+                Cursor c = db.query(true, "LISTAHORARIO", new String[]{"IDLISTAHORARIO"}, "IDLISTAHORARIO = '" + listaHorario.getIDLISTAHORARIO() + "' ", null, null, null, null, null);
+                if(c.moveToFirst())
+                    return true;
+                else
+                    return false;
+            }
+
 
         }
         return false;
@@ -544,6 +624,7 @@ public class ControlBDActividades {
         final Integer [] tamanoGrupo={10,20,30};
         final String [] tipoGrupo={"Laboratorio","Discusión","Teórico"};
 
+<<<<<<< HEAD
         //Katya
         //TABLA: EQUIPO DIDACTICO
         final String [] IDEQUIPO={"0101","0102","0103","0104"};
@@ -563,6 +644,15 @@ public class ControlBDActividades {
         final String [] IDLOCAL={"0101","0102","0103","0104"};
         final String [] DESCRIPCIONACTIVIDAD={"Ponencia sobre Ciberseguridad","Bienvenida al ciclo 2 - 2022","Taller: Salud Mental","Examen Parcial"};
 
+=======
+
+        //Alejandro
+        //Tabla Horario
+        final  String[] IDHORARIO={"01","02","03"};
+        final  String[] DESDEHORARIO={"7:00","11:00","1:00"};
+        final  String[] HASTAHORARIO={"12:00","3:00","5:00"};
+        final  String[] DIA={"Lunes","Martes","Miercoles","Jueves","Viernes"};
+>>>>>>> 2300dd77d8c7737a56b8772b6006e9677c32b03e
         abrir();
 
         db.execSQL("DELETE FROM CARRERA");
@@ -603,6 +693,14 @@ public class ControlBDActividades {
             insertarACCESOUSUARIO(accesousuario);
         }
 
+        Horario horario = new Horario();
+        for(int i=0;i<3;i++){
+            horario.setIDHORARIO(IDHORARIO[i]);
+            horario.setDESDEHORARIO(DESDEHORARIO[i]);
+            horario.setHASTAHORARIO(HASTAHORARIO[i]);
+            horario.setDIA(DIA[i]);
+            insertarHorario(horario);
+        }
 
 
 
@@ -1790,7 +1888,255 @@ public String insertarEscuela (Escuela escuela){
         }
     }
 
+    //Alejandro
+    /*==============================================================*/
+    /* Table: CRUD HORARIO                                          */
+    /*==============================================================*/
+
+    /*Insertar*/
+
+    public String insertarHorario(Horario horario){
+        String regInsertados = "Se han insertado un total de: ";
+        long contador = 0;
+        ContentValues cv = new ContentValues();
+
+        cv.put("IDHORARIO", horario.getIDHORARIO());
+        cv.put("DESDEHORARIO", horario.getDESDEHORARIO());
+        cv.put("HASTAHORARIO", horario.getHASTAHORARIO());
+        cv.put("DIA", horario.getDIA());
+
+
+        contador = db.insert("HORARIO", null, cv);
+        if (contador == -1 || contador ==0){
+                regInsertados = "Error al insertar el horario, el horario esta duplicado, por favor revisar el dato que ud quiere insertar";
+        }
+        else {
+            regInsertados = regInsertados + contador;
+        }
+        return  regInsertados;
+
+    }
+
+    /*Consultar*/
+    public Horario consultarHorario(String idHorario){
+        String[] id = {idHorario};
+
+        Cursor cursor = db.query("HORARIO", campoHorario, "IDHORARIO = ?", id, null, null, null);
+
+        if(cursor.moveToFirst()){
+            Horario horario = new Horario();
+            horario.setDESDEHORARIO(cursor.getString(1));
+            horario.setHASTAHORARIO(cursor.getString(2));
+            horario.setDIA(cursor.getString(3));
+
+            return horario;
+        }
+        return null;
+    }
+
+    /*Actualizar*/
+    public String actualizarHorario(Horario horario) {
+        String[] id = {horario.getIDHORARIO()};
+
+        String regActualizados = "El total de registros actualizados es: ";
+
+        ContentValues cv = new ContentValues();
+        int contador = 0;
+
+        cv.put("IDHORARIO", horario.getIDHORARIO());
+        cv.put("DESDEHORARIO", horario.getDESDEHORARIO());
+        cv.put("HASTAHORARIO", horario.getHASTAHORARIO());
+        cv.put("DIA", horario.getDIA());
+
+        contador = db.update("HORARIO", cv, "IDHORARIO = ?", id);
+        if(contador == -1){
+            regActualizados = "Error al actualizar los registros, favor verficar insercion de datos";
+        }
+        else{
+            regActualizados = regActualizados + contador;
+        }
+        return regActualizados;
+    }
+
+    /*Eliminar*/
+
+    public String eliminarHorario(Horario horario){
+        String regAfectados = "La cantidad de datos eliminados es: ";
+        int contador = 0;
+        contador += db.delete("HORARIO", "IDHORARIO ='" + horario.getIDHORARIO().toString() + "' ",null);
+        regAfectados += contador;
+        return regAfectados;
+    }
+
+/*==============================================================*/
+/* Table: CRUD LOCAL                                            */
+/*==============================================================*/
+
+    /*Insertar*/
+    public String insertarLocal(Local local){
+        String regInsertados = "Se han insertado un total de: ";
+        long contador = 0;
+        ContentValues cv = new ContentValues();
+
+        cv.put("IDLOCAL", local.getIDLOCAL());
+        cv.put("NOMBRELOCAL", local.getNOMBRELOCAL());
+        cv.put("CUPO", local.getCUPO());
+
+
+        contador = db.insert("LOCAL", null, cv);
+        if (contador == -1 || contador ==0){
+            regInsertados = "Error al insertar el local, el local esta duplicado, por favor revisar el dato que ud quiere insertar";
+        }
+        else {
+            regInsertados = regInsertados + contador;
+        }
+        return  regInsertados;
+    }
+
+    /*Consultar*/
+    public Local consultarLocal(String idLocal){
+        String[] id = {idLocal};
+
+        Cursor cursor = db.query("LOCAL", campoLocal, "IDLOCAL = ?", id, null, null, null);
+
+        if(cursor.moveToFirst()){
+            Local local = new Local();
+            local.setNOMBRELOCAL(cursor.getString(1));
+            local.setCUPO(Integer.parseInt(cursor.getString(2)));
+
+            return local;
+        }
+        return null;
+    }
+
+    /*Actualizar*/
+    public String actualizarLocal(Local local) {
+        String[] id = {local.getIDLOCAL()};
+
+        String regActualizados = "El total de registros actualizados es: ";
+
+        ContentValues cv = new ContentValues();
+        int contador = 0;
+
+        cv.put("IDLOCAL", local.getIDLOCAL());
+        cv.put("NOMBRELOCAL", local.getNOMBRELOCAL());
+        cv.put("CUPO", local.getCUPO());
+
+        contador = db.update("LOCAL", cv, "IDLOCAL = ?", id);
+        if(contador == -1){
+            regActualizados = "Error al actualizar los registros, favor verficar insercion de datos";
+        }
+        else{
+            regActualizados = regActualizados + contador;
+        }
+        return regActualizados;
+    }
+
+    /*Eliminar*/
+
+    public String eliminarLocal(Local local){
+        String regAfectados = "La cantidad de datos eliminados es: ";
+        int contador = 0;
+        contador += db.delete("LOCAL", "IDLOCAL ='" + local.getIDLOCAL().toString() + "' ",null);
+        regAfectados += contador;
+        return regAfectados;
+    }
+
+    /*==============================================================*/
+    /* Table: CRUD LISTAHORARIO                                     */
+    /*==============================================================*/
+    public String insertarListaHorario(ListaHorario listaHorario){
+        String regInsertados = "Se han insertado un total de: ";
+        long contador = 0;
+        ContentValues cv = new ContentValues();
+        if(verificarIntegridad(listaHorario, 50)){
+            cv.put("IDLISTAHORARIO", listaHorario.getIDLISTAHORARIO());
+            cv.put("ID_DETALLE", listaHorario.getID_DETALLE());
+            cv.put("IDHORARIO", listaHorario.getIDHORARIO());
+
+
+            contador = db.insert("LISTAHORARIO", null, cv);
+            if (contador == -1 || contador ==0){
+                regInsertados = "Error al insertar la lista horario, la lista horario esta duplicada, por favor revisar el dato que ud quiere insertar";
+            }
+            else {
+                regInsertados = regInsertados + contador;
+            }
+            return  regInsertados;
+        }
+        else {
+            return  "Error verificar datos";
+        }
+    }
+
+    /*Consultar*/
+    public ListaHorario consultarListaHorario(String idListaHorario){
+        String[] id = {idListaHorario};
+
+        Cursor cursor = db.query("LISTAHORARIO", campoListaHorario, "IDLISTAHORARIO = ?", id, null, null, null);
+
+        if(cursor.moveToFirst()){
+            ListaHorario horario = new ListaHorario();
+            horario.setIDHORARIO(Integer.parseInt(cursor.getString(1)));
+            horario.setID_DETALLE(Integer.parseInt(cursor.getString(2)));
+
+            return horario;
+        }
+        return null;
+    }
+
+    /*Actualizar*/
+    public String actualizarListaHorario(ListaHorario listaHorario) {
+        String[] id = {Integer.toString(listaHorario.getIDHORARIO())};
+
+        String regActualizados = "El total de registros actualizados es: ";
+
+        ContentValues cv = new ContentValues();
+        int contador = 0;
+
+        if(verificarIntegridad(listaHorario, 51)){
+            cv.put("IDHORARIO", listaHorario.getIDHORARIO());
+            cv.put("ID_DETALLE", listaHorario.getID_DETALLE());
+            cv.put("IDHORARIO", listaHorario.getIDHORARIO());
+
+            contador = db.update("LISTAHORARIO", cv, "IDHORARIO = ?", id);
+            if(contador == -1){
+                regActualizados = "Error al actualizar los registros, favor verficar insercion de datos";
+            }
+            else{
+                regActualizados = regActualizados + contador;
+            }
+            return regActualizados;
+        }
+        else{
+            return "No existe el registro con el id "+ listaHorario.getIDLISTAHORARIO();
+            }
+    }
+
+    /*Eliminar*/
+
+    public String eliminarListaHorario(ListaHorario listaHorario){
+        String regAfectados = "La cantidad de datos eliminados es: ";
+        int contador = 0;
+
+
+        if(verificarIntegridad(listaHorario, 52)){
+            contador += db.delete("LISTAHORARIO", "IDLISTAHORARIO = '" + Integer.toString(listaHorario.getIDLISTAHORARIO()) + "' ",null);
+            regAfectados += contador;
+
+            return regAfectados;
+        }
+        else{
+            return "No se encontro el registro";
+        }
+    }
 }
+
+
+
+
+
+
 
 
 
