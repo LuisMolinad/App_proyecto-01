@@ -2,6 +2,7 @@ package com.edu.ues.fia.eisi.app_proyecto01;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
@@ -19,26 +20,32 @@ import com.android.volley.toolbox.Volley;
 import java.util.HashMap;
 import java.util.Map;
 @SuppressLint("NewApi")
-public class InsertarEquipoDidacticoExterno extends AppCompatActivity {
-
-    EditText idEquipo, nombre, descripcionEquipo;
-
+public class EliminarEquipoDidacticoExterno extends AppCompatActivity {
+    EditText idEquipoE;
     RequestQueue requestQueue;
     String url;
-
-    private final String urlLocal = "http://192.168.0.8/Proyecto1.2/Equipo/ws_insert_equipo.php";
+    private final String urlLocal = "http://192.168.0.8/Proyecto1.2/Equipo/ws_delete_equipo.php";
 
     @SuppressLint("NewApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_insertar_equipo_didactico_externo);
+        setContentView(R.layout.activity_eliminar_equipo_didactico_externo);
+        idEquipoE = findViewById(R.id.idEquipo);
 
+    }
 
-        idEquipo = findViewById(R.id.idEquipoInsertar);
-        nombre = findViewById(R.id.nombreEquipoInsertar);
-        descripcionEquipo = findViewById(R.id.descripcionEquipoInsertar);
+    public void eliminarEquipoDidactico(View v){
 
+        if(idEquipoE.getText().toString().isEmpty()){
+            Toast.makeText(this,"Tiene que llenar todos los campos", Toast.LENGTH_SHORT).show();
+        }
+        else{
+
+            url = urlLocal + "?IDEQUIPO=" + idEquipoE.getText().toString();
+
+            ejecutar(url);
+        }
     }
     public void ejecutar(String URL){
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
@@ -56,10 +63,7 @@ public class InsertarEquipoDidacticoExterno extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> parametro = new HashMap<String, String>();
-                //parametro.put("IDACTIVIDAD", idActividad.getText().toString());
-                parametro.put("IDEQUIPO", idEquipo.getText().toString());
-                parametro.put("NOMBRE", nombre.getText().toString());
-                parametro.put("DESCRIPCIONEQUIPO", descripcionEquipo.getText().toString());
+                parametro.put("IDEQUIPO", idEquipoE.getText().toString());
                 return parametro;
             }
         };
@@ -67,31 +71,4 @@ public class InsertarEquipoDidacticoExterno extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
     }
-
-    public void insertarEquipoExterno(View v){
-        String id_equipo = idEquipo.getText().toString();
-        String nombreE = nombre.getText().toString();
-        String desEquipo = descripcionEquipo.getText().toString();
-
-
-        //Validar que no este vacio
-
-        if(id_equipo.isEmpty() || nombreE.isEmpty() || desEquipo.isEmpty() ){
-            Toast.makeText(this, "Error, no debe dejar campos vacios", Toast.LENGTH_SHORT).show();
-        }
-        else {
-
-            url = urlLocal + "?IDEQUIPO=" + id_equipo + "&NOMBRE=" + nombreE + "&DESCRIPCIONEQUIPO=" + desEquipo;
-
-            ejecutar(url);
-
-        }
-    }
-    public void CancelarInsertarEquipo (View v){
-        idEquipo.setText("");
-        nombre.setText("");
-        descripcionEquipo.setText("");
-    }
-
-
 }
