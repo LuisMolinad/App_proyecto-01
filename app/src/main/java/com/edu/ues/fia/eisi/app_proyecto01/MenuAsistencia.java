@@ -11,6 +11,7 @@ public class MenuAsistencia extends AppCompatActivity implements View.OnClickLis
 
     //Variables de CardView
     public CardView insertar, consultar, editar, eliminar;
+    public CardView insertarExterno, consultarExterno, editarExterno, eliminarExterno;
     String tipoUsuario;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,10 +19,15 @@ public class MenuAsistencia extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_menu_asistencia);
         Intent intent = getIntent();
         tipoUsuario = intent.getExtras().getString("OpcionCrud");
-        insertar = (CardView) findViewById(R.id.cardInsertarAsistencia);
-        consultar = (CardView) findViewById(R.id.cardConsultarAsistencia);
-        editar = (CardView) findViewById(R.id.cardEditarAsistencia);
-        eliminar = (CardView) findViewById(R.id.cardEliminarAsistencia);
+        insertar = (CardView) findViewById(R.id.cardInsertar);
+        consultar = (CardView) findViewById(R.id.cardConsultar);
+        editar = (CardView) findViewById(R.id.cardEditar);
+        eliminar = (CardView) findViewById(R.id.cardEliminar);
+
+        insertarExterno = findViewById(R.id.cardInsertarOnline);
+        consultarExterno =  findViewById(R.id.cardConsultarOnline);
+        editarExterno = findViewById(R.id.cardEditarOnline);
+        eliminarExterno =  findViewById(R.id.cardEliminarOnline);
 
         if (tipoUsuario != null) {
             //   String opcioncRUD=tipoUsuario;
@@ -33,6 +39,11 @@ public class MenuAsistencia extends AppCompatActivity implements View.OnClickLis
                     consultar.setOnClickListener(this);
                     editar.setOnClickListener(this);
                     eliminar.setOnClickListener(this);
+
+                    insertarExterno.setOnClickListener(this);
+                    consultarExterno.setOnClickListener(this);
+                    editarExterno.setOnClickListener(this);
+                    eliminarExterno.setOnClickListener(this);
                     break;
                 case "0200":
                 case "0300":
@@ -41,6 +52,11 @@ public class MenuAsistencia extends AppCompatActivity implements View.OnClickLis
                     consultar.setOnClickListener(this);
                     editar.setOnClickListener(this);
                     eliminar.setVisibility(View.GONE);
+
+                    insertarExterno.setVisibility(View.GONE);
+                    consultarExterno.setOnClickListener(this);
+                    editarExterno.setOnClickListener(this);
+                    eliminarExterno.setVisibility(View.GONE);
                     break;
 
             }
@@ -54,20 +70,36 @@ public class MenuAsistencia extends AppCompatActivity implements View.OnClickLis
         Intent i;
 
         switch (view.getId()){
-            case R.id.cardInsertarAsistencia:
+            case R.id.cardInsertar:
                 i = new Intent(this, InsertarAsistencia.class);
                 startActivity(i);
                 break;
-            case R.id.cardConsultarAsistencia:
+            case R.id.cardConsultar:
                 i = new Intent(this, ConsultarAsistencia.class);
                 startActivity(i);
                 break;
-            case R.id.cardEditarAsistencia:
+            case R.id.cardEditar:
                 i = new Intent(this, EditarAsistencia.class);
                 startActivity(i);
                 break;
-            case R.id.cardEliminarAsistencia:
+            case R.id.cardEliminar:
                 i = new Intent(this, EliminarAsistencia.class);
+                startActivity(i);
+                break;
+            case R.id.cardInsertarOnline:
+                i = new Intent(this, InsertarAsistenciaExterno.class);
+                startActivity(i);
+                break;
+            case R.id.cardEliminarOnline:
+                i = new Intent(this, EliminarAsistenciaExterno.class);
+                startActivity(i);
+                break;
+            case R.id.cardConsultarOnline:
+                i = new Intent(this, ConsultarAsistenciaExterno.class);
+                startActivity(i);
+                break;
+            case R.id.cardEditarOnline:
+                i = new Intent(this, EditarAsistenciaExterno.class);
                 startActivity(i);
                 break;
         }

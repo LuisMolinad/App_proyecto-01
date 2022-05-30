@@ -3,6 +3,36 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/FamiliaMontoyaOsorio/Documents/PDM115/Proyecto/App_proyecto-01/app/src/main/res/layout/activity_consultar_horario.xml" value="0.36666666666666664" />
+        <entry key="..\:/FamiliaMontoyaOsorio/Documents/PDM115/Proyecto/App_proyecto-01/app/src/main/res/layout/activity_consultar_lista_horario.xml" value="0.2223731884057971" />
+        <entry key="..\:/FamiliaMontoyaOsorio/Documents/PDM115/Proyecto/App_proyecto-01/app/src/main/res/layout/activity_consultar_local.xml" value="0.2223731884057971" />
+        <entry key="..\:/FamiliaMontoyaOsorio/Documents/PDM115/Proyecto/App_proyecto-01/app/src/main/res/layout/activity_consultar_particular.xml" value="0.2223731884057971" />
+        <entry key="..\:/FamiliaMontoyaOsorio/Documents/PDM115/Proyecto/App_proyecto-01/app/src/main/res/layout/activity_editar_detalle_actividad.xml" value="0.36666666666666664" />
+        <entry key="..\:/FamiliaMontoyaOsorio/Documents/PDM115/Proyecto/App_proyecto-01/app/src/main/res/layout/activity_editar_escuela_externo.xml" value="0.36666666666666664" />
+        <entry key="..\:/FamiliaMontoyaOsorio/Documents/PDM115/Proyecto/App_proyecto-01/app/src/main/res/layout/activity_editar_horario.xml" value="0.2223731884057971" />
+        <entry key="..\:/FamiliaMontoyaOsorio/Documents/PDM115/Proyecto/App_proyecto-01/app/src/main/res/layout/activity_editar_lista_horario.xml" value="0.2223731884057971" />
+        <entry key="..\:/FamiliaMontoyaOsorio/Documents/PDM115/Proyecto/App_proyecto-01/app/src/main/res/layout/activity_editar_local.xml" value="0.2223731884057971" />
+        <entry key="..\:/FamiliaMontoyaOsorio/Documents/PDM115/Proyecto/App_proyecto-01/app/src/main/res/layout/activity_editar_particular.xml" value="0.36666666666666664" />
+        <entry key="..\:/FamiliaMontoyaOsorio/Documents/PDM115/Proyecto/App_proyecto-01/app/src/main/res/layout/activity_eliminar_horario.xml" value="0.2223731884057971" />
+        <entry key="..\:/FamiliaMontoyaOsorio/Documents/PDM115/Proyecto/App_proyecto-01/app/src/main/res/layout/activity_eliminar_lista_horario.xml" value="0.2223731884057971" />
+        <entry key="..\:/FamiliaMontoyaOsorio/Documents/PDM115/Proyecto/App_proyecto-01/app/src/main/res/layout/activity_eliminar_local.xml" value="0.2223731884057971" />
+        <entry key="..\:/FamiliaMontoyaOsorio/Documents/PDM115/Proyecto/App_proyecto-01/app/src/main/res/layout/activity_insertar_horario.xml" value="0.33" />
+        <entry key="..\:/FamiliaMontoyaOsorio/Documents/PDM115/Proyecto/App_proyecto-01/app/src/main/res/layout/activity_insertar_lista_horario.xml" value="0.34375" />
+        <entry key="..\:/FamiliaMontoyaOsorio/Documents/PDM115/Proyecto/App_proyecto-01/app/src/main/res/layout/activity_insertar_local.xml" value="0.23777173913043478" />
+        <entry key="..\:/FamiliaMontoyaOsorio/Documents/PDM115/Proyecto/App_proyecto-01/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/FamiliaMontoyaOsorio/Documents/PDM115/Proyecto/App_proyecto-01/app/src/main/res/layout/activity_menu_horario.xml" value="0.1" />
+        <entry key="..\:/FamiliaMontoyaOsorio/Documents/PDM115/Proyecto/App_proyecto-01/app/src/main/res/layout/activity_menu_particular.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/abena/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_consultar_detalle_actividad.xml" value="0.14855072463768115" />
+        <entry key="..\:/Users/abena/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_consultar_oferta_academica.xml" value="0.12360688956433637" />
+        <entry key="..\:/Users/abena/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_editar_ciclo.xml" value="0.15486725663716813" />
+        <entry key="..\:/Users/abena/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_editar_detalle_actividad.xml" value="0.26510416666666664" />
+        <entry key="..\:/Users/abena/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_editar_detalle_oferta.xml" value="0.1" />
+        <entry key="..\:/Users/abena/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_editar_miembro_universitario.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/abena/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_editar_oferta_academica.xml" value="0.2" />
+        <entry key="..\:/Users/abena/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_eliminar_ciclo.xml" value="0.1" />
+        <entry key="..\:/Users/abena/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_eliminar_detalle_actividad.xml" value="0.26510416666666664" />
+        <entry key="..\:/Users/abena/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_insertar_detalle_actividad.xml" value="0.14855072463768115" />
+        <entry key="..\:/Users/abena/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_insertar_oferta_academica.xml" value="0.12360688956433637" />
         <entry key="..\:/Users/astri/Desktop/Final/App_proyecto-01/app/src/main/res/layout/activity_consultar_asistencia.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/astri/Desktop/Final/App_proyecto-01/app/src/main/res/layout/activity_consultar_carrera.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/astri/Desktop/Final/App_proyecto-01/app/src/main/res/layout/activity_consultar_detalle_actividad.xml" value="0.25" />
@@ -22,20 +52,14 @@
         <entry key="..\:/Users/astri/Desktop/Final/App_proyecto-01/app/src/main/res/layout/activity_insertar_equipo_didactico.xml" value="0.15534420289855072" />
         <entry key="..\:/Users/astri/Desktop/Final/App_proyecto-01/app/src/main/res/layout/activity_insertar_lista_equipo.xml" value="0.25" />
         <entry key="..\:/Users/astri/Desktop/Final/App_proyecto-01/app/src/main/res/layout/activity_menu_lista_equipo.xml" value="0.15534420289855072" />
-<<<<<<< HEAD
         <entry key="..\:/Users/astri/Desktop/Total/App_proyecto-01/app/src/main/res/layout/activity_consultar_equipo_didactico.xml" value="0.2" />
         <entry key="..\:/Users/astri/Desktop/Total/App_proyecto-01/app/src/main/res/layout/activity_consultar_lista_equipo.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/astri/Desktop/Total/App_proyecto-01/app/src/main/res/layout/activity_editar_detalle_actividad.xml" value="0.10416666666666667" />
-        <entry key="..\:/Users/astri/Desktop/Total/App_proyecto-01/app/src/main/res/layout/activity_editar_equipo_didactico.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/astri/Desktop/Total/App_proyecto-01/app/src/main/res/layout/activity_eliminar_actividad_externo.xml" value="0.2" />
         <entry key="..\:/Users/astri/Desktop/Totototal/App_proyecto-01/app/src/main/res/layout/activity_eliminar_actividad_externo.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/astri/Desktop/Totototal/App_proyecto-01/app/src/main/res/layout/activity_insertar_equipo_didactico.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/astri/Desktop/Totototal/App_proyecto-01/app/src/main/res/layout/activity_insertar_equipo_didactico_externo.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/astri/Desktop/Totototal/App_proyecto-01/app/src/main/res/layout/activity_menu_actividadd.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/astri/Desktop/Totototal/App_proyecto-01/app/src/main/res/layout/activity_menu_carrera.xml" value="0.13496376811594202" />
         <entry key="..\:/Users/astri/Desktop/Totototal/App_proyecto-01/app/src/main/res/layout/activity_menu_equipo_didactico.xml" value="0.20416666666666666" />
-=======
->>>>>>> c78cf2e5a04a0071b91bce4a1da2f7bdfd8d7780
         <entry key="..\:/Users/luis9/AndroidStudioProjects/App_proyecto01/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.201" />
         <entry key="..\:/Users/luis9/AndroidStudioProjects/App_proyecto01/app/src/main/res/drawable/ic_launcher_background.xml" value="0.201" />
         <entry key="..\:/Users/luis9/AndroidStudioProjects/App_proyecto01/app/src/main/res/layout/activity_actividad_menu.xml" value="0.18" />
@@ -52,10 +76,8 @@
         <entry key="..\:/Users/luis9/AndroidStudioProjects/App_proyecto01/app/src/main/res/layout/activity_editar_equipo_didactico.xml" value="0.2947916666666667" />
         <entry key="..\:/Users/luis9/AndroidStudioProjects/App_proyecto01/app/src/main/res/layout/activity_editar_escuela.xml" value="0.33" />
         <entry key="..\:/Users/luis9/AndroidStudioProjects/App_proyecto01/app/src/main/res/layout/activity_editar_escuela_externo.xml" value="0.371875" />
-        <entry key="..\:/Users/luis9/AndroidStudioProjects/App_proyecto01/app/src/main/res/layout/activity_editar_local.xml" value="0.25" />
         <entry key="..\:/Users/luis9/AndroidStudioProjects/App_proyecto01/app/src/main/res/layout/activity_editar_materia.xml" value="0.25" />
         <entry key="..\:/Users/luis9/AndroidStudioProjects/App_proyecto01/app/src/main/res/layout/activity_editar_particular.xml" value="0.290625" />
-        <entry key="..\:/Users/luis9/AndroidStudioProjects/App_proyecto01/app/src/main/res/layout/activity_eliminar_actividad_externo.xml" value="0.20260416666666667" />
         <entry key="..\:/Users/luis9/AndroidStudioProjects/App_proyecto01/app/src/main/res/layout/activity_eliminar_carrera.xml" value="0.33" />
         <entry key="..\:/Users/luis9/AndroidStudioProjects/App_proyecto01/app/src/main/res/layout/activity_eliminar_carrera_externo.xml" value="0.18" />
         <entry key="..\:/Users/luis9/AndroidStudioProjects/App_proyecto01/app/src/main/res/layout/activity_eliminar_escuela.xml" value="0.371875" />
@@ -66,7 +88,6 @@
         <entry key="..\:/Users/luis9/AndroidStudioProjects/App_proyecto01/app/src/main/res/layout/activity_insertar_equipo_didactico.xml" value="0.2942708333333333" />
         <entry key="..\:/Users/luis9/AndroidStudioProjects/App_proyecto01/app/src/main/res/layout/activity_insertar_escuela.xml" value="0.1" />
         <entry key="..\:/Users/luis9/AndroidStudioProjects/App_proyecto01/app/src/main/res/layout/activity_insertar_escuela_externo.xml" value="0.371875" />
-        <entry key="..\:/Users/luis9/AndroidStudioProjects/App_proyecto01/app/src/main/res/layout/activity_insertar_horario.xml" value="0.371875" />
         <entry key="..\:/Users/luis9/AndroidStudioProjects/App_proyecto01/app/src/main/res/layout/activity_insertar_lista_equipo.xml" value="0.2942708333333333" />
         <entry key="..\:/Users/luis9/AndroidStudioProjects/App_proyecto01/app/src/main/res/layout/activity_insertar_local.xml" value="0.371875" />
         <entry key="..\:/Users/luis9/AndroidStudioProjects/App_proyecto01/app/src/main/res/layout/activity_insertar_materia.xml" value="0.25" />
@@ -94,38 +115,44 @@
         <entry key="app/src/main/res/layout/activity_actividad_menu.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_catalogo_academico.xml" value="0.2504528985507246" />
         <entry key="app/src/main/res/layout/activity_consultar_actividad.xml" value="0.3416666666666667" />
-        <entry key="app/src/main/res/layout/activity_consultar_actividad_externo.xml" value="0.3052536231884058" />
+        <entry key="app/src/main/res/layout/activity_consultar_actividad_externo.xml" value="0.28940217391304346" />
         <entry key="app/src/main/res/layout/activity_consultar_asistencia.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/activity_consultar_asistencia_externo.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_consultar_escuela.xml" value="0.3052536231884058" />
-        <entry key="app/src/main/res/layout/activity_consultar_miembro_universitario.xml" value="0.15989159891598917" />
+        <entry key="app/src/main/res/layout/activity_consultar_miembro_universitario.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_consultar_miembro_universitario_externo.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_consultar_particular.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_editar_actividad.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_editar_actividad_externo.xml" value="0.3416666666666667" />
-        <entry key="app/src/main/res/layout/activity_editar_asistencia.xml" value="0.3416666666666667" />
-        <entry key="app/src/main/res/layout/activity_editar_escuela.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/activity_editar_asistencia.xml" value="0.15989159891598917" />
+        <entry key="app/src/main/res/layout/activity_editar_asistencia_externo.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_editar_horario.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_editar_miembro_universitario.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_editar_miembro_universitario_externo.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_editar_particular.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_eliminar_actividad.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/activity_eliminar_actividad_externo.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_eliminar_actividad_online.xml" value="0.3052536231884058" />
         <entry key="app/src/main/res/layout/activity_eliminar_asistencia.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/activity_eliminar_asistencia_externo.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_eliminar_escuela.xml" value="0.3052536231884058" />
         <entry key="app/src/main/res/layout/activity_eliminar_local.xml" value="0.3052536231884058" />
-        <entry key="app/src/main/res/layout/activity_eliminar_miembro_universitario.xml" value="0.15989159891598917" />
+        <entry key="app/src/main/res/layout/activity_eliminar_materia.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/activity_eliminar_miembro_universitario.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_eliminar_miembro_universitario_externo.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/activity_eliminar_oferta_academica.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_eliminar_particular.xml" value="0.3416666666666667" />
-        <entry key="app/src/main/res/layout/activity_insertar_actividad.xml" value="0.2821557971014493" />
+        <entry key="app/src/main/res/layout/activity_insertar_actividad.xml" value="0.28940217391304346" />
         <entry key="app/src/main/res/layout/activity_insertar_actividad_externo.xml" value="0.3052536231884058" />
         <entry key="app/src/main/res/layout/activity_insertar_asistencia.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/activity_insertar_asistencia_externo.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_insertar_carrera_externo.xml" value="0.3052536231884058" />
-        <entry key="app/src/main/res/layout/activity_insertar_escuela.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_insertar_miembro_universitario.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_insertar_miembro_universitario_externo.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_insertar_particular.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_menu_actividadd.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/activity_menu_asistencia.xml" value="0.28940217391304346" />
         <entry key="app/src/main/res/layout/activity_menu_carrera.xml" value="0.2504528985507246" />
         <entry key="app/src/main/res/layout/activity_menu_horario.xml" value="0.1661600810536981" />
         <entry key="app/src/main/res/layout/activity_menu_miembro_universitario.xml" value="0.3416666666666667" />

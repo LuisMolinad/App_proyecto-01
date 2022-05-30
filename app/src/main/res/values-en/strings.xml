@@ -105,10 +105,10 @@
     <string name="consultarDetalleOferta">Read offer detail</string>
     <string name="editarDetalleOferta">Edit offer detail</string>s
     <string name="eliminarDetalleOferta">Delete offer detail</string>
-    <string name="txtCreateWeb">Insert</string>
-    <string name="txtReadWeb">Consult</string>
-    <string name="txtUpdateWeb">Edit</string>
-    <string name="txtDeleteWeb">Delete</string>
+    <string name="txtCreateWeb">Insert Online</string>
+    <string name="txtReadWeb">Consult Online</string>
+    <string name="txtUpdateWeb">Edit Online</string>
+    <string name="txtDeleteWeb">Delete Online</string>
 
 
     <!--TODO ACTIVIDAD -->
