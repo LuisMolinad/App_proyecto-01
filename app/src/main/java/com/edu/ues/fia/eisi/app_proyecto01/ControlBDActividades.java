@@ -685,7 +685,13 @@ public class ControlBDActividades {
         //Tabla local
         //final  String[] IDLOCAL = {"01","02","03"};
         final  String[] NOMBRELOCAL = {"Marmol","BIB11","BIB32"};
-        final  String[] CUPO = {"100","80","50"};
+        final  Integer[] CUPO = {100,80,50};
+
+        //Tabla ListaHorario
+        final Integer[] IDLISTAHORARIO={001,002,003};
+        //final Integer[] ID_DETALLE={011,012,013};
+        //final String[] IDHORARIO={"01","02","03"};
+
 
         //Rosalio
 
@@ -784,8 +790,16 @@ public class ControlBDActividades {
         for(int i=0;i<3;i++){
             local.setIDLOCAL(IDLOCAL[i]);
             local.setNOMBRELOCAL(NOMBRELOCAL[i]);
-            local.setCUPO(Integer.valueOf(CUPO[i]));
+            local.setCUPO(CUPO[i]);
             insertarLocal(local);
+        }
+
+        ListaHorario listaHorario = new ListaHorario();
+        for(int i=0;i<3;i++){
+            listaHorario.setIDLISTAHORARIO((IDLISTAHORARIO[i]));
+            listaHorario.setID_DETALLE(ID_DETALLE[i]);
+            //listaHorario.setIDHORARIO(IDHORARIO[i]); ME SALE QUE TIENE QUE PASARSE A INTEGER PERO IDHORARIO LO TENGO COMO STRING EN TODAS LAS DECLARACIONES
+            insertarListaHorario(listaHorario);
         }
 
 
