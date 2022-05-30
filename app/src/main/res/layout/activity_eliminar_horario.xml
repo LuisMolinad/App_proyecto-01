@@ -84,7 +84,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                             android:backgroundTint="@color/BotonEliminar"
-        android:text="@string/eliminar" />
+        android:text="@string/eliminar"
+                    android:onClick="eliminarHorario"/>
             </LinearLayout>
 
         </LinearLayout>
