@@ -543,6 +543,26 @@ public class ControlBDActividades {
         final Integer [] numeroGrupo= {1,2,3};
         final Integer [] tamanoGrupo={10,20,30};
         final String [] tipoGrupo={"Laboratorio","Discusión","Teórico"};
+
+        //Katya
+        //TABLA: EQUIPO DIDACTICO
+        final String [] IDEQUIPO={"0101","0102","0103","0104"};
+        final String [] NOMBRE={"Laptop","Impresora","Silla","Proyector"};
+        final String [] DESCRIPCIONEQUIPO={"Computadora portátil: Laptop HP PAVILON X360 convertible 14-DY0005LA","Impresora Multifunconal HP 315",
+                "Silla Ejecutiva Paris Xtech","Infocus IN1188HD 3000-Lumen Full HD"};
+
+        //TABLA: LISTA EQUIPO DIDACTICO
+        final Integer [] IDLISTAEQUIPO= {001,002,003};
+        final Integer [] ID_DETALLE={11,12,13};
+        final String [] IDEQUIPOLISTA={"0101","0102","0103","0104"};
+
+        //TABLA: DETALLE ACTIVIDAD
+        final Integer [] ID_DETALLEACTIVIDAD= {11,12,13};
+        final Integer [] GRUPO={1,2,3};
+        final String [] IDACTIVIDAD={"001","002","003","0004"};
+        final String [] IDLOCAL={"0101","0102","0103","0104"};
+        final String [] DESCRIPCIONACTIVIDAD={"Ponencia sobre Ciberseguridad","Bienvenida al ciclo 2 - 2022","Taller: Salud Mental","Examen Parcial"};
+
         abrir();
 
         db.execSQL("DELETE FROM CARRERA");
@@ -554,6 +574,9 @@ public class ControlBDActividades {
         db.execSQL("DELETE FROM CICLO");
         db.execSQL("DELETE FROM OFERTAACADEMICA");
         db.execSQL("DELETE FROM DETALLEOFERTA");
+        db.execSQL("DELETE FROM EQUIPODIDACTICO");
+        db.execSQL("DELETE FROM LISTAEQUIPO");
+        db.execSQL("DELETE FROM DETALLEACTIVIDAD");
 
 //Llenao de usuario, opcion crud y acceso usuario
         USUARIO usuario = new USUARIO();
@@ -632,6 +655,36 @@ public class ControlBDActividades {
             detalleOferta.setTipoGrupo(tipoGrupo[i]);
             insertarDetalleOferta(detalleOferta);
         }
+
+        //Llenado de Equipo Didactico
+        EquipoDidactico equipo = new EquipoDidactico();
+        for(int i=0;i<4;i++){
+            equipo.setIDEQUIPO(IDEQUIPO[i]);
+            equipo.setNOMBRE(NOMBRE[i]);
+            equipo.setDESCRIPCIONEQUIPO(DESCRIPCIONEQUIPO[i]);
+            insertarEquipoDidactico(equipo);
+        }
+
+        //Llenado de ListaEquipo
+        ListaEquipo ListaEquipo = new ListaEquipo();
+        for(int i=0;i<3;i++){
+            ListaEquipo.setIDLISTAEQUIPO(IDLISTAEQUIPO[i]);
+            ListaEquipo.setID_DETALLE(ID_DETALLE[i]);
+            ListaEquipo.setIDEQUIPO(IDEQUIPOLISTA[i]);
+
+            insertarListaEquipo(ListaEquipo);
+        }
+        //Llenado de DetalleActividad
+        DetalleActividad detalleActividad = new DetalleActividad();
+        for(int i=0;i<3;i++){
+            detalleActividad.setID_DETALLE(ID_DETALLEACTIVIDAD[i]);
+            detalleActividad.setGRUPO(GRUPO[i]);
+            detalleActividad.setIDACTIVIDAD(IDACTIVIDAD[i]);
+            detalleActividad.setIDLOCAL(IDLOCAL[i]);
+            detalleActividad.setDESCRIPCIONACTIVIDAD(DESCRIPCIONACTIVIDAD[i]);
+            insertarDetalleActividad(detalleActividad);
+        }
+
         cerrar();
         return "Guardo Correctamente";
 
