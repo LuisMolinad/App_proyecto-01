@@ -31,7 +31,7 @@ public class ControlBDActividades {
     private static final String[] campoListaEquipo = new String[]
             {"IDLISTAEQUIPO", "ID_DETALLE", "IDEQUIPO"};
     private static final String[] campoDetalleActividad = new String[]
-            {"ID_DETALLE", "GRUPO", "IDACTIVIDAD","IDLOCAL","DESCRIPCIONACTIVIDAD"};
+            {"ID_DETALLE", "IDGRUPO", "IDACTIVIDAD","IDLOCAL","DESCRIPCIONACTIVIDAD"};
 
 
 
@@ -114,7 +114,7 @@ public class ControlBDActividades {
                 /*==============================================================*/
                 db.execSQL("create table DETALLEACTIVIDAD  (\n" +
                         "   ID_DETALLE           INTEGER                         not null,\n" +
-                        "   GRUPO                INTEGER,\n" +
+                        "   IDGRUPO              VARCHAR(10),\n" +
                         "   IDACTIVIDAD          VARCHAR2(30),\n" +
                         "   IDLOCAL              VARCHAR2(20),\n" +
                         "   DESCRIPCIONACTIVIDAD VARCHAR2(50)                    not null,\n" +
@@ -134,7 +134,7 @@ public class ControlBDActividades {
                         "   IDASIGNATURA         VARCHAR2(20),\n" +
                         "   IDUSUARIO            VARCHAR2(30),\n" +
                         "   NOMBREMIEMBROUNIVERSITARIO VARCHAR2(50)                    not null,\n" +
-                        "   TIPOMIEMBRO          VARCHAR2(10)                    not null,\n" +
+                        "   TIPOMIEMBRO          VARCHAR2(20)                    not null,\n" +
                         "   primary key (IDMIEMBROUNIVERSITARIO)\n" +
                         ");\n");
                 /*==============================================================*/
@@ -160,19 +160,6 @@ public class ControlBDActividades {
                         "   APROBADO             VARCHAR2(2)                     not null,\n" +
                         "   constraint PK_ACTIVIDAD primary key (IDACTIVIDAD)\n" +
                         ");\n");
-
-                /*
-                create table ACTIVIDAD  (
-                   IDACTIVIDAD          VARCHAR(30)                    not null,
-                   IDMIEMBROUNIVERSITARIO VARCHAR(30),
-                   NOMBREACTIVIDAD      VARCHAR(12)                    not null,
-                   FECHARESERVA         VARCHAR(12)                            not null,
-                   DESDEACTIVIDAD       VARCHAR(12)                            not null,
-                   HASTAACTIVIDAD       VARCHAR(12)                            not null,
-                   APROBADO             VARCHAR(2)                        not null,
-                   constraint PK_ACTIVIDAD primary key (IDACTIVIDAD)
-                );
-                 */
                 /*==============================================================*/
                 /* Table: ASISTENCIA                                            */
                 /*==============================================================*/
@@ -452,34 +439,34 @@ public class ControlBDActividades {
             case 40:{
                 DetalleActividad detalleactividad = (DetalleActividad) dato;
 
-         //     String[] id = {Integer.toString(detalleactividad.getGRUPO())};
+                String[] id = {(detalleactividad.getGRUPO())};
                 String[] id2 = {detalleactividad.getIDACTIVIDAD()};
-         //     String[] id3 = {detalleactividad.getIDLOCAL()};
+                String[] id3 = {detalleactividad.getIDLOCAL()};
                 abrir();
-          //    Cursor c = db.query("DETALLEOFERTA", null, "GRUPO = ?", id,null, null, null);
+                Cursor c = db.query("DETALLEOFERTA", null, "IDGRUPO = ?", id,null, null, null);
                 Cursor c2 = db.query("ACTIVIDAD", null, "IDACTIVIDAD = ?", id2,null, null, null);
-          //    Cursor c3 = db.query("LOCAL", null, "IDLOCAL = ?", id3,null, null, null);
+                Cursor c3 = db.query("LOCAL", null, "IDLOCAL = ?", id3,null, null, null);
 
             //c.moveToFirst()&& c2.moveToFirst()&& c3.moveToFirst()
-                if ( c2.moveToFirst()) {
+                if ( c.moveToFirst()&& c2.moveToFirst()&& c3.moveToFirst()) {
                     return true;
                 }
                 return false;
             }
             //Actualizar Detalleactividad
-            case 41:{
+            case 100:{
                 DetalleActividad detalleactividad = (DetalleActividad) dato;
 
-                //     String[] id = {Integer.toString(detalleactividad.getGRUPO())};
+                String[] id = {(detalleactividad.getGRUPO())};
                 String[] id2 = {detalleactividad.getIDACTIVIDAD()};
-                //     String[] id3 = {detalleactividad.getIDLOCAL()};
+                String[] id3 = {detalleactividad.getIDLOCAL()};
                 abrir();
-                //    Cursor c = db.query("DETALLEOFERTA", null, "GRUPO = ?", id,null, null, null);
+                Cursor c = db.query("DETALLEOFERTA", null, "IDGRUPO = ?", id,null, null, null);
                 Cursor c2 = db.query("ACTIVIDAD", null, "IDACTIVIDAD = ?", id2,null, null, null);
-                //    Cursor c3 = db.query("LOCAL", null, "IDLOCAL = ?", id3,null, null, null);
+                Cursor c3 = db.query("LOCAL", null, "IDLOCAL = ?", id3,null, null, null);
 
                 //c.moveToFirst()&& c2.moveToFirst()&& c3.moveToFirst()
-                if ( c2.moveToFirst()) {
+                if ( c.moveToFirst()&& c2.moveToFirst()&& c3.moveToFirst()) {
                     return true;
                 }
                 return false;
@@ -521,6 +508,48 @@ public class ControlBDActividades {
                 abrir();
                 Cursor c2=db.query("DETALLEOFERTA",null,"IDGRUPO= ?",id,null,null,null,null);
                 if(c2.moveToFirst()){
+                    return true;
+                }
+                return false;
+            }
+            case 46:{
+                //verificar que ninguna ofertaAcademica tenga un idCiclo al borrar el ciclo
+                Ciclo ciclo = (Ciclo)dato;
+                Cursor c=db.query(true,"OFERTAACADEMICA",new String[]{"IDCICLO"},"IDCICLO='"+ciclo.getIdCiclo()+"'",null,null,null,null,null);
+                if(c.moveToFirst())
+                return true;
+                else
+                return false;
+            }
+            case 47:{
+                //verificar que al insertar una ofertaAcademica exista el ciclo y la materia
+                OfertaAcademica ofertaAcademica =(OfertaAcademica)dato;
+                String[] id1={ofertaAcademica.getIdCiclo()};
+                String[] id2={ofertaAcademica.getIdAsignatura()};
+                abrir();
+                Cursor cursor1 = db.query("CICLO",null,"IDCICLO= ?",id1,null,null,null);
+                Cursor cursor2 = db.query("materia",null,"IDASIGNATURA= ?",id2,null,null,null);
+                if(cursor1.moveToFirst()&&cursor2.moveToFirst()){
+                    return true;
+                }
+                return false;
+            }
+            case 48:{
+                //verificar que ninguna ofertaacademica sea llave foranea en un detalleOferta
+                OfertaAcademica ofertaAcademica=(OfertaAcademica)dato;
+                Cursor c=db.query(true,"DETALLEOFERTA",new String[]{"IDMATERIAACTIVA"},"IDMATERIAACTIVA='"+ofertaAcademica.getIdMateriaActiva()+"'",null,null,null,null,null);
+                if(c.moveToFirst())
+                    return true;
+                else
+                    return false;
+            }
+            case 49:{
+                //verificar que al insertar un detalle oferta, exista la oferta academica
+                DetalleOferta detalleOferta =(DetalleOferta)dato;
+                String[]id={detalleOferta.getIdMateriaActiva()};
+                abrir();
+                Cursor cursor = db.query("OFERTAACADEMICA",null,"IDMATERIAACTIVA= ?",id,null,null,null);
+                if(cursor.moveToFirst()){
                     return true;
                 }
                 return false;
@@ -607,22 +636,43 @@ public class ControlBDActividades {
 
         //==ANDRES
         //tabla ciclo
-        final String [] idCiclo = {"01","02","03"};
-        final Integer [] numeroCiclo = {1,2,1};
-        final String [] fechaInicio = {"2021-02-20","2021-07-20","2022-02-19"};
-        final String [] fechaFin = {"2021-06-20","2021-12-20","2022-06-19"};
-        final String [] anio = {"2021","2021","2022"};
+        final String [] idCiclo = {"01","02","03","04"};
+        final Integer [] numeroCiclo = {1,2,1,1};
+        final String [] fechaInicio = {"2021-02-20","2021-07-20","2022-02-19","2022-02-19"};
+        final String [] fechaFin = {"2021-06-20","2021-12-20","2022-06-19","2022-06-19"};
+        final String [] anio = {"2021","2021","2022","2022"};
         //tabla oferta academica
         final String [] idMateriaActiva ={"01","02","03"};
         final String [] idCicloOferta={"01","02","03"};
         final String [] idAsignaturaOferta={"IAI115","PRN115","PRN215"};
-        final String [] nombreMateriaActiva={"INTRODUCCION A LA INFORMATICA","PROGRAMACION I","PROGRAMACION II"};
+        final String [] nombreMateriaActiva={"INTRODUCCION A LA INFORMATICA Presencial 2021","PROGRAMACION I DISTANCIA 2021","PROGRAMACION II DISTANCIA 2022"};
         //tabla detalle oferta
         final String [] idGrupo={"001","002","003"};
         final String [] idMateriaActivaDetalleOferta={"01","02","03"};
         final Integer [] numeroGrupo= {1,2,3};
         final Integer [] tamanoGrupo={10,20,30};
-        final String [] tipoGrupo={"Laboratorio","Discusión","Teórico"};
+        final String [] tipoGrupo={"Laboratorio","Discusion","Teorico"};
+
+        //Katya
+        //TABLA: EQUIPO DIDACTICO
+
+        final String [] IDEQUIPO={"0101","0102","0103","0104"};
+        final String [] NOMBRE={"Laptop","Impresora","Silla","Proyector"};
+        final String [] DESCRIPCIONEQUIPO={"Computadora portátil: Laptop HP PAVILON X360 convertible 14-DY0005LA","Impresora Multifunconal HP 315",
+                "Silla Ejecutiva Paris Xtech","Infocus IN1188HD 3000-Lumen Full HD"};
+
+        //TABLA: LISTA EQUIPO DIDACTICO
+        final Integer [] IDLISTAEQUIPO= {001,002,003};
+        final Integer [] ID_DETALLE={11,12,13};
+        final String [] IDEQUIPOLISTA={"0101","0102","0103","0104"};
+
+        //TABLA: DETALLE ACTIVIDAD
+        final Integer [] ID_DETALLEACTIVIDAD= {011,012,013};
+        final String [] IDGRUPO={"001","002","003"};
+        final String [] IDACTIVIDAD={"001","002","003","004"};
+        final String [] IDLOCAL={"0101","0102","0103","0104"};
+        final String [] DESCRIPCIONACTIVIDAD={"Ponencia sobre Ciberseguridad","Bienvenida al ciclo 2 - 2022","Taller: Salud Mental","Examen Parcial"};
+
 
 
         //Alejandro
@@ -631,10 +681,43 @@ public class ControlBDActividades {
         final  String[] DESDEHORARIO={"7:00","11:00","1:00"};
         final  String[] HASTAHORARIO={"12:00","3:00","5:00"};
         final  String[] DIA={"Lunes","Martes","Miercoles","Jueves","Viernes"};
+<<<<<<< HEAD
         //Tabla local
         final  String[] IDLOCAL = {"01","02","03"};
         final  String[] NOMBRELOCAL = {"Marmol","BIB11","BIB32"};
         final  String[] CUPO = {"100","80","50"};
+=======
+
+        //Rosalio
+
+        //Tabla Actividad
+        //final String [] IDACTIVIDAD={"001","002","003","004"};
+        final String [] IDMIEMBROUNIVERSITARIO = {"01","02","03","04"};
+        final String [] NOMBREACTIVIDAD = {"Foro SGG115", "Conferencia anual MAT115", "Cena becarios", "Reunion con las asociaciones"};
+        final String [] FECHARESERVA = {"24/05/2000", "21/05/2000", "5/11/2005", "1/8/2015"};
+        final String [] DESDEACTIVIDAD = {"5/8/2017","6/7/2020","24/05/2000", "21/05/2000"};
+        final String [] HASTAACTIVIDAD = {"14/3/2015","24/05/2000", "21/05/2000", "5/11/2005"};
+        final String [] APROBADO = {"Si", "Si", "No", "No"};
+
+        //Tabla miembroUniversitario
+        //final String [] IDMIEMBROUNIVERSITARIO = {"01","02","03","04"};
+        //final String [] idAsignatura = {"IAI115","PRN115","PRN215","PRN315","HDP115","ARC15","SIO"};
+        //final String [] IDUSUARIO = {"01","02","03","04","05","06"};
+        final String [] NOMBREMIEMBROUNIVERSITARIO = {"Rosalio Andres", "Katya Carbajal", "Alejandro Abenabi", "Christian Duque"};
+        final String [] TIPOMIEMBRO = {"Estudiante", "Estudiante", "Estudiante", "Egresado"};
+
+        //Asistencia
+        final String [] IDASISTENCIA = {"01","02","03"};
+        //final Integer [] ID_DETALLEACTIVIDAD= {011,012,013};
+        //final String [] IDMIEMBROUNIVERSITARIO = {"01","02","03","04"};
+        final Integer [] CALIFICACION = {9,10,5};
+
+        //Particular
+        final String [] IDPARTICULAR = {"01","02","03","04"};
+        //final String [] IDUSUARIO = {"01","02","03","04","05","06"};
+        final String [] NOMBREPARTICULAR = {"Katya", "Andres", "Alejandro", "Luis Christian"};
+        final String [] APELLIDOPARTICULAR = {"Guillen", "Osorio", "Duque", "Ayala"};
+>>>>>>> b6b3c7ff6331b03aba50816ab18f2f3a9bb4ecae
 
         abrir();
 
@@ -647,6 +730,14 @@ public class ControlBDActividades {
         db.execSQL("DELETE FROM CICLO");
         db.execSQL("DELETE FROM OFERTAACADEMICA");
         db.execSQL("DELETE FROM DETALLEOFERTA");
+        db.execSQL("DELETE FROM EQUIPODIDACTICO");
+        db.execSQL("DELETE FROM LISTAEQUIPO");
+        db.execSQL("DELETE FROM DETALLEACTIVIDAD");
+        db.execSQL("DELETE FROM HORARIO");
+        db.execSQL("DELETE FROM ACTIVIDAD");
+        db.execSQL("DELETE FROM MIEMBROUNVERSITARIOS");
+        db.execSQL("DELETE FROM ASISTENCIA");
+        db.execSQL("DELETE FROM PARTICULAR");
 
 //Llenao de usuario, opcion crud y acceso usuario
         USUARIO usuario = new USUARIO();
@@ -672,7 +763,15 @@ public class ControlBDActividades {
 
             insertarACCESOUSUARIO(accesousuario);
         }
-
+        Ciclo ciclo = new Ciclo();
+        for(int i=0;i<4;i++){
+            ciclo.setIdCiclo(idCiclo[i]);
+            ciclo.setNumeroCiclo(numeroCiclo[i]);
+            ciclo.setFechaInicio(fechaInicio[i]);
+            ciclo.setFechaFin(fechaFin[i]);
+            ciclo.setAnio(anio[i]);
+            insertarCiclo(ciclo);
+        }
         Horario horario = new Horario();
         for(int i=0;i<3;i++){
             horario.setIDHORARIO(IDHORARIO[i]);
@@ -681,6 +780,7 @@ public class ControlBDActividades {
             horario.setDIA(DIA[i]);
             insertarHorario(horario);
         }
+<<<<<<< HEAD
 
         Local local = new Local();
         for(int i=0;i<3;i++){
@@ -690,12 +790,37 @@ public class ControlBDActividades {
             insertarLocal(local);
         }
 
+=======
+>>>>>>> b6b3c7ff6331b03aba50816ab18f2f3a9bb4ecae
         Carrera carrera = new Carrera();
         for(int i=0;i<7;i++){
             carrera.setIDCARRERA(IdCarrera[i]);
             carrera.setNOMBRECARRERA(NombreCarrera[i]);
             insertar(carrera);
         }
+        /*TABLA LOCAL
+         */
+        //Llenado de Equipo Didactico
+        EquipoDidactico equipo = new EquipoDidactico();
+        for(int i=0;i<4;i++){
+            equipo.setIDEQUIPO(IDEQUIPO[i]);
+            equipo.setNOMBRE(NOMBRE[i]);
+            equipo.setDESCRIPCIONEQUIPO(DESCRIPCIONEQUIPO[i]);
+            insertarEquipoDidactico(equipo);
+        }
+
+        //Particular
+        Particular particular = new Particular();
+        for (int i = 0; i < IDPARTICULAR.length ; i++){
+            particular.setIDPARTICULAR(IDPARTICULAR[i]);
+            particular.setIDPUSUARIO(IDUSUARIO[i]);
+            particular.setNOMBREPARTICULAR(NOMBREPARTICULAR[i]);
+            particular.setAPELLIDOPARTICULAR(APELLIDOPARTICULAR[i]);
+
+            insertarParticular(particular);
+        }
+
+        //Escuela
         Escuela escuela = new Escuela();
         for(int i=0;i<7;i++){
             escuela.setIDESCUELA(idEscuela[i]);
@@ -704,7 +829,6 @@ public class ControlBDActividades {
 
             insertarEscuela(escuela);
         }
-
         Materia materia = new Materia();
         for(int i=0;i<7;i++){
             materia.setIDASIGNATURA(idAsignatura[i]);
@@ -713,15 +837,8 @@ public class ControlBDActividades {
             materia.setNOMBREASIGNATURA(nombreAsgnatura[i]);
             insertarAsignatura(materia);
         }
-        Ciclo ciclo = new Ciclo();
-        for(int i=0;i<3;i++){
-            ciclo.setIdCiclo(idCiclo[i]);
-            ciclo.setNumeroCiclo(numeroCiclo[i]);
-            ciclo.setFechaInicio(fechaInicio[i]);
-            ciclo.setFechaFin(fechaFin[i]);
-            ciclo.setAnio(anio[i]);
-            insertarCiclo(ciclo);
-        }
+
+
         OfertaAcademica ofertaAcademica = new OfertaAcademica();
         for(int i=0;i<3;i++){
             ofertaAcademica.setIdMateriaActiva(idMateriaActiva[i]);
@@ -733,12 +850,82 @@ public class ControlBDActividades {
         DetalleOferta detalleOferta = new DetalleOferta();
         for(int i=0;i<3;i++){
             detalleOferta.setIdGrupo(idGrupo[i]);
-            detalleOferta.setIdMateriaActiva(idMateriaActiva[i]);
+            detalleOferta.setIdMateriaActiva(idMateriaActivaDetalleOferta[i]);
             detalleOferta.setNumeroGrupo(numeroGrupo[i]);
             detalleOferta.setTamanoGrupo(tamanoGrupo[i]);
             detalleOferta.setTipoGrupo(tipoGrupo[i]);
             insertarDetalleOferta(detalleOferta);
         }
+
+        //Miembro universitario
+        MiembroUniversitario miembroUniversitario = new MiembroUniversitario();
+        for (int i = 0; i < IDMIEMBROUNIVERSITARIO.length ; i++){
+            miembroUniversitario.setIdMiembroUniversitario(IDMIEMBROUNIVERSITARIO[i]);
+            miembroUniversitario.setIdAsignatura(idAsignatura[i]);
+            miembroUniversitario.setIdUsuario(IDUSUARIO[i]);
+            miembroUniversitario.setNombreMiembroUniversitario(NOMBREMIEMBROUNIVERSITARIO[i]);
+            miembroUniversitario.setTipoMiembro(TIPOMIEMBRO[i]);
+
+            insertarMiembroUniversitario(miembroUniversitario);
+        }
+
+        //Tabla actividad
+        Actividad actividad = new Actividad();
+        for(int i = 0; i< IDACTIVIDAD.length;  i++){
+            actividad.setIdActividad(IDACTIVIDAD[i]);
+            actividad.setIdMiembroUniversitario(IDMIEMBROUNIVERSITARIO[i]);
+            actividad.setNombreActividad(NOMBREACTIVIDAD[i]);
+            actividad.setFechaReserva(FECHARESERVA[i]);
+            actividad.setDesdeActividad(DESDEACTIVIDAD[i]);
+            actividad.setHastaActividad(HASTAACTIVIDAD[i]);
+            actividad.setAprobado(APROBADO[i]);
+
+            insertarActividad(actividad);
+        }
+
+        DetalleActividad detalleActividad = new DetalleActividad();
+        for(int i=0;i<3;i++){
+            detalleActividad.setID_DETALLE(ID_DETALLEACTIVIDAD[i]);
+            detalleActividad.setGRUPO(IDGRUPO[i]);
+            detalleActividad.setIDACTIVIDAD(IDACTIVIDAD[i]);
+            detalleActividad.setIDLOCAL(IDLOCAL[i]);
+            detalleActividad.setDESCRIPCIONACTIVIDAD(DESCRIPCIONACTIVIDAD[i]);
+            insertarDetalleActividad(detalleActividad);
+        }
+
+
+
+        //Llenado de ListaEquipo
+        ListaEquipo ListaEquipo = new ListaEquipo();
+        for(int i=0;i<3;i++){
+            ListaEquipo.setIDLISTAEQUIPO(IDLISTAEQUIPO[i]);
+            ListaEquipo.setID_DETALLE(ID_DETALLE[i]);
+            ListaEquipo.setIDEQUIPO(IDEQUIPOLISTA[i]);
+
+            insertarListaEquipo(ListaEquipo);
+        }
+
+        //Asistencia
+        Asistencia asistencia = new Asistencia();
+        for (int i = 0; i < IDASISTENCIA.length ; i++){
+            asistencia.setIdAsistencia(IDASISTENCIA[i]);
+            asistencia.setIdDetalle(ID_DETALLE[i]);
+            asistencia.setIdMiembroUniversitario(IDMIEMBROUNIVERSITARIO[i]);
+            asistencia.setCalifacion(CALIFICACION[i]);
+
+            insertarAsistencia(asistencia);
+        }
+
+        /*TABLA LISTA HORARIO
+
+
+
+
+
+
+
+         */
+
         cerrar();
         return "Guardo Correctamente";
 
@@ -1149,15 +1336,19 @@ public String insertarEscuela (Escuela escuela){
     public String insertarOfertaAcademica(OfertaAcademica ofertaAcademica){
         String regInsertados="Registro insertado N° =";
         long contador=0;
-        ContentValues carr = new ContentValues();
-        carr.put("IDMATERIAACTIVA",ofertaAcademica.getIdMateriaActiva());
-        carr.put("IDCICLO",ofertaAcademica.getIdCiclo());
-        carr.put("IDASIGNATURA",ofertaAcademica.getIdAsignatura());
-        carr.put("NOMBREMATERIAACTIVA",ofertaAcademica.getNombreMateriaActiva());
-        contador=db.insert("OFERTAACADEMICA",null,carr);
-        if(contador==-1||contador==0)
-        {
+        if(verificarIntegridad(ofertaAcademica,47)) {
+            ContentValues carr = new ContentValues();
+            carr.put("IDMATERIAACTIVA", ofertaAcademica.getIdMateriaActiva());
+            carr.put("IDCICLO", ofertaAcademica.getIdCiclo());
+            carr.put("IDASIGNATURA", ofertaAcademica.getIdAsignatura());
+            carr.put("NOMBREMATERIAACTIVA", ofertaAcademica.getNombreMateriaActiva());
+            contador = db.insert("OFERTAACADEMICA", null, carr);
+        }
+        if(contador==-1){
             regInsertados="Error al Insertar el registro, Registro Duplicado.Verificar insercción";
+        }
+        else if(contador==0){
+            regInsertados="Error al insertar. Id ciclo o id Asignatura no existen.";
         }
         else{
             regInsertados=regInsertados+contador;
@@ -1167,16 +1358,20 @@ public String insertarEscuela (Escuela escuela){
     public String insertarDetalleOferta(DetalleOferta detalleOferta){
         String regInsertados="Registro insertado N° =";
         long contador=0;
-        ContentValues carr = new ContentValues();
-        carr.put("IDGRUPO",detalleOferta.getIdGrupo());
-        carr.put("IDMATERIAACTIVA",detalleOferta.getIdMateriaActiva());
-        carr.put("NUMEROGRUPO",detalleOferta.getNumeroGrupo());
-        carr.put("TAMANOGRUPO",detalleOferta.getTamanoGrupo());
-        carr.put("TIPOGRUPO",detalleOferta.getTipoGrupo());
-        contador=db.insert("DETALLEOFERTA",null,carr);
-        if(contador==-1||contador==0)
-        {
+        if(verificarIntegridad(detalleOferta,49)) {
+            ContentValues carr = new ContentValues();
+            carr.put("IDGRUPO", detalleOferta.getIdGrupo());
+            carr.put("IDMATERIAACTIVA", detalleOferta.getIdMateriaActiva());
+            carr.put("NUMEROGRUPO", detalleOferta.getNumeroGrupo());
+            carr.put("TAMANOGRUPO", detalleOferta.getTamanoGrupo());
+            carr.put("TIPOGRUPO", detalleOferta.getTipoGrupo());
+            contador = db.insert("DETALLEOFERTA", null, carr);
+        }
+        if(contador==-1){
             regInsertados="Error al Insertar el registro, Registro Duplicado.Verificar insercción";
+        }
+        else if(contador==0){
+            regInsertados="Error al insertar. Id materia activa no existe.";
         }
         else{
             regInsertados=regInsertados+contador;
@@ -1228,17 +1423,26 @@ public String insertarEscuela (Escuela escuela){
     public String eliminarCiclo(Ciclo ciclo){
         String regAfectados="Filas afectadas= ";
         int contador=0;
-        String where="IDCICLO='"+ciclo.getIdCiclo()+"'";
-        contador+=db.delete("CICLO",where,null);
-        regAfectados+=contador;
+        if(verificarIntegridad(ciclo,46)){
+            regAfectados="No se puede eliminar. El ciclo "+ciclo.getIdCiclo().toString()+" es llave foranea en otros registros.";
+        }else{
+            String where="IDCICLO='"+ciclo.getIdCiclo()+"'";
+            contador+=db.delete("CICLO",where,null);
+            regAfectados+=contador;
+        }
         return regAfectados;
     }
     public String eliminarOfertaAcademica(OfertaAcademica ofertaAcademica){
         String regAfectados="Filas afectadas= ";
         int contador=0;
+        if(verificarIntegridad(ofertaAcademica,48)){
+            regAfectados="No se puede eliminar. La oferta académica "+ofertaAcademica.getIdMateriaActiva().toString()+" es llave foranea en otros registros.";
+        }
+        else{
         String where="IDMATERIAACTIVA='"+ofertaAcademica.getIdMateriaActiva()+"'";
         contador+=db.delete("OFERTAACADEMICA",where,null);
         regAfectados+=contador;
+        }
         return regAfectados;
     }
     public String eliminarDetalleOferta(DetalleOferta detalleOferta){
@@ -1264,7 +1468,7 @@ public String insertarEscuela (Escuela escuela){
         }
     }
     public String actualizarOfertaAcademica(OfertaAcademica ofertaAcademica){
-        if(verificarIntegridad(ofertaAcademica, 44)){
+        if(verificarIntegridad(ofertaAcademica, 47)){
             String[] id = {ofertaAcademica.getIdMateriaActiva()};
             ContentValues cv = new ContentValues();
             cv.put("IDCICLO",ofertaAcademica.getIdCiclo());
@@ -1273,11 +1477,11 @@ public String insertarEscuela (Escuela escuela){
             db.update("OFERTAACADEMICA", cv, "IDMATERIAACTIVA = ?", id);
             return "Registro Actualizado Correctamente";
         }else{
-            return "Registro con ID " + ofertaAcademica.getIdMateriaActiva() + " no existe";
+            return "Error al actualizar. Id ciclo o id Asignatura no existen.";
         }
     }
     public String actualizarDetalleOferta(DetalleOferta detalleOferta){
-        if(verificarIntegridad(detalleOferta,45)){
+        if(verificarIntegridad(detalleOferta,49)){
             String[] id = {detalleOferta.getIdGrupo()};
             ContentValues cv = new ContentValues();
             cv.put("IDMATERIAACTIVA",detalleOferta.getIdMateriaActiva());
@@ -1288,7 +1492,7 @@ public String insertarEscuela (Escuela escuela){
             return "Registro Actualizado correctamente";
         }
         else{
-            return "Registro con ID "+detalleOferta.getIdGrupo()+" no existe";
+            return "Error al actualizar. Id materia activa no existe.";
         }
     }
 
@@ -1756,7 +1960,7 @@ public String insertarEscuela (Escuela escuela){
 
         if(verificarIntegridad(detalleactividad, 40)){
             cv.put("ID_DETALLE", detalleactividad.getID_DETALLE());
-            cv.put("GRUPO", detalleactividad.getGRUPO());
+            cv.put("IDGRUPO", detalleactividad.getGRUPO());
             cv.put("IDACTIVIDAD", detalleactividad.getIDACTIVIDAD());
             cv.put("IDLOCAL", detalleactividad.getIDLOCAL());
             cv.put("DESCRIPCIONACTIVIDAD", detalleactividad.getDESCRIPCIONACTIVIDAD());
@@ -1785,7 +1989,8 @@ public String insertarEscuela (Escuela escuela){
 
         if(cursor.moveToFirst()){
             DetalleActividad idDetalle = new DetalleActividad();
-            idDetalle.setGRUPO(cursor.getInt(1));
+            idDetalle.setID_DETALLE(Integer.parseInt(cursor.getString(0)));
+            idDetalle.setGRUPO(cursor.getString(1));
             idDetalle.setIDACTIVIDAD(cursor.getString(2));
             idDetalle.setIDLOCAL(cursor.getString(3));
             idDetalle.setDESCRIPCIONACTIVIDAD(cursor.getString(4));
@@ -1799,6 +2004,7 @@ public String insertarEscuela (Escuela escuela){
     /*Actualizar*/
 
     public String actualizarDetalleActividad(DetalleActividad detalleactividad) {
+
         String[] id = {Integer.toString(detalleactividad.getID_DETALLE())};
 
         String regActualizados = "El total de registros actualizados es: ";
@@ -1806,11 +2012,11 @@ public String insertarEscuela (Escuela escuela){
         ContentValues cv = new ContentValues();
         int contador = 0;
 
-        if(verificarIntegridad(detalleactividad, 41)){
-
-         //   cv.put("GRUPO", detalleactividad.getGRUPO());
+        if(verificarIntegridad(detalleactividad, 100)){
+            cv.put("ID_DETALLE", detalleactividad.getID_DETALLE());
+            cv.put("IDGRUPO", detalleactividad.getGRUPO());
             cv.put("IDACTIVIDAD", detalleactividad.getIDACTIVIDAD());
-         //   cv.put("IDLOCAL", detalleactividad.getIDLOCAL());
+            cv.put("IDLOCAL", detalleactividad.getIDLOCAL());
             cv.put("DESCRIPCIONACTIVIDAD", detalleactividad.getDESCRIPCIONACTIVIDAD());
 
             contador = db.update("DETALLEACTIVIDAD", cv, "ID_DETALLE = ?", id);
@@ -1825,7 +2031,68 @@ public String insertarEscuela (Escuela escuela){
         else {
             return "No existe el registro con el id "+ detalleactividad.getID_DETALLE();
         }
-    }
+        }
+
+
+    /*public String actualizarAsistencia(Asistencia asistencia){
+        String[] id = {asistencia.getIdAsistencia()};
+
+        String regActualizados = "El total de registros actualizados es: ";
+
+        ContentValues cv = new ContentValues();
+        int contador = 0;
+
+        if(verificarIntegridad(asistencia, 24)){
+            cv.put("ID_DETALLE",asistencia.getIdDetalle() );
+            cv.put("IDMIEMBROUNIVERSITARIO", asistencia.getIdMiembroUniversitario());
+            cv.put("CALIFICACION", asistencia.getCalifacion());
+
+            contador = db.update("ASISTENCIA", cv, "IDASISTENCIA = ?", id);
+
+            if(contador == -1 || contador == 0){
+                regActualizados = "Error al actualizar los registros, favor verficar insercion de datos";
+            }
+            else{
+                regActualizados = regActualizados + contador;
+            }
+            return regActualizados;
+        }
+        else {
+            return "No existe el registro con el id "+ asistencia.getIdAsistencia();
+        }
+    }*/
+
+
+
+
+
+        /*String[] id = {Integer.toString(detalleactividad.getID_DETALLE())};
+
+        String regActualizados = "El total de registros actualizados es: ";
+
+        ContentValues cv = new ContentValues();
+        int contador = 0;
+
+        if(verificarIntegridad(detalleactividad, 41)){
+
+            cv.put("IDGRUPO", detalleactividad.getGRUPO());
+            cv.put("IDACTIVIDAD", detalleactividad.getIDACTIVIDAD());
+            cv.put("IDLOCAL", detalleactividad.getIDLOCAL());
+            cv.put("DESCRIPCIONACTIVIDAD", detalleactividad.getDESCRIPCIONACTIVIDAD());
+
+            contador = db.update("DETALLEACTIVIDAD", cv, "ID_DETALLE = ?", id);
+            if(contador == -1){
+                regActualizados = "Error al actualizar los registros, favor verficar insercion de datos";
+            }
+            else{
+                regActualizados = regActualizados + contador;
+            }
+            return regActualizados;
+        }
+        else {
+            return "No existe el registro con el id "+ detalleactividad.getID_DETALLE();
+        }*/
+
     /*Eliminar*/
 
     public String eliminarDetalleActividad(DetalleActividad detalleactividad){

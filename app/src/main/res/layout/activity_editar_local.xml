@@ -57,7 +57,7 @@
                     android:textSize="20sp"/>
 
                 <EditText
-                    android:id="@+id/idLocal"
+                    android:id="@+id/idLocalEditar"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"

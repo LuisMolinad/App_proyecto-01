@@ -34,17 +34,17 @@
             android:id="@+id/linearLayout"
             android:layout_width="0dp"
             android:layout_height="175dp"
-            android:layout_marginTop="156dp"
+            android:layout_marginTop="92dp"
             android:orientation="horizontal"
             android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardInsertarParticular"
+                android:id="@+id/cardInsertar"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
@@ -56,10 +56,9 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/idTextAgregarParticular"
                         android:layout_width="116dp"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/imgInsertarr"
+                        android:layout_below="@id/imgCreate1"
                         android:layout_alignParentStart="true"
 
                         android:layout_alignParentEnd="true"
@@ -69,22 +68,22 @@
                         android:layout_marginEnd="23dp"
 
                         android:gravity="center"
-                        android:text="@string/Insertar"
+                        android:text="@string/txtCreate"
                         android:textStyle="bold" />
 
                     <ImageView
-                        android:id="@+id/imgInsertarr"
+                        android:id="@+id/imgCreate1"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        android:contentDescription="@string/Insertar"
-                        android:src="@drawable/insertar" />
+                        android:contentDescription="@string/MenuActividad"
+                        android:src="@drawable/create" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardEditarParticular"
+                android:id="@+id/cardConsultar"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
@@ -96,23 +95,23 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/idEditarParticular"
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/EditarParticular"
+                        android:layout_below="@id/imgRead1"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
-                        android:text="@string/editar"
+                        android:text="@string/txtRead"
                         android:textStyle="bold" />
 
                     <ImageView
-                        android:id="@+id/EditarParticular"
+                        android:id="@+id/imgRead1"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        android:contentDescription="@string/editar"
-                        android:src="@drawable/actualizar" />
+                        android:contentDescription="@string/TextListaEquipoDidactico"
+                        android:src="@drawable/read" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
@@ -122,17 +121,97 @@
             android:id="@+id/linearLayout1"
             android:layout_width="0dp"
             android:layout_height="175dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="296dp"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardEditar"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/cardview_shadow_end_color">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/imgUpdate1"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/txtUpdate"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/imgUpdate1"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="15dp"
+                        android:contentDescription="@string/txtActividad"
+                        android:src="@drawable/update" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardEliminar"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/cardview_shadow_end_color">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/imgDelete1"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/txtDelete"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/imgDelete1"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="15dp"
+                        android:contentDescription="@string/txtDelete"
+                        android:src="@drawable/delete" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="0dp"
+            android:layout_height="175dp"
             android:orientation="horizontal"
             android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            app:layout_constraintTop_toBottomOf="@id/linearLayout1"
             tools:ignore="MissingConstraints">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardConsultarParticular"
+                android:id="@+id/cardInsertarOnline"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
@@ -144,28 +223,35 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/idConsultarParticular"
-                        android:layout_width="wrap_content"
+
+                        android:layout_width="116dp"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/ConsultarParticular"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="10dp"
-                        android:text="@string/consultar"
+                        android:layout_below="@id/imgCreate2"
+                        android:layout_alignParentStart="true"
+
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="37dp"
+
+                        android:layout_marginTop="12dp"
+                        android:layout_marginEnd="23dp"
+
+                        android:gravity="center"
+                        android:text="@string/txtCreateWeb"
                         android:textStyle="bold" />
 
                     <ImageView
-                        android:id="@+id/ConsultarParticular"
+                        android:id="@+id/imgCreate2"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        android:contentDescription="@string/consultar"
-                        android:src="@drawable/consultar" />
+                        android:contentDescription="@string/MenuActividad"
+                        android:src="@drawable/create" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardEliminarParticular"
+                android:id="@+id/cardConsultarOnline"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
@@ -177,26 +263,103 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/idEliminarParticular"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/EliminarParticular"
+                        android:layout_below="@id/imgRead2"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
-                        android:text="@string/eliminar"
+                        android:text="@string/txtReadWeb"
                         android:textStyle="bold" />
 
                     <ImageView
-                        android:id="@+id/EliminarParticular"
+                        android:id="@+id/imgRead2"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        android:contentDescription="@string/eliminar"
-                        android:src="@drawable/eliminar" />
+                        android:contentDescription="@string/TextListaEquipoDidactico"
+                        android:src="@drawable/read" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="0dp"
+            android:layout_height="175dp"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints"
+            app:layout_constraintTop_toBottomOf="@id/linearLayout2"
+            tools:layout_editor_absoluteY="296dp">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardEditarOnline"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/cardview_shadow_end_color">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/imgUpdate2"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/txtUpdateWeb"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/imgUpdate2"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="15dp"
+                        android:contentDescription="@string/txtActividad"
+                        android:src="@drawable/update" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardEliminarOnline"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/cardview_shadow_end_color">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/imgDelete2"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/txtDeleteWeb"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/imgDelete2"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="15dp"
+                        android:contentDescription="@string/txtDelete"
+                        android:src="@drawable/delete" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
         </LinearLayout>
 
 

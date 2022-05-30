@@ -7,11 +7,19 @@
         <deviceKey>
           <Key>
             <type value="VIRTUAL_DEVICE_PATH" />
+<<<<<<< HEAD
             <value value="C:\Users\FamiliaMontoyaOsorio\.android\avd\Nexus_One_API_22.avd" />
+=======
+            <value value="C:\Users\astri\.android\avd\Practicas_PDM115.avd" />
+>>>>>>> b6b3c7ff6331b03aba50816ab18f2f3a9bb4ecae
           </Key>
         </deviceKey>
       </Target>
     </targetSelectedWithDropDown>
+<<<<<<< HEAD
     <timeTargetWasSelectedWithDropDown value="2022-05-30T05:55:55.588809100Z" />
+=======
+    <timeTargetWasSelectedWithDropDown value="2022-05-30T17:53:50.442478100Z" />
+>>>>>>> b6b3c7ff6331b03aba50816ab18f2f3a9bb4ecae
   </component>
 </project>

@@ -14,6 +14,33 @@
         android:theme="@style/Theme.App_proyecto01"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".EditarParticularExterno"
+            android:exported="false" />
+        <activity
+            android:name=".ConsultarParticularExterno"
+            android:exported="false" />
+        <activity
+            android:name=".EliminarParticularExterno"
+            android:exported="false" />
+        <activity
+            android:name=".InsertarParticularExterno"
+            android:exported="false" />
+        <activity
+            android:name=".EditarAsistenciaExterno"
+            android:exported="false" />
+        <activity
+            android:name=".ConsultarAsistenciaExterno"
+            android:exported="false" />
+        <activity
+            android:name=".EliminarAsistenciaExterno"
+            android:exported="false" />
+        <activity
+            android:name=".InsertarAsistenciaExterno"
+            android:exported="false" />
+        <activity
+            android:name=".InsertarEquipoDidacticoExterno"
+            android:exported="false" />
+        <activity
             android:name=".EditarMiembroUniversitarioExterno"
             android:exported="false" />
         <activity

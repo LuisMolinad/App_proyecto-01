@@ -35,9 +35,11 @@
     <string name="consultar">Consult</string>
     <string name="eliminar">Delete</string>
     <string name="InsertarParticular">insert guest</string>
+    <!--
     <string name="editarParticular">edit guest</string>
     <string name="consultarParticular">Guest Consultation</string>
     <string name="eliminarParticular">Delete Guest</string>
+    -->
     <string name="TextDetalleActividad">" Activity Detail"</string>
     <string name="TextListaHorario">Schedule List</string>
     <string name="TextListaEquipoDidactico">Didactic Equipment List</string>
@@ -103,9 +105,67 @@
     <string name="consultarDetalleOferta">Read offer detail</string>
     <string name="editarDetalleOferta">Edit offer detail</string>s
     <string name="eliminarDetalleOferta">Delete offer detail</string>
-    <string name="txtCreateWeb">Insert</string>
-    <string name="txtReadWeb">Consult</string>
-    <string name="txtUpdateWeb">Edit</string>
-    <string name="txtDeleteWeb">Delete</string>
+    <string name="txtCreateWeb">Insert Online</string>
+    <string name="txtReadWeb">Consult Online</string>
+    <string name="txtUpdateWeb">Edit Online</string>
+    <string name="txtDeleteWeb">Delete Online</string>
 
+
+    <!--TODO ACTIVIDAD -->
+    <string name="insertarActividad">Insert activityd</string>
+    <string name="idActividad">Id activity</string>
+    <string name="idMiembroUniversitario">Id universitary member</string>
+    <string name="nombreActividad">Activity name</string>
+    <string name="fechaReserva">RESERVATION DATE</string>
+    <string name="fechaDesde">FECHA DESDE</string>
+    <string name="fechaHasta">FECHA HASTA</string>
+    <string name="dia">DAY</string>
+    <string name="mes">MONTH</string>
+    <string name="anio">YEAR</string>
+    <string name="aprobado">Approved</string>
+    <string name="eliminarActividad">Delete activity</string>
+    <string name="consultarActividad">Consult activity</string>
+    <string name="editarActividad">Edit activity</string>
+    <string name="eliminarActividadO">Delete activity online</string>
+    <string name="consultarActividadO">Consult activity online</string>
+    <string name="editarActividadO">Edit activity online</string>
+    <string name="insertarActividadO">Insert activity online</string>
+
+    <!-- MIembro-->
+    <string name="consultarMiembro">Consult member</string>
+    <string name="eliminarMiembroO">Delete member online</string>
+    <string name="consultarMiembroO">Consult member online</string>
+    <string name="editarMiembroO">Edit member online</string>
+    <string name="insertarMiembroO">Insert member online</string>
+    <string name="eliminarMiembro">Delete member</string>
+    <string name="editarMiembro">Edit member</string>
+    <string name="insertarMiembro">Insert member</string>
+    <string name="idUsuario">User id</string>
+    <string name="nombreMiembro">Member name</string>
+    <string name="tipoMiembro">Member type</string>
+
+    <!-- Asistencia -->
+    <string name="consultarAsistencia">Consult attendance</string>
+    <string name="eliminarAsistenciaO">Delete attendance online</string>
+    <string name="consultarAsistenciaO">Consult attendance online</string>
+    <string name="editarAsistenciaO">Edit attendance online</string>
+    <string name="insertarAsistenciaO">Insert attendance online</string>
+    <string name="eliminarAsistencia">Delete attendance</string>
+    <string name="editarAsistencia">Edit attendance</string>
+    <string name="insertarAsistencia">Insert attendance</string>
+    <string name="calificacion">Grade</string>
+    <string name="idAsistencia">Attendance id</string>
+
+    <!-- Particular -->
+    <string name="consultarParticular">Consult particular</string>
+    <string name="eliminarParticular">Delete particular</string>
+    <string name="editarParticular">Edit particular</string>
+    <string name="insertarParticular">Insert particular</string>
+    <string name="consultarParticularO">Consult particular Online</string>
+    <string name="eliminarParticularO">Delete particular Online</string>
+    <string name="editarParticularO">Edit particular Online</string>
+    <string name="insertarParticularO">Insert particular Online</string>
+    <string name="idParticular">Particular id</string>
+    <string name="nombreParticular">Particular name</string>
+    <string name="apellidoParticular">Particular last name</string>
 </resources>

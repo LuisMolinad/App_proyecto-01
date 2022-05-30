@@ -22,7 +22,7 @@ public class EditarLocal extends AppCompatActivity {
         helper = new ControlBDActividades(this);
 
         //Cargamos los ids
-        idLocal = findViewById(R.id.idLocal);
+        idLocal = findViewById(R.id.idLocalEditar);
         idNombreLocal = findViewById(R.id.idNombreLocal);
         cupo = findViewById(R.id.cupoEditar);
     }
@@ -43,8 +43,7 @@ public class EditarLocal extends AppCompatActivity {
             else{
                 //idLocal.setText(local.getIDLOCAL());
                 idNombreLocal.setText(local.getNOMBRELOCAL());
-                cupo.setText(local.getCUPO());
-
+                cupo.setText(String.valueOf(local.getCUPO()));
             }
         }
     }

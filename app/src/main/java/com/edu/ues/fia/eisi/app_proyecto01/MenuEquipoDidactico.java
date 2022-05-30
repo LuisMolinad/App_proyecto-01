@@ -11,6 +11,7 @@ public class MenuEquipoDidactico extends AppCompatActivity implements View.OnCli
 
     //Variables de CardView
     public CardView insertar, consultar, editar, eliminar;
+    public CardView insertarOnline, consultarOnline, editarOnline, eliminarOnline;
     String tipoUsuario;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +23,11 @@ public class MenuEquipoDidactico extends AppCompatActivity implements View.OnCli
         consultar = (CardView) findViewById(R.id.cardConsultarEquipo);
         editar = (CardView) findViewById(R.id.cardEditarEquipo);
         eliminar = (CardView) findViewById(R.id.cardEliminarEquipo);
+
+        insertarOnline = (CardView) findViewById(R.id.cardInsertarEquipoOnline);
+        consultarOnline = (CardView) findViewById(R.id.cardConsultarEquipoOnline);
+        editarOnline = (CardView) findViewById(R.id.cardEditarEquipoOnline);
+        eliminarOnline = (CardView) findViewById(R.id.cardEliminarEquipoOnline);
         Intent intent = getIntent();
         tipoUsuario = intent.getExtras().getString("OpcionCrud");
         if (tipoUsuario != null) {
@@ -33,6 +39,10 @@ public class MenuEquipoDidactico extends AppCompatActivity implements View.OnCli
                     consultar.setOnClickListener(this);
                     editar.setOnClickListener(this);
                     eliminar.setOnClickListener(this);
+                    insertarOnline.setOnClickListener(this);
+                    consultarOnline.setOnClickListener(this);
+                    editarOnline.setOnClickListener(this);
+                    eliminarOnline.setOnClickListener(this);
                     break;
                 case "0200":
                 case "0300":
@@ -43,6 +53,10 @@ public class MenuEquipoDidactico extends AppCompatActivity implements View.OnCli
                     insertar.setVisibility(View.GONE);
                     editar.setVisibility(View.GONE);
                     eliminar.setVisibility(View.GONE);
+                    consultarOnline.setOnClickListener(this);
+                    insertarOnline.setVisibility(View.GONE);
+                    editarOnline.setVisibility(View.GONE);
+                    eliminarOnline.setVisibility(View.GONE);
                     break;
 
             }
@@ -70,6 +84,22 @@ public class MenuEquipoDidactico extends AppCompatActivity implements View.OnCli
                 break;
             case R.id.cardEliminarEquipo:
                 i = new Intent(this, EliminarEquipoDidactico.class);
+                startActivity(i);
+                break;
+            case R.id.cardInsertarEquipoOnline:
+                i = new Intent(this, InsertarEquipoDidacticoExterno.class);
+                startActivity(i);
+                break;
+            case R.id.cardEliminarEquipoOnline:
+                i = new Intent(this, EliminarEquipoDidacticoExterno.class);
+                startActivity(i);
+                break;
+            case R.id.cardConsultarEquipoOnline:
+                i = new Intent(this, ConsultarEquipoDidacticoExterno.class);
+                startActivity(i);
+                break;
+            case R.id.cardEditarEquipoOnline:
+                i = new Intent(this, EditarEquipoDidacticoExterno.class);
                 startActivity(i);
                 break;
         }

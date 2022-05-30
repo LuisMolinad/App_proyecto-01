@@ -8,7 +8,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".EliminarActividadExterno">
+        tools:context=".EliminarActividad">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -30,7 +30,7 @@
                     android:id="@+id/titulo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Eliminar Actividad"
+                    android:text="@string/eliminarActividadO"
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="30sp" />
@@ -54,7 +54,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="2"
-                    android:text="Id actividad"
+                    android:text="@string/idActividad"
                     android:textAlignment="center"
                     android:gravity="center"
                     android:textSize="20sp" />
@@ -83,8 +83,8 @@
                     android:id="@+id/eliminar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                            android:backgroundTint="@color/BotonEliminar"
-        android:text="@string/eliminar"
+                    android:backgroundTint="@color/BotonEliminar"
+                    android:text="@string/eliminar"
                     android:onClick="eliminarActividadExterno"/>
             </LinearLayout>
 

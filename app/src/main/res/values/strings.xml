@@ -39,9 +39,11 @@
     <string name="eliminar">Eliminar</string>
     <!--TODO:LABEL CRUD PARTICULAR-->
     <string name="InsertarParticular">Insertar Particular</string>
+    <!--
     <string name="editarParticular">Editar Particular </string>
     <string name="consultarParticular">Consultar Particular</string>
     <string name="eliminarParticular">Eliminar Particular</string>
+    -->
 
     <!-- TODO: Menu Actividad -->
     <string name="TextDetalleActividad">Detalle Actividad</string>
@@ -154,4 +156,62 @@
     <string name="consultarDetalleOferta">Consultar detalle oferta</string>
     <string name="editarDetalleOferta">Editar detalle oferta</string>
     <string name="eliminarDetalleOferta">Eliminar detalle oferta</string>
+
+    <!--TODO ACTIVIDAD -->
+    <string name="insertarActividad">Insertar actividad</string>
+    <string name="idActividad">Id actividad</string>
+    <string name="idMiembroUniversitario">Id miembro universitario</string>
+    <string name="nombreActividad">Nombre actividad</string>
+    <string name="fechaReserva">FECHA DE RESERVA</string>
+    <string name="fechaDesde">FECHA DESDE</string>
+    <string name="fechaHasta">FECHA HASTA</string>
+    <string name="dia">DIA</string>
+    <string name="mes">MES</string>
+    <string name="anio">AÑO</string>
+    <string name="aprobado">Aprobado</string>
+    <string name="eliminarActividad">Eliminar actividad</string>
+    <string name="consultarActividad">Consultar actividad</string>
+    <string name="editarActividad">Editar actividad</string>
+
+    <string name="eliminarActividadO">Eliminar actividad online</string>
+    <string name="consultarActividadO">Consultar actividad online</string>
+    <string name="editarActividadO">Editar actividad online</string>
+    <string name="insertarActividadO">Insertar actividad online</string>
+
+    <string name="eliminarMiembroO">Eliminar miembro online</string>
+    <string name="consultarMiembroO">Consultar miembro online</string>
+    <string name="editarMiembroO">Editar miembro online</string>
+    <string name="insertarMiembroO">Insertar miembro online</string>
+    <string name="consultarMiembro">Consultar miembro</string>
+    <string name="eliminarMiembro">Eliminar miembro</string>
+    <string name="editarMiembro">Editar miembro</string>
+    <string name="insertarMiembro">Insertar miembro</string>
+    <string name="idUsuario">Id usuario</string>
+    <string name="nombreMiembro">Nombre miembro</string>
+    <string name="tipoMiembro">Tipo miembro</string>
+
+    <!-- Asistencia -->
+    <string name="consultarAsistencia">Consultar asistencia</string>
+    <string name="eliminarAsistenciaO">Eliminar asistencia online</string>
+    <string name="consultarAsistenciaO">Consultar asistencia online</string>
+    <string name="editarAsistenciaO">Editar asistencia online</string>
+    <string name="insertarAsistenciaO">Insertar asistencia online</string>
+    <string name="eliminarAsistencia">Eliminar asistencia</string>
+    <string name="editarAsistencia">Editar asistencia</string>
+    <string name="insertarAsistencia">Insertar asistencia</string>
+    <string name="calificacion">Calificacion</string>
+    <string name="idAsistencia">Id asistencia</string>
+
+    <!-- Particular -->
+    <string name="consultarParticular">Consultar particular</string>
+    <string name="eliminarParticular">Eliminar particular</string>
+    <string name="editarParticular">Editar particular</string>
+    <string name="insertarParticular">Insertar particular</string>
+    <string name="consultarParticularO">Consultar particular Online</string>
+    <string name="eliminarParticularO">Eliminar particular Online</string>
+    <string name="editarParticularO">Editar particular Online</string>
+    <string name="insertarParticularO">Insertar particular Online</string>
+    <string name="idParticular">Id particular</string>
+    <string name="nombreParticular">Nombre particular</string>
+    <string name="apellidoParticular">Apellido particular</string>
 </resources>
