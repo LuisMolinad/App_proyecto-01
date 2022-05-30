@@ -134,7 +134,7 @@ public class ControlBDActividades {
                         "   IDASIGNATURA         VARCHAR2(20),\n" +
                         "   IDUSUARIO            VARCHAR2(30),\n" +
                         "   NOMBREMIEMBROUNIVERSITARIO VARCHAR2(50)                    not null,\n" +
-                        "   TIPOMIEMBRO          VARCHAR2(10)                    not null,\n" +
+                        "   TIPOMIEMBRO          VARCHAR2(20)                    not null,\n" +
                         "   primary key (IDMIEMBROUNIVERSITARIO)\n" +
                         ");\n");
                 /*==============================================================*/
@@ -160,19 +160,6 @@ public class ControlBDActividades {
                         "   APROBADO             VARCHAR2(2)                     not null,\n" +
                         "   constraint PK_ACTIVIDAD primary key (IDACTIVIDAD)\n" +
                         ");\n");
-
-                /*
-                create table ACTIVIDAD  (
-                   IDACTIVIDAD          VARCHAR(30)                    not null,
-                   IDMIEMBROUNIVERSITARIO VARCHAR(30),
-                   NOMBREACTIVIDAD      VARCHAR(12)                    not null,
-                   FECHARESERVA         VARCHAR(12)                            not null,
-                   DESDEACTIVIDAD       VARCHAR(12)                            not null,
-                   HASTAACTIVIDAD       VARCHAR(12)                            not null,
-                   APROBADO             VARCHAR(2)                        not null,
-                   constraint PK_ACTIVIDAD primary key (IDACTIVIDAD)
-                );
-                 */
                 /*==============================================================*/
                 /* Table: ASISTENCIA                                            */
                 /*==============================================================*/
@@ -665,6 +652,7 @@ public class ControlBDActividades {
         final Integer [] numeroGrupo= {1,2,3};
         final Integer [] tamanoGrupo={10,20,30};
         final String [] tipoGrupo={"Laboratorio","Discusion","Teorico"};
+
         //Katya
         //TABLA: EQUIPO DIDACTICO
 
@@ -681,7 +669,7 @@ public class ControlBDActividades {
         //TABLA: DETALLE ACTIVIDAD
         final Integer [] ID_DETALLEACTIVIDAD= {011,012,013};
         final String [] IDGRUPO={"001","002","003"};
-        final String [] IDACTIVIDAD={"001","002","003","0004"};
+        final String [] IDACTIVIDAD={"001","002","003","004"};
         final String [] IDLOCAL={"0101","0102","0103","0104"};
         final String [] DESCRIPCIONACTIVIDAD={"Ponencia sobre Ciberseguridad","Bienvenida al ciclo 2 - 2022","Taller: Salud Mental","Examen Parcial"};
 
@@ -693,6 +681,36 @@ public class ControlBDActividades {
         final  String[] DESDEHORARIO={"7:00","11:00","1:00"};
         final  String[] HASTAHORARIO={"12:00","3:00","5:00"};
         final  String[] DIA={"Lunes","Martes","Miercoles","Jueves","Viernes"};
+
+        //Rosalio
+
+        //Tabla Actividad
+        //final String [] IDACTIVIDAD={"001","002","003","004"};
+        final String [] IDMIEMBROUNIVERSITARIO = {"01","02","03","04"};
+        final String [] NOMBREACTIVIDAD = {"Foro SGG115", "Conferencia anual MAT115", "Cena becarios", "Reunion con las asociaciones"};
+        final String [] FECHARESERVA = {"24/05/2000", "21/05/2000", "5/11/2005", "1/8/2015"};
+        final String [] DESDEACTIVIDAD = {"5/8/2017","6/7/2020","24/05/2000", "21/05/2000"};
+        final String [] HASTAACTIVIDAD = {"14/3/2015","24/05/2000", "21/05/2000", "5/11/2005"};
+        final String [] APROBADO = {"Si", "Si", "No", "No"};
+
+        //Tabla miembroUniversitario
+        //final String [] IDMIEMBROUNIVERSITARIO = {"01","02","03","04"};
+        //final String [] idAsignatura = {"IAI115","PRN115","PRN215","PRN315","HDP115","ARC15","SIO"};
+        //final String [] IDUSUARIO = {"01","02","03","04","05","06"};
+        final String [] NOMBREMIEMBROUNIVERSITARIO = {"Rosalio Andres", "Katya Carbajal", "Alejandro Abenabi", "Christian Duque"};
+        final String [] TIPOMIEMBRO = {"Estudiante", "Estudiante", "Estudiante", "Egresado"};
+
+        //Asistencia
+        final String [] IDASISTENCIA = {"01","02","03"};
+        //final Integer [] ID_DETALLEACTIVIDAD= {011,012,013};
+        //final String [] IDMIEMBROUNIVERSITARIO = {"01","02","03","04"};
+        final Integer [] CALIFICACION = {9,10,5};
+
+        //Particular
+        final String [] IDPARTICULAR = {"01","02","03","04"};
+        //final String [] IDUSUARIO = {"01","02","03","04","05","06"};
+        final String [] NOMBREPARTICULAR = {"Katya", "Andres", "Alejandro", "Luis Christian"};
+        final String [] APELLIDOPARTICULAR = {"Guillen", "Osorio", "Duque", "Ayala"};
 
         abrir();
 
@@ -709,6 +727,10 @@ public class ControlBDActividades {
         db.execSQL("DELETE FROM LISTAEQUIPO");
         db.execSQL("DELETE FROM DETALLEACTIVIDAD");
         db.execSQL("DELETE FROM HORARIO");
+        db.execSQL("DELETE FROM ACTIVIDAD");
+        db.execSQL("DELETE FROM MIEMBROUNVERSITARIOS");
+        db.execSQL("DELETE FROM ASISTENCIA");
+        db.execSQL("DELETE FROM PARTICULAR");
 
 //Llenao de usuario, opcion crud y acceso usuario
         USUARIO usuario = new USUARIO();
@@ -758,13 +780,6 @@ public class ControlBDActividades {
             insertar(carrera);
         }
         /*TABLA LOCAL
-
-
-
-
-
-
-
          */
         //Llenado de Equipo Didactico
         EquipoDidactico equipo = new EquipoDidactico();
@@ -774,15 +789,19 @@ public class ControlBDActividades {
             equipo.setDESCRIPCIONEQUIPO(DESCRIPCIONEQUIPO[i]);
             insertarEquipoDidactico(equipo);
         }
-        /*TABLA PARTICULAR
 
+        //Particular
+        Particular particular = new Particular();
+        for (int i = 0; i < IDPARTICULAR.length ; i++){
+            particular.setIDPARTICULAR(IDPARTICULAR[i]);
+            particular.setIDPUSUARIO(IDUSUARIO[i]);
+            particular.setNOMBREPARTICULAR(NOMBREPARTICULAR[i]);
+            particular.setAPELLIDOPARTICULAR(APELLIDOPARTICULAR[i]);
 
+            insertarParticular(particular);
+        }
 
-
-
-
-
-         */
+        //Escuela
         Escuela escuela = new Escuela();
         for(int i=0;i<7;i++){
             escuela.setIDESCUELA(idEscuela[i]);
@@ -818,24 +837,33 @@ public class ControlBDActividades {
             detalleOferta.setTipoGrupo(tipoGrupo[i]);
             insertarDetalleOferta(detalleOferta);
         }
-        /*TABLA MIEMBRO UNIVERSITARIO
 
+        //Miembro universitario
+        MiembroUniversitario miembroUniversitario = new MiembroUniversitario();
+        for (int i = 0; i < IDMIEMBROUNIVERSITARIO.length ; i++){
+            miembroUniversitario.setIdMiembroUniversitario(IDMIEMBROUNIVERSITARIO[i]);
+            miembroUniversitario.setIdAsignatura(idAsignatura[i]);
+            miembroUniversitario.setIdUsuario(IDUSUARIO[i]);
+            miembroUniversitario.setNombreMiembroUniversitario(NOMBREMIEMBROUNIVERSITARIO[i]);
+            miembroUniversitario.setTipoMiembro(TIPOMIEMBRO[i]);
 
+            insertarMiembroUniversitario(miembroUniversitario);
+        }
 
+        //Tabla actividad
+        Actividad actividad = new Actividad();
+        for(int i = 0; i< IDACTIVIDAD.length;  i++){
+            actividad.setIdActividad(IDACTIVIDAD[i]);
+            actividad.setIdMiembroUniversitario(IDMIEMBROUNIVERSITARIO[i]);
+            actividad.setNombreActividad(NOMBREACTIVIDAD[i]);
+            actividad.setFechaReserva(FECHARESERVA[i]);
+            actividad.setDesdeActividad(DESDEACTIVIDAD[i]);
+            actividad.setHastaActividad(HASTAACTIVIDAD[i]);
+            actividad.setAprobado(APROBADO[i]);
 
+            insertarActividad(actividad);
+        }
 
-
-
-         */
-        /*TABLA ACTIVIDAD
-
-
-
-
-
-
-
-         */
         DetalleActividad detalleActividad = new DetalleActividad();
         for(int i=0;i<3;i++){
             detalleActividad.setID_DETALLE(ID_DETALLEACTIVIDAD[i]);
@@ -857,15 +885,18 @@ public class ControlBDActividades {
 
             insertarListaEquipo(ListaEquipo);
         }
-        /*TABLA ASISTENCIA
 
+        //Asistencia
+        Asistencia asistencia = new Asistencia();
+        for (int i = 0; i < IDASISTENCIA.length ; i++){
+            asistencia.setIdAsistencia(IDASISTENCIA[i]);
+            asistencia.setIdDetalle(ID_DETALLE[i]);
+            asistencia.setIdMiembroUniversitario(IDMIEMBROUNIVERSITARIO[i]);
+            asistencia.setCalifacion(CALIFICACION[i]);
 
+            insertarAsistencia(asistencia);
+        }
 
-
-
-
-
-         */
         /*TABLA LISTA HORARIO
 
 
