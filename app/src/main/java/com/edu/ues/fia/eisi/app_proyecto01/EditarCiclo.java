@@ -7,13 +7,14 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class EditarCiclo extends AppCompatActivity {
     ControlBDActividades helper;
     EditText idCiclo, inicioCiclo, finCiclo, anioCiclo;
     Spinner comboNumeroCiclo;
-
+    TextView idRegistro;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +27,7 @@ public class EditarCiclo extends AppCompatActivity {
         inicioCiclo = findViewById(R.id.edtFechaInicioCicloEditarCiclo);
         finCiclo = findViewById(R.id.edtFechaFinCicloEditarCiclo);
         anioCiclo = findViewById(R.id.edtAnioCicloEditarCiclo);
+        idRegistro=findViewById(R.id.idCicloEditarCiclo);
     }
 
     public void consultarCiclo(View v) {
@@ -42,6 +44,7 @@ public class EditarCiclo extends AppCompatActivity {
             else{
                 comboNumeroCiclo.setSelection(2);
             }
+            idRegistro.setText(ciclo.getIdCiclo());
             inicioCiclo.setText(ciclo.getFechaInicio());
             finCiclo.setText(ciclo.getFechaFin());
             anioCiclo.setText(ciclo.getAnio());
@@ -49,7 +52,7 @@ public class EditarCiclo extends AppCompatActivity {
     }
 
     public void actualizarCiclo(View v) {
-        String id_ciclo = idCiclo.getText().toString();
+        String id_ciclo = idRegistro.getText().toString();
         String numero_ciclo = comboNumeroCiclo.getSelectedItem().toString();
         String fecha_inicio = inicioCiclo.getText().toString();
         String fecha_fin = finCiclo.getText().toString();

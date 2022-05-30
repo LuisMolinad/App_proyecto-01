@@ -1,5 +1,4 @@
 package com.edu.ues.fia.eisi.app_proyecto01;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -28,7 +27,7 @@ public class InsertarDetalleActividad extends AppCompatActivity {
 
     public void insertarDetalleActividad(View v){
 //idDetalle.getText().toString().isEmpty() || grupo.getText().toString().isEmpty() || idActividad.getText().toString().isEmpty() || idLocal.getText().toString().isEmpty() || descripcionActividad.getText().toString().isEmpty()
-        if(idDetalle.getText().toString().isEmpty() || idActividad.getText().toString().isEmpty()  || descripcionActividad.getText().toString().isEmpty()){
+        if(idDetalle.getText().toString().isEmpty() || grupo.getText().toString().isEmpty() || idActividad.getText().toString().isEmpty() || idLocal.getText().toString().isEmpty() || descripcionActividad.getText().toString().isEmpty()){
             Toast.makeText(this, "Error, no debe dejar campos vacios", Toast.LENGTH_SHORT).show();
         }
         else{
@@ -37,9 +36,9 @@ public class InsertarDetalleActividad extends AppCompatActivity {
             DetalleActividad detalleactividad = new DetalleActividad();
 
             detalleactividad.setID_DETALLE( Integer.parseInt(idDetalle.getText().toString()));
-           // detalleactividad.setGRUPO(Integer.parseInt(grupo.getText().toString()));
+            detalleactividad.setGRUPO(grupo.getText().toString());
             detalleactividad.setIDACTIVIDAD(idActividad.getText().toString());
-           // detalleactividad.setIDLOCAL(idLocal.getText().toString());
+            detalleactividad.setIDLOCAL(idLocal.getText().toString());
             detalleactividad.setDESCRIPCIONACTIVIDAD(descripcionActividad.getText().toString());
 
             helper.abrir();

@@ -14,6 +14,9 @@
         android:theme="@style/Theme.App_proyecto01"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".InsertarEquipoDidacticoExterno"
+            android:exported="false" />
+        <activity
             android:name=".EditarMiembroUniversitarioExterno"
             android:exported="false" />
         <activity

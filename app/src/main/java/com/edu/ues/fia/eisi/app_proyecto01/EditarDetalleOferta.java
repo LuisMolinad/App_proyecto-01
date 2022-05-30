@@ -6,10 +6,12 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 public class EditarDetalleOferta extends AppCompatActivity {
     ControlBDActividades helper;
     EditText idGrupo, idMateriaActiva, numeroGrupo, tamanoGrupo;
+    TextView idRegistro;
     Spinner comboTipoGrupo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +25,7 @@ public class EditarDetalleOferta extends AppCompatActivity {
         idMateriaActiva=findViewById(R.id.edtIdMateriaActivaDetalleOfertaEditar);
         numeroGrupo=findViewById(R.id.edtNumeroGrupoDetalleOfertaEditar);
         tamanoGrupo=findViewById(R.id.edtTamanoGrupoDetalleOfertaEditar);
+        idRegistro=findViewById(R.id.idDetalleOfertaConsultar);
     }
     public void consultarDetalleOferta(View v){
         helper.abrir();
@@ -58,14 +61,14 @@ public class EditarDetalleOferta extends AppCompatActivity {
                     comboTipoGrupo.setSelection(6);
                     break;
             }
-            idGrupo.setText(detalleOferta.getIdGrupo());
+            idRegistro.setText(detalleOferta.getIdGrupo());
             idMateriaActiva.setText(detalleOferta.getIdMateriaActiva());
             numeroGrupo.setText(String.valueOf(detalleOferta.getNumeroGrupo()));
             tamanoGrupo.setText(String.valueOf(detalleOferta.getTamanoGrupo()));
         }
     }
     public void actualizarDetalleOferta(View v) {
-        String id_grupo=idGrupo.getText().toString();
+        String id_grupo=idRegistro.getText().toString();
         String id_materia_activa=idMateriaActiva.getText().toString();
         String numero_grupo=numeroGrupo.getText().toString();
         String cupo_grupo=tamanoGrupo.getText().toString();
