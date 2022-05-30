@@ -631,6 +631,11 @@ public class ControlBDActividades {
         final  String[] DESDEHORARIO={"7:00","11:00","1:00"};
         final  String[] HASTAHORARIO={"12:00","3:00","5:00"};
         final  String[] DIA={"Lunes","Martes","Miercoles","Jueves","Viernes"};
+        //Tabla local
+        final  String[] IDLOCAL = {"01","02","03"};
+        final  String[] NOMBRELOCAL = {"Marmol","BIB11","BIB32"};
+        final  String[] CUPO = {"100","80","50"};
+
         abrir();
 
         db.execSQL("DELETE FROM CARRERA");
@@ -677,7 +682,13 @@ public class ControlBDActividades {
             insertarHorario(horario);
         }
 
-
+        Local local = new Local();
+        for(int i=0;i<3;i++){
+            local.setIDLOCAL(IDLOCAL[i]);
+            local.setNOMBRELOCAL(NOMBRELOCAL[i]);
+            local.setCUPO(Integer.valueOf(CUPO[i]));
+            insertarLocal(local);
+        }
 
         Carrera carrera = new Carrera();
         for(int i=0;i<7;i++){
