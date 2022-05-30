@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/abena/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_consultar_oferta_academica.xml" value="0.12360688956433637" />
+        <entry key="..\:/Users/abena/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_editar_ciclo.xml" value="0.15486725663716813" />
+        <entry key="..\:/Users/abena/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_editar_detalle_oferta.xml" value="0.1" />
+        <entry key="..\:/Users/abena/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_editar_miembro_universitario.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/abena/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_editar_oferta_academica.xml" value="0.2" />
+        <entry key="..\:/Users/abena/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_eliminar_ciclo.xml" value="0.1" />
+        <entry key="..\:/Users/abena/Documents/GitHub/App_proyecto-01/app/src/main/res/layout/activity_insertar_oferta_academica.xml" value="0.12360688956433637" />
         <entry key="..\:/Users/astri/Desktop/Final/App_proyecto-01/app/src/main/res/layout/activity_consultar_asistencia.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/astri/Desktop/Final/App_proyecto-01/app/src/main/res/layout/activity_consultar_carrera.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/astri/Desktop/Final/App_proyecto-01/app/src/main/res/layout/activity_consultar_detalle_actividad.xml" value="0.25" />

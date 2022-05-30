@@ -487,6 +487,48 @@ public class ControlBDActividades {
                 }
                 return false;
             }
+            case 46:{
+                //verificar que ninguna ofertaAcademica tenga un idCiclo al borrar el ciclo
+                Ciclo ciclo = (Ciclo)dato;
+                Cursor c=db.query(true,"OFERTAACADEMICA",new String[]{"IDCICLO"},"IDCICLO='"+ciclo.getIdCiclo()+"'",null,null,null,null,null);
+                if(c.moveToFirst())
+                return true;
+                else
+                return false;
+            }
+            case 47:{
+                //verificar que al insertar una ofertaAcademica exista el ciclo y la materia
+                OfertaAcademica ofertaAcademica =(OfertaAcademica)dato;
+                String[] id1={ofertaAcademica.getIdCiclo()};
+                String[] id2={ofertaAcademica.getIdAsignatura()};
+                abrir();
+                Cursor cursor1 = db.query("CICLO",null,"IDCICLO= ?",id1,null,null,null);
+                Cursor cursor2 = db.query("materia",null,"IDASIGNATURA= ?",id2,null,null,null);
+                if(cursor1.moveToFirst()&&cursor2.moveToFirst()){
+                    return true;
+                }
+                return false;
+            }
+            case 48:{
+                //verificar que ninguna ofertaacademica sea llave foranea en un detalleOferta
+                OfertaAcademica ofertaAcademica=(OfertaAcademica)dato;
+                Cursor c=db.query(true,"DETALLEOFERTA",new String[]{"IDMATERIAACTIVA"},"IDMATERIAACTIVA='"+ofertaAcademica.getIdMateriaActiva()+"'",null,null,null,null,null);
+                if(c.moveToFirst())
+                    return true;
+                else
+                    return false;
+            }
+            case 49:{
+                //verificar que al insertar un detalle oferta, exista la oferta academica
+                DetalleOferta detalleOferta =(DetalleOferta)dato;
+                String[]id={detalleOferta.getIdMateriaActiva()};
+                abrir();
+                Cursor cursor = db.query("OFERTAACADEMICA",null,"IDMATERIAACTIVA= ?",id,null,null,null);
+                if(cursor.moveToFirst()){
+                    return true;
+                }
+                return false;
+            }
 
 
         }
@@ -527,22 +569,22 @@ public class ControlBDActividades {
 
         //==ANDRES
         //tabla ciclo
-        final String [] idCiclo = {"01","02","03"};
-        final Integer [] numeroCiclo = {1,2,1};
-        final String [] fechaInicio = {"2021-02-20","2021-07-20","2022-02-19"};
-        final String [] fechaFin = {"2021-06-20","2021-12-20","2022-06-19"};
-        final String [] anio = {"2021","2021","2022"};
+        final String [] idCiclo = {"01","02","03","04"};
+        final Integer [] numeroCiclo = {1,2,1,1};
+        final String [] fechaInicio = {"2021-02-20","2021-07-20","2022-02-19","2022-02-19"};
+        final String [] fechaFin = {"2021-06-20","2021-12-20","2022-06-19","2022-06-19"};
+        final String [] anio = {"2021","2021","2022","2022"};
         //tabla oferta academica
         final String [] idMateriaActiva ={"01","02","03"};
         final String [] idCicloOferta={"01","02","03"};
         final String [] idAsignaturaOferta={"IAI115","PRN115","PRN215"};
-        final String [] nombreMateriaActiva={"INTRODUCCION A LA INFORMATICA","PROGRAMACION I","PROGRAMACION II"};
+        final String [] nombreMateriaActiva={"INTRODUCCION A LA INFORMATICA Presencial 2021","PROGRAMACION I DISTANCIA 2021","PROGRAMACION II DISTANCIA 2022"};
         //tabla detalle oferta
         final String [] idGrupo={"001","002","003"};
         final String [] idMateriaActivaDetalleOferta={"01","02","03"};
         final Integer [] numeroGrupo= {1,2,3};
         final Integer [] tamanoGrupo={10,20,30};
-        final String [] tipoGrupo={"Laboratorio","Discusión","Teórico"};
+        final String [] tipoGrupo={"Laboratorio","Discusion","Teorico"};
         abrir();
 
         db.execSQL("DELETE FROM CARRERA");
@@ -607,7 +649,7 @@ public class ControlBDActividades {
             insertarAsignatura(materia);
         }
         Ciclo ciclo = new Ciclo();
-        for(int i=0;i<3;i++){
+        for(int i=0;i<4;i++){
             ciclo.setIdCiclo(idCiclo[i]);
             ciclo.setNumeroCiclo(numeroCiclo[i]);
             ciclo.setFechaInicio(fechaInicio[i]);
@@ -626,7 +668,7 @@ public class ControlBDActividades {
         DetalleOferta detalleOferta = new DetalleOferta();
         for(int i=0;i<3;i++){
             detalleOferta.setIdGrupo(idGrupo[i]);
-            detalleOferta.setIdMateriaActiva(idMateriaActiva[i]);
+            detalleOferta.setIdMateriaActiva(idMateriaActivaDetalleOferta[i]);
             detalleOferta.setNumeroGrupo(numeroGrupo[i]);
             detalleOferta.setTamanoGrupo(tamanoGrupo[i]);
             detalleOferta.setTipoGrupo(tipoGrupo[i]);
@@ -1042,15 +1084,19 @@ public String insertarEscuela (Escuela escuela){
     public String insertarOfertaAcademica(OfertaAcademica ofertaAcademica){
         String regInsertados="Registro insertado N° =";
         long contador=0;
-        ContentValues carr = new ContentValues();
-        carr.put("IDMATERIAACTIVA",ofertaAcademica.getIdMateriaActiva());
-        carr.put("IDCICLO",ofertaAcademica.getIdCiclo());
-        carr.put("IDASIGNATURA",ofertaAcademica.getIdAsignatura());
-        carr.put("NOMBREMATERIAACTIVA",ofertaAcademica.getNombreMateriaActiva());
-        contador=db.insert("OFERTAACADEMICA",null,carr);
-        if(contador==-1||contador==0)
-        {
+        if(verificarIntegridad(ofertaAcademica,47)) {
+            ContentValues carr = new ContentValues();
+            carr.put("IDMATERIAACTIVA", ofertaAcademica.getIdMateriaActiva());
+            carr.put("IDCICLO", ofertaAcademica.getIdCiclo());
+            carr.put("IDASIGNATURA", ofertaAcademica.getIdAsignatura());
+            carr.put("NOMBREMATERIAACTIVA", ofertaAcademica.getNombreMateriaActiva());
+            contador = db.insert("OFERTAACADEMICA", null, carr);
+        }
+        if(contador==-1){
             regInsertados="Error al Insertar el registro, Registro Duplicado.Verificar insercción";
+        }
+        else if(contador==0){
+            regInsertados="Error al insertar. Id ciclo o id Asignatura no existen.";
         }
         else{
             regInsertados=regInsertados+contador;
@@ -1060,16 +1106,20 @@ public String insertarEscuela (Escuela escuela){
     public String insertarDetalleOferta(DetalleOferta detalleOferta){
         String regInsertados="Registro insertado N° =";
         long contador=0;
-        ContentValues carr = new ContentValues();
-        carr.put("IDGRUPO",detalleOferta.getIdGrupo());
-        carr.put("IDMATERIAACTIVA",detalleOferta.getIdMateriaActiva());
-        carr.put("NUMEROGRUPO",detalleOferta.getNumeroGrupo());
-        carr.put("TAMANOGRUPO",detalleOferta.getTamanoGrupo());
-        carr.put("TIPOGRUPO",detalleOferta.getTipoGrupo());
-        contador=db.insert("DETALLEOFERTA",null,carr);
-        if(contador==-1||contador==0)
-        {
+        if(verificarIntegridad(detalleOferta,49)) {
+            ContentValues carr = new ContentValues();
+            carr.put("IDGRUPO", detalleOferta.getIdGrupo());
+            carr.put("IDMATERIAACTIVA", detalleOferta.getIdMateriaActiva());
+            carr.put("NUMEROGRUPO", detalleOferta.getNumeroGrupo());
+            carr.put("TAMANOGRUPO", detalleOferta.getTamanoGrupo());
+            carr.put("TIPOGRUPO", detalleOferta.getTipoGrupo());
+            contador = db.insert("DETALLEOFERTA", null, carr);
+        }
+        if(contador==-1){
             regInsertados="Error al Insertar el registro, Registro Duplicado.Verificar insercción";
+        }
+        else if(contador==0){
+            regInsertados="Error al insertar. Id materia activa no existe.";
         }
         else{
             regInsertados=regInsertados+contador;
@@ -1121,17 +1171,26 @@ public String insertarEscuela (Escuela escuela){
     public String eliminarCiclo(Ciclo ciclo){
         String regAfectados="Filas afectadas= ";
         int contador=0;
-        String where="IDCICLO='"+ciclo.getIdCiclo()+"'";
-        contador+=db.delete("CICLO",where,null);
-        regAfectados+=contador;
+        if(verificarIntegridad(ciclo,46)){
+            regAfectados="No se puede eliminar. El ciclo "+ciclo.getIdCiclo().toString()+" es llave foranea en otros registros.";
+        }else{
+            String where="IDCICLO='"+ciclo.getIdCiclo()+"'";
+            contador+=db.delete("CICLO",where,null);
+            regAfectados+=contador;
+        }
         return regAfectados;
     }
     public String eliminarOfertaAcademica(OfertaAcademica ofertaAcademica){
         String regAfectados="Filas afectadas= ";
         int contador=0;
+        if(verificarIntegridad(ofertaAcademica,48)){
+            regAfectados="No se puede eliminar. La oferta académica "+ofertaAcademica.getIdMateriaActiva().toString()+" es llave foranea en otros registros.";
+        }
+        else{
         String where="IDMATERIAACTIVA='"+ofertaAcademica.getIdMateriaActiva()+"'";
         contador+=db.delete("OFERTAACADEMICA",where,null);
         regAfectados+=contador;
+        }
         return regAfectados;
     }
     public String eliminarDetalleOferta(DetalleOferta detalleOferta){
@@ -1157,7 +1216,7 @@ public String insertarEscuela (Escuela escuela){
         }
     }
     public String actualizarOfertaAcademica(OfertaAcademica ofertaAcademica){
-        if(verificarIntegridad(ofertaAcademica, 44)){
+        if(verificarIntegridad(ofertaAcademica, 47)){
             String[] id = {ofertaAcademica.getIdMateriaActiva()};
             ContentValues cv = new ContentValues();
             cv.put("IDCICLO",ofertaAcademica.getIdCiclo());
@@ -1166,11 +1225,11 @@ public String insertarEscuela (Escuela escuela){
             db.update("OFERTAACADEMICA", cv, "IDMATERIAACTIVA = ?", id);
             return "Registro Actualizado Correctamente";
         }else{
-            return "Registro con ID " + ofertaAcademica.getIdMateriaActiva() + " no existe";
+            return "Error al actualizar. Id ciclo o id Asignatura no existen.";
         }
     }
     public String actualizarDetalleOferta(DetalleOferta detalleOferta){
-        if(verificarIntegridad(detalleOferta,45)){
+        if(verificarIntegridad(detalleOferta,49)){
             String[] id = {detalleOferta.getIdGrupo()};
             ContentValues cv = new ContentValues();
             cv.put("IDMATERIAACTIVA",detalleOferta.getIdMateriaActiva());
@@ -1181,7 +1240,7 @@ public String insertarEscuela (Escuela escuela){
             return "Registro Actualizado correctamente";
         }
         else{
-            return "Registro con ID "+detalleOferta.getIdGrupo()+" no existe";
+            return "Error al actualizar. Id materia activa no existe.";
         }
     }
 

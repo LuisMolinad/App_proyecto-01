@@ -6,11 +6,13 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class EditarOfertaAcademica extends AppCompatActivity {
     ControlBDActividades helper;
     EditText idMateriaActiva, idCiclo, idAsignatura, nombreMateriaActiva;
+    TextView idRegistro;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +22,8 @@ public class EditarOfertaAcademica extends AppCompatActivity {
         idCiclo = findViewById(R.id.edtIdCicloOfertaAcademicaEditar);
         idAsignatura = findViewById(R.id.edtIdAsignaturaOfertaAcademicaEditar);
         nombreMateriaActiva = findViewById(R.id.edtNombreMateriaActivaOfertaAcademicaEditar);
+        idRegistro=findViewById(R.id.idMateriaActivaOfertaAcademicaEditar);
+
     }
     public void consultarOfertaAcademica(View v){
         helper.abrir();
@@ -28,13 +32,14 @@ public class EditarOfertaAcademica extends AppCompatActivity {
         if (ofertaAcademica == null) {
             Toast.makeText(this, "La oferta academica con el id " + idMateriaActiva.getText().toString() + " no ha sido encontrada.", Toast.LENGTH_LONG).show();
         } else {
+            idRegistro.setText(ofertaAcademica.getIdMateriaActiva());
             idCiclo.setText(ofertaAcademica.getIdCiclo());
             idAsignatura.setText(ofertaAcademica.getIdAsignatura());
             nombreMateriaActiva.setText(ofertaAcademica.getNombreMateriaActiva());
         }
     }
     public void actualizarOfertaAcademica(View v){
-        String id_materia_activa=idMateriaActiva.getText().toString();
+        String id_materia_activa=idRegistro.getText().toString();
         String id_ciclo=idCiclo.getText().toString();
         String id_asignatura=idAsignatura.getText().toString();
         String nombre_materia_activa=nombreMateriaActiva.getText().toString();
