@@ -36,7 +36,7 @@ public class InsertarDetalleActividad extends AppCompatActivity {
             DetalleActividad detalleactividad = new DetalleActividad();
 
             detalleactividad.setID_DETALLE( Integer.parseInt(idDetalle.getText().toString()));
-            detalleactividad.setGRUPO(Integer.parseInt(grupo.getText().toString()));
+            detalleactividad.setGRUPO(grupo.getText().toString());
             detalleactividad.setIDACTIVIDAD(idActividad.getText().toString());
             detalleactividad.setIDLOCAL(idLocal.getText().toString());
             detalleactividad.setDESCRIPCIONACTIVIDAD(descripcionActividad.getText().toString());

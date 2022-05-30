@@ -42,7 +42,7 @@ public class EditarDetalleActividad extends AppCompatActivity {
             }
             else{
                 idDetalle.setText(Integer.toString(detalle.getID_DETALLE()));
-                grupo.setText(Integer.toString(detalle.getGRUPO()));
+                grupo.setText(detalle.getGRUPO());
                 idActividad.setText(detalle.getIDACTIVIDAD().toString());
                 idLocal.setText(detalle.getIDLOCAL().toString());
                 descripcionActividad.setText(detalle.getDESCRIPCIONACTIVIDAD().toString());
@@ -70,7 +70,7 @@ public class EditarDetalleActividad extends AppCompatActivity {
             DetalleActividad detalleactividad = new DetalleActividad();
 
             detalleactividad.setID_DETALLE(Integer.parseInt(id_detalle));
-            detalleactividad.setGRUPO(Integer.parseInt(grupo1));
+            detalleactividad.setGRUPO(grupo1);
             detalleactividad.setIDACTIVIDAD(id_Actividad);
             detalleactividad.setIDLOCAL(id_local);
             detalleactividad.setDESCRIPCIONACTIVIDAD(descripAct);

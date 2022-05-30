@@ -31,7 +31,7 @@ public class ControlBDActividades {
     private static final String[] campoListaEquipo = new String[]
             {"IDLISTAEQUIPO", "ID_DETALLE", "IDEQUIPO"};
     private static final String[] campoDetalleActividad = new String[]
-            {"ID_DETALLE", "GRUPO", "IDACTIVIDAD","IDLOCAL","DESCRIPCIONACTIVIDAD"};
+            {"ID_DETALLE", "IDGRUPO", "IDACTIVIDAD","IDLOCAL","DESCRIPCIONACTIVIDAD"};
 
 
 
@@ -114,7 +114,7 @@ public class ControlBDActividades {
                 /*==============================================================*/
                 db.execSQL("create table DETALLEACTIVIDAD  (\n" +
                         "   ID_DETALLE           INTEGER                         not null,\n" +
-                        "   GRUPO                INTEGER,\n" +
+                        "   IDGRUPO              VARCHAR(10),\n" +
                         "   IDACTIVIDAD          VARCHAR2(30),\n" +
                         "   IDLOCAL              VARCHAR2(20),\n" +
                         "   DESCRIPCIONACTIVIDAD VARCHAR2(50)                    not null,\n" +
@@ -456,7 +456,7 @@ public class ControlBDActividades {
                 String[] id2 = {detalleactividad.getIDACTIVIDAD()};
          //     String[] id3 = {detalleactividad.getIDLOCAL()};
                 abrir();
-          //    Cursor c = db.query("DETALLEOFERTA", null, "GRUPO = ?", id,null, null, null);
+          //    Cursor c = db.query("DETALLEOFERTA", null, "IDGRUPO = ?", id,null, null, null);
                 Cursor c2 = db.query("ACTIVIDAD", null, "IDACTIVIDAD = ?", id2,null, null, null);
           //    Cursor c3 = db.query("LOCAL", null, "IDLOCAL = ?", id3,null, null, null);
 
@@ -474,7 +474,7 @@ public class ControlBDActividades {
                 String[] id2 = {detalleactividad.getIDACTIVIDAD()};
                 //     String[] id3 = {detalleactividad.getIDLOCAL()};
                 abrir();
-                //    Cursor c = db.query("DETALLEOFERTA", null, "GRUPO = ?", id,null, null, null);
+                //    Cursor c = db.query("DETALLEOFERTA", null, "IDGRUPO = ?", id,null, null, null);
                 Cursor c2 = db.query("ACTIVIDAD", null, "IDACTIVIDAD = ?", id2,null, null, null);
                 //    Cursor c3 = db.query("LOCAL", null, "IDLOCAL = ?", id3,null, null, null);
 
@@ -679,7 +679,7 @@ public class ControlBDActividades {
 
         //TABLA: DETALLE ACTIVIDAD
         final Integer [] ID_DETALLEACTIVIDAD= {11,12,13};
-        final Integer [] GRUPO={1,2,3};
+        final String [] IDGRUPO={"001","002","003"};
         final String [] IDACTIVIDAD={"001","002","003","0004"};
         final String [] IDLOCAL={"0101","0102","0103","0104"};
         final String [] DESCRIPCIONACTIVIDAD={"Ponencia sobre Ciberseguridad","Bienvenida al ciclo 2 - 2022","Taller: Salud Mental","Examen Parcial"};
@@ -732,41 +732,6 @@ public class ControlBDActividades {
 
             insertarACCESOUSUARIO(accesousuario);
         }
-
-        Horario horario = new Horario();
-        for(int i=0;i<3;i++){
-            horario.setIDHORARIO(IDHORARIO[i]);
-            horario.setDESDEHORARIO(DESDEHORARIO[i]);
-            horario.setHASTAHORARIO(HASTAHORARIO[i]);
-            horario.setDIA(DIA[i]);
-            insertarHorario(horario);
-        }
-
-
-
-        Carrera carrera = new Carrera();
-        for(int i=0;i<7;i++){
-            carrera.setIDCARRERA(IdCarrera[i]);
-            carrera.setNOMBRECARRERA(NombreCarrera[i]);
-            insertar(carrera);
-        }
-        Escuela escuela = new Escuela();
-        for(int i=0;i<7;i++){
-            escuela.setIDESCUELA(idEscuela[i]);
-            escuela.setIDCARRERA(IdCarrera[i]);
-            escuela.setNOMBRE_ESCUELA(nombreEscuela[i]);
-
-            insertarEscuela(escuela);
-        }
-
-        Materia materia = new Materia();
-        for(int i=0;i<7;i++){
-            materia.setIDASIGNATURA(idAsignatura[i]);
-            materia.setIDESCUELA(idEscuelaM[i]);
-            materia.setUNIDADESVALORATIVAS(uniVal[i]);
-            materia.setNOMBREASIGNATURA(nombreAsgnatura[i]);
-            insertarAsignatura(materia);
-        }
         Ciclo ciclo = new Ciclo();
         for(int i=0;i<4;i++){
             ciclo.setIdCiclo(idCiclo[i]);
@@ -776,6 +741,64 @@ public class ControlBDActividades {
             ciclo.setAnio(anio[i]);
             insertarCiclo(ciclo);
         }
+        Horario horario = new Horario();
+        for(int i=0;i<3;i++){
+            horario.setIDHORARIO(IDHORARIO[i]);
+            horario.setDESDEHORARIO(DESDEHORARIO[i]);
+            horario.setHASTAHORARIO(HASTAHORARIO[i]);
+            horario.setDIA(DIA[i]);
+            insertarHorario(horario);
+        }
+        Carrera carrera = new Carrera();
+        for(int i=0;i<7;i++){
+            carrera.setIDCARRERA(IdCarrera[i]);
+            carrera.setNOMBRECARRERA(NombreCarrera[i]);
+            insertar(carrera);
+        }
+        /*TABLA LOCAL
+
+
+
+
+
+
+
+         */
+        //Llenado de Equipo Didactico
+        EquipoDidactico equipo = new EquipoDidactico();
+        for(int i=0;i<4;i++){
+            equipo.setIDEQUIPO(IDEQUIPO[i]);
+            equipo.setNOMBRE(NOMBRE[i]);
+            equipo.setDESCRIPCIONEQUIPO(DESCRIPCIONEQUIPO[i]);
+            insertarEquipoDidactico(equipo);
+        }
+        /*TABLA PARTICULAR
+
+
+
+
+
+
+
+         */
+        Escuela escuela = new Escuela();
+        for(int i=0;i<7;i++){
+            escuela.setIDESCUELA(idEscuela[i]);
+            escuela.setIDCARRERA(IdCarrera[i]);
+            escuela.setNOMBRE_ESCUELA(nombreEscuela[i]);
+
+            insertarEscuela(escuela);
+        }
+        Materia materia = new Materia();
+        for(int i=0;i<7;i++){
+            materia.setIDASIGNATURA(idAsignatura[i]);
+            materia.setIDESCUELA(idEscuelaM[i]);
+            materia.setUNIDADESVALORATIVAS(uniVal[i]);
+            materia.setNOMBREASIGNATURA(nombreAsgnatura[i]);
+            insertarAsignatura(materia);
+        }
+
+
         OfertaAcademica ofertaAcademica = new OfertaAcademica();
         for(int i=0;i<3;i++){
             ofertaAcademica.setIdMateriaActiva(idMateriaActiva[i]);
@@ -793,15 +816,35 @@ public class ControlBDActividades {
             detalleOferta.setTipoGrupo(tipoGrupo[i]);
             insertarDetalleOferta(detalleOferta);
         }
+        /*TABLA MIEMBRO UNIVERSITARIO
 
-        //Llenado de Equipo Didactico
-        EquipoDidactico equipo = new EquipoDidactico();
-        for(int i=0;i<4;i++){
-            equipo.setIDEQUIPO(IDEQUIPO[i]);
-            equipo.setNOMBRE(NOMBRE[i]);
-            equipo.setDESCRIPCIONEQUIPO(DESCRIPCIONEQUIPO[i]);
-            insertarEquipoDidactico(equipo);
+
+
+
+
+
+
+         */
+        /*TABLA ACTIVIDAD
+
+
+
+
+
+
+
+         */
+        DetalleActividad detalleActividad = new DetalleActividad();
+        for(int i=0;i<3;i++){
+            detalleActividad.setID_DETALLE(ID_DETALLEACTIVIDAD[i]);
+            detalleActividad.setGRUPO(IDGRUPO[i]);
+            detalleActividad.setIDACTIVIDAD(IDACTIVIDAD[i]);
+            detalleActividad.setIDLOCAL(IDLOCAL[i]);
+            detalleActividad.setDESCRIPCIONACTIVIDAD(DESCRIPCIONACTIVIDAD[i]);
+            insertarDetalleActividad(detalleActividad);
         }
+
+
 
         //Llenado de ListaEquipo
         ListaEquipo ListaEquipo = new ListaEquipo();
@@ -812,16 +855,24 @@ public class ControlBDActividades {
 
             insertarListaEquipo(ListaEquipo);
         }
-        //Llenado de DetalleActividad
-        DetalleActividad detalleActividad = new DetalleActividad();
-        for(int i=0;i<3;i++){
-            detalleActividad.setID_DETALLE(ID_DETALLEACTIVIDAD[i]);
-            detalleActividad.setGRUPO(GRUPO[i]);
-            detalleActividad.setIDACTIVIDAD(IDACTIVIDAD[i]);
-            detalleActividad.setIDLOCAL(IDLOCAL[i]);
-            detalleActividad.setDESCRIPCIONACTIVIDAD(DESCRIPCIONACTIVIDAD[i]);
-            insertarDetalleActividad(detalleActividad);
-        }
+        /*TABLA ASISTENCIA
+
+
+
+
+
+
+
+         */
+        /*TABLA LISTA HORARIO
+
+
+
+
+
+
+
+         */
 
         cerrar();
         return "Guardo Correctamente";
@@ -1857,7 +1908,7 @@ public String insertarEscuela (Escuela escuela){
 
         if(verificarIntegridad(detalleactividad, 40)){
             cv.put("ID_DETALLE", detalleactividad.getID_DETALLE());
-            cv.put("GRUPO", detalleactividad.getGRUPO());
+            cv.put("IDGRUPO", detalleactividad.getGRUPO());
             cv.put("IDACTIVIDAD", detalleactividad.getIDACTIVIDAD());
             cv.put("IDLOCAL", detalleactividad.getIDLOCAL());
             cv.put("DESCRIPCIONACTIVIDAD", detalleactividad.getDESCRIPCIONACTIVIDAD());
@@ -1886,7 +1937,7 @@ public String insertarEscuela (Escuela escuela){
 
         if(cursor.moveToFirst()){
             DetalleActividad idDetalle = new DetalleActividad();
-            idDetalle.setGRUPO(cursor.getInt(1));
+            idDetalle.setGRUPO(cursor.getString(1));
             idDetalle.setIDACTIVIDAD(cursor.getString(2));
             idDetalle.setIDLOCAL(cursor.getString(3));
             idDetalle.setDESCRIPCIONACTIVIDAD(cursor.getString(4));
@@ -1909,7 +1960,7 @@ public String insertarEscuela (Escuela escuela){
 
         if(verificarIntegridad(detalleactividad, 41)){
 
-            cv.put("GRUPO", detalleactividad.getGRUPO());
+            cv.put("IDGRUPO", detalleactividad.getGRUPO());
             cv.put("IDACTIVIDAD", detalleactividad.getIDACTIVIDAD());
             cv.put("IDLOCAL", detalleactividad.getIDLOCAL());
             cv.put("DESCRIPCIONACTIVIDAD", detalleactividad.getDESCRIPCIONACTIVIDAD());

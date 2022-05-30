@@ -2,12 +2,12 @@ package com.edu.ues.fia.eisi.app_proyecto01;
 
 public class DetalleActividad {
     private int ID_DETALLE;
-    private int GRUPO;
+    private String GRUPO;
     private String IDACTIVIDAD;
     private String IDLOCAL;
     private String DESCRIPCIONACTIVIDAD;
 
-    public DetalleActividad(int id_detalle, int grupo, String idactividad, String idlocal, String descripcionactividad) {
+    public DetalleActividad(int id_detalle, String grupo, String idactividad, String idlocal, String descripcionactividad) {
         ID_DETALLE = id_detalle;
         GRUPO = grupo;
         IDACTIVIDAD = idactividad;
@@ -25,11 +25,11 @@ public class DetalleActividad {
         this.ID_DETALLE = ID_DETALLE;
     }
 
-    public int getGRUPO() {
+    public String getGRUPO() {
         return GRUPO;
     }
 
-    public void setGRUPO(int GRUPO) {
+    public void setGRUPO(String GRUPO) {
         this.GRUPO = GRUPO;
     }
 
