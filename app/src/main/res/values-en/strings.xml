@@ -141,4 +141,16 @@
     <string name="idUsuario">User id</string>
     <string name="nombreMiembro">Member name</string>
     <string name="tipoMiembro">Member type</string>
+
+    <!-- Asistencia -->
+    <string name="consultarAsistencia">Consult attendance</string>
+    <string name="eliminarAsistenciaO">Delete attendance online</string>
+    <string name="consultarAsistenciaO">Consult attendance online</string>
+    <string name="editarAsistenciaO">Edit attendance online</string>
+    <string name="insertarAsistenciaO">Insert attendance online</string>
+    <string name="eliminarAsistencia">Delete attendance</string>
+    <string name="editarAsistencia">Edit attendance</string>
+    <string name="insertarAsistencia">Insert attendance</string>
+    <string name="calificacion">Grade</string>
+    <string name="idAsistencia">Attendance id</string>
 </resources>
