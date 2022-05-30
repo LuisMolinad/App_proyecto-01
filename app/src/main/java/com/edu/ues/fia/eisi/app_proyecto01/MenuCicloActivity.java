@@ -11,6 +11,8 @@ public class MenuCicloActivity extends AppCompatActivity implements View.OnClick
 
     //Variables de CardView
     public CardView insertar, consultar, editar, eliminar;
+    public CardView insertarOnline, consultarOnline, editarOnline, eliminarOnline;
+
     String tipoUsuario;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,10 +22,12 @@ public class MenuCicloActivity extends AppCompatActivity implements View.OnClick
         //Insertar
         insertar = (CardView) findViewById(R.id.cardInsertarCiclo);
         editar = (CardView) findViewById(R.id.cardEditarCiclo);
-        //Consultar
         consultar = (CardView) findViewById(R.id.cardConsultarCiclo);
-        //Eliminar
         eliminar = (CardView) findViewById(R.id.cardEliminarCiclo);
+        insertarOnline = (CardView) findViewById(R.id.cardInsertarCicloOnline);
+        editarOnline = (CardView) findViewById(R.id.cardEditarCicloOnline);
+        consultarOnline = (CardView) findViewById(R.id.cardConsultarCicloOnline);
+        eliminarOnline = (CardView) findViewById(R.id.cardEliminarCicloOnline);
         Intent intent = getIntent();
         tipoUsuario = intent.getExtras().getString("OpcionCrud");
         if (tipoUsuario != null) {
@@ -35,6 +39,10 @@ public class MenuCicloActivity extends AppCompatActivity implements View.OnClick
                     insertar.setOnClickListener(this);
                     editar.setOnClickListener(this);
                     eliminar.setOnClickListener(this);
+                    consultarOnline.setOnClickListener(this);
+                    insertarOnline.setOnClickListener(this);
+                    editarOnline.setOnClickListener(this);
+                    eliminarOnline.setOnClickListener(this);
                     break;
                 case "0200":
                 case "0300":
@@ -45,6 +53,10 @@ public class MenuCicloActivity extends AppCompatActivity implements View.OnClick
                     insertar.setVisibility(View.GONE);
                     editar.setVisibility(View.GONE);
                     eliminar.setVisibility(View.GONE);
+                    consultarOnline.setOnClickListener(this);
+                    insertarOnline.setVisibility(View.GONE);
+                    editarOnline.setVisibility(View.GONE);
+                    eliminarOnline.setVisibility(View.GONE);
                     break;
 
             }
@@ -71,6 +83,10 @@ public class MenuCicloActivity extends AppCompatActivity implements View.OnClick
                 break;
             case R.id.cardEliminarCiclo:
                 i = new Intent(this, EliminarCiclo.class);
+                startActivity(i);
+                break;
+            case R.id.cardInsertarCicloOnline:
+                i= new Intent(this,InsertarCicloExterno.class);
                 startActivity(i);
                 break;
         }

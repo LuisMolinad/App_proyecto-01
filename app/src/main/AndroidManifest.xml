@@ -14,6 +14,9 @@
         android:theme="@style/Theme.App_proyecto01"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".InsertarCicloExterno"
+            android:exported="false" />
+        <activity
             android:name=".InsertarEquipoDidacticoExterno"
             android:exported="false" />
         <activity
