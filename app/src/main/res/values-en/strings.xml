@@ -35,9 +35,11 @@
     <string name="consultar">Consult</string>
     <string name="eliminar">Delete</string>
     <string name="InsertarParticular">insert guest</string>
+    <!--
     <string name="editarParticular">edit guest</string>
     <string name="consultarParticular">Guest Consultation</string>
     <string name="eliminarParticular">Delete Guest</string>
+    -->
     <string name="TextDetalleActividad">" Activity Detail"</string>
     <string name="TextListaHorario">Schedule List</string>
     <string name="TextListaEquipoDidactico">Didactic Equipment List</string>
@@ -153,4 +155,13 @@
     <string name="insertarAsistencia">Insert attendance</string>
     <string name="calificacion">Grade</string>
     <string name="idAsistencia">Attendance id</string>
+
+    <!-- Particular -->
+    <string name="consultarParticular">Consult particular</string>
+    <string name="eliminarParticular">Delete particular</string>
+    <string name="editarParticular">Edit particular</string>
+    <string name="insertarParticular">Insert particular</string>
+    <string name="idParticular">Particular id</string>
+    <string name="nombreParticular">Particular name</string>
+    <string name="apellidoParticular">Particular last name</string>
 </resources>

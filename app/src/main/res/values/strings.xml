@@ -39,9 +39,11 @@
     <string name="eliminar">Eliminar</string>
     <!--TODO:LABEL CRUD PARTICULAR-->
     <string name="InsertarParticular">Insertar Particular</string>
+    <!--
     <string name="editarParticular">Editar Particular </string>
     <string name="consultarParticular">Consultar Particular</string>
     <string name="eliminarParticular">Eliminar Particular</string>
+    -->
 
     <!-- TODO: Menu Actividad -->
     <string name="TextDetalleActividad">Detalle Actividad</string>
@@ -199,4 +201,13 @@
     <string name="insertarAsistencia">Insertar asistencia</string>
     <string name="calificacion">Calificacion</string>
     <string name="idAsistencia">Id asistencia</string>
+
+    <!-- Particular -->
+    <string name="consultarParticular">Consultar particular</string>
+    <string name="eliminarParticular">Eliminar particular</string>
+    <string name="editarParticular">Editar particular</string>
+    <string name="insertarParticular">Insertar particular</string>
+    <string name="idParticular">Id particular</string>
+    <string name="nombreParticular">Nombre particular</string>
+    <string name="apellidoParticular">Apellido particular</string>
 </resources>

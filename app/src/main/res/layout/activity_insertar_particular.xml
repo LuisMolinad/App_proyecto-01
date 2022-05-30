@@ -29,7 +29,7 @@
                     android:id="@+id/titulo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Insertar particular"
+                    android:text="@string/insertarParticular"
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="30sp" />
@@ -51,7 +51,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="2"
-                    android:text="Id particular"
+                    android:text="@string/idParticular"
                     android:textAlignment="center"
                     android:gravity="center"
                     android:textSize="20sp"/>
@@ -82,7 +82,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="2"
-                    android:text="Id usuario"
+                    android:text="@string/idUsuario"
                     android:textAlignment="center"
                     android:gravity="center"
                     android:textSize="20sp" />
@@ -114,7 +114,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="2"
-                    android:text="Nombre particular"
+                    android:text="@string/nombreParticular"
                     android:textAlignment="center"
                     android:gravity="center"
                     android:textSize="20sp" />
@@ -146,7 +146,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="2"
-                    android:text="Apellido particular"
+                    android:text="@string/apellidoParticular"
                     android:textAlignment="center"
                     android:gravity="center"
                     android:textSize="20sp" />
