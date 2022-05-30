@@ -452,34 +452,34 @@ public class ControlBDActividades {
             case 40:{
                 DetalleActividad detalleactividad = (DetalleActividad) dato;
 
-         //     String[] id = {Integer.toString(detalleactividad.getGRUPO())};
+                String[] id = {(detalleactividad.getGRUPO())};
                 String[] id2 = {detalleactividad.getIDACTIVIDAD()};
-         //     String[] id3 = {detalleactividad.getIDLOCAL()};
+                String[] id3 = {detalleactividad.getIDLOCAL()};
                 abrir();
-          //    Cursor c = db.query("DETALLEOFERTA", null, "IDGRUPO = ?", id,null, null, null);
+                Cursor c = db.query("DETALLEOFERTA", null, "IDGRUPO = ?", id,null, null, null);
                 Cursor c2 = db.query("ACTIVIDAD", null, "IDACTIVIDAD = ?", id2,null, null, null);
-          //    Cursor c3 = db.query("LOCAL", null, "IDLOCAL = ?", id3,null, null, null);
+                Cursor c3 = db.query("LOCAL", null, "IDLOCAL = ?", id3,null, null, null);
 
             //c.moveToFirst()&& c2.moveToFirst()&& c3.moveToFirst()
-                if ( c2.moveToFirst()) {
+                if ( c.moveToFirst()&& c2.moveToFirst()&& c3.moveToFirst()) {
                     return true;
                 }
                 return false;
             }
             //Actualizar Detalleactividad
-            case 41:{
+            case 100:{
                 DetalleActividad detalleactividad = (DetalleActividad) dato;
 
-                //     String[] id = {Integer.toString(detalleactividad.getGRUPO())};
+                String[] id = {(detalleactividad.getGRUPO())};
                 String[] id2 = {detalleactividad.getIDACTIVIDAD()};
-                //     String[] id3 = {detalleactividad.getIDLOCAL()};
+                String[] id3 = {detalleactividad.getIDLOCAL()};
                 abrir();
-                //    Cursor c = db.query("DETALLEOFERTA", null, "IDGRUPO = ?", id,null, null, null);
+                Cursor c = db.query("DETALLEOFERTA", null, "IDGRUPO = ?", id,null, null, null);
                 Cursor c2 = db.query("ACTIVIDAD", null, "IDACTIVIDAD = ?", id2,null, null, null);
-                //    Cursor c3 = db.query("LOCAL", null, "IDLOCAL = ?", id3,null, null, null);
+                Cursor c3 = db.query("LOCAL", null, "IDLOCAL = ?", id3,null, null, null);
 
                 //c.moveToFirst()&& c2.moveToFirst()&& c3.moveToFirst()
-                if ( c2.moveToFirst()) {
+                if ( c.moveToFirst()&& c2.moveToFirst()&& c3.moveToFirst()) {
                     return true;
                 }
                 return false;
@@ -667,6 +667,7 @@ public class ControlBDActividades {
         final String [] tipoGrupo={"Laboratorio","Discusion","Teorico"};
         //Katya
         //TABLA: EQUIPO DIDACTICO
+
         final String [] IDEQUIPO={"0101","0102","0103","0104"};
         final String [] NOMBRE={"Laptop","Impresora","Silla","Proyector"};
         final String [] DESCRIPCIONEQUIPO={"Computadora portátil: Laptop HP PAVILON X360 convertible 14-DY0005LA","Impresora Multifunconal HP 315",
@@ -678,7 +679,7 @@ public class ControlBDActividades {
         final String [] IDEQUIPOLISTA={"0101","0102","0103","0104"};
 
         //TABLA: DETALLE ACTIVIDAD
-        final Integer [] ID_DETALLEACTIVIDAD= {11,12,13};
+        final Integer [] ID_DETALLEACTIVIDAD= {011,012,013};
         final String [] IDGRUPO={"001","002","003"};
         final String [] IDACTIVIDAD={"001","002","003","0004"};
         final String [] IDLOCAL={"0101","0102","0103","0104"};
@@ -1951,7 +1952,40 @@ public String insertarEscuela (Escuela escuela){
     /*Actualizar*/
 
     public String actualizarDetalleActividad(DetalleActividad detalleactividad) {
-        String[] id = {Integer.toString(detalleactividad.getID_DETALLE())};
+
+        String regInsertados = "Se han actualizado: ";
+        long contador = 0;
+        ContentValues cv = new ContentValues();
+
+        if(verificarIntegridad(detalleactividad, 100)){
+            cv.put("ID_DETALLE", detalleactividad.getID_DETALLE());
+            cv.put("IDGRUPO", detalleactividad.getGRUPO());
+            cv.put("IDACTIVIDAD", detalleactividad.getIDACTIVIDAD());
+            cv.put("IDLOCAL", detalleactividad.getIDLOCAL());
+            cv.put("DESCRIPCIONACTIVIDAD", detalleactividad.getDESCRIPCIONACTIVIDAD());
+
+
+            contador = db.insert("DETALLEACTIVIDAD", null, cv);
+            if (contador == -1 || contador ==0){
+                regInsertados = "Error al insertar el registro, el registro esta duplicado, por favor revisar el dato que ud quiere insertar";
+            }
+            else {
+                regInsertados = regInsertados + contador;
+            }
+            return  regInsertados;
+        }
+        else {
+            return  "Error verificar datos";
+        }
+
+
+
+
+
+
+
+
+        /*String[] id = {Integer.toString(detalleactividad.getID_DETALLE())};
 
         String regActualizados = "El total de registros actualizados es: ";
 
@@ -1976,7 +2010,7 @@ public String insertarEscuela (Escuela escuela){
         }
         else {
             return "No existe el registro con el id "+ detalleactividad.getID_DETALLE();
-        }
+        }*/
     }
     /*Eliminar*/
 

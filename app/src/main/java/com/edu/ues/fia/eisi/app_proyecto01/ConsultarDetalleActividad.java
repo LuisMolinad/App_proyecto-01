@@ -44,7 +44,7 @@ public class ConsultarDetalleActividad extends AppCompatActivity {
             }
             else{
              //   idDetalle.setText("Código de la actividad: "+ Integer.toString(detalle.getID_DETALLE()));
-                grupo.setText("Grupo: "+ detalle.getGRUPO());
+                grupo.setText("Grupo: "+ detalle.getGRUPO().toString());
                 idActividad.setText("Actividad: "+detalle.getIDACTIVIDAD().toString());
                 idLocal.setText("Local: "+detalle.getIDLOCAL().toString());
                 descripcionActividad.setText("Descripción de actividad: "+detalle.getDESCRIPCIONACTIVIDAD().toString());
