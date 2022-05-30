@@ -1970,6 +1970,7 @@ public String insertarEscuela (Escuela escuela){
 
         if(cursor.moveToFirst()){
             DetalleActividad idDetalle = new DetalleActividad();
+            idDetalle.setID_DETALLE(Integer.parseInt(cursor.getString(0)));
             idDetalle.setGRUPO(cursor.getString(1));
             idDetalle.setIDACTIVIDAD(cursor.getString(2));
             idDetalle.setIDLOCAL(cursor.getString(3));
@@ -1985,9 +1986,12 @@ public String insertarEscuela (Escuela escuela){
 
     public String actualizarDetalleActividad(DetalleActividad detalleactividad) {
 
-        String regInsertados = "Se han actualizado: ";
-        long contador = 0;
+        String[] id = {Integer.toString(detalleactividad.getID_DETALLE())};
+
+        String regActualizados = "El total de registros actualizados es: ";
+
         ContentValues cv = new ContentValues();
+        int contador = 0;
 
         if(verificarIntegridad(detalleactividad, 100)){
             cv.put("ID_DETALLE", detalleactividad.getID_DETALLE());
@@ -1996,22 +2000,48 @@ public String insertarEscuela (Escuela escuela){
             cv.put("IDLOCAL", detalleactividad.getIDLOCAL());
             cv.put("DESCRIPCIONACTIVIDAD", detalleactividad.getDESCRIPCIONACTIVIDAD());
 
-
-            contador = db.insert("DETALLEACTIVIDAD", null, cv);
-            if (contador == -1 || contador ==0){
-                regInsertados = "Error al insertar el registro, el registro esta duplicado, por favor revisar el dato que ud quiere insertar";
+            contador = db.update("DETALLEACTIVIDAD", cv, "ID_DETALLE = ?", id);
+            if(contador == -1){
+                regActualizados = "Error al actualizar los registros, favor verficar insercion de datos";
             }
-            else {
-                regInsertados = regInsertados + contador;
+            else{
+                regActualizados = regActualizados + contador;
             }
-            return  regInsertados;
+            return regActualizados;
         }
         else {
-            return  "Error verificar datos";
+            return "No existe el registro con el id "+ detalleactividad.getID_DETALLE();
+        }
         }
 
 
+    /*public String actualizarAsistencia(Asistencia asistencia){
+        String[] id = {asistencia.getIdAsistencia()};
 
+        String regActualizados = "El total de registros actualizados es: ";
+
+        ContentValues cv = new ContentValues();
+        int contador = 0;
+
+        if(verificarIntegridad(asistencia, 24)){
+            cv.put("ID_DETALLE",asistencia.getIdDetalle() );
+            cv.put("IDMIEMBROUNIVERSITARIO", asistencia.getIdMiembroUniversitario());
+            cv.put("CALIFICACION", asistencia.getCalifacion());
+
+            contador = db.update("ASISTENCIA", cv, "IDASISTENCIA = ?", id);
+
+            if(contador == -1 || contador == 0){
+                regActualizados = "Error al actualizar los registros, favor verficar insercion de datos";
+            }
+            else{
+                regActualizados = regActualizados + contador;
+            }
+            return regActualizados;
+        }
+        else {
+            return "No existe el registro con el id "+ asistencia.getIdAsistencia();
+        }
+    }*/
 
 
 
@@ -2043,7 +2073,7 @@ public String insertarEscuela (Escuela escuela){
         else {
             return "No existe el registro con el id "+ detalleactividad.getID_DETALLE();
         }*/
-    }
+
     /*Eliminar*/
 
     public String eliminarDetalleActividad(DetalleActividad detalleactividad){
