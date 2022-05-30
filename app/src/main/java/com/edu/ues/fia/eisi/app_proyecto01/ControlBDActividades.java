@@ -681,12 +681,11 @@ public class ControlBDActividades {
         final  String[] DESDEHORARIO={"7:00","11:00","1:00"};
         final  String[] HASTAHORARIO={"12:00","3:00","5:00"};
         final  String[] DIA={"Lunes","Martes","Miercoles","Jueves","Viernes"};
-<<<<<<< HEAD
+
         //Tabla local
-        final  String[] IDLOCAL = {"01","02","03"};
+        //final  String[] IDLOCAL = {"01","02","03"};
         final  String[] NOMBRELOCAL = {"Marmol","BIB11","BIB32"};
         final  String[] CUPO = {"100","80","50"};
-=======
 
         //Rosalio
 
@@ -717,7 +716,6 @@ public class ControlBDActividades {
         //final String [] IDUSUARIO = {"01","02","03","04","05","06"};
         final String [] NOMBREPARTICULAR = {"Katya", "Andres", "Alejandro", "Luis Christian"};
         final String [] APELLIDOPARTICULAR = {"Guillen", "Osorio", "Duque", "Ayala"};
->>>>>>> b6b3c7ff6331b03aba50816ab18f2f3a9bb4ecae
 
         abrir();
 
@@ -780,7 +778,7 @@ public class ControlBDActividades {
             horario.setDIA(DIA[i]);
             insertarHorario(horario);
         }
-<<<<<<< HEAD
+
 
         Local local = new Local();
         for(int i=0;i<3;i++){
@@ -790,8 +788,7 @@ public class ControlBDActividades {
             insertarLocal(local);
         }
 
-=======
->>>>>>> b6b3c7ff6331b03aba50816ab18f2f3a9bb4ecae
+
         Carrera carrera = new Carrera();
         for(int i=0;i<7;i++){
             carrera.setIDCARRERA(IdCarrera[i]);
