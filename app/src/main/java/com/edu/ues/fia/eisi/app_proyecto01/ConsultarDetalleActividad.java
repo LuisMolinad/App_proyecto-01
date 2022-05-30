@@ -22,9 +22,9 @@ public class ConsultarDetalleActividad extends AppCompatActivity {
 
         //Cargamos los ids
         idDetalle = findViewById(R.id.idDetalleConsultar);
-      //  grupo = findViewById(R.id.GrupoConsultar);
+        grupo = findViewById(R.id.GrupoConsultar);
         idActividad = findViewById(R.id.idActividadConsultar);
-      //  idLocal = findViewById(R.id.idLocalConsultar);
+        idLocal = findViewById(R.id.idLocalConsultar);
         descripcionActividad = findViewById(R.id.descripcionActividadConsultar);
     }
 
@@ -43,10 +43,10 @@ public class ConsultarDetalleActividad extends AppCompatActivity {
                 Toast.makeText(this, "Error no se ha encontrado el detalle de actividad con el id "+id_detalle+", favor intente de nuevo", Toast.LENGTH_SHORT).show();
             }
             else{
-               // idDetalle.setText("Código de la actividad: "+ Integer.toString(detalle.getID_DETALLE()));
-              //  grupo.setText("Grupo: "+ Integer.toString(detalle.getGRUPO()));
+             //   idDetalle.setText("Código de la actividad: "+ Integer.toString(detalle.getID_DETALLE()));
+                grupo.setText("Grupo: "+ Integer.toString(detalle.getGRUPO()));
                 idActividad.setText("Actividad: "+detalle.getIDACTIVIDAD().toString());
-               // idLocal.setText("Local: "+detalle.getIDLOCAL().toString());
+                idLocal.setText("Local: "+detalle.getIDLOCAL().toString());
                 descripcionActividad.setText("Descripción de actividad: "+detalle.getDESCRIPCIONACTIVIDAD().toString());
             }
         }

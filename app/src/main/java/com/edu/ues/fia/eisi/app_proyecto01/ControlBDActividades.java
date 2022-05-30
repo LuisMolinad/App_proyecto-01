@@ -685,12 +685,14 @@ public class ControlBDActividades {
         final String [] DESCRIPCIONACTIVIDAD={"Ponencia sobre Ciberseguridad","Bienvenida al ciclo 2 - 2022","Taller: Salud Mental","Examen Parcial"};
 
 
+
         //Alejandro
         //Tabla Horario
         final  String[] IDHORARIO={"01","02","03"};
         final  String[] DESDEHORARIO={"7:00","11:00","1:00"};
         final  String[] HASTAHORARIO={"12:00","3:00","5:00"};
         final  String[] DIA={"Lunes","Martes","Miercoles","Jueves","Viernes"};
+
         abrir();
 
         db.execSQL("DELETE FROM CARRERA");
@@ -1907,9 +1909,9 @@ public String insertarEscuela (Escuela escuela){
 
         if(verificarIntegridad(detalleactividad, 41)){
 
-         //   cv.put("GRUPO", detalleactividad.getGRUPO());
+            cv.put("GRUPO", detalleactividad.getGRUPO());
             cv.put("IDACTIVIDAD", detalleactividad.getIDACTIVIDAD());
-         //   cv.put("IDLOCAL", detalleactividad.getIDLOCAL());
+            cv.put("IDLOCAL", detalleactividad.getIDLOCAL());
             cv.put("DESCRIPCIONACTIVIDAD", detalleactividad.getDESCRIPCIONACTIVIDAD());
 
             contador = db.update("DETALLEACTIVIDAD", cv, "ID_DETALLE = ?", id);
