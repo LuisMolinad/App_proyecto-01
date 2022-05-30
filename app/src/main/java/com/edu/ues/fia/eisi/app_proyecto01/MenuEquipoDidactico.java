@@ -90,6 +90,18 @@ public class MenuEquipoDidactico extends AppCompatActivity implements View.OnCli
                 i = new Intent(this, InsertarEquipoDidacticoExterno.class);
                 startActivity(i);
                 break;
+            case R.id.cardEliminarEquipoOnline:
+                i = new Intent(this, EliminarEquipoDidacticoExterno.class);
+                startActivity(i);
+                break;
+            case R.id.cardConsultarEquipoOnline:
+                i = new Intent(this, ConsultarEquipoDidacticoExterno.class);
+                startActivity(i);
+                break;
+            case R.id.cardEditarEquipoOnline:
+                i = new Intent(this, EditarEquipoDidacticoExterno.class);
+                startActivity(i);
+                break;
         }
 
     }
