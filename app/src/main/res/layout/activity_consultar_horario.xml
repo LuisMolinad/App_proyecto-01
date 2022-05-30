@@ -58,7 +58,7 @@
                     android:textSize="20sp" />
 
                 <EditText
-                    android:id="@+id/idHorario"
+                    android:id="@+id/idHorarioConsultar"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
@@ -100,7 +100,7 @@
                 android:weightSum="5">
 
                 <TextView
-                    android:id="@+id/txtDesdeHorario"
+                    android:id="@+id/txtDesdeHorarioConsultar"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="5"
@@ -121,7 +121,7 @@
                 android:weightSum="5">
 
                 <TextView
-                    android:id="@+id/txtHastaHorario"
+                    android:id="@+id/txtHastaHorarioConsultar"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="5"
@@ -142,7 +142,7 @@
                 android:weightSum="5">
 
                 <TextView
-                    android:id="@+id/txtDia"
+                    android:id="@+id/txtDiaConsultar"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="5"

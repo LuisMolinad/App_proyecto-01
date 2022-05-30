@@ -41,7 +41,7 @@ public class EditarHorario extends AppCompatActivity {
                 Toast.makeText(this, "Error no se ha encontrado el horario con el id "+id_horario+", favor intente de nuevo", Toast.LENGTH_SHORT).show();
             }
             else{
-                idDesdeHorario.setText(horario.getIDHORARIO());
+                idDesdeHorario.setText(horario.getDESDEHORARIO());
                 hastaHorario.setText(horario.getHASTAHORARIO());
                 dia.setText(horario.getDIA());
             }

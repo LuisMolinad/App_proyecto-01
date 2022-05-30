@@ -16,13 +16,13 @@ public class InsertarHorario extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_insertar_particular);
+        setContentView(R.layout.activity_insertar_horario);
 
         //Iniciar la base de datos
         helper = new ControlBDActividades(this);
 
         //Capturar los ide de cada EditText
-        idHorario = findViewById(R.id.idHorario);
+        idHorario = findViewById(R.id.idHorarioInsertar);
         desdeHorario = findViewById(R.id.desdeHorario);
         hastaHorario = findViewById(R.id.hastaHorario);
         dia = findViewById(R.id.dia);

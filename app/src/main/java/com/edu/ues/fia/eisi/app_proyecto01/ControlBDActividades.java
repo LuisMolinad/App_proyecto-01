@@ -1847,7 +1847,7 @@ public String insertarEscuela (Escuela escuela){
 
         cv.put("IDHORARIO", horario.getIDHORARIO());
         cv.put("DESDEHORARIO", horario.getDESDEHORARIO());
-        cv.put("HASTAHORARIO", horario.getIDHORARIO());
+        cv.put("HASTAHORARIO", horario.getHASTAHORARIO());
         cv.put("DIA", horario.getDIA());
 
 
@@ -1872,7 +1872,7 @@ public String insertarEscuela (Escuela escuela){
             Horario horario = new Horario();
             horario.setDESDEHORARIO(cursor.getString(1));
             horario.setHASTAHORARIO(cursor.getString(2));
-            horario.setDIA(cursor.getString(2));
+            horario.setDIA(cursor.getString(3));
 
             return horario;
         }

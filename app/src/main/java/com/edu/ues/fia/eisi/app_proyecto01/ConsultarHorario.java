@@ -23,10 +23,10 @@ public class ConsultarHorario extends AppCompatActivity {
         helper = new ControlBDActividades(this);
 
         //Cargamos los ids
-        idHorario = findViewById(R.id.idHorario);
-        txtDesdeHorario = findViewById(R.id.txtDesdeHorario);
-        txtHastaHorario = findViewById(R.id.txtHastaHorario);
-        txtDia = findViewById(R.id.txtDia);
+        idHorario = findViewById(R.id.idHorarioConsultar);
+        txtDesdeHorario = findViewById(R.id.txtDesdeHorarioConsultar);
+        txtHastaHorario = findViewById(R.id.txtHastaHorarioConsultar);
+        txtDia = findViewById(R.id.txtDiaConsultar);
     }
 
     public void consultarHorario(View v) {
