@@ -30,7 +30,7 @@
                     android:id="@+id/titulo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Eliminar Actividad"
+                    android:text="@string/eliminarActividad"
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="30sp" />
@@ -54,7 +54,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="2"
-                    android:text="Id actividad"
+                    android:text="@string/idActividad"
                     android:textAlignment="center"
                     android:gravity="center"
                     android:textSize="20sp" />

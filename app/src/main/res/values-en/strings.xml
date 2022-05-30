@@ -108,4 +108,16 @@
     <string name="txtUpdateWeb">Edit</string>
     <string name="txtDeleteWeb">Delete</string>
 
+
+    <!--TODO ACTIVIDAD -->
+    <string name="insertarActividad">Insert activityd</string>
+    <string name="idActividad">Id activity</string>
+    <string name="idMiembroUniversitario">Id universitary member</string>
+    <string name="nombreActividad">Activity name</string>
+    <string name="fechaReserva">RESERVATION DATE</string>
+    <string name="dia">DAY</string>
+    <string name="mes">MONTH</string>
+    <string name="anio">YEAR</string>
+    <string name="aprobado">Approved</string>
+    <string name="eliminarActividad">Delete activity</string>
 </resources>

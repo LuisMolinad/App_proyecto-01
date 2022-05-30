@@ -154,4 +154,17 @@
     <string name="consultarDetalleOferta">Consultar detalle oferta</string>
     <string name="editarDetalleOferta">Editar detalle oferta</string>
     <string name="eliminarDetalleOferta">Eliminar detalle oferta</string>
+
+    <!--TODO ACTIVIDAD -->
+    <string name="insertarActividad">Insertar actividad</string>
+    <string name="idActividad">Id actividad</string>
+    <string name="idMiembroUniversitario">Id miembro universitario</string>
+    <string name="nombreActividad">Nombre actividad</string>
+    <string name="fechaReserva">FECHA DE RESERVA</string>
+    <string name="dia">DIA</string>
+    <string name="mes">MES</string>
+    <string name="anio">AÑO</string>
+    <string name="aprobado">Aprobado</string>
+    <string name="eliminarActividad">Eliminar actividad</string>
+
 </resources>
