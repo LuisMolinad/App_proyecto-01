@@ -708,6 +708,7 @@ public class ControlBDActividades {
         db.execSQL("DELETE FROM EQUIPODIDACTICO");
         db.execSQL("DELETE FROM LISTAEQUIPO");
         db.execSQL("DELETE FROM DETALLEACTIVIDAD");
+        db.execSQL("DELETE FROM HORARIO");
 
 //Llenao de usuario, opcion crud y acceso usuario
         USUARIO usuario = new USUARIO();
