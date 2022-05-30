@@ -624,7 +624,7 @@ public class ControlBDActividades {
         final Integer [] tamanoGrupo={10,20,30};
         final String [] tipoGrupo={"Laboratorio","Discusión","Teórico"};
 
-<<<<<<< HEAD
+
         //Katya
         //TABLA: EQUIPO DIDACTICO
         final String [] IDEQUIPO={"0101","0102","0103","0104"};
@@ -644,7 +644,7 @@ public class ControlBDActividades {
         final String [] IDLOCAL={"0101","0102","0103","0104"};
         final String [] DESCRIPCIONACTIVIDAD={"Ponencia sobre Ciberseguridad","Bienvenida al ciclo 2 - 2022","Taller: Salud Mental","Examen Parcial"};
 
-=======
+
 
         //Alejandro
         //Tabla Horario
@@ -652,7 +652,7 @@ public class ControlBDActividades {
         final  String[] DESDEHORARIO={"7:00","11:00","1:00"};
         final  String[] HASTAHORARIO={"12:00","3:00","5:00"};
         final  String[] DIA={"Lunes","Martes","Miercoles","Jueves","Viernes"};
->>>>>>> 2300dd77d8c7737a56b8772b6006e9677c32b03e
+
         abrir();
 
         db.execSQL("DELETE FROM CARRERA");
@@ -1852,9 +1852,9 @@ public String insertarEscuela (Escuela escuela){
 
         if(verificarIntegridad(detalleactividad, 41)){
 
-         //   cv.put("GRUPO", detalleactividad.getGRUPO());
+            cv.put("GRUPO", detalleactividad.getGRUPO());
             cv.put("IDACTIVIDAD", detalleactividad.getIDACTIVIDAD());
-         //   cv.put("IDLOCAL", detalleactividad.getIDLOCAL());
+            cv.put("IDLOCAL", detalleactividad.getIDLOCAL());
             cv.put("DESCRIPCIONACTIVIDAD", detalleactividad.getDESCRIPCIONACTIVIDAD());
 
             contador = db.update("DETALLEACTIVIDAD", cv, "ID_DETALLE = ?", id);
