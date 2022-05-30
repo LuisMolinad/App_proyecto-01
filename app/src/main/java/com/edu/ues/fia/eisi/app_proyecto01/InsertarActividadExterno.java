@@ -76,7 +76,7 @@ public class InsertarActividadExterno extends AppCompatActivity {
                 JSONObject datosActividad = new JSONObject();
                 switch (v.getId()){
                     case R.id.insertar:
-                        url = urlLocal + "?IDACTIVIDAD="+id_actividad+"&IDMIEMBROUNIVERSITARIO="+id_miembro_universitario+"&NOMBREACTIVIDAD="+nombre_actividad+"&FECHARESERVA="+fecha_reserva+"&DESDEACTIVIDAD="+fecha_desde+"&HASTACTIVIDAD="+fecha_hasta+"&APROBADO="+_aprobado;
+                        url = urlLocal + "?IDACTIVIDAD="+id_actividad+"&IDMIEMBROUNIVERSITARIO="+id_miembro_universitario+"&NOMBREACTIVIDAD="+nombre_actividad+"&FECHARESERVA="+fecha_reserva+"&DESDEACTIVIDAD="+fecha_desde+"&HASTAACTIVIDAD="+fecha_hasta+"&APROBADO="+_aprobado;
                         ControladorServicio.insertar(url, this);
                         Toast.makeText(this, "Se ejecuto correctamente", Toast.LENGTH_SHORT).show();
                         break;
