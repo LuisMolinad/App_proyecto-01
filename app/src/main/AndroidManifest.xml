@@ -14,6 +14,18 @@
         android:theme="@style/Theme.App_proyecto01"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".EditarMiembroUniversitarioExterno"
+            android:exported="false" />
+        <activity
+            android:name=".ConsultarMiembroUniversitarioExterno"
+            android:exported="false" />
+        <activity
+            android:name=".EliminarMiembroUniversitarioExterno"
+            android:exported="false" />
+        <activity
+            android:name=".InsertarMiembroUniversitarioExterno"
+            android:exported="false" />
+        <activity
             android:name=".EditarActividadExterno"
             android:exported="false" />
         <activity
