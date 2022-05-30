@@ -9,15 +9,21 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class EditarActividadExterno extends AppCompatActivity {
 
@@ -80,8 +86,7 @@ public class EditarActividadExterno extends AppCompatActivity {
                 JSONObject datosActividad = new JSONObject();
                 switch (v.getId()){
                     case R.id.actualizar:
-                        ControladorServicio.ActualizarActividadExterno(url, this);
-                        Toast.makeText(this, url, Toast.LENGTH_SHORT).show();
+                        ejecutar(url);
                         break;
                 }
             }
@@ -218,5 +223,37 @@ public class EditarActividadExterno extends AppCompatActivity {
                 return null;
             }
         }
+    }
+
+    public void ejecutar(String URL){
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Toast.makeText(getApplicationContext(), "Operacion exitosa", Toast.LENGTH_SHORT).show();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_SHORT).show();
+            }
+        }
+        ){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> parametro = new HashMap<String, String>();
+                parametro.put("IDACTIVIDAD", idActividad.getText().toString());
+                parametro.put("IDMIEMBROUNIVERSITARIO", idMiembroUniversitario.getText().toString());
+                parametro.put("NOMBREACTIVIDAD", nombreActividad.getText().toString());
+                parametro.put("FECHARESERVA", fecha.toString());
+                parametro.put("DESDEACTIVIDAD", desde.toString());
+                parametro.put("HASTAACTIVIDAD", hasta.toString());
+                parametro.put("APROBADO", aprobado.getText().toString());
+
+                return parametro;
+            }
+        };
+
+        requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
     }
 }

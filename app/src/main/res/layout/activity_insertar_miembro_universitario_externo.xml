@@ -7,7 +7,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".InsertarLocal">
+        tools:context=".InsertarMiembroUniversitarioExterno">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -23,13 +23,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:padding="5dp">
 
                 <TextView
                     android:id="@+id/titulo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Insertar local"
+                    android:text="Insertar miembro universitario"
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="30sp" />
@@ -44,20 +45,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:padding="5dp"
                 android:weightSum="5">
 
                 <TextView
-                    android:id="@+id/txtIdLocal"
+                    android:id="@+id/txtIdAsistncia"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="2"
-                    android:text="Id local"
+                    android:text="Id miembro universitario"
                     android:textAlignment="center"
                     android:gravity="center"
                     android:textSize="20sp"/>
 
                 <EditText
-                    android:id="@+id/idLocal"
+                    android:id="@+id/idMiembroUniversitario"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
@@ -73,22 +75,21 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="4dp"
-                android:paddingBottom="4dp"
+                android:padding="5dp"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/txtNombreLocal"
+                    android:id="@+id/txtMiembroUniversitario"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="2"
-                    android:text="Nombre del local"
+                    android:text="Id asignatura"
                     android:textAlignment="center"
                     android:gravity="center"
                     android:textSize="20sp" />
 
                 <EditText
-                    android:id="@+id/nombreLocal"
+                    android:id="@+id/idAsignatura"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
@@ -110,17 +111,17 @@
                 android:weightSum="5">
 
                 <TextView
-                    android:id="@+id/txtCupo"
+                    android:id="@+id/txtNombreActividad"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="2"
-                    android:text="Cupo"
+                    android:text="Id Usuario"
                     android:textAlignment="center"
                     android:gravity="center"
                     android:textSize="20sp" />
 
                 <EditText
-                    android:id="@+id/cupo"
+                    android:id="@+id/idUsuario"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
@@ -132,6 +133,67 @@
             <Space
                 android:layout_width="0dp"
                 android:layout_height="20dp"></Space>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:weightSum="5">
+
+                <TextView
+                    android:id="@+id/txtFecha"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:text="Nombre"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/nombreMiembroUniversitario"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:textAlignment="center"
+                    android:layout_width="0dp"/>
+            </LinearLayout>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="20dp"></Space>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:weightSum="5">
+
+                <TextView
+                    android:id="@+id/textoActoActoPideContacto"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:text="Tipo de miembro"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/tipoMiembroUniversitario"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:textAlignment="center"
+                    android:layout_width="0dp"/>
+            </LinearLayout>
+
 
             <Space
                 android:layout_width="0dp"
@@ -149,7 +211,7 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/BotonGuardarr"
                     android:text="@string/guardar"
-                    android:onClick="insertarLocal"/>
+                    android:onClick="insertarMiembroUniversitarioExterno"/>
             </LinearLayout>
 
         </LinearLayout>

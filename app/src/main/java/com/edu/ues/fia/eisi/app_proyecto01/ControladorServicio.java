@@ -53,7 +53,7 @@ public class ControladorServicio {
                 respuesta = EntityUtils.toString(entidad);
             }
         } catch (Exception e) {
-            Toast.makeText(ctx, "Error en la conexion", Toast.LENGTH_LONG)
+            Toast.makeText(ctx, "Error en la conexion #1", Toast.LENGTH_LONG)
                     .show();
             // Desplegando el error en el LogCat
             Log.v("Error de Conexion", e.toString());

@@ -60,31 +60,6 @@ public class ConsultarActividadExterno extends AppCompatActivity {
 
     }
 
-    /*
-    public void ejecutarServicios(String url){
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Toast.makeText(getApplicationContext(), "Operacion exitosa", Toast.LENGTH_SHORT).show();
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), error.getMessage().toString(), Toast.LENGTH_SHORT).show();
-            }
-        }
-        ){
-          @Override
-          protected Map<String, String> getParams() throws AuthFailureError{
-              Map <String, String> parametros = new HashMap<String, String>();
-
-              return parametros;
-          }
-        };
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
-    }*/
-
     public void consultarActividadExterno(View v){
         String url;
         String id_actividad = idActividad.getText().toString();

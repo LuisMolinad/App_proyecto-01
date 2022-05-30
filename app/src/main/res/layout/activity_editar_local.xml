@@ -81,7 +81,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
         android:backgroundTint="@color/BotonConsultar"
-        android:text="@string/consultar" />
+        android:text="@string/consultar"
+                    android:onClick="consultarLocalEditar"/>
             </LinearLayout>
 
             <Space
@@ -138,7 +139,7 @@
                     android:textSize="20sp" />
 
                 <EditText
-                    android:id="@+id/cupo"
+                    android:id="@+id/cupoEditar"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
@@ -150,35 +151,6 @@
             <Space
                 android:layout_width="0dp"
                 android:layout_height="20dp"></Space>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingTop="4dp"
-                android:paddingBottom="4dp"
-                android:weightSum="10">
-
-                <TextView
-                    android:id="@+id/txtAprobado"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="4"
-                    android:text="Aprobado"
-                    android:textAlignment="center"
-                    android:gravity="center"
-                    android:textSize="20sp" />
-
-                <ToggleButton
-                    android:id="@+id/aprobado"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="6"
-                    android:checked="false"
-                    android:textOff="No"
-                    android:textOn="Si" />
-
-            </LinearLayout>
 
             <Space
                 android:layout_width="0dp"
@@ -195,7 +167,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
         android:backgroundTint="@color/BotonGuardarr"
-        android:text="@string/editar" />
+        android:text="@string/editar"
+                    android:onClick="actualizarLocal"/>
             </LinearLayout>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

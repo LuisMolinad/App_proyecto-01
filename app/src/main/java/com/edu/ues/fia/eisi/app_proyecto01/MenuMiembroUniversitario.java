@@ -11,6 +11,7 @@ public class MenuMiembroUniversitario extends AppCompatActivity implements View.
 
     //Variables de CardView
     public CardView insertar, consultar, editar, eliminar;
+    public CardView insertarOnline, consultarOnline, editarOnline, eliminarOnline;
     String tipoUsuario;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,10 +19,15 @@ public class MenuMiembroUniversitario extends AppCompatActivity implements View.
         setContentView(R.layout.activity_menu_miembro_universitario);
 
         //Insertar
-        insertar = (CardView) findViewById(R.id.cardInsertarMiembroUniversitario);
-        editar = (CardView) findViewById(R.id.cardEditarMiembroUniversitario);
-        eliminar = (CardView) findViewById(R.id.cardEliminarMiembroUniversitario);
-        consultar = (CardView) findViewById(R.id.cardConsultarMiembroUniversitario);
+        insertar = (CardView) findViewById(R.id.cardInsertar);
+        editar = (CardView) findViewById(R.id.cardEditar);
+        eliminar = (CardView) findViewById(R.id.cardEliminar);
+        consultar = (CardView) findViewById(R.id.cardConsultar);
+        insertarOnline = (CardView) findViewById(R.id.cardInsertarOnline);
+        editarOnline = (CardView) findViewById(R.id.cardEditarOnline);
+        eliminarOnline = (CardView) findViewById(R.id.cardEliminarOnline);
+        consultarOnline = (CardView) findViewById(R.id.cardConsultarOnline);
+
         Intent intent = getIntent();
         tipoUsuario = intent.getExtras().getString("OpcionCrud");
         if (tipoUsuario != null) {
@@ -32,6 +38,10 @@ public class MenuMiembroUniversitario extends AppCompatActivity implements View.
                     insertar.setOnClickListener(this);
                     editar.setOnClickListener(this);
                     eliminar.setOnClickListener(this);
+                    consultarOnline.setOnClickListener(this);
+                    insertarOnline.setOnClickListener(this);
+                    editarOnline.setOnClickListener(this);
+                    eliminarOnline.setOnClickListener(this);
                     break;
                 case "0200":
                 case "0300":
@@ -42,6 +52,10 @@ public class MenuMiembroUniversitario extends AppCompatActivity implements View.
                     insertar.setVisibility(View.GONE);
                     editar.setVisibility(View.GONE);
                     eliminar.setVisibility(View.GONE);
+                    consultarOnline.setOnClickListener(this);
+                    insertarOnline.setVisibility(View.GONE);
+                    editarOnline.setVisibility(View.GONE);
+                    eliminarOnline.setVisibility(View.GONE);
                     break;
             }
         }
@@ -53,20 +67,36 @@ public class MenuMiembroUniversitario extends AppCompatActivity implements View.
         Intent i;
 
         switch (view.getId()){
-            case R.id.cardInsertarMiembroUniversitario:
+            case R.id.cardInsertar:
                 i = new Intent(this, InsertarMiembroUniversitario.class);
                 startActivity(i);
                 break;
-            case R.id.cardConsultarMiembroUniversitario:
+            case R.id.cardConsultar:
                 i = new Intent(this, ConsultarMiembroUniversitario.class);
                 startActivity(i);
                 break;
-            case R.id.cardEditarMiembroUniversitario:
+            case R.id.cardEditar:
                 i = new Intent(this, EditarMiembroUniversitario.class);
                 startActivity(i);
                 break;
-            case R.id.cardEliminarMiembroUniversitario:
+            case R.id.cardEliminar:
                 i = new Intent(this, EliminarMiembroUniversitario.class);
+                startActivity(i);
+                break;
+            case R.id.cardInsertarOnline:
+                i = new Intent(this, InsertarMiembroUniversitarioExterno.class);
+                startActivity(i);
+                break;
+            case R.id.cardEliminarOnline:
+                i = new Intent(this, EliminarMiembroUniversitarioExterno.class);
+                startActivity(i);
+                break;
+            case R.id.cardConsultarOnline:
+                i = new Intent(this, ConsultarMiembroUniversitarioExterno.class);
+                startActivity(i);
+                break;
+            case R.id.cardEditarOnline:
+                i = new Intent(this, EditarMiembroUniversitarioExterno.class);
                 startActivity(i);
                 break;
         }
