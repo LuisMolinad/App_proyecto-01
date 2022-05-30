@@ -100,6 +100,10 @@
     <string name="descripcionEquipo">Descripción del equipo</string>
     <string name="fechaDeCompraEquipo">Fecha de compra del equipo</string>
 
+    <!-- TODO Label DetalleActividad -->
+    <string name="codActividad">Código de actividad</string>
+    <string name="codGrupo">Grupo</string>
+    <string name="codLocal">Local</string>
 
     <!-- TODO Label ListaEquipoDidactico -->
 

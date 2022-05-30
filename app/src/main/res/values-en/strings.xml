@@ -72,7 +72,9 @@
     <string name="idListaEquipo">Training equipment list code</string>
     <string name="idDetalle">Activity detail code</string>
     <string name="descripcionActividad">Activity Description</string>
-
+    <string name="codActividad">Activity Code</string>
+    <string name="codGrupo">Group</string>
+    <string name="codLocal">Local</string>
     <string name="app_name">FIA Activity Control</string>
     <!-- TODO CRUD ciclo-->
     <string name="insertarCiclo">Insert Cycle</string>
