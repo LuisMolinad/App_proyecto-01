@@ -31,7 +31,7 @@
         android:layout_marginTop="36dp"
         android:layout_weight="3"
         android:ems="10"
-        android:hint="Código del equipo didactico"
+        android:hint="@string/idEquipo"
         android:inputType="textPersonName"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,7 +46,7 @@
         android:layout_marginTop="40dp"
         android:layout_weight="3"
         android:ems="10"
-        android:hint="Nombre del equipo didactico"
+        android:hint="@string/nombreEquipo"
         android:inputType="textPersonName"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,7 +61,7 @@
         android:layout_marginTop="40dp"
         android:layout_weight="3"
         android:ems="10"
-        android:hint="Descripción del equipo didactico"
+        android:hint="@string/descripcionEquipo"
         android:inputType="textPersonName"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,13 +83,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.821" />
 
+
+
+
+
     <Button
         android:id="@+id/consultar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
         android:onClick="consultarEquipoDidactico"
-        android:text="Consultar"
+        android:text="@string/consultar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"

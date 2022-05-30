@@ -34,6 +34,7 @@
         android:layout_height="45dp"
         android:layout_weight="3"
         android:ems="10"
+        android:hint="@string/idDetalle"
         android:inputType="textPersonName"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"

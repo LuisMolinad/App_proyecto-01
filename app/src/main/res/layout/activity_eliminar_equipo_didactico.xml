@@ -31,7 +31,7 @@
         android:layout_height="46dp"
         android:layout_weight="3"
         android:ems="10"
-        android:hint="Código del equipo"
+        android:hint="@string/idEquipo"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
