@@ -23,6 +23,9 @@ public class ConsultarOfertaAcademica extends AppCompatActivity {
         nombreMateriaActiva=findViewById(R.id.txtNombreMateriaActivaConsultarOfertaAcademica);
     }
     public void consultarOfertaAcademica(View v){
+        idCiclo.setText(R.string.idCiclo);
+        idAsignatura.setText(R.string.idAsignatura);
+        nombreMateriaActiva.setText(R.string.nombreActividad);
         helper.abrir();
         OfertaAcademica ofertaAcademica = helper.consultarOfertaAcademica(idMateriaActiva.getText().toString());
 

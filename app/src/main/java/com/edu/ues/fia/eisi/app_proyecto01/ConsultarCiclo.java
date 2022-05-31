@@ -24,6 +24,10 @@ public class ConsultarCiclo extends AppCompatActivity {
         anio=findViewById(R.id.txtAnioCicloConsultar);
     }
     public void consultarCiclo(View v){
+        numeroCiclo.setText(R.string.numeroCiclo);
+        inicioCiclo.setText(R.string.inicioCiclo);
+        finCiclo.setText(R.string.finCiclo);
+        anio.setText(R.string.anioCiclo);
         helper.abrir();
         Ciclo ciclo = helper.consultarCiclo(idCiclo.getText().toString());
         helper.cerrar();

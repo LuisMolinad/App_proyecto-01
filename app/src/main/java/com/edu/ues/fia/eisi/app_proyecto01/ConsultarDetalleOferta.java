@@ -24,6 +24,10 @@ public class ConsultarDetalleOferta extends AppCompatActivity {
         tamanoGrupo = findViewById(R.id.txtTamanoGrupoDetalleOfertaConsultar);
     }
     public void consultarDetalleOferta(View v){
+        idMateriaActiva.setText(R.string.idMateriaActiva);
+        tipoGrupo.setText(R.string.tipoGrupo);
+        numeroGrupo.setText(R.string.numeroGrupo);
+        tamanoGrupo.setText(R.string.tamanoGrupo);
         helper.abrir();
         DetalleOferta detalleOferta = helper.consultarDetellaOferta(idGrupo.getText().toString());
         helper.cerrar();
