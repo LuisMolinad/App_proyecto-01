@@ -3,10 +3,10 @@ package com.edu.ues.fia.eisi.app_proyecto01;
 public class ListaHorario {
     private int IDLISTAHORARIO;
     private int ID_DETALLE;
-    private int IDHORARIO;
+    private String IDHORARIO;
 
 
-    public ListaHorario(int idlistahorario, int id_detalle, int idhorario) {
+    public ListaHorario(int idlistahorario, int id_detalle, String idhorario) {
         IDLISTAHORARIO = idlistahorario;
         ID_DETALLE = id_detalle;
         IDHORARIO = idhorario;
@@ -32,11 +32,11 @@ public class ListaHorario {
         this.ID_DETALLE = ID_DETALLE;
     }
 
-    public int getIDHORARIO() {
+    public String getIDHORARIO() {
         return IDHORARIO;
     }
 
-    public void setIDHORARIO(int IDHORARIO) {
+    public void setIDHORARIO(String IDHORARIO) {
         this.IDHORARIO = IDHORARIO;
     }
 }
