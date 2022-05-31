@@ -68,7 +68,7 @@ public class ControlBDActividades {
 
     private static class DatabaseHelper extends SQLiteOpenHelper {
         private static final String BASE_DATOS = "CONTROLDEACTIVIDADES.s3db";
-        private static final int VERSION = 6;
+        private static final int VERSION = 7;
 
         public DatabaseHelper(Context context) {
             super(context, BASE_DATOS, null, VERSION);
@@ -742,6 +742,13 @@ public class ControlBDActividades {
         db.execSQL("DELETE FROM MIEMBROUNVERSITARIOS");
         db.execSQL("DELETE FROM ASISTENCIA");
         db.execSQL("DELETE FROM PARTICULAR");
+
+
+        db.execSQL("DELETE FROM LOCAL");
+        db.execSQL("DELETE FROM LISTAHORARIO");
+
+
+
 
 //Llenao de usuario, opcion crud y acceso usuario
         USUARIO usuario = new USUARIO();

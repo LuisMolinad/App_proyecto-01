@@ -355,10 +355,16 @@
         <activity
             android:name=".ActividadMenuActivity"
             android:exported="false" />
+        <activity android:name=".ConsultarEquipoDidacticoExterno"
+            android:exported="false"/>
         <activity
             android:name=".MainActivity"
             android:exported="false" />
+        <activity android:name="EditarEquipoDidacticoExterno"
+            android:exported="false"/>
 
+        <activity android:name="EliminarEquipoDidacticoExterno"
+            android:exported="false"/>
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
