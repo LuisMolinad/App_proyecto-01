@@ -122,6 +122,8 @@
         <entry key="app/src/main/res/layout/activity_consultar_actividad.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_consultar_asistencia.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_consultar_escuela.xml" value="0.3052536231884058" />
+        <entry key="app/src/main/res/layout/activity_consultar_local.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/activity_consultar_local_externo.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_consultar_miembro_universitario.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_consultar_miembro_universitario_externo.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_consultar_particular.xml" value="0.3416666666666667" />
@@ -130,6 +132,8 @@
         <entry key="app/src/main/res/layout/activity_editar_actividad_externo.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_editar_asistencia.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_editar_horario.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/activity_editar_local.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/activity_editar_local_externo.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_editar_miembro_universitario.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_editar_miembro_universitario_externo.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_editar_particular.xml" value="0.3416666666666667" />
@@ -139,6 +143,7 @@
         <entry key="app/src/main/res/layout/activity_eliminar_asistencia.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_eliminar_escuela.xml" value="0.3052536231884058" />
         <entry key="app/src/main/res/layout/activity_eliminar_local.xml" value="0.3052536231884058" />
+        <entry key="app/src/main/res/layout/activity_eliminar_local_externo.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_eliminar_miembro_universitario.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_eliminar_miembro_universitario_externo.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_eliminar_particular.xml" value="0.3416666666666667" />
@@ -147,6 +152,8 @@
         <entry key="app/src/main/res/layout/activity_insertar_actividad_externo.xml" value="0.3052536231884058" />
         <entry key="app/src/main/res/layout/activity_insertar_asistencia.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_insertar_carrera_externo.xml" value="0.3052536231884058" />
+        <entry key="app/src/main/res/layout/activity_insertar_local.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/activity_insertar_local_externo.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_insertar_miembro_universitario.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_insertar_miembro_universitario_externo.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_insertar_particular.xml" value="0.3416666666666667" />
@@ -155,6 +162,7 @@
         <entry key="app/src/main/res/layout/activity_menu_actividadd.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_menu_carrera.xml" value="0.2504528985507246" />
         <entry key="app/src/main/res/layout/activity_menu_horario.xml" value="0.1661600810536981" />
+        <entry key="app/src/main/res/layout/activity_menu_local.xml" value="0.28940217391304346" />
         <entry key="app/src/main/res/layout/activity_menu_miembro_universitario.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_menu_particular.xml" value="0.3416666666666667" />
       </map>

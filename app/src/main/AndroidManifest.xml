@@ -14,6 +14,18 @@
         android:theme="@style/Theme.App_proyecto01"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".EliminarLocalExterno"
+            android:exported="false" />
+        <activity
+            android:name=".ConsultarLocalExterno"
+            android:exported="false" />
+        <activity
+            android:name=".EditarLocalExterno"
+            android:exported="false" />
+        <activity
+            android:name=".InsertarLocalExterno"
+            android:exported="false" />
+        <activity
             android:name=".EditarParticularExterno"
             android:exported="false" />
         <activity

@@ -33,4 +33,5 @@ public class EliminarLocal extends AppCompatActivity {
 
         Toast.makeText(this, regEliminados, Toast.LENGTH_SHORT).show();
     }
+
 }
