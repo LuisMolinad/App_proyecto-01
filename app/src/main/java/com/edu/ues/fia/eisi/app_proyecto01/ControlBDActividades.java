@@ -558,16 +558,16 @@ public class ControlBDActividades {
             //Alejandro
             //InsertarListaHorario
             case 50: {
-                ListaHorario listaHorario = (ListaHorario) dato;
-                String[] id = {Integer.toString(listaHorario.getID_DETALLE())};
-                String[] id2 = {Integer.toString(listaHorario.getIDHORARIO())};
+                ListaHorario listaHorario = (ListaHorario)dato;
+                String[] id = {String.valueOf(listaHorario.getID_DETALLE())};
+                String[] id2 = {listaHorario.getIDHORARIO()};
 
                 abrir();
-                Cursor c = db.query("DETALLEACTIVIDAD", null, "ID_DETALLE = ?", id,null, null, null);
-                Cursor c2 = db.query("HORARIO", null, "IDHORARIO = ?", id2,null, null, null);
+                Cursor c = db.query("DETALLEACTIVIDAD", null, "ID_DETALLE= ?", id,null, null, null);
+                Cursor c2 = db.query("HORARIO", null, "IDHORARIO= ?", id2,null, null, null);
 
                 //c.moveToFirst()&& c2.moveToFirst()&& c3.moveToFirst()
-                if ( c.moveToFirst()&& c2.moveToFirst()) {
+                if ( c.moveToFirst()&&c2.moveToFirst()) {
                     return true;
                 }
                 return false;
@@ -577,7 +577,7 @@ public class ControlBDActividades {
             case 51:{
                 ListaHorario listaHorario = (ListaHorario) dato;
                 String[] id = {Integer.toString(listaHorario.getID_DETALLE())};
-                String[] id2 = {Integer.toString(listaHorario.getIDHORARIO())};
+                String[] id2 = {listaHorario.getIDHORARIO()};
 
                 abrir();
                 Cursor c = db.query("DETALLEACTIVIDAD", null, "ID_DETALLE = ?", id,null, null, null);
@@ -662,22 +662,22 @@ public class ControlBDActividades {
                 "Silla Ejecutiva Paris Xtech","Infocus IN1188HD 3000-Lumen Full HD"};
 
         //TABLA: LISTA EQUIPO DIDACTICO
-        final Integer [] IDLISTAEQUIPO= {001,002,003};
-        final Integer [] ID_DETALLE={11,12,13};
+        final Integer [] IDLISTAEQUIPO= {001,002,003};//llave primaria
+        final Integer [] ID_DETALLE={011,012,013};//llave foranea
         final String [] IDEQUIPOLISTA={"0101","0102","0103","0104"};
 
         //TABLA: DETALLE ACTIVIDAD
-        final Integer [] ID_DETALLEACTIVIDAD= {011,012,013};
-        final String [] IDGRUPO={"001","002","003"};
-        final String [] IDACTIVIDAD={"001","002","003","004"};
-        final String [] IDLOCAL={"0101","0102","0103","0104"};
+        final Integer [] ID_DETALLEACTIVIDAD= {011,012,013};//llave primaria
+        final String [] IDGRUPO={"001","002","003"};//foranea
+        final String [] IDACTIVIDAD={"001","002","003","004"};//foranea
+        final String [] IDLOCAL={"0101","0102","0103","0104"};//foranea
         final String [] DESCRIPCIONACTIVIDAD={"Ponencia sobre Ciberseguridad","Bienvenida al ciclo 2 - 2022","Taller: Salud Mental","Examen Parcial"};
 
 
 
         //Alejandro
         //Tabla Horario
-        final  String[] IDHORARIO={"01","02","03"};
+        final  String[] IDHORARIO={"01","02","03"};//principal
         final  String[] DESDEHORARIO={"7:00","11:00","1:00"};
         final  String[] HASTAHORARIO={"12:00","3:00","5:00"};
         final  String[] DIA={"Lunes","Martes","Miercoles","Jueves","Viernes"};
@@ -688,9 +688,9 @@ public class ControlBDActividades {
         final  Integer[] CUPO = {100,80,50};
 
         //Tabla ListaHorario
-        final Integer[] IDLISTAHORARIO={001,002,003};
-        //final Integer[] ID_DETALLE={011,012,013};
-        //final String[] IDHORARIO={"01","02","03"};
+        final Integer[] IDLISTAHORARIO={001,002,003};//principal
+        final Integer[] ID_DETALLELISTAHORARIO={011,012,013};//foranea de detalle actividad
+        final String[] IDHORARIOLISTAHORARIO={"01","02","03"};//foranea de horario
 
 
         //Rosalio
@@ -767,6 +767,13 @@ public class ControlBDActividades {
 
             insertarACCESOUSUARIO(accesousuario);
         }
+        EquipoDidactico equipo = new EquipoDidactico();
+        for(int i=0;i<4;i++){
+            equipo.setIDEQUIPO(IDEQUIPO[i]);
+            equipo.setNOMBRE(NOMBRE[i]);
+            equipo.setDESCRIPCIONEQUIPO(DESCRIPCIONEQUIPO[i]);
+            insertarEquipoDidactico(equipo);
+        }
         Ciclo ciclo = new Ciclo();
         for(int i=0;i<4;i++){
             ciclo.setIdCiclo(idCiclo[i]);
@@ -775,6 +782,12 @@ public class ControlBDActividades {
             ciclo.setFechaFin(fechaFin[i]);
             ciclo.setAnio(anio[i]);
             insertarCiclo(ciclo);
+        }
+        Carrera carrera = new Carrera();
+        for(int i=0;i<7;i++){
+            carrera.setIDCARRERA(IdCarrera[i]);
+            carrera.setNOMBRECARRERA(NombreCarrera[i]);
+            insertar(carrera);
         }
         Horario horario = new Horario();
         for(int i=0;i<3;i++){
@@ -793,34 +806,6 @@ public class ControlBDActividades {
             local.setCUPO(CUPO[i]);
             insertarLocal(local);
         }
-
-        ListaHorario listaHorario = new ListaHorario();
-        for(int i=0;i<3;i++){
-            listaHorario.setIDLISTAHORARIO((IDLISTAHORARIO[i]));
-            listaHorario.setID_DETALLE(ID_DETALLE[i]);
-            //listaHorario.setIDHORARIO(IDHORARIO[i]); ME SALE QUE TIENE QUE PASARSE A INTEGER PERO IDHORARIO LO TENGO COMO STRING EN TODAS LAS DECLARACIONES
-            insertarListaHorario(listaHorario);
-        }
-
-
-        Carrera carrera = new Carrera();
-        for(int i=0;i<7;i++){
-            carrera.setIDCARRERA(IdCarrera[i]);
-            carrera.setNOMBRECARRERA(NombreCarrera[i]);
-            insertar(carrera);
-        }
-        /*TABLA LOCAL
-         */
-        //Llenado de Equipo Didactico
-        EquipoDidactico equipo = new EquipoDidactico();
-        for(int i=0;i<4;i++){
-            equipo.setIDEQUIPO(IDEQUIPO[i]);
-            equipo.setNOMBRE(NOMBRE[i]);
-            equipo.setDESCRIPCIONEQUIPO(DESCRIPCIONEQUIPO[i]);
-            insertarEquipoDidactico(equipo);
-        }
-
-        //Particular
         Particular particular = new Particular();
         for (int i = 0; i < IDPARTICULAR.length ; i++){
             particular.setIDPARTICULAR(IDPARTICULAR[i]);
@@ -830,8 +815,6 @@ public class ControlBDActividades {
 
             insertarParticular(particular);
         }
-
-        //Escuela
         Escuela escuela = new Escuela();
         for(int i=0;i<7;i++){
             escuela.setIDESCUELA(idEscuela[i]);
@@ -848,8 +831,6 @@ public class ControlBDActividades {
             materia.setNOMBREASIGNATURA(nombreAsgnatura[i]);
             insertarAsignatura(materia);
         }
-
-
         OfertaAcademica ofertaAcademica = new OfertaAcademica();
         for(int i=0;i<3;i++){
             ofertaAcademica.setIdMateriaActiva(idMateriaActiva[i]);
@@ -867,8 +848,6 @@ public class ControlBDActividades {
             detalleOferta.setTipoGrupo(tipoGrupo[i]);
             insertarDetalleOferta(detalleOferta);
         }
-
-        //Miembro universitario
         MiembroUniversitario miembroUniversitario = new MiembroUniversitario();
         for (int i = 0; i < IDMIEMBROUNIVERSITARIO.length ; i++){
             miembroUniversitario.setIdMiembroUniversitario(IDMIEMBROUNIVERSITARIO[i]);
@@ -879,8 +858,6 @@ public class ControlBDActividades {
 
             insertarMiembroUniversitario(miembroUniversitario);
         }
-
-        //Tabla actividad
         Actividad actividad = new Actividad();
         for(int i = 0; i< IDACTIVIDAD.length;  i++){
             actividad.setIdActividad(IDACTIVIDAD[i]);
@@ -893,7 +870,6 @@ public class ControlBDActividades {
 
             insertarActividad(actividad);
         }
-
         DetalleActividad detalleActividad = new DetalleActividad();
         for(int i=0;i<3;i++){
             detalleActividad.setID_DETALLE(ID_DETALLEACTIVIDAD[i]);
@@ -903,10 +879,6 @@ public class ControlBDActividades {
             detalleActividad.setDESCRIPCIONACTIVIDAD(DESCRIPCIONACTIVIDAD[i]);
             insertarDetalleActividad(detalleActividad);
         }
-
-
-
-        //Llenado de ListaEquipo
         ListaEquipo ListaEquipo = new ListaEquipo();
         for(int i=0;i<3;i++){
             ListaEquipo.setIDLISTAEQUIPO(IDLISTAEQUIPO[i]);
@@ -915,8 +887,6 @@ public class ControlBDActividades {
 
             insertarListaEquipo(ListaEquipo);
         }
-
-        //Asistencia
         Asistencia asistencia = new Asistencia();
         for (int i = 0; i < IDASISTENCIA.length ; i++){
             asistencia.setIdAsistencia(IDASISTENCIA[i]);
@@ -926,16 +896,13 @@ public class ControlBDActividades {
 
             insertarAsistencia(asistencia);
         }
-
-        /*TABLA LISTA HORARIO
-
-
-
-
-
-
-
-         */
+        ListaHorario listaHorario = new ListaHorario();
+        for(int i=0;i<3;i++){
+            listaHorario.setIDLISTAHORARIO((IDLISTAHORARIO[i]));
+            listaHorario.setID_DETALLE(ID_DETALLE[i]);
+            listaHorario.setIDHORARIO(IDHORARIOLISTAHORARIO[i]); //ME SALE QUE TIENE QUE PASARSE A INTEGER PERO IDHORARIO LO TENGO COMO STRING EN TODAS LAS DECLARACIONES
+            insertarListaHorario(listaHorario);
+        }
 
         cerrar();
         return "Guardo Correctamente";
@@ -2311,8 +2278,8 @@ public String insertarEscuela (Escuela escuela){
 
         if(cursor.moveToFirst()){
             ListaHorario horario = new ListaHorario();
-            horario.setIDHORARIO(Integer.parseInt(cursor.getString(1)));
-            horario.setID_DETALLE(Integer.parseInt(cursor.getString(2)));
+            horario.setID_DETALLE(Integer.parseInt(cursor.getString(1)));
+            horario.setIDHORARIO(cursor.getString(2));
 
             return horario;
         }
@@ -2321,30 +2288,18 @@ public String insertarEscuela (Escuela escuela){
 
     /*Actualizar*/
     public String actualizarListaHorario(ListaHorario listaHorario) {
-        String[] id = {Integer.toString(listaHorario.getIDHORARIO())};
-
-        String regActualizados = "El total de registros actualizados es: ";
-
-        ContentValues cv = new ContentValues();
-        int contador = 0;
-
-        if(verificarIntegridad(listaHorario, 51)){
-            cv.put("IDHORARIO", listaHorario.getIDHORARIO());
+        if(verificarIntegridad(listaHorario,50)){
+            String []id = {String.valueOf(listaHorario.getIDLISTAHORARIO())};
+            ContentValues cv = new ContentValues();
+            cv.put("IDLISTAHORARIO", listaHorario.getIDLISTAHORARIO());
             cv.put("ID_DETALLE", listaHorario.getID_DETALLE());
             cv.put("IDHORARIO", listaHorario.getIDHORARIO());
-
-            contador = db.update("LISTAHORARIO", cv, "IDHORARIO = ?", id);
-            if(contador == -1){
-                regActualizados = "Error al actualizar los registros, favor verficar insercion de datos";
-            }
-            else{
-                regActualizados = regActualizados + contador;
-            }
-            return regActualizados;
+            db.update("LISTAHORARIO",cv,"IDLISTAHORARIO= ?",id);
+            return "Registro actualizado correctamente";
+        }else{
+            return "Error al actualizar. Id detalle o id horario no existen";
         }
-        else{
-            return "No existe el registro con el id "+ listaHorario.getIDLISTAHORARIO();
-            }
+
     }
 
     /*Eliminar*/

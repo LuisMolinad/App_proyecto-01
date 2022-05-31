@@ -19,7 +19,7 @@ public class EditarListaHorario extends AppCompatActivity {
         helper = new ControlBDActividades(this);
 
         //Cargamos los ids
-        idListaHorario = findViewById(R.id.idListraHorarioEditar);
+        idListaHorario = findViewById(R.id.idListaHorarioEditar);
         idDetalle = findViewById(R.id.idDetalle);
         horario = findViewById(R.id.horario);
     }
@@ -28,7 +28,7 @@ public class EditarListaHorario extends AppCompatActivity {
         String id_listaHorario = idListaHorario.getText().toString();
 
         if(id_listaHorario == null){
-            Toast.makeText(this, "Error, ingrese un id del horario", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Error, ingrese un id de lista horario", Toast.LENGTH_SHORT).show();
         }
         else {
             helper.abrir();
@@ -36,11 +36,10 @@ public class EditarListaHorario extends AppCompatActivity {
             helper.cerrar();
 
             if(listaHorario == null){
-                Toast.makeText(this, "Error no se ha encontrado la lista horario con el id "+id_listaHorario+", favor intente de nuevo", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Error no se ha encontrado una lista horario con el id "+id_listaHorario+", favor intente de nuevo", Toast.LENGTH_SHORT).show();
             }
             else{
-                //idListaHorario.setText(listaHorario.getIDLISTAHORARIO());
-                idDetalle.setText(listaHorario.getID_DETALLE());
+                idDetalle.setText(Integer.toString(listaHorario.getID_DETALLE()));
                 horario.setText(listaHorario.getIDHORARIO());
             }
         }
@@ -62,7 +61,7 @@ public class EditarListaHorario extends AppCompatActivity {
             ListaHorario listaHorario = new ListaHorario();
             listaHorario.setIDLISTAHORARIO(Integer.parseInt(id_listaHorario));
             listaHorario.setID_DETALLE(Integer.parseInt(id_detalle));
-            listaHorario.setIDHORARIO(Integer.parseInt(id_horario));
+            listaHorario.setIDHORARIO(id_horario);
 
             helper.abrir();
             regActualizados = helper.actualizarListaHorario(listaHorario);

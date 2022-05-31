@@ -11,7 +11,7 @@ import android.widget.Toast;
 public class ConsultarListaHorario extends AppCompatActivity {
 
     ControlBDActividades helper;
-    EditText idLocal;
+    EditText edtIdListaHorario;
     TextView txtIdDetalle, txtIdHorario;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,13 +22,13 @@ public class ConsultarListaHorario extends AppCompatActivity {
         helper = new ControlBDActividades(this);
 
         //Cargamos los ids
-        idLocal = findViewById(R.id.idLocal);
+        edtIdListaHorario = findViewById(R.id.idListaHorario);
         txtIdDetalle = findViewById(R.id.txtIdDetalle);
         txtIdHorario = findViewById(R.id.txtIdHorario);
     }
 
     public void consultarListaHorario(View v){
-        String id_listaHorario = idLocal.getText().toString();
+        String id_listaHorario = edtIdListaHorario.getText().toString();
 
         if(id_listaHorario == null){
             Toast.makeText(this, "Error, ingrese un id de lista horario", Toast.LENGTH_SHORT).show();
@@ -43,7 +43,7 @@ public class ConsultarListaHorario extends AppCompatActivity {
             }
             else{
                 txtIdDetalle.setText("Código de la actividad: "+ Integer.toString(listaHorario.getID_DETALLE()));
-                txtIdHorario.setText("Id horario: "+Integer.toString(listaHorario.getIDHORARIO()));
+                txtIdHorario.setText("Id horario: "+listaHorario.getIDHORARIO());
             }
         }
     }

@@ -37,7 +37,7 @@ public class InsertarListaHorario extends AppCompatActivity {
             //detalleactividad.setID_DETALLE( Integer.parseInt(idDetalle.getText().toString()));
             listaHorario.setIDLISTAHORARIO(Integer.parseInt(idListaHorario.getText().toString()));
             listaHorario.setID_DETALLE(Integer.parseInt(idDetalle.getText().toString()));
-            listaHorario.setIDHORARIO(Integer.parseInt(idHorario.getText().toString()));
+            listaHorario.setIDHORARIO(idHorario.getText().toString());
 
             helper.abrir();
             regInsertados = helper.insertarListaHorario(listaHorario);
