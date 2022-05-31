@@ -88,19 +88,19 @@ public class MenuLocal extends AppCompatActivity implements View.OnClickListener
                 startActivity(i);
                 break;
             case R.id.cardInsertarOnline:
-                i = new Intent(this, InsertarLocal.class);
+                i = new Intent(this, InsertarLocalExterno.class);
                 startActivity(i);
                 break;
             case R.id.cardConsultarOnline:
-                i = new Intent(this, ConsultarLocal.class);
+                i = new Intent(this, ConsultarLocalExterno.class);
                 startActivity(i);
                 break;
             case R.id.cardEditarOnline:
-                i = new Intent(this, EditarLocal.class);
+                i = new Intent(this, EditarLocalExterno.class);
                 startActivity(i);
                 break;
             case R.id.cardEliminarOnline:
-                i = new Intent(this, EliminarLocal.class);
+                i = new Intent(this, EliminarLocalExterno.class);
                 startActivity(i);
                 break;
         }
