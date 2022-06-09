@@ -26,7 +26,7 @@ public class EliminarAsistenciaExterno extends AppCompatActivity {
     RequestQueue requestQueue;
     String url;
 
-    private final String urlLocal = "http://192.168.1.8/Proyecto01Servicios/Asistencia/ws_delete_asistencia.php";
+    //private final String urlLocal = "http://192.168.1.8/Proyecto01Servicios/Asistencia/ws_delete_asistencia.php";
 
     @SuppressLint("NewApi")
     @Override
@@ -42,7 +42,7 @@ public class EliminarAsistenciaExterno extends AppCompatActivity {
             Toast.makeText(this, "Favor ingresar un valor en id asistencia", Toast.LENGTH_SHORT).show();
         }
         else {
-            url = urlLocal + "?IDASISTENCIA=" + idAsistencia.getText().toString();
+            url = Rutas.delete("Asistencia") + "?IDASISTENCIA=" + idAsistencia.getText().toString();
 
             ejecutar(url);
         }

@@ -28,7 +28,7 @@ public class ConsultarAsistenciaExterno extends AppCompatActivity {
     RequestQueue requestQueue;
     String url;
 
-    private final String urlLocal = "http://192.168.1.8/Proyecto01Servicios/Asistencia/ws_query_asistencia.php";
+    //private final String urlLocal = "http://192.168.1.8/Proyecto01Servicios/Asistencia/ws_query_asistencia.php";
 
     @SuppressLint("NewApi")
     @Override
@@ -49,7 +49,7 @@ public class ConsultarAsistenciaExterno extends AppCompatActivity {
             Toast.makeText(this, "Error, ingrese un id de la actividad", Toast.LENGTH_SHORT).show();
         }
         else{
-            url = urlLocal + "?IDASISTENCIA=" + id_asistencia;
+            url = Rutas.query("Asistencia") + "?IDASISTENCIA=" + id_asistencia;
 
             ejecutarJSON(url);
         }

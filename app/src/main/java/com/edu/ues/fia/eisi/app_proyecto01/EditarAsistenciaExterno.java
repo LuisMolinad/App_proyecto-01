@@ -29,8 +29,8 @@ public class EditarAsistenciaExterno extends AppCompatActivity {
     RequestQueue requestQueue;
     String url;
 
-    private final String urlLocal = "http://192.168.1.8/Proyecto01Servicios/Asistencia/ws_update_asistencia.php";
-    private final String urlQuery = "http://192.168.1.8/Proyecto01Servicios/Asistencia/ws_query_asistencia.php";
+    //private final String urlLocal = "http://192.168.1.8/Proyecto01Servicios/Asistencia/ws_update_asistencia.php";
+    //private final String urlQuery = "http://192.168.1.8/Proyecto01Servicios/Asistencia/ws_query_asistencia.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +56,7 @@ public class EditarAsistenciaExterno extends AppCompatActivity {
             Toast.makeText(this, "Error, no debe dejar campos vacios", Toast.LENGTH_SHORT).show();
         }
         else {
-            url = urlLocal + "?IDASISTENCIA="+id_asistencia+"&ID_DETALLE="+id_detalle+"&IDMIEMBROUNIVERSITARIO="+id_miembro+"&CALIFICACION="+_calificacion;
+            url = Rutas.update("Asistencia") + "?IDASISTENCIA="+id_asistencia+"&ID_DETALLE="+id_detalle+"&IDMIEMBROUNIVERSITARIO="+id_miembro+"&CALIFICACION="+_calificacion;
 
             ejecutar(url);
         }
@@ -69,7 +69,7 @@ public class EditarAsistenciaExterno extends AppCompatActivity {
             Toast.makeText(this, "Error, ingrese un id de la actividad", Toast.LENGTH_SHORT).show();
         }
         else{
-            url = urlQuery + "?IDASISTENCIA=" + id_asistencia;
+            url = Rutas.query("Asistencia") + "?IDASISTENCIA=" + id_asistencia;
 
             ejecutarJSON(url);
         }

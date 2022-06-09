@@ -26,7 +26,7 @@ public class InsertarAsistenciaExterno extends AppCompatActivity {
     RequestQueue requestQueue;
     String url;
 
-    private final String urlLocal = "http://192.168.1.8/Proyecto01Servicios/Asistencia/ws_insert_asistencia.php";
+    //private final String urlLocal = "http://192.168.1.8/Proyecto01Servicios/Asistencia/ws_insert_asistencia.php";
 
     @SuppressLint("NewApi")
     @Override
@@ -54,7 +54,7 @@ public class InsertarAsistenciaExterno extends AppCompatActivity {
             Toast.makeText(this, "Error, no debe dejar campos vacios", Toast.LENGTH_SHORT).show();
         }
         else {
-            url = urlLocal + "?IDASISTENCIA=" + id_asistencia + "&ID_DETALLE=" + id_detalle + "&IDMIEMBROUNIVERSITARIO=" + id_miembro + "&CALIFICACION=" + _calificacion ;
+            url = Rutas.insert("Asistencia") + "?IDASISTENCIA=" + id_asistencia + "&ID_DETALLE=" + id_detalle + "&IDMIEMBROUNIVERSITARIO=" + id_miembro + "&CALIFICACION=" + _calificacion ;
 
             ejecutar(url);
         }
