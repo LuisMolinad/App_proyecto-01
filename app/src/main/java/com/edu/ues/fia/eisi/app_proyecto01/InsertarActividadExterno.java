@@ -24,7 +24,7 @@ public class InsertarActividadExterno extends AppCompatActivity {
 
     //    private final String urlLocal = "http://192.168.1.8/Proyecto1.2/ws_nota_insertCarrera.php";
     //private final String urlLocal = "localhost/Proyecto01Servicios/Actividad/ws_insert_actividad.php";
-    private final String urlLocal = "http://192.168.1.8/Proyecto01Servicios/Actividad/ws_insert_actividad.php";
+    //private final String urlLocal = "http://192.168.1.8/Proyecto01Servicios/Actividad/ws_insert_actividad.php";
 
     @SuppressLint("NewApi")
     @Override
@@ -76,7 +76,7 @@ public class InsertarActividadExterno extends AppCompatActivity {
                 JSONObject datosActividad = new JSONObject();
                 switch (v.getId()){
                     case R.id.insertar:
-                        url = urlLocal + "?IDACTIVIDAD="+id_actividad+"&IDMIEMBROUNIVERSITARIO="+id_miembro_universitario+"&NOMBREACTIVIDAD="+nombre_actividad+"&FECHARESERVA="+fecha_reserva+"&DESDEACTIVIDAD="+fecha_desde+"&HASTAACTIVIDAD="+fecha_hasta+"&APROBADO="+_aprobado;
+                        url = Rutas.insert("Actividad") + "?IDACTIVIDAD="+id_actividad+"&IDMIEMBROUNIVERSITARIO="+id_miembro_universitario+"&NOMBREACTIVIDAD="+nombre_actividad+"&FECHARESERVA="+fecha_reserva+"&DESDEACTIVIDAD="+fecha_desde+"&HASTAACTIVIDAD="+fecha_hasta+"&APROBADO="+_aprobado;
                         ControladorServicio.insertar(url, this);
                         Toast.makeText(this, "Se ejecuto correctamente", Toast.LENGTH_SHORT).show();
                         break;

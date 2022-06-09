@@ -16,7 +16,7 @@ public class EliminarActividadExterno extends AppCompatActivity {
 
     EditText idActividad;
 
-    private final String urlLocal = "http://192.168.1.8/Proyecto01Servicios/Actividad/ws_delete_actividad.php";
+    //private final String urlLocal = "http://192.168.1.8/Proyecto01Servicios/Actividad/ws_delete_actividad.php";
 
     @SuppressLint("NewApi")
     @Override
@@ -40,7 +40,7 @@ public class EliminarActividadExterno extends AppCompatActivity {
             String url = null;
             JSONObject datosActividad = new JSONObject();
 
-            url = urlLocal + "?IDACTIVIDAD=" + id_actividad;
+            url = Rutas.delete("Actividad") + "?IDACTIVIDAD=" + id_actividad;
             ControladorServicio.insertar(url, this);
             Toast.makeText(this, "Se ejecuto correctamente", Toast.LENGTH_SHORT).show();
             }

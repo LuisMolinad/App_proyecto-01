@@ -37,8 +37,8 @@ public class EditarActividadExterno extends AppCompatActivity {
 
     RequestQueue requestQueue;
 
-    private final String urlLocal = "http://192.168.1.8/Proyecto01Servicios/Actividad/ws_query_actividad.php";
-    private final String urlUpdate = "http://192.168.1.8/Proyecto01Servicios/Actividad/ws_update_actividad.php";
+    //private final String urlLocal = "http://192.168.1.8/Proyecto01Servicios/Actividad/ws_query_actividad.php";
+    //private final String urlUpdate = "http://192.168.1.8/Proyecto01Servicios/Actividad/ws_update_actividad.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +82,7 @@ public class EditarActividadExterno extends AppCompatActivity {
                 Toast.makeText(this, "Error, no debe dejar campos vacios", Toast.LENGTH_SHORT).show();
             }
             else {
-                String url = urlUpdate + "?IDACTIVIDAD="+id_actividad+"&IDMIEMBROUNIVERSITARIO="+id_miembro_universitario+"&NOMBREACTIVIDAD="+nombre_actividad+"&FECHARESERVA="+fecha_reserva+"&DESDEACTIVIDAD="+fecha_desde+"&HASTAACTIVIDAD="+fecha_hasta+"&APROBADO="+_aprobado;
+                String url = Rutas.update("Actividad") + "?IDACTIVIDAD="+id_actividad+"&IDMIEMBROUNIVERSITARIO="+id_miembro_universitario+"&NOMBREACTIVIDAD="+nombre_actividad+"&FECHARESERVA="+fecha_reserva+"&DESDEACTIVIDAD="+fecha_desde+"&HASTAACTIVIDAD="+fecha_hasta+"&APROBADO="+_aprobado;
                 JSONObject datosActividad = new JSONObject();
                 switch (v.getId()){
                     case R.id.actualizar:
@@ -103,7 +103,7 @@ public class EditarActividadExterno extends AppCompatActivity {
             Toast.makeText(this, "Favor ingresar el campo del id", Toast.LENGTH_SHORT).show();
         }
         else{
-            url = urlLocal + "?IDACTIVIDAD="+id_actividad;
+            url = Rutas.query("Actividad") + "?IDACTIVIDAD="+id_actividad;
 
             buscarActividadExterno(url);
         }

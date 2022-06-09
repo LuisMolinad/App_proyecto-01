@@ -37,7 +37,7 @@ public class ConsultarActividadExterno extends AppCompatActivity {
     TextView txtIdMiembroUniversitario, txtNombreActividad, txtFechaReserva, txtDesdeActividad, txtHastaActividad, txtAprobado;
     RequestQueue requestQueue;
 
-    private final String urlLocal = "http://192.168.1.8/Proyecto01Servicios/Actividad/ws_query_actividad.php";
+    //private final String urlLocal = "http://192.168.1.8/Proyecto01Servicios/Actividad/ws_query_actividad.php";
 
     @SuppressLint("NewApi")
     @Override
@@ -67,7 +67,7 @@ public class ConsultarActividadExterno extends AppCompatActivity {
             Toast.makeText(this, "Favor ingresar el campo del id", Toast.LENGTH_SHORT).show();
         }
         else{
-            url = urlLocal + "?IDACTIVIDAD="+id_actividad;
+            url = Rutas.query("Actividad") + "?IDACTIVIDAD="+id_actividad;
 
             buscarActividadExterno(url);
         }
