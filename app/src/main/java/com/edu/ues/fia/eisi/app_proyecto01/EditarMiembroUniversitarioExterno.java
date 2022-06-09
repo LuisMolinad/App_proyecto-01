@@ -32,8 +32,8 @@ public class EditarMiembroUniversitarioExterno extends AppCompatActivity {
     RequestQueue requestQueue;
     String url;
 
-    private final String urlLocal = "http://192.168.1.8/Proyecto01Servicios/MiembroUniversitario/ws_update_miembro.php";
-    private final String urlQuery = "http://192.168.1.8/Proyecto01Servicios/MiembroUniversitario/ws_query_miembro.php";
+    //private final String urlLocal = "http://192.168.1.8/Proyecto01Servicios/MiembroUniversitario/ws_update_miembro.php";
+    //private final String urlQuery = "http://192.168.1.8/Proyecto01Servicios/MiembroUniversitario/ws_query_miembro.php";
 
     @SuppressLint("NewApi")
     @Override
@@ -65,7 +65,7 @@ public class EditarMiembroUniversitarioExterno extends AppCompatActivity {
         }
         else {
 
-            url = urlLocal + "?IDMIEMBROUNIVERSITARIO=" + id_miembro_universitario + "&IDASIGNATURA=" + id_asignatura + "&IDUSUARIO=" + id_usuario +"&NOMBREMIEMBROUNIVERSITARIO=" + nombre_miembro_universitario + "&TIPOMIEMBRO=" + tipo_miembro;
+            url = Rutas.update("MiembroUniversitario") + "?IDMIEMBROUNIVERSITARIO=" + id_miembro_universitario + "&IDASIGNATURA=" + id_asignatura + "&IDUSUARIO=" + id_usuario +"&NOMBREMIEMBROUNIVERSITARIO=" + nombre_miembro_universitario + "&TIPOMIEMBRO=" + tipo_miembro;
 
             ejecutar(url);
 
@@ -114,7 +114,7 @@ public class EditarMiembroUniversitarioExterno extends AppCompatActivity {
         }
         else {
 
-            url = urlQuery + "?IDMIEMBROUNIVERSITARIO="+miembro;
+            url = Rutas.query("MiembroUniversitario") + "?IDMIEMBROUNIVERSITARIO="+miembro;
 
             ejecutarJSON(url);
         }

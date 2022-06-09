@@ -26,7 +26,7 @@ public class EliminarMiembroUniversitarioExterno extends AppCompatActivity {
     RequestQueue requestQueue;
     String url;
 
-    private final String urlLocal = "http://192.168.1.8/Proyecto01Servicios/MiembroUniversitario/ws_delete_miembro.php";
+    //private final String urlLocal = "http://192.168.1.8/Proyecto01Servicios/MiembroUniversitario/ws_delete_miembro.php";
 
     @SuppressLint("NewApi")
     @Override
@@ -44,7 +44,7 @@ public class EliminarMiembroUniversitarioExterno extends AppCompatActivity {
         }
         else{
 
-            url = urlLocal + "?IDMIEMBROUNIVERSITARIO=" + idMiembroUniversitario.getText().toString();
+            url = Rutas.delete("MiembroUniversitario") + "?IDMIEMBROUNIVERSITARIO=" + idMiembroUniversitario.getText().toString();
 
             ejecutar(url);
         }

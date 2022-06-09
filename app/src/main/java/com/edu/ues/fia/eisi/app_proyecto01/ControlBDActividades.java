@@ -193,7 +193,7 @@ public class ControlBDActividades {
 
                 db.execSQL("create table DETALLEOFERTA (\n" +
                         "IDGRUPO              VARCHAR(10)                    not null,\n" +
-                        "IDMATERIAACTIVA      VARCHAR(10),\n" +
+                            "IDMATERIAACTIVA      VARCHAR(10),\n" +
                         "NUMEROGRUPO          INTEGER                        not null,\n" +
                         "TAMANOGRUPO          INTEGER                        not null,\n" +
                         "TIPOGRUPO            VARCHAR(15)                    not null,\n" +

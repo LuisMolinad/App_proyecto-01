@@ -26,7 +26,7 @@ public class InsertarMiembroUniversitarioExterno extends AppCompatActivity {
     RequestQueue requestQueue;
     String url;
 
-    private final String urlLocal = "http://192.168.1.8/Proyecto01Servicios/MiembroUniversitario/ws_insert_miembro.php";
+    //private final String urlLocal = "http://192.168.1.8/Proyecto01Servicios/MiembroUniversitario/ws_insert_miembro.php";
 
     @SuppressLint("NewApi")
     @Override
@@ -84,11 +84,8 @@ public class InsertarMiembroUniversitarioExterno extends AppCompatActivity {
             Toast.makeText(this, "Error, no debe dejar campos vacios", Toast.LENGTH_SHORT).show();
         }
         else {
-
-            url = urlLocal + "?IDMIEMBROUNIVERSITARIO=" + id_miembro_universitario + "&IDASIGNATURA=" + id_asignatura + "&IDUSUARIO=" + id_usuario +"&NOMBREMIEMBROUNIVERSITARIO=" + nombre_miembro_universitario + "&TIPOMIEMBRO=" + tipo_miembro;
-
+            url = Rutas.insert("MiembroUniversitario") + "?IDMIEMBROUNIVERSITARIO=" + id_miembro_universitario + "&IDASIGNATURA=" + id_asignatura + "&IDUSUARIO=" + id_usuario +"&NOMBREMIEMBROUNIVERSITARIO=" + nombre_miembro_universitario + "&TIPOMIEMBRO=" + tipo_miembro;
             ejecutar(url);
-
         }
     }
 }

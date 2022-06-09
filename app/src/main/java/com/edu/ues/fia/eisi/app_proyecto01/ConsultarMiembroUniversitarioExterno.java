@@ -34,7 +34,7 @@ public class ConsultarMiembroUniversitarioExterno extends AppCompatActivity {
     RequestQueue requestQueue;
     String url;
 
-    private final String urlLocal = "http://192.168.1.8/Proyecto01Servicios/MiembroUniversitario/ws_query_miembro.php";
+    //private final String urlLocal = "http://192.168.1.8/Proyecto01Servicios/MiembroUniversitario/ws_query_miembro.php";
 
     @SuppressLint("NewApi")
     @Override
@@ -59,7 +59,7 @@ public class ConsultarMiembroUniversitarioExterno extends AppCompatActivity {
         }
         else {
 
-            url = urlLocal + "?IDMIEMBROUNIVERSITARIO="+miembro;
+            url = Rutas.query("MiembroUniversitario") + "?IDMIEMBROUNIVERSITARIO="+miembro;
 
             ejecutarJSON(url);
         }
