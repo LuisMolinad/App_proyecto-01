@@ -27,7 +27,7 @@ public class EliminarLocalExterno extends AppCompatActivity {
     RequestQueue requestQueue;
     String url;
 
-    private final String urlLocal = "http://192.168.1.8/Proyecto01Servicios/Local/ws_delete_local.php";
+    //private final String urlLocal = "http://192.168.1.8/Proyecto01Servicios/Local/ws_delete_local.php";
 
     @SuppressLint("NewApi")
     @Override
@@ -44,7 +44,7 @@ public class EliminarLocalExterno extends AppCompatActivity {
             Toast.makeText(this, "Error, ingrese un id del local", Toast.LENGTH_SHORT).show();
         }
         else {
-            url = urlLocal + "?IDLOCAL=" + id_local;
+            url = Rutas.delete("Local") + "?IDLOCAL=" + id_local;
             ejecutar(url);
         }
     }

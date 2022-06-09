@@ -32,8 +32,8 @@ public class EditarLocalExterno extends AppCompatActivity {
     RequestQueue requestQueue;
     String url;
 
-    private final String urlquery = "http://192.168.1.8/Proyecto01Servicios/Local/ws_query_local.php";
-    private final String urlLocal = "http://192.168.1.8/Proyecto01Servicios/Local/ws_update_local.php";
+    //private final String urlquery = "http://192.168.1.8/Proyecto01Servicios/Local/ws_query_local.php";
+    //private final String urlLocal = "http://192.168.1.8/Proyecto01Servicios/Local/ws_update_local.php";
 
     @SuppressLint("NewApi")
     @Override
@@ -60,7 +60,7 @@ public class EditarLocalExterno extends AppCompatActivity {
             Toast.makeText(this, "Error, no debe dejar campos vacios", Toast.LENGTH_SHORT).show();
         }
         else{
-            url = urlLocal + "?IDLOCAL=" + id_local + "&NOMBRELOCAL=" + nombre_local + "&CUPO=" + _cupo;
+            url = Rutas.update("Local") + "?IDLOCAL=" + id_local + "&NOMBRELOCAL=" + nombre_local + "&CUPO=" + _cupo;
             ejecutar(url);
         }
     }
@@ -105,7 +105,7 @@ public class EditarLocalExterno extends AppCompatActivity {
             Toast.makeText(this, "Error, ingrese un id del local", Toast.LENGTH_SHORT).show();
         } else {
 
-            url = urlquery + "?IDLOCAL=" + id_local;
+            url = Rutas.query("Local") + "?IDLOCAL=" + id_local;
 
             ejecutarJSON(url);
         }

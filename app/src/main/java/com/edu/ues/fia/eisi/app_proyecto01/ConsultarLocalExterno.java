@@ -27,7 +27,7 @@ public class ConsultarLocalExterno extends AppCompatActivity {
     RequestQueue requestQueue;
     String url;
 
-    private final String urlLocal = "http://192.168.1.8/Proyecto01Servicios/Local/ws_query_local.php";
+    //private final String urlLocal = "http://192.168.1.8/Proyecto01Servicios/Local/ws_query_local.php";
 
     @SuppressLint("NewApi")
     @Override
@@ -50,7 +50,7 @@ public class ConsultarLocalExterno extends AppCompatActivity {
             Toast.makeText(this, "Error, ingrese un id del local", Toast.LENGTH_SHORT).show();
         } else {
 
-            url = urlLocal + "?IDLOCAL=" + id_local;
+            url = Rutas.query("Local") + "?IDLOCAL=" + id_local;
 
             ejecutarJSON(url);
         }

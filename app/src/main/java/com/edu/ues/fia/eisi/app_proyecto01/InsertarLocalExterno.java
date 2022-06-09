@@ -27,7 +27,7 @@ public class InsertarLocalExterno extends AppCompatActivity {
     RequestQueue requestQueue;
     String url;
 
-    private final String urlLocal = "http://192.168.1.8/Proyecto01Servicios/Local/ws_insert_local.php";
+    //private final String urlLocal = "http://192.168.1.8/Proyecto01Servicios/Local/ws_insert_local.php";
     @SuppressLint("NewApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +51,7 @@ public class InsertarLocalExterno extends AppCompatActivity {
             Toast.makeText(this, "Error, no debe dejar campos vacios", Toast.LENGTH_SHORT).show();
         }
         else{
-            url = urlLocal + "?IDLOCAL=" + id_local + "&NOMBRELOCAL=" + nombre_local + "&CUPO=" + _cupo;
+            url = Rutas.insert("Local") + "?IDLOCAL=" + id_local + "&NOMBRELOCAL=" + nombre_local + "&CUPO=" + _cupo;
             ejecutar(url);
         }
     }
