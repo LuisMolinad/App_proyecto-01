@@ -26,7 +26,7 @@ public class InsertarParticularExterno extends AppCompatActivity {
     RequestQueue requestQueue;
     String url;
 
-    private final String urlLocal = "http://192.168.1.8/Proyecto01Servicios/Particular/ws_insert_particular.php";
+    //private final String urlLocal = "http://192.168.1.8/Proyecto01Servicios/Particular/ws_insert_particular.php";
 
     @SuppressLint("NewApi")
     @Override
@@ -48,7 +48,7 @@ public class InsertarParticularExterno extends AppCompatActivity {
             Toast.makeText(this, "Error, no debe dejar campos vacios", Toast.LENGTH_SHORT).show();
         }
         else{
-            url = urlLocal + "?IDPARTICULAR=" + idParticular.getText().toString() +"&IDUSUARIO=" + idUsuario.getText().toString() + "&NOMBREPARTICULAR=" + nombreParticular.getText().toString() + "&APELLIDOPARTICULAR=" + apellidoParticular.getText().toString();
+            url = Rutas.insert("Particular") + "?IDPARTICULAR=" + idParticular.getText().toString() +"&IDUSUARIO=" + idUsuario.getText().toString() + "&NOMBREPARTICULAR=" + nombreParticular.getText().toString() + "&APELLIDOPARTICULAR=" + apellidoParticular.getText().toString();
             ejecutar(url);
         }
     }

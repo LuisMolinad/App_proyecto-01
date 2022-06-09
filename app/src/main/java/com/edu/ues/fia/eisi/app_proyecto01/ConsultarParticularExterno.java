@@ -28,7 +28,7 @@ public class ConsultarParticularExterno extends AppCompatActivity {
     RequestQueue requestQueue;
     String url;
 
-    private final String urlLocal = "http://192.168.1.8/Proyecto01Servicios/Particular/ws_query_particular.php";
+    //private final String urlLocal = "http://192.168.1.8/Proyecto01Servicios/Particular/ws_query_particular.php";
 
     @SuppressLint("NewApi")
     @Override
@@ -50,7 +50,7 @@ public class ConsultarParticularExterno extends AppCompatActivity {
             Toast.makeText(this, "Error, ingrese un id del particular", Toast.LENGTH_SHORT).show();
         }
         else {
-            url = urlLocal + "?IDPARTICULAR=" + id_particular;
+            url = Rutas.query("Particular") + "?IDPARTICULAR=" + id_particular;
 
             ejecutarJSON(url);
         }

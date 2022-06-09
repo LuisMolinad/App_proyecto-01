@@ -27,7 +27,7 @@ public class EliminarParticularExterno extends AppCompatActivity {
     RequestQueue requestQueue;
     String url;
 
-    private final String urlLocal = "http://192.168.1.8/Proyecto01Servicios/Particular/ws_delete_particular.php";
+    //private final String urlLocal = "http://192.168.1.8/Proyecto01Servicios/Particular/ws_delete_particular.php";
 
     @SuppressLint("NewApi")
     @Override
@@ -46,7 +46,7 @@ public class EliminarParticularExterno extends AppCompatActivity {
             Toast.makeText(this, "Favor llenar todos los campos", Toast.LENGTH_SHORT).show();
         }
         else {
-            url = urlLocal + "?IDPARTICULAR=" + id_particular;
+            url = Rutas.delete("Particular") + "?IDPARTICULAR=" + id_particular;
 
             ejecutar(url);
         }

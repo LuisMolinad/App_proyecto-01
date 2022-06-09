@@ -30,8 +30,8 @@ public class EditarParticularExterno extends AppCompatActivity {
     RequestQueue requestQueue;
     String url;
 
-    private final String urlQuery = "http://192.168.1.8/Proyecto01Servicios/Particular/ws_query_particular.php";
-    private final String urlLocal = "http://192.168.1.8/Proyecto01Servicios/Particular/ws_update_particular.php";
+    //private final String urlQuery = "http://192.168.1.8/Proyecto01Servicios/Particular/ws_query_particular.php";
+    //private final String urlLocal = "http://192.168.1.8/Proyecto01Servicios/Particular/ws_update_particular.php";
 
     @SuppressLint("NewApi")
     @Override
@@ -57,7 +57,7 @@ public class EditarParticularExterno extends AppCompatActivity {
             Toast.makeText(this, "Todos los campos tiene que estar llenos", Toast.LENGTH_SHORT).show();
         }
         else {
-            url = urlLocal + "?IDPARTICULAR=" + idParticular.getText().toString() +"&IDUSUARIO=" + idUsuario.getText().toString() + "&NOMBREPARTICULAR=" + nombreParticular.getText().toString() + "&APELLIDOPARTICULAR=" + apellidoParticular.getText().toString();
+            url = Rutas.update("Particular") + "?IDPARTICULAR=" + idParticular.getText().toString() +"&IDUSUARIO=" + idUsuario.getText().toString() + "&NOMBREPARTICULAR=" + nombreParticular.getText().toString() + "&APELLIDOPARTICULAR=" + apellidoParticular.getText().toString();
             ejecutar(url);
         }
     }
@@ -99,7 +99,7 @@ public class EditarParticularExterno extends AppCompatActivity {
             Toast.makeText(this, "Error, ingrese un id del particular", Toast.LENGTH_SHORT).show();
         }
         else {
-            url = urlQuery + "?IDPARTICULAR=" + id_particular;
+            url = Rutas.query("Particular") + "?IDPARTICULAR=" + id_particular;
 
             ejecutarJSON(url);
         }
