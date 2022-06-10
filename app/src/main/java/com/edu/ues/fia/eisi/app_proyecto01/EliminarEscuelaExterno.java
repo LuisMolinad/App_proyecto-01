@@ -11,7 +11,7 @@ import org.json.JSONObject;
 @SuppressLint("NewApi")
 public class EliminarEscuelaExterno extends AppCompatActivity {
     EditText idescuela;
-    private final String urlLocal = "http://192.168.0.3/Proyecto1.2/ws_escuela_delete.php";
+    //private final String urlLocal = "http://192.168.0.3/Proyecto1.2/ws_escuela_delete.php";
 
     @SuppressLint("NewApi")
     @Override
@@ -28,7 +28,7 @@ public class EliminarEscuelaExterno extends AppCompatActivity {
         JSONObject nota = new JSONObject();
         switch (v.getId()) {
             case R.id.botonEliminarEscuelaExterno:
-                url = urlLocal+ "?IDESCUELA=" + IDESCUELA ;
+                url = Rutas.delete("Escuela")+ "?IDESCUELA=" + IDESCUELA ;
                 ControladorServicio.EliminarescuelaExterno(url, this);
                 break;
         }

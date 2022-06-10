@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class EditarEscuelaExterno extends AppCompatActivity {
 
-    private final String urlLocal = "http://192.168.0.3/Proyecto1.2/ws_escuela_update.php";
+    //private final String urlLocal = "http://192.168.0.3/Proyecto1.2/ws_escuela_update.php";
     Spinner spinneridCarrera;
     ArrayList<String> fkIdCarrera=new ArrayList<String>();
     ArrayAdapter<String> adapter;
@@ -46,7 +46,7 @@ public class EditarEscuelaExterno extends AppCompatActivity {
         JSONObject nota = new JSONObject();
         switch (v.getId()) {
             case R.id.botonEditarEscuelaExterno:
-                    url = urlLocal+ "?IDCARRERA=" + fkidCarrera + "&NOMBRE_ESCUELA=" + NOMBRE_ESCUELA + "&IDESCUELA=" + IDESCUELA;
+                    url = Rutas.update("Escuela")+ "?IDCARRERA=" + fkidCarrera + "&NOMBRE_ESCUELA=" + NOMBRE_ESCUELA + "&IDESCUELA=" + IDESCUELA;
                 ControladorServicio.ActualizarEscuelaExterno(url, this);
                 break;
         }

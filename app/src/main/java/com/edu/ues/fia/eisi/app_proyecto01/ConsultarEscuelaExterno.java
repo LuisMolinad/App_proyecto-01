@@ -20,7 +20,7 @@ public class ConsultarEscuelaExterno extends AppCompatActivity {
     static List<String> nombreMaterias;
     EditText fechaTxt;
     ListView listViewMaterias;
-    private final String urlLocal = "http://192.168.0.3/Proyecto1.2/ws_escuela_query.php";
+    //private final String urlLocal = "http://192.168.0.3/Proyecto1.2/ws_escuela_query.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +42,7 @@ public class ConsultarEscuelaExterno extends AppCompatActivity {
         switch (v.getId()) {
             case R.id.consultarEscuelaExterno:
                 // it was the first button
-                url = urlLocal + "?IDESCUELA=" + fecha;
+                url = Rutas.query("Escuela") + "?IDESCUELA=" + fecha;
                 break;
 
         }
