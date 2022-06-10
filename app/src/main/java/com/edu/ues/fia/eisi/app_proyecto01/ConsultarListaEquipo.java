@@ -41,8 +41,8 @@ public class ConsultarListaEquipo extends AppCompatActivity {
                 Toast.makeText(this, "Error no se ha encontrado una lista de equipo con el id "+id_listaEquipo+", favor intente de nuevo", Toast.LENGTH_SHORT).show();
             }
             else{
-                idDetalle.setText("Código de la actividad: "+ Integer.toString(listaequipo.getID_DETALLE()));
-                idEquipo.setText("Código del equipo didactico: "+listaequipo.getIDEQUIPO().toString());
+                idDetalle.setText(Integer.toString(listaequipo.getID_DETALLE()));
+                idEquipo.setText(listaequipo.getIDEQUIPO().toString());
             }
         }
     }

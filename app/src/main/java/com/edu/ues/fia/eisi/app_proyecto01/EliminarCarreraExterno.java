@@ -14,7 +14,7 @@ public class EliminarCarreraExterno extends AppCompatActivity {
 
     EditText idCarrera;
 
-    private final String urlLocal = "http://192.168.0.3/Proyecto1.2/ws_carrera_delete.php";
+    //private final String urlLocal = "http://192.168.0.3/Proyecto1.2/ws_carrera_delete.php";
     @SuppressLint("NewApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,7 @@ public class EliminarCarreraExterno extends AppCompatActivity {
         JSONObject nota = new JSONObject();
         switch (v.getId()) {
             case R.id.botonEliminarCarreraExterno:
-                url = urlLocal+ "?IDCARRERA=" + IDCARRERA ;
+                url = Rutas.delete("Carrera")+ "?IDCARRERA=" + IDCARRERA ;
                 ControladorServicio.ActualizarCarreraExterno(url, this);
                 break;
         }

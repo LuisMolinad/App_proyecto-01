@@ -33,7 +33,7 @@ public class ConsultarEquipoDidacticoExterno extends AppCompatActivity {
     RequestQueue requestQueue;
     String url;
 
-    private final String urlLocal = "http://192.168.0.8/Proyecto1.2/Equipo/ws_query_equipo.php";
+    //private final String urlLocal = "http://192.168.0.8/Proyecto1.2/Equipo/ws_query_equipo.php";
 
     @SuppressLint("NewApi")
     @Override
@@ -55,7 +55,7 @@ public class ConsultarEquipoDidacticoExterno extends AppCompatActivity {
         }
         else {
 
-            url = urlLocal + "?IDEQUIPO="+equipo;
+            url = Rutas.query("Equipo") + "?IDEQUIPO="+equipo;
 
             ejecutarJSON(url);
         }
@@ -69,8 +69,8 @@ public class ConsultarEquipoDidacticoExterno extends AppCompatActivity {
                 for (int i = 0; i < response.length(); i++) {
                     try {
                         jsonObject = response.getJSONObject(i);
-                        nombreEquipoConsultar.setText("Nombre del equipo: "+jsonObject.getString("NOMBRE"));
-                        descripcionEquipoConsultar.setText("Descripción del equipo: "+jsonObject.getString("DESCRIPCIONEQUIPO"));
+                        nombreEquipoConsultar.setText(jsonObject.getString("NOMBRE"));
+                        descripcionEquipoConsultar.setText(jsonObject.getString("DESCRIPCIONEQUIPO"));
 
                     } catch (JSONException e) {
                         Toast.makeText(getApplicationContext(), e.getMessage().toString(), Toast.LENGTH_SHORT).show();

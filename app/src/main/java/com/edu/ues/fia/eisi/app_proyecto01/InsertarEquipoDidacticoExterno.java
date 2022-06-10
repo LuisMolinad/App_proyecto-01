@@ -26,7 +26,7 @@ public class InsertarEquipoDidacticoExterno extends AppCompatActivity {
     RequestQueue requestQueue;
     String url;
 
-    private final String urlLocal = "http://192.168.0.8/Proyecto1.2/Equipo/ws_insert_equipo.php";
+    //private final String urlLocal = "http://192.168.0.8/Proyecto1.2/Equipo/ws_insert_equipo.php";
 
     @SuppressLint("NewApi")
     @Override
@@ -81,7 +81,7 @@ public class InsertarEquipoDidacticoExterno extends AppCompatActivity {
         }
         else {
 
-            url = urlLocal + "?IDEQUIPO=" + id_equipo + "&NOMBRE=" + nombreE + "&DESCRIPCIONEQUIPO=" + desEquipo;
+            url = Rutas.insert("Equipo") + "?IDEQUIPO=" + id_equipo + "&NOMBRE=" + nombreE + "&DESCRIPCIONEQUIPO=" + desEquipo;
 
             ejecutar(url);
 

@@ -40,8 +40,8 @@ public class ConsultarEquipoDidactico extends AppCompatActivity {
                 Toast.makeText(this, "Error no se ha encontrado el equipo didactico  con el id "+id_equipo+", favor intente de nuevo", Toast.LENGTH_SHORT).show();
             }
             else{
-                nombreEquipoConsultar.setText("Nombre del equipo: "+equipodidactico.getNOMBRE().toString());
-                descripcionEquipoConsultar.setText("Descripción del equipo: "+equipodidactico.getDESCRIPCIONEQUIPO().toString());
+                nombreEquipoConsultar.setText(equipodidactico.getNOMBRE().toString());
+                descripcionEquipoConsultar.setText(equipodidactico.getDESCRIPCIONEQUIPO().toString());
             }
         }
     }

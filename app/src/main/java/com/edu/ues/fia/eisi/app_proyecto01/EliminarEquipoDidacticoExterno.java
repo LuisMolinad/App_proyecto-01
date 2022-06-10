@@ -24,7 +24,7 @@ public class EliminarEquipoDidacticoExterno extends AppCompatActivity {
     EditText idEquipoE;
     RequestQueue requestQueue;
     String url;
-    private final String urlLocal = "http://192.168.0.8/Proyecto1.2/Equipo/ws_delete_equipo.php";
+    //private final String urlLocal = "http://192.168.0.8/Proyecto1.2/Equipo/ws_delete_equipo.php";
 
     @SuppressLint("NewApi")
     @Override
@@ -42,7 +42,7 @@ public class EliminarEquipoDidacticoExterno extends AppCompatActivity {
         }
         else{
 
-            url = urlLocal + "?IDEQUIPO=" + idEquipoE.getText().toString();
+            url = Rutas.delete("Equipo") + "?IDEQUIPO=" + idEquipoE.getText().toString();
 
             ejecutar(url);
         }

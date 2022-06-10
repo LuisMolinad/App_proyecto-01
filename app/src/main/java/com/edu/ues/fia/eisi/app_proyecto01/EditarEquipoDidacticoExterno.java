@@ -32,8 +32,8 @@ public class EditarEquipoDidacticoExterno extends AppCompatActivity {
     RequestQueue requestQueue;
     String url;
 
-    private final String urlLocal = "http://192.168.0.8/Proyecto1.2/Equipo/ws_update_equipo.php";
-    private final String urlQuery = "http://192.168.0.8/Proyecto1.2/Equipo/ws_query_equipo.php";
+    //private final String urlLocal = "http://192.168.0.8/Proyecto1.2/Equipo/ws_update_equipo.php";
+    //private final String urlQuery = "http://192.168.0.8/Proyecto1.2/Equipo/ws_query_equipo.php";
 
     @SuppressLint("NewApi")
     @Override
@@ -62,7 +62,7 @@ public class EditarEquipoDidacticoExterno extends AppCompatActivity {
         }
         else {
 
-            url = urlLocal + "?IDEQUIPO=" + idEquipoA + "&NOMBRE=" + nombre_A + "&DESCRIPCIONEQUIPO=" + desc_A;
+            url = Rutas.update("Equipo") + "?IDEQUIPO=" + idEquipoA + "&NOMBRE=" + nombre_A + "&DESCRIPCIONEQUIPO=" + desc_A;
 
             ejecutar(url);
 
@@ -106,7 +106,7 @@ public class EditarEquipoDidacticoExterno extends AppCompatActivity {
         }
         else {
 
-            url = urlQuery + "?IDEQUIPO="+equipo;
+            url = Rutas.query("Equipo") + "?IDEQUIPO="+equipo;
 
             ejecutarJSON(url);
         }
